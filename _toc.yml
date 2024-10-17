@@ -4,4 +4,9 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
+- file: ch/kinematics
+- file: ch/principles-integral
+- file: ch/principles-integral-arbitrary
+- file: ch/principles-differential
+- file: ch/constitutive-equations
+- file: ch/derived-balances

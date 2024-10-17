@@ -1,9 +1,24 @@
-# basics-book template
+# Meccanica del continuo
 
-If you want ot start a new basics-book, it could be a good idea to start from this template.
+**Cinematica.**
+Descrizione lagrangiana, euleriana e arbitraria.
 
-Please check out the Github repo of the project, [basics-book project](https://github.com/Basics2022).
+**Equazioni di bilancio per mezzi continui.**
+- Princìpi (massa, quantità di moto, energia totale):
+  - Forma integrale:
+    - volume materiale, sistema chiuso
+    - volumi arbitrari (tramite derivazione su domini mobili, teoremi del trasporto **todo** link)
+  - Forma differenziale:
+    - coordinate fisiche, materiali e arbitrarie
+
+**Equazioni di stato ed equazioni costitutive.**
+- legami tra variabili termodinamiche
+- espressione del tensore degli sforzi e del flusso di conduzione
+
+**Bilanci derivati.**
+- energia cinetica
+- energia interna
+- entropia
 
 
-```{tableofcontents}
-```
+
