@@ -1,6 +1,13 @@
 (continuum:derived-balances)=
 # Equazioni di bilancio di altre grandezze fisiche
 
+<span style="color:red">
+- Aggiungere bilanci in altra forma (**integrale per volumi qualsiasi**, **differenziale convettiva**, **conservativa**; **coordinate non fisiche**; aggiungere considerazioni su **entropia in solidi**), anche in altre sezioni del bbook;
+</span><br>
+<span style="color:red">
+- Sistemare i contenuti
+</span><br>
+
 Partendo dai bilanci di massa, quantità di moto e di energia totale, si possono ricare le le equazioni di bilancio di altre grandezze fisiche come l'*energia cinetica*, l'*energia interna*, l'*entropia*.
 
 ## Bilanci in forma differenziale, convettiva
@@ -79,7 +86,7 @@ $$\rho \dfrac{D e}{D t} = \mathbb{T} : \nabla \mathbf{u} - \nabla \cdot \mathbf{
 
   $$\dfrac{d}{dt} \int_{V_t} \rho s \ge - \oint_{\partial V_t} \mathbf{\hat{n}} \cdot \dfrac{\mathbf{q}}{T} + \int_{V_t} \rho \dfrac{r}{T} \ ,$$
 
-  che richiama alla mente la disuguaglianza di Clausius
+  che richiama alla mente la disuguaglianza di Clausius **todo** *aggiungere riferimento*
 
   $$d S \ge \dfrac{\delta Q^{e}}{T} \ .$$
 

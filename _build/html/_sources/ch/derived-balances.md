@@ -1,6 +1,13 @@
 (continuum:derived-balances)=
 # Equazioni di bilancio di altre grandezze fisiche
 
+<span style="color:red">
+- Aggiungere bilanci in altra forma (**integrale per volumi qualsiasi**, **differenziale convettiva**, **conservativa**; **coordinate non fisiche**; aggiungere considerazioni su **entropia in solidi**), anche in altre sezioni del bbook;
+</span><br>
+<span style="color:red">
+- Sistemare i contenuti
+</span>
+
 Partendo dai bilanci di massa, quantità di moto e di energia totale, si possono ricare le le equazioni di bilancio di altre grandezze fisiche come l'*energia cinetica*, l'*energia interna*, l'*entropia*.
 
 ## Bilanci in forma differenziale, convettiva
