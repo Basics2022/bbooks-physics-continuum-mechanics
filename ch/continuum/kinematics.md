@@ -54,3 +54,12 @@ $$
 \dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}  } f + \mathbf{u} \cdot \nabla f =  
 \dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_b} f + ( \mathbf{u} - \mathbf{u}_b ) \cdot \nabla f \ . 
 $$
+
+()=
+## Kinematics of two points
+
+$$\vec{r}_2(t) - \vec{r}_1(t) = \dots $$
+
+strain velocity tensor
+
+$$\mathbb{D} = \frac{1}{2} \left[ \nabla \vec{u} + \nabla^T \vec{u} \right]$$ (eq:strain-vel-tensor)
