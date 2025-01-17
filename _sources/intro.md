@@ -1,5 +1,28 @@
-# Meccanica del continuo
+(continuum-mechanics:intro)=
+# Continuum mechanics
 
+First general approach and equations in continuum mechanics are presented, then these approach and equations are specialized to the most common models of solids - mainly elastic solids - and fluids - mainly Newtonian fluids.
+
+```{dropdown} [Introduction to Continuum Mechanics](continuum-mechanics:intro)
+**Kinematics of Continuum Media.** Lagrangian, Eulerian and arbitrary descriptions of the motion of continuous media is presented, and kinematic quantities are introduced.
+
+**Balance equations of physical quantities.** Balance equations of physical quantities are introduced here for continuous media, both in integral and differential forms - in regular domains with "smooth" distribution of physical properties. Reynolds theorem and derivatives of composite functions are exploited to provide Lagrangian, Eulerian and arbitrary descriptions - and their relationship - both for integral and differential equations respectively.
+
+First Lavoisier principle for mass conservation, Newton principles and equations of motion for momentum and angular momentu balance equation, and first principle of thermodynamics or balance equation of total energy are written for closed systems - and derived for arbitrary systems.
+
+The need for constitutive equations and state equations is discussed. Properties of stress tensors and heat conduction flux are described.
+
+Then, balance equations for other physical quantities are derived, e.g. for kinetic energy, internal energy, and entropy. Balance equation of entropy and second principle of thermodynamics prescribe some constraints on stress tensor and heat conduction flux.
+
+```
+
+```{dropdown} [Solid Mechanics](solid-mechanics:intro)
+```
+
+```{dropdown} [Fluid Mechanics](fluid-mechanics:intro)
+```
+
+<!--
 **Cinematica.**
 Descrizione lagrangiana, euleriana e arbitraria.
 
@@ -19,6 +42,6 @@ Descrizione lagrangiana, euleriana e arbitraria.
 - energia cinetica
 - energia interna
 - entropia
-
+-->
 
 

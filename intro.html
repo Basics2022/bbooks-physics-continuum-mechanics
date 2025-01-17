@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meccanica del continuo &#8212; continuum mechanics</title>
+    <title>Continuum mechanics &#8212; continuum mechanics</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cinematica" href="ch/continuum/kinematics.html" />
+    <link rel="next" title="Kinematics" href="ch/continuum/kinematics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/kinematics.html">Cinematica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/continuum/kinematics.html">Kinematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-integral.html">Princìpi in forma integrale per volumi materiali</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-integral-arbitrary.html">Princìpi in forma integrale per domini arbitrari</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-differential.html">Princìpi in forma differenziale</a></li>
@@ -320,7 +320,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Meccanica del continuo</h1>
+    <h1>Continuum mechanics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -334,39 +334,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="meccanica-del-continuo">
-<h1>Meccanica del continuo<a class="headerlink" href="#meccanica-del-continuo" title="Permalink to this heading">#</a></h1>
-<p><strong>Cinematica.</strong>
-Descrizione lagrangiana, euleriana e arbitraria.</p>
-<p><strong>Equazioni di bilancio per mezzi continui.</strong></p>
-<ul class="simple">
-<li><p>Princìpi (massa, quantità di moto, energia totale):</p>
-<ul>
-<li><p>Forma integrale:</p>
-<ul>
-<li><p>volume materiale, sistema chiuso</p></li>
-<li><p>volumi arbitrari (tramite derivazione su domini mobili, teoremi del trasporto <strong>todo</strong> link)</p></li>
-</ul>
-</li>
-<li><p>Forma differenziale:</p>
-<ul>
-<li><p>coordinate fisiche, materiali e arbitrarie</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>Equazioni di stato ed equazioni costitutive.</strong></p>
-<ul class="simple">
-<li><p>legami tra variabili termodinamiche</p></li>
-<li><p>espressione del tensore degli sforzi e del flusso di conduzione</p></li>
-</ul>
-<p><strong>Bilanci derivati.</strong></p>
-<ul class="simple">
-<li><p>energia cinetica</p></li>
-<li><p>energia interna</p></li>
-<li><p>entropia</p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="continuum-mechanics">
+<span id="continuum-mechanics-intro"></span><h1>Continuum mechanics<a class="headerlink" href="#continuum-mechanics" title="Permalink to this heading">#</a></h1>
+<p>First general approach and equations in continuum mechanics are presented, then these approach and equations are specialized to the most common models of solids - mainly elastic solids - and fluids - mainly Newtonian fluids.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="#continuum-mechanics-intro"><span class="std std-ref">Introduction to Continuum Mechanics</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Kinematics of Continuum Media.</strong> Lagrangian, Eulerian and arbitrary descriptions of the motion of continuous media is presented, and kinematic quantities are introduced.</p>
+<p class="sd-card-text"><strong>Balance equations of physical quantities.</strong> Balance equations of physical quantities are introduced here for continuous media, both in integral and differential forms - in regular domains with “smooth” distribution of physical properties. Reynolds theorem and derivatives of composite functions are exploited to provide Lagrangian, Eulerian and arbitrary descriptions - and their relationship - both for integral and differential equations respectively.</p>
+<p class="sd-card-text">First Lavoisier principle for mass conservation, Newton principles and equations of motion for momentum and angular momentu balance equation, and first principle of thermodynamics or balance equation of total energy are written for closed systems - and derived for arbitrary systems.</p>
+<p class="sd-card-text">The need for constitutive equations and state equations is discussed. Properties of stress tensors and heat conduction flux are described.</p>
+<p class="sd-card-text">Then, balance equations for other physical quantities are derived, e.g. for kinetic energy, internal energy, and entropy. Balance equation of entropy and second principle of thermodynamics prescribe some constraints on stress tensor and heat conduction flux.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="ch/solids/intro.html#solid-mechanics-intro"><span class="std std-ref">Solid Mechanics</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="ch/fluids/intro.html#fluid-mechanics-intro"><span class="std std-ref">Fluid Mechanics</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+</div>
+</details><!--
+**Cinematica.**
+Descrizione lagrangiana, euleriana e arbitraria.
+
+**Equazioni di bilancio per mezzi continui.**
+- Princìpi (massa, quantità di moto, energia totale):
+  - Forma integrale:
+    - volume materiale, sistema chiuso
+    - volumi arbitrari (tramite derivazione su domini mobili, teoremi del trasporto **todo** link)
+  - Forma differenziale:
+    - coordinate fisiche, materiali e arbitrarie
+
+**Equazioni di stato ed equazioni costitutive.**
+- legami tra variabili termodinamiche
+- espressione del tensore degli sforzi e del flusso di conduzione
+
+**Bilanci derivati.**
+- energia cinetica
+- energia interna
+- entropia
+-->
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -410,7 +430,7 @@ Descrizione lagrangiana, euleriana e arbitraria.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cinematica</p>
+        <p class="prev-next-title">Kinematics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
