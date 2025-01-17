@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinematica &#8212; continuum mechanics</title>
+    <title>Kinematics &#8212; continuum mechanics</title>
   
   
   
@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Princìpi in forma integrale per volumi materiali" href="principles-integral.html" />
-    <link rel="prev" title="Meccanica del continuo" href="../../intro.html" />
+    <link rel="prev" title="Continuum mechanics" href="../../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cinematica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kinematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="principles-integral.html">Princìpi in forma integrale per volumi materiali</a></li>
 <li class="toctree-l1"><a class="reference internal" href="principles-integral-arbitrary.html">Princìpi in forma integrale per domini arbitrari</a></li>
 <li class="toctree-l1"><a class="reference internal" href="principles-differential.html">Princìpi in forma differenziale</a></li>
@@ -325,7 +325,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Cinematica</h1>
+    <h1>Kinematics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,6 +335,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-points-in-physical-space">Material points in physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-points-in-physical-space">Arbitrary points in physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivatives-of-a-function-from-different-descriptions">Time derivatives of a function from different descriptions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematics-of-two-points">Kinematics of two points</a></li>
 </ul>
             </nav>
@@ -347,64 +350,93 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="cinematica">
-<span id="continuum-kinematics"></span><h1>Cinematica<a class="headerlink" href="#cinematica" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="kinematics">
+<span id="continuum-kinematics"></span><h1>Kinematics<a class="headerlink" href="#kinematics" title="Permalink to this heading">#</a></h1>
+<p>Let</p>
 <ul class="simple">
-<li><p>coordinate fisiche <span class="math notranslate nohighlight">\(\mathbf{r}\)</span></p></li>
-<li><p>coordinate materiali <span class="math notranslate nohighlight">\(\mathbf{r}_0\)</span></p></li>
-<li><p>coordinate arbitrarie <span class="math notranslate nohighlight">\(\mathbf{r}_b\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{r}\)</span> the physical space coordinates</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{r}_0\)</span> the material coordinates, labels associated to material points of the continuum</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{r}_b\)</span> arbitrary coordinates, labels associated to arbitrary points - e.g. geometric points</p></li>
 </ul>
-<p>Il moto dei punti materiali nello spazio fisico è descritto dalla una funzione</p>
+<div class="section" id="material-points-in-physical-space">
+<span id="continuum-kinematics-material-points"></span><h2>Material points in physical space<a class="headerlink" href="#material-points-in-physical-space" title="Permalink to this heading">#</a></h2>
+<p><strong>Position.</strong> The position in physical space of material points labeled with material coordinates <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> can be written as a function</p>
+<div class="math notranslate nohighlight" id="equation-eq-r-r0-t">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-r-r0-t" title="Permalink to this equation">#</a></span>\[\vec{r}(\vec{r}_0, t) \ ,\]</div>
+<p>providing the position in physical space of a material point, as a function of its label <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> and time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><strong>Velocity.</strong> The velocity of each material point is the time-derivative of function <a class="reference internal" href="#equation-eq-r-r0-t">(1)</a> at constant <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> (since one is interested here in the velocity of material points),</p>
+<div class="math notranslate nohighlight" id="equation-eq-vel">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-vel" title="Permalink to this equation">#</a></span>\[\vec{u} = \left.\dfrac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0} =: \dfrac{D \vec{r}}{D t} \ ,\]</div>
+<p>having introduced the definition of <strong>material derivative</strong>, <span class="math notranslate nohighlight">\(\dfrac{D}{Dt} := \left.\dfrac{\partial}{\partial t}\right|_{\vec{r}_0}\)</span>.</p>
+<div class="admonition-independent-variables admonition">
+<p class="admonition-title">Independent variables</p>
+<p>In formula <a class="reference internal" href="#equation-eq-vel">(2)</a>, independent variables are not explicitly written. If <span class="math notranslate nohighlight">\(\vec{r}\left(\vec{r}_0, t\right)\)</span>, the velocity field <span class="math notranslate nohighlight">\(\vec{u}\)</span> can be readily written as functions of the same independent variables,</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{r}(\mathbf{r}_0, t) \ ,\]</div>
-<p>che associa a ogni punto materiale “etichettato” con la coordinata <span class="math notranslate nohighlight">\(\mathbf{r}_0\)</span> la sua posizione nello spazio al tempo <span class="math notranslate nohighlight">\(t\)</span></p>
-<p>Il campo di velocità dei punti materiali è definito come la derivata nel tempo della posizione, tenendo fissa la coordinata <span class="math notranslate nohighlight">\(\mathbf{r}_0\)</span> che identifica i punti,</p>
+\[\vec{u}_0\left( \vec{r}_0, t\right) = \left.\dfrac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0}(\vec{r}_0, t) \ , \]</div>
+<p>and it provides the velocity field as a function of the material coordinates, namely the <strong>Lagrangian description</strong>, following material points in their evolution in space.</p>
+<p>Eulerian description of the problem requires physical properties to be written as functions of physical coordinates, <span class="math notranslate nohighlight">\(\vec{r}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>. If the inverse transformation of <a class="reference internal" href="#equation-eq-r-r0-t">(1)</a> exists, it’s possible to write <span class="math notranslate nohighlight">\(\vec{r}_0\left(\vec{r}, t\right)\)</span>, and the velocity field as</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{u}(\mathbf{r}_0,t) = \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_0} = \dfrac{D \mathbf{r}}{D t} \ ,\]</div>
-<p>avendo introdotto l’operatore di derivata materiale <span class="math notranslate nohighlight">\(\frac{D}{Dt}\)</span>.</p>
-<p>Alla stessa maniera la posizione nello spazio e la velocità dei punti in moto arbitrario, etichettati con le coordinate <span class="math notranslate nohighlight">\(\mathbf{r}_b\)</span>, sono</p>
+\[\vec{u}\left( \vec{r}, t\right) = \vec{u}_0\left( \vec{r}_0\left(\vec{r}, t\right), t\right) \ , \]</div>
+<p>or, for invertible transformations,</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{r}(\mathbf{r}_b, t) \ ,\]</div>
-<div class="math notranslate nohighlight">
-\[\mathbf{u}(\mathbf{r}_b,t) = \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_b} \ .\]</div>
-<p>Le leggi di trasformazione tra le coordinate forniscono anche la legge di trasformazione delle derivate parziali,</p>
-<!--
-$$\begin{cases}
- \mathbf{r} = \mathbf{r}(\mathbf{r}_0, t) \\
- t' = t(\mathbf{r}_0, t) = t \ , 
-\end{cases}$$
--->
+\[\vec{u}_0\left( \vec{r}_0, t\right) = \vec{u}\left( \vec{r}\left(\vec{r}_0, t\right), t\right) \ , \]</div>
+<p>having used indices to mathematcally discern functions of different independent variables, even if they represent the same phsyical quantity. In many situations, this inverse transformation between the position in physical space and the material coordinates is not well-defined, often for fluid systems or solid mechanics with (very) large deformations: in these cases, it’s always (?) possible to update the reference configuration at some closer time instant in order to find a well-defined inverse transformation, if needed.</p>
+</div>
+<p><strong>Acceleration.</strong> Acceleration of a material point labeled with material coordinate <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> is the second order derivative of the physical position <a class="reference internal" href="#equation-eq-r-r0-t">(1)</a> w.r.t. time <span class="math notranslate nohighlight">\(t\)</span> keeping <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> constant, or the first order derivative of the velocity <a class="reference internal" href="#equation-eq-vel">(2)</a>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_0} f(\mathbf{r}(\mathbf{r}_0, t), t) 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-    \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_0} \cdot \dfrac{\partial f}{\partial \mathbf{r}}\bigg|_{t} 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-      \mathbf{u} \cdot \nabla f 
+  \vec{a} = \left.\frac{\partial \vec{u}}{\partial t}\right|_{\vec{r}_0}
+   &amp; = \left.\frac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0} \cdot \left.\dfrac{\partial \vec{u}}{\partial \vec{r}}\right|_{t} + \left.\dfrac{\partial \vec{u}}{\partial t}\right|_{\vec{r}}   
+     = \vec{u} \cdot \nabla \vec{u} + \dfrac{\partial \vec{u}}{\partial t} \ , 
+\end{aligned}\]</div>
+<p>having written the partial derivative in time at constant physical coordianate <span class="math notranslate nohighlight">\(\vec{r}\)</span> as <span class="math notranslate nohighlight">\(\left.\dfrac{\partial }{\partial t}\right|_{\vec{r}} = \dfrac{\partial}{\partial t}\)</span>, and the gradient w.r.t. the physical coordinate as <span class="math notranslate nohighlight">\(\nabla_{\vec{r}} = \nabla\)</span>.</p>
+</div>
+<div class="section" id="arbitrary-points-in-physical-space">
+<span id="continuum-kinematics-arbitrary-points"></span><h2>Arbitrary points in physical space<a class="headerlink" href="#arbitrary-points-in-physical-space" title="Permalink to this heading">#</a></h2>
+<p>Following the same process as the one used for <a class="reference internal" href="#continuum-kinematics-material-points"><span class="std std-ref">material points</span></a>, the position, the velocity and the acceleration of a set of arbitrary points labeled with <span class="math notranslate nohighlight">\(\vec{r}_b\)</span> coordinates read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \vec{r}\left( \vec{r}_b, t \right) \\
+  \vec{u}_b = &amp; \left.\frac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_b} \\
+  \vec{a}_b = &amp; \left.\frac{\partial \vec{u}_b}{\partial t}\right|_{\vec{r}_b} = \frac{\partial \vec{u}_b}{\partial t} + \vec{u}_b \cdot \nabla \vec{u}_b
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="time-derivatives-of-a-function-from-different-descriptions">
+<span id="continuum-kinematics-function-derivatives"></span><h2>Time derivatives of a function from different descriptions<a class="headerlink" href="#time-derivatives-of-a-function-from-different-descriptions" title="Permalink to this heading">#</a></h2>
+<p>Coordinate transformations implies the rules to compute the relations between time derivatives of a field <span class="math notranslate nohighlight">\(f\)</span> keeping physical, material or arbitrary coordinates constant, namely</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f(\vec{r}(\vec{r}_0, t), t) 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+    \dfrac{\partial \vec{r}}{\partial t}\bigg|_{\vec{r}_0} \cdot \dfrac{\partial f}{\partial \vec{r}}\bigg|_{t} 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+      \vec{u} \cdot \nabla f 
 \end{aligned}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_b} f(\mathbf{r}(\mathbf{r}_b, t), t) 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-    \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_b} \cdot \dfrac{\partial f}{\partial \mathbf{r}}\bigg|_{t} 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-      \mathbf{u}_b \cdot \nabla f 
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_b} f(\vec{r}(\vec{r}_b, t), t) 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+    \dfrac{\partial \vec{r}}{\partial t}\bigg|_{\vec{r}_b} \cdot \dfrac{\partial f}{\partial \vec{r}}\bigg|_{t} 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+      \vec{u}_b \cdot \nabla f 
 \end{aligned}\]</div>
-<p>e quindi</p>
+<p>and thus</p>
 <div class="math notranslate nohighlight">
 \[
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_0} f =  
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}  } f + \mathbf{u} \cdot \nabla f =  
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_b} f + ( \mathbf{u} - \mathbf{u}_b ) \cdot \nabla f \ . 
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f =  
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}  } f + \vec{u} \cdot \nabla f =  
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_b} f + ( \vec{u} - \vec{u}_b ) \cdot \nabla f \ . 
 \]</div>
-<p>()=</p>
+</div>
 <div class="section" id="kinematics-of-two-points">
-<h2>Kinematics of two points<a class="headerlink" href="#kinematics-of-two-points" title="Permalink to this heading">#</a></h2>
+<span id="kinematics-two-points"></span><h2>Kinematics of two points<a class="headerlink" href="#kinematics-of-two-points" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
-\[\vec{r}_2(t) - \vec{r}_1(t) = \dots \]</div>
+\[\vec{r}_2(t) - \vec{r}_1(t) = \vec{r}\left(\vec{r}_{0,2}, t \right) - \vec{r}\left(\vec{r}_{0,1}, t \right)\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{v}_2(t) - \vec{v}_1(t) = \dfrac{d}{dt} \vec{r}_2(t) - \dfrac{d}{dt} \vec{r}_1(t)\]</div>
 <p>strain velocity tensor</p>
 <div class="math notranslate nohighlight" id="equation-eq-strain-vel-tensor">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-strain-vel-tensor" title="Permalink to this equation">#</a></span>\[\mathbb{D} = \frac{1}{2} \left[ \nabla \vec{u} + \nabla^T \vec{u} \right]\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-strain-vel-tensor" title="Permalink to this equation">#</a></span>\[\mathbb{D} = \frac{1}{2} \left[ \nabla \vec{u} + \nabla^T \vec{u} \right]\]</div>
 </div>
 </div>
 
@@ -444,7 +476,7 @@ $$\begin{cases}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Meccanica del continuo</p>
+        <p class="prev-next-title">Continuum mechanics</p>
       </div>
     </a>
     <a class="right-next"
@@ -471,6 +503,9 @@ $$\begin{cases}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-points-in-physical-space">Material points in physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-points-in-physical-space">Arbitrary points in physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivatives-of-a-function-from-different-descriptions">Time derivatives of a function from different descriptions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematics-of-two-points">Kinematics of two points</a></li>
 </ul>
   </nav></div>
