@@ -85,10 +85,10 @@ $$\begin{aligned}
 and thus
 
 $$
-\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f =  
+\dfrac{D f}{D t} = \dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f =  
 \dfrac{\partial}{\partial t}\bigg|_{\vec{r}  } f + \vec{u} \cdot \nabla f =  
 \dfrac{\partial}{\partial t}\bigg|_{\vec{r}_b} f + ( \vec{u} - \vec{u}_b ) \cdot \nabla f \ . 
-$$
+$$ (eq:field-time-derivatives)
 
 (kinematics:two-points)=
 ## Kinematics of two points
@@ -100,3 +100,8 @@ $$\vec{v}_2(t) - \vec{v}_1(t) = \dfrac{d}{dt} \vec{r}_2(t) - \dfrac{d}{dt} \vec{
 strain velocity tensor
 
 $$\mathbb{D} = \frac{1}{2} \left[ \nabla \vec{u} + \nabla^T \vec{u} \right]$$ (eq:strain-vel-tensor)
+
+(kinematics:reference-space)=
+## Kinematics in reference space
+
+...

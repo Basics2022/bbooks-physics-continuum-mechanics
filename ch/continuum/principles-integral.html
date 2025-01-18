@@ -70,8 +70,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Princìpi in forma integrale per domini arbitrari" href="principles-integral-arbitrary.html" />
-    <link rel="prev" title="Cinematica" href="kinematics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,27 +164,31 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="kinematics.html">Cinematica</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Princìpi in forma integrale per volumi materiali</a></li>
-<li class="toctree-l1"><a class="reference internal" href="principles-integral-arbitrary.html">Princìpi in forma integrale per domini arbitrari</a></li>
-<li class="toctree-l1"><a class="reference internal" href="principles-differential.html">Princìpi in forma differenziale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">Equazioni di stato ed equazioni costitutive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="derived-balances.html">Equazioni di bilancio di altre grandezze fisiche</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="kinematics.html">1. Kinematics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">6. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">7. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">8. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">9. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">10. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">11. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">12. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -381,24 +383,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="kinematics.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cinematica</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="principles-integral-arbitrary.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Princìpi in forma integrale per domini arbitrari</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
