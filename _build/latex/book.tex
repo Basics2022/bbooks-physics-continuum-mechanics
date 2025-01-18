@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Jan 15, 2025}
+\date{Jan 18, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,73 +102,30 @@
 
 
 \sphinxAtStartPar
-\sphinxstylestrong{Cinematica.}
-Descrizione lagrangiana, euleriana e arbitraria.
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Equazioni di bilancio per mezzi continui.}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Princìpi (massa, quantità di moto, energia totale):
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Forma integrale:
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-volume materiale, sistema chiuso
-
-\item {} 
-\sphinxAtStartPar
-volumi arbitrari (tramite derivazione su domini mobili, teoremi del trasporto \sphinxstylestrong{todo} link)
-
-\end{itemize}
-
-\item {} 
-\sphinxAtStartPar
-Forma differenziale:
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-coordinate fisiche, materiali e arbitrarie
-
-\end{itemize}
-
-\end{itemize}
-
-\end{itemize}
+General approach and equations in continuum mechanics are first presented, and then specialized to the most common models of solids \sphinxhyphen{} mainly elastic solids \sphinxhyphen{} and fluids \sphinxhyphen{} mainly Newtonian fluids.
+\subsubsection*{Introduction to Continuum Mechanics}
 
 \sphinxAtStartPar
-\sphinxstylestrong{Equazioni di stato ed equazioni costitutive.}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-legami tra variabili termodinamiche
-
-\item {} 
-\sphinxAtStartPar
-espressione del tensore degli sforzi e del flusso di conduzione
-
-\end{itemize}
+\sphinxstylestrong{Kinematics of continuum media.} Lagrangian, Eulerian and arbitrary descriptions of the motion of continuous media is presented, and kinematic quantities are introduced.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Bilanci derivati.}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-energia cinetica
+\sphinxstylestrong{Balance equations of physical quantities.} Balance equations of physical quantities are introduced here for continuous media, both in integral and differential forms \sphinxhyphen{} in regular domains with “smooth” distribution of physical properties. Reynolds theorem and derivatives of composite functions are exploited to provide Lagrangian, Eulerian and arbitrary descriptions \sphinxhyphen{} and their relationship \sphinxhyphen{} both for integral and differential equations respectively.
 
-\item {} 
 \sphinxAtStartPar
-energia interna
+First Lavoisier principle for mass conservation, Newton principles and equations of motion for momentum and angular momentu balance equation, and first principle of thermodynamics or balance equation of total energy are written for closed systems \sphinxhyphen{} and derived for arbitrary systems.
 
-\item {} 
 \sphinxAtStartPar
-entropia
+The need for constitutive equations and state equations is discussed. Properties of stress tensors and heat conduction flux are described.
 
-\end{itemize}
+\sphinxAtStartPar
+Then, balance equations for other physical quantities are derived, e.g. for kinetic energy, internal energy, and entropy. Balance equation of entropy and second principle of thermodynamics prescribe some constraints on stress tensor and heat conduction flux.
+\subsubsection*{Solid Mechanics}
+\subsubsection*{Fluid Mechanics}
+
+
 
 \sphinxstepscope
 
@@ -178,82 +135,129 @@ entropia
 \sphinxstepscope
 
 
-\chapter{Cinematica}
-\label{\detokenize{ch/continuum/kinematics:cinematica}}\label{\detokenize{ch/continuum/kinematics:continuum-kinematics}}\label{\detokenize{ch/continuum/kinematics::doc}}\begin{itemize}
+\chapter{Kinematics}
+\label{\detokenize{ch/continuum/kinematics:kinematics}}\label{\detokenize{ch/continuum/kinematics:continuum-kinematics}}\label{\detokenize{ch/continuum/kinematics::doc}}
+\sphinxAtStartPar
+Let
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-coordinate fisiche \(\mathbf{r}\)
+\(\vec{r}\) the physical space coordinates
 
 \item {} 
 \sphinxAtStartPar
-coordinate materiali \(\mathbf{r}_0\)
+\(\vec{r}_0\) the material coordinates, labels associated to material points of the continuum
 
 \item {} 
 \sphinxAtStartPar
-coordinate arbitrarie \(\mathbf{r}_b\)
+\(\vec{r}_b\) arbitrary coordinates, labels associated to arbitrary points \sphinxhyphen{} e.g. geometric points
 
 \end{itemize}
 
+
+\section{Material points in physical space}
+\label{\detokenize{ch/continuum/kinematics:material-points-in-physical-space}}\label{\detokenize{ch/continuum/kinematics:continuum-kinematics-material-points}}
 \sphinxAtStartPar
-Il moto dei punti materiali nello spazio fisico è descritto dalla una funzione
+\sphinxstylestrong{Position.} The position in physical space of material points labeled with material coordinates \(\vec{r}_0\) can be written as a function
+\begin{equation}\label{equation:ch/continuum/kinematics:eq:r:r0-t}
+\begin{split}\vec{r}(\vec{r}_0, t) \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+providing the position in physical space of a material point, as a function of its label \(\vec{r}_0\) and time \(t\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Velocity.} The velocity of each material point is the time\sphinxhyphen{}derivative of function \eqref{equation:ch/continuum/kinematics:eq:r:r0-t} at constant \(\vec{r}_0\) (since one is interested here in the velocity of material points),
+\begin{equation}\label{equation:ch/continuum/kinematics:eq:vel}
+\begin{split}\vec{u} = \left.\dfrac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0} =: \dfrac{D \vec{r}}{D t} \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+having introduced the definition of \sphinxstylestrong{material derivative}, \(\dfrac{D}{Dt} := \left.\dfrac{\partial}{\partial t}\right|_{\vec{r}_0}\).
+
+\begin{sphinxadmonition}{note}{Independent variables}
+
+\sphinxAtStartPar
+In formula \eqref{equation:ch/continuum/kinematics:eq:vel}, independent variables are not explicitly written. If \(\vec{r}\left(\vec{r}_0, t\right)\), the velocity field \(\vec{u}\) can be readily written as functions of the same independent variables,
 \begin{equation*}
-\begin{split}\mathbf{r}(\mathbf{r}_0, t) \ ,\end{split}
+\begin{split}\vec{u}_0\left( \vec{r}_0, t\right) = \left.\dfrac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0}(\vec{r}_0, t) \ , \end{split}
 \end{equation*}
 \sphinxAtStartPar
-che associa a ogni punto materiale “etichettato” con la coordinata \(\mathbf{r}_0\) la sua posizione nello spazio al tempo \(t\)
+and it provides the velocity field as a function of the material coordinates, namely the \sphinxstylestrong{Lagrangian description}, following material points in their evolution in space.
 
 \sphinxAtStartPar
-Il campo di velocità dei punti materiali è definito come la derivata nel tempo della posizione, tenendo fissa la coordinata \(\mathbf{r}_0\) che identifica i punti,
+Eulerian description of the problem requires physical properties to be written as functions of physical coordinates, \(\vec{r}\), \(t\). If the inverse transformation of \eqref{equation:ch/continuum/kinematics:eq:r:r0-t} exists, it’s possible to write \(\vec{r}_0\left(\vec{r}, t\right)\), and the velocity field as
 \begin{equation*}
-\begin{split}\mathbf{u}(\mathbf{r}_0,t) = \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_0} = \dfrac{D \mathbf{r}}{D t} \ ,\end{split}
+\begin{split}\vec{u}\left( \vec{r}, t\right) = \vec{u}_0\left( \vec{r}_0\left(\vec{r}, t\right), t\right) \ , \end{split}
 \end{equation*}
 \sphinxAtStartPar
-avendo introdotto l’operatore di derivata materiale \(\frac{D}{Dt}\).
-
-\sphinxAtStartPar
-Alla stessa maniera la posizione nello spazio e la velocità dei punti in moto arbitrario, etichettati con le coordinate \(\mathbf{r}_b\), sono
+or, for invertible transformations,
 \begin{equation*}
-\begin{split}\mathbf{r}(\mathbf{r}_b, t) \ ,\end{split}
-\end{equation*}\begin{equation*}
-\begin{split}\mathbf{u}(\mathbf{r}_b,t) = \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_b} \ .\end{split}
+\begin{split}\vec{u}_0\left( \vec{r}_0, t\right) = \vec{u}\left( \vec{r}\left(\vec{r}_0, t\right), t\right) \ , \end{split}
 \end{equation*}
 \sphinxAtStartPar
-Le leggi di trasformazione tra le coordinate forniscono anche la legge di trasformazione delle derivate parziali,
+having used indices to mathematcally discern functions of different independent variables, even if they represent the same phsyical quantity. In many situations, this inverse transformation between the position in physical space and the material coordinates is not well\sphinxhyphen{}defined, often for fluid systems or solid mechanics with (very) large deformations: in these cases, it’s always (?) possible to update the reference configuration at some closer time instant in order to find a well\sphinxhyphen{}defined inverse transformation, if needed.
+\end{sphinxadmonition}
 
-
+\sphinxAtStartPar
+\sphinxstylestrong{Acceleration.} Acceleration of a material point labeled with material coordinate \(\vec{r}_0\) is the second order derivative of the physical position \eqref{equation:ch/continuum/kinematics:eq:r:r0-t} w.r.t. time \(t\) keeping \(\vec{r}_0\) constant, or the first order derivative of the velocity \eqref{equation:ch/continuum/kinematics:eq:vel},
 \begin{equation*}
 \begin{split}\begin{aligned}
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_0} f(\mathbf{r}(\mathbf{r}_0, t), t) 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-    \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_0} \cdot \dfrac{\partial f}{\partial \mathbf{r}}\bigg|_{t} 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-      \mathbf{u} \cdot \nabla f 
+  \vec{a} = \left.\frac{\partial \vec{u}}{\partial t}\right|_{\vec{r}_0}
+   & = \left.\frac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_0} \cdot \left.\dfrac{\partial \vec{u}}{\partial \vec{r}}\right|_{t} + \left.\dfrac{\partial \vec{u}}{\partial t}\right|_{\vec{r}}   
+     = \vec{u} \cdot \nabla \vec{u} + \dfrac{\partial \vec{u}}{\partial t} \ , 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having written the partial derivative in time at constant physical coordianate \(\vec{r}\) as \(\left.\dfrac{\partial }{\partial t}\right|_{\vec{r}} = \dfrac{\partial}{\partial t}\), and the gradient w.r.t. the physical coordinate as \(\nabla_{\vec{r}} = \nabla\).
+
+
+\section{Arbitrary points in physical space}
+\label{\detokenize{ch/continuum/kinematics:arbitrary-points-in-physical-space}}\label{\detokenize{ch/continuum/kinematics:continuum-kinematics-arbitrary-points}}
+\sphinxAtStartPar
+Following the same process as the one used for {\hyperref[\detokenize{ch/continuum/kinematics:continuum-kinematics-material-points}]{\sphinxcrossref{\DUrole{std,std-ref}{material points}}}}, the position, the velocity and the acceleration of a set of arbitrary points labeled with \(\vec{r}_b\) coordinates read
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \vec{r}\left( \vec{r}_b, t \right) \\
+  \vec{u}_b = & \left.\frac{\partial \vec{r}}{\partial t}\right|_{\vec{r}_b} \\
+  \vec{a}_b = & \left.\frac{\partial \vec{u}_b}{\partial t}\right|_{\vec{r}_b} = \frac{\partial \vec{u}_b}{\partial t} + \vec{u}_b \cdot \nabla \vec{u}_b
+\end{aligned}\end{split}
+\end{equation*}
+
+\section{Time derivatives of a function from different descriptions}
+\label{\detokenize{ch/continuum/kinematics:time-derivatives-of-a-function-from-different-descriptions}}\label{\detokenize{ch/continuum/kinematics:continuum-kinematics-function-derivatives}}
+\sphinxAtStartPar
+Coordinate transformations implies the rules to compute the relations between time derivatives of a field \(f\) keeping physical, material or arbitrary coordinates constant, namely
+\begin{equation*}
+\begin{split}\begin{aligned}
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f(\vec{r}(\vec{r}_0, t), t) 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+    \dfrac{\partial \vec{r}}{\partial t}\bigg|_{\vec{r}_0} \cdot \dfrac{\partial f}{\partial \vec{r}}\bigg|_{t} 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+      \vec{u} \cdot \nabla f 
 \end{aligned}\end{split}
 \end{equation*}\begin{equation*}
 \begin{split}\begin{aligned}
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_b} f(\mathbf{r}(\mathbf{r}_b, t), t) 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-    \dfrac{\partial \mathbf{r}}{\partial t}\bigg|_{\mathbf{r}_b} \cdot \dfrac{\partial f}{\partial \mathbf{r}}\bigg|_{t} 
-    = \dfrac{\partial f}{\partial t}\bigg|_{\mathbf{r}} +
-      \mathbf{u}_b \cdot \nabla f 
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_b} f(\vec{r}(\vec{r}_b, t), t) 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+    \dfrac{\partial \vec{r}}{\partial t}\bigg|_{\vec{r}_b} \cdot \dfrac{\partial f}{\partial \vec{r}}\bigg|_{t} 
+    = \dfrac{\partial f}{\partial t}\bigg|_{\vec{r}} +
+      \vec{u}_b \cdot \nabla f 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-e quindi
-\begin{equation*}
+and thus
+\begin{equation}\label{equation:ch/continuum/kinematics:eq:field-time-derivatives}
 \begin{split}
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_0} f =  
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}  } f + \mathbf{u} \cdot \nabla f =  
-\dfrac{\partial}{\partial t}\bigg|_{\mathbf{r}_b} f + ( \mathbf{u} - \mathbf{u}_b ) \cdot \nabla f \ . 
+\dfrac{D f}{D t} = \dfrac{\partial}{\partial t}\bigg|_{\vec{r}_0} f =  
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}  } f + \vec{u} \cdot \nabla f =  
+\dfrac{\partial}{\partial t}\bigg|_{\vec{r}_b} f + ( \vec{u} - \vec{u}_b ) \cdot \nabla f \ . 
 \end{split}
-\end{equation*}
-\sphinxAtStartPar
-()=
-
+\end{equation}
 
 \section{Kinematics of two points}
-\label{\detokenize{ch/continuum/kinematics:kinematics-of-two-points}}\begin{equation*}
-\begin{split}\vec{r}_2(t) - \vec{r}_1(t) = \dots \end{split}
+\label{\detokenize{ch/continuum/kinematics:kinematics-of-two-points}}\label{\detokenize{ch/continuum/kinematics:kinematics-two-points}}\begin{equation*}
+\begin{split}\vec{r}_2(t) - \vec{r}_1(t) = \vec{r}\left(\vec{r}_{0,2}, t \right) - \vec{r}\left(\vec{r}_{0,1}, t \right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\vec{v}_2(t) - \vec{v}_1(t) = \dfrac{d}{dt} \vec{r}_2(t) - \dfrac{d}{dt} \vec{r}_1(t)\end{split}
 \end{equation*}
 \sphinxAtStartPar
 strain velocity tensor
@@ -263,123 +267,231 @@ strain velocity tensor
 \sphinxstepscope
 
 
-\chapter{Princìpi in forma integrale per volumi materiali}
-\label{\detokenize{ch/continuum/principles-integral:principi-in-forma-integrale-per-volumi-materiali}}\label{\detokenize{ch/continuum/principles-integral:continuum-principles-integral}}\label{\detokenize{ch/continuum/principles-integral::doc}}
+\chapter{Governing Equations}
+\label{\detokenize{ch/continuum/governing-equations:governing-equations}}\label{\detokenize{ch/continuum/governing-equations:continuum-governing-equations}}\label{\detokenize{ch/continuum/governing-equations::doc}}
 \sphinxAtStartPar
-In meccanica classica, per sistemi chiusi
+The following process is detailed in the following sections
 
 \sphinxAtStartPar
-\sphinxstylestrong{Principio di conservazione della massa: bilancio di massa.} \(\dot{M}_{V_t} = 0\)
+\sphinxstylestrong{Integral balance equations for primary physical quantities.} First, integral balance equations for closed systems are written as a manifestation of principles of classical mechanics for closed systems, namely mass conservation, second principle of mehcanics, and first principle of thermodynamics. Starting from integral balance equations for closed systems (material systems, Lagrange description), Reynolds transport theorem is used to derive integral balance equations for open systems, either stationary in space (control volume, Eulerian description) or with arbitrary motion (arbitrary description).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Differential balance equations for primary physical quantities.} Starting from integral balance equations, under the assumption of sufficient regularity of the physical quantities, divergence theorem and arbitrariety of the domain is used to derive differential (local) balance equations of primary physical quantities.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Differential balance equations for derived physical quantities.} Starting from differential equations of primary physical quantities, differential balance equations are derived for other physical quantities, as an example kinetic energy, internal energy and entropy.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Integral balance equations for derived physical quantities.} Starting from differential balance equations, and exploiting divergence theorem (in the “opposite direction” w.r.t. what has been done before, to get differential from integral equations), integral balance equations are derived for derived quantities.
+
+\sphinxstepscope
+
+
+\section{Integral Balance Equations of aaa physical quantities}
+\label{\detokenize{ch/continuum/balance-primary-integral:integral-balance-equations-of-aaa-physical-quantities}}\label{\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-primary-integral::doc}}
+\sphinxAtStartPar
+Classical physics relies on a small set of principles, usually formulated for closed systems.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+classical physics and chemistry rely on Lavoisier principle, or mass conservation in closed systems
+
+\item {} 
+\sphinxAtStartPar
+classical (Newton) mechanics is built on 3 principles:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(1^{st}\) principle, or principle of inertia, dealing with the invariance of classical physics w.r.t. Galileian transformations
+
+\item {} 
+\sphinxAtStartPar
+\(2^{nd}\) principle, or balance of momentum
+
+\item {} 
+\sphinxAtStartPar
+\(3^{rd}\) principle, or action/reaction principle
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+classical thermodynamics:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(1^{st}\) principle, or balance of total energy
+
+\item {} 
+\sphinxAtStartPar
+\(2^{nd}\) principle, describing irreversibility or natural tendencies in physical processes \sphinxhyphen{} positive dissipation of mechanical (macroscopic) energy and heat transfer “from hot to cold bodies” \sphinxhyphen{} in terms of entropy
+
+\item {} 
+\sphinxAtStartPar
+\(3^{rd}\) principle, relating energy, entropy and thermodynamic temperature as positive physical quantity (it sets an absolute zero of the thermodynamic temperature, in the thermodynamic scale of temperature \sphinxhyphen{} Kelvin \(K\))
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+classical electromagnetism:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Electric charge conservation
+
+\item {} 
+\sphinxAtStartPar
+Maxwell’s equations, relating electromagnetic field with charges and currents
+
+\item {} 
+\sphinxAtStartPar
+Lorentz’s force, acting on charges in an electromagnetic field
+
+\end{itemize}
+
+\end{itemize}
+
+\sphinxAtStartPar
+Here, electromagnetic processes are not investigated. Dynamical equations for angular momentum and kinetic energy derived in classical mechanics are discussed later: integral balance equation of angular momentum relates changes of angular momentum of the system with external moments acting on it; differential balance equation of angular momentum reduces to the an identity \sphinxhyphen{} and thus it adds no information \sphinxhyphen{} for \sphinxstylestrong{non\sphinxhyphen{}polar media}; kinetic energy integral balance relates changes of kinetic energy of the system with the total mechanical power acting on the system, and it can be substracted from total energy to get internal energy of the system.
+
+
+\subsection{Principles of classical mechanics for closed systems \sphinxhyphen{} Lagrangian description}
+\label{\detokenize{ch/continuum/balance-primary-integral:principles-of-classical-mechanics-for-closed-systems-lagrangian-description}}\label{\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral-lagrange}}
+\sphinxAtStartPar
+\sphinxstylestrong{Mass balance equation: Lavoisier principle.}
 \begin{equation*}
 \begin{split}\frac{d}{dt} \int_{V_t} \rho = 0 \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Secondo principio della dinamica: bilancio di quantità di moto.} \(\dot{\mathbf{Q}} = \mathbf{R}^{ext}\)
+\sphinxstylestrong{Momentum balance equation: \(2^{nd}\) principle of Newton mechanics.}
 \begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{V_t} \rho \mathbf{u} = \int_{V_t} \rho \mathbf{g} + \oint_{\partial V_t} \mathbf{t}_{\mathbf{n}} \ .\end{split}
+\begin{split}\dfrac{d}{dt} \int_{V_t} \rho \vec{u} = \int_{V_t} \rho \vec{g} + \oint_{\partial V_t} \vec{t}_{\hat{n}} \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Primo principio della termodinamica: bilancio di energia totale.} \(\dot{E}^{tot} = P^{ext} + \dot{Q}^{ext}\)
+\sphinxstylestrong{Total energy balance equation: \(1^{st}\) principle of thermodynamics.}
 \begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{V_t} \rho e^t = \int_{V_t} \rho \mathbf{g} \cdot \mathbf{u} + \oint_{\partial V_t} \mathbf{t}_{\mathbf{n}} \cdot \mathbf{u} - \oint_{\partial V_t} \mathbf{q} \cdot \mathbf{\hat{n}} + \int_{V_t} \rho r \ .\end{split}
+\begin{split}\dfrac{d}{dt} \int_{V_t} \rho e^t = \int_{V_t} \rho \vec{g} \cdot \vec{u} + \oint_{\partial V_t} \vec{t}_{\hat{n}} \cdot \vec{u} - \oint_{\partial V_t} \vec{q} \cdot \hat{n} + \int_{V_t} \rho r \ .\end{split}
+\end{equation*}
+
+\subsection{Integral balance equations for arbitrary domains \sphinxhyphen{} arbitrary description}
+\label{\detokenize{ch/continuum/balance-primary-integral:integral-balance-equations-for-arbitrary-domains-arbitrary-description}}\label{\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral-arbitrary}}
+\sphinxAtStartPar
+Using \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/tensor-algebra-calculus/time-derivative-of-integrals.html\#volume-density}{Reynolds transport theorem}, time derivative over the material volume \(V_t\) can be written in terms of the time derivative over volume \(v_t\) in arbitrary motion and a flux contribution across its boundary.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Mass balance equation.}
+\begin{equation*}
+\begin{split}\frac{d}{dt} \int_{v_t} \rho + \oint_{\partial v_t} \rho ( \vec{u} - \vec{u}_b ) \cdot \vec{\hat{n}} = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Momentum balance equation.}
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{v_t} \rho \vec{u} + \oint_{\partial v_t} \rho \vec{u} ( \vec{u} - \vec{u}_b ) \cdot \vec{\hat{n}} = \int_{v_t} \rho \vec{g} + \oint_{\partial v_t} \vec{t}_{\vec{n}} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Total energy balance equation.}
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{v_t} \rho e^t + \oint_{\partial v_t} \rho e^t ( \vec{u} - \vec{u}_b ) \cdot \vec{\hat{n}} = \int_{v_t} \rho \vec{g} \cdot \vec{u} + \oint_{\partial v_t} \vec{t}_{\vec{n}} \cdot \vec{u} - \oint_{\partial v_t} \vec{q} \cdot \vec{\hat{n}} + \int_{v_t} \rho r \ .\end{split}
+\end{equation*}
+\begin{sphinxadmonition}{note}{How to correctly apply Reynolds’s transport theorem in continuum mechanics}
+
+\sphinxAtStartPar
+Apply Reynold’s transport both to material volume \(V_t\) and arbitrary volume \(v_t\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dfrac{d}{d t} \int_{V_t} f & = \int_{V_t}\dfrac{\partial f}{\partial t} + \oint_{\partial V_t} f \, \vec{v}   \cdot \hat{n} \\
+  \dfrac{d}{d t} \int_{v_t} f & = \int_{v_t}\dfrac{\partial f}{\partial t} + \oint_{\partial v_t} f \, \vec{v}_b \cdot \hat{n}   
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and compare these two expressions, after setting \(v_t \equiv V_t\), i.e. considering the material volume at time \(t\) conciding with the arbitrary volume at time \(t\) (in general, at any time \(t\) there’s a different material volume \(V_t\) coinciding with the arbitrary volume \(v_t\) \sphinxhyphen{} i.e. a different set of material particles in the arbitrary volume \sphinxhyphen{} but this is not a problem at all in the manipulation),
+\begin{equation*}
+\begin{split}\dfrac{d}{d t} \int_{V_t \equiv v_t} f = \dfrac{d}{d t} \int_{v_t} f + \oint_{\partial V_t \equiv \partial v_t} f (\vec{v} - \vec{v}_b) \cdot \hat{n} \ .\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsection{Integral balance equations for control volumes \sphinxhyphen{} Eulerian description}
+\label{\detokenize{ch/continuum/balance-primary-integral:integral-balance-equations-for-control-volumes-eulerian-description}}\label{\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral-euler}}
+\sphinxAtStartPar
+Eulerian description of integral balance equations in continuum mechanics relies on stationary control volume, \(V\). Integral balance equations are readily derived from {\hyperref[\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral-arbitrary}]{\sphinxcrossref{\DUrole{std,std-ref}{balance equations for arbitrary volumes}}}} setting the velocity of the boundary of the domain equal to zero, i.e. \(\vec{v}_b = \vec{0}\), and the Eulerian controlo volume equal to the “instantanteously coinciding material volume”, \(V \equiv V_t\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Mass balance equation}
+\begin{equation*}
+\begin{split}\frac{d}{dt} \int_{V} \rho + \oint_{\partial V} \rho \vec{u} \cdot \vec{\hat{n}} = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Momentum balance equation}
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{V} \rho \vec{u} + \oint_{\partial V} \rho \vec{u} \vec{u} \cdot \vec{\hat{n}} = \int_{V} \rho \vec{g} + \oint_{\partial V} \vec{t}_{\vec{n}} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Total energy balance equation.}
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{V} \rho e^t + \oint_{\partial V} \rho e^t \vec{u} \cdot \vec{\hat{n}} = \int_{V} \rho \vec{g} \cdot \vec{u} + \oint_{\partial V} \vec{t}_{\vec{n}} \cdot \vec{u} - \oint_{\partial V} \vec{q} \cdot \vec{\hat{n}} + \int_{V} \rho r \ .\end{split}
 \end{equation*}
 \sphinxstepscope
 
 
-\chapter{Princìpi in forma integrale per domini arbitrari}
-\label{\detokenize{ch/continuum/principles-integral-arbitrary:principi-in-forma-integrale-per-domini-arbitrari}}\label{\detokenize{ch/continuum/principles-integral-arbitrary:continuum-principles-integral-arbitrary}}\label{\detokenize{ch/continuum/principles-integral-arbitrary::doc}}
+\section{Differential Balance Equations of aaa physical quantities}
+\label{\detokenize{ch/continuum/balance-primary-differential:differential-balance-equations-of-aaa-physical-quantities}}\label{\detokenize{ch/continuum/balance-primary-differential:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-primary-differential::doc}}
 \sphinxAtStartPar
-Usando i teoremi del trasporto per la derivata nel tempo di grandezze fisiche su domini mobili \sphinxstylestrong{todo} \sphinxstyleemphasis{aggiungere riferimento} si può ricavare la forma integrale dei princìpi per sistemi aperti.
+\sphinxstylestrong{Conservative form \sphinxhyphen{} Eulerian description in physical space.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ & \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \vec{v} \right) = 0 \\
+ & \dfrac{\partial }{\partial t} \left( \rho \vec{v} \right) +  \nabla \cdot \left( \rho \vec{v} \otimes \vec{v} \right) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+ & \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \vec{v} \right) = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Convective form \sphinxhyphen{} Lagrangian description in physical space.} Using mass equation and relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ &      \dfrac{D \rho   }{D t} = - \rho \nabla \cdot \vec{v} \\
+ & \rho \dfrac{D \vec{v}}{D t} = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+ & \rho \dfrac{D e^t    }{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Arbitrary description in physical space.} Using relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ &      \left.\dfrac{\partial \rho   }{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla \rho    = - \rho \nabla \cdot \vec{v} \\
+ & \rho \left.\dfrac{\partial \vec{v}}{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla \vec{v} = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+ & \rho \left.\dfrac{\partial e^t    }{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla e^t     = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
+\end{aligned}\end{split}
+\end{equation*}
 
 
-\section{Volume di controllo, \protect\(V\protect\)}
-\label{\detokenize{ch/continuum/principles-integral-arbitrary:volume-di-controllo-v}}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio di massa}
-\begin{equation*}
-\begin{split}\frac{d}{dt} \int_{V} \rho + \oint_{\partial V} \rho \mathbf{u} \cdot \mathbf{\hat{n}} = 0 \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio della quantità di moto}
-\begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{V} \rho \mathbf{u} + \oint_{\partial V} \rho \mathbf{u} \mathbf{u} \cdot \mathbf{\hat{n}} = \int_{V} \rho \mathbf{g} + \oint_{\partial V} \mathbf{t}_{\mathbf{n}} \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio dell’energia totale.}
-\begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{V} \rho e^t + \oint_{\partial V} \rho e^t \mathbf{u} \cdot \mathbf{\hat{n}} = \int_{V} \rho \mathbf{g} \cdot \mathbf{u} + \oint_{\partial V} \mathbf{t}_{\mathbf{n}} \cdot \mathbf{u} - \oint_{\partial V} \mathbf{q} \cdot \mathbf{\hat{n}} + \int_{V} \rho r \ .\end{split}
-\end{equation*}
-
-\section{Volume arbitrario, \protect\(v_t\protect\)}
-\label{\detokenize{ch/continuum/principles-integral-arbitrary:volume-arbitrario-v-t}}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio di massa}
-\begin{equation*}
-\begin{split}\frac{d}{dt} \int_{v_t} \rho + \oint_{\partial v_t} \rho ( \mathbf{u} - \mathbf{u}_b ) \cdot \mathbf{\hat{n}} = 0 \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio della quantità di moto}
-\begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{v_t} \rho \mathbf{u} + \oint_{\partial v_t} \rho \mathbf{u} ( \mathbf{u} - \mathbf{u}_b ) \cdot \mathbf{\hat{n}} = \int_{v_t} \rho \mathbf{g} + \oint_{\partial v_t} \mathbf{t}_{\mathbf{n}} \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Primo principio della termodinamica: bilancio di energia totale.} \(\dot{E}^{tot} = P^{ext} + \dot{Q}^{ext}\)
-\begin{equation*}
-\begin{split}\dfrac{d}{dt} \int_{v_t} \rho e^t + \oint_{\partial v_t} \rho e^t ( \mathbf{u} - \mathbf{u}_b ) \cdot \mathbf{\hat{n}} = \int_{v_t} \rho \mathbf{g} \cdot \mathbf{u} + \oint_{\partial v_t} \mathbf{t}_{\mathbf{n}} \cdot \mathbf{u} - \oint_{\partial v_t} \mathbf{q} \cdot \mathbf{\hat{n}} + \int_{v_t} \rho r \ .\end{split}
-\end{equation*}
 \sphinxstepscope
 
 
-\chapter{Princìpi in forma differenziale}
-\label{\detokenize{ch/continuum/principles-differential:principi-in-forma-differenziale}}\label{\detokenize{ch/continuum/principles-differential:continuum-principles-differential}}\label{\detokenize{ch/continuum/principles-differential::doc}}
-
-\section{Bilanci in coordinate fisiche}
-\label{\detokenize{ch/continuum/principles-differential:bilanci-in-coordinate-fisiche}}
+\section{Differential Balance Equations of ddd physical quantities}
+\label{\detokenize{ch/continuum/balance-derived-differential:differential-balance-equations-of-ddd-physical-quantities}}\label{\detokenize{ch/continuum/balance-derived-differential:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-derived-differential::doc}}
 \sphinxAtStartPar
-Partendo dai bilanci in forma integrale per volumi di controllo, se sono soddifatte le condizioni di “sufficiente regolarità” dei campi (intese come “ogni cosa che scriviamo ha senso”), si possono ricavare i bilanci i forma differenziale, sfruttando il teorema della divregenza per trasformare gli integrali di superficie in integrali di volume, e l’arbitrarietà del volume di controllo (poiché la validità dei princìpi fisici è indipendente dal particolare sistema considerato).
-
-\sphinxAtStartPar
-Viene usata la relazione di Cauchy per esprimere il vettore sforzo sul contorno del dominio \(\partial V\) come in funzione della normale alla superficie e del tensore degli sforzi \(\mathbb{T}\) \sphinxstylestrong{todo} riferimento alla relazione di Cauchy,
+Balance equations of kinetic energy, internal energy and entropy
 \begin{equation*}
-\begin{split}\mathbf{t_n} = \mathbf{\hat{n}} \cdot \mathbb{T} \ .\end{split}
+\begin{split}k = \frac{|\vec{v}|^2}{2} \quad , \qquad e = e^t - k \quad , \qquad s = \dots\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Bilancio di massa.}
+\sphinxstylestrong{Convective form.} Kinetic energy equation is derived multiplying the momentum equation by the velocity field; internal energy equation is derived subtracting kinetic energy equation from the total energy equation; entropy equation…
 \begin{equation*}
 \begin{split}\begin{aligned}
- 0 & = \frac{d}{dt} \int_{V} \rho + \oint_{\partial V} \rho \mathbf{u} \cdot \mathbf{\hat{n}} = \\
-   & = \int_{V} \dfrac{\partial \rho }{\partial t} + \int_{V} \nabla \cdot \left( \rho \mathbf{u} \right) = \\
-   & = \int_{V} \left\{ \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) \right\} 
+ & \rho \frac{D k}{D t} = \\
+ & \rho \frac{D e}{D t} = \\
 \end{aligned}\end{split}
-\end{equation*}\begin{equation*}
-\begin{split}\dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) = 0\end{split}
 \end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio della quantità di moto.}
-\begin{equation*}
-\begin{split}\begin{aligned}
- \mathbf{0} & = \dfrac{d}{dt} \int_{V} \rho \mathbf{u} + \oint_{\partial V} \rho \mathbf{u} \mathbf{u} \cdot \mathbf{\hat{n}} - \int_{V} \rho \mathbf{g} - \oint_{\partial V} \mathbf{\hat{n}} \cdot \mathbb{T} = \\
-            & = \int_{V} \dfrac{\partial }{\partial t} \left( \rho \mathbf{u} \right) + \int_{V} \nabla \cdot \left( \rho \mathbf{u} \otimes \mathbf{u} \right) - \int_{V} \rho \mathbf{g} - \int_{V} \nabla \cdot \mathbb{T} = \\
-            & = \int_{V} \left\{ \dfrac{\partial }{\partial t} \left( \rho \mathbf{u} \right) +  \nabla \cdot \left( \rho \mathbf{u} \otimes \mathbf{u} \right) - \rho \mathbf{g} - \nabla \cdot \mathbb{T} \right\} 
-\end{aligned}\end{split}
-\end{equation*}\begin{equation*}
-\begin{split} \dfrac{\partial }{\partial t} \left( \rho \mathbf{u} \right) +  \nabla \cdot \left( \rho \mathbf{u} \otimes \mathbf{u} \right) = \rho \mathbf{g} - \nabla \cdot \mathbb{T} \end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Bilancio dell’energia totale.}
 
 
-\begin{equation*}
-\begin{split}\begin{aligned}
-0 & = \dfrac{d}{dt} \int_{V} \rho e^t + \oint_{\partial V} \rho e^t \mathbf{u} \cdot \mathbf{\hat{n}} - \int_{V} \rho \mathbf{g} \cdot \mathbf{u} - \oint_{\partial V} \mathbf{\hat{n}} \cdot \mathbb{T} \cdot \mathbf{u} + \oint_{\partial V} \mathbf{q} \cdot \mathbf{\hat{n}} - \int_{V} \rho r = \\
-  & = \int_{V} \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \int_{\partial V} \nabla \cdot \left( \rho e^t \mathbf{u} \right) - \int_{V} \rho \mathbf{g} \cdot \mathbf{u} - \int_{V} \nabla \cdot \left( \mathbb{T} \cdot \mathbf{u} \right) + \int_{V} \nabla \cdot \mathbf{q} - \int_{V} \rho r = \\
-  & = \int_{V} \left\{ \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \mathbf{u} \right) - \rho \mathbf{g} \cdot \mathbf{u} - \nabla \cdot \left( \mathbb{T} \cdot \mathbf{u} \right) + \nabla \cdot \mathbf{q} - \rho r \right\} 
-\end{aligned}\end{split}
-\end{equation*}\begin{equation*}
-\begin{split}
-  \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \mathbf{u} \right) = \rho \mathbf{g} \cdot \mathbf{u} + \nabla \cdot \left( \mathbb{T} \cdot \mathbf{u} \right) - \nabla \cdot \mathbf{q} + \rho r
-\end{split}
-\end{equation*}
+\sphinxstepscope
+
+
+\section{Integral Balance Equations of ddd physical quantities}
+\label{\detokenize{ch/continuum/balance-derived-integral:integral-balance-equations-of-ddd-physical-quantities}}\label{\detokenize{ch/continuum/balance-derived-integral:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-derived-integral::doc}}
+
+
 \sphinxstepscope
 
 
@@ -584,7 +696,7 @@ Inviscid
 \sphinxAtStartPar
 The behavior of continuous medium in static conditions can be used to define a fluid.
 \label{ch/fluids/statics:definition-0}
-\begin{sphinxadmonition}{note}{Definition 1 (Fluid)}
+\begin{sphinxadmonition}{note}{Definition 7.1 (Fluid)}
 
 
 
@@ -618,7 +730,7 @@ and the viscous stress tensor is isotropic and \sphinxstylestrong{linear} in the
 \sphinxAtStartPar
 being \(\mu, \lambda\) the viscosity coefficients, and \(\mathbb{D}\) the strain velocity tensor \eqref{equation:ch/continuum/kinematics:eq:strain-vel-tensor}. Thus, the definition
 \label{ch/fluids/constitutive-equations:definition-0}
-\begin{sphinxadmonition}{note}{Definition 2 (Newtonian fluid)}
+\begin{sphinxadmonition}{note}{Definition 8.1.1 (Newtonian fluid)}
 
 
 
@@ -642,7 +754,7 @@ The expression \eqref{equation:ch/fluids/constitutive-equations:eq:stress-viscou
 \section{Newtonian Fluid}
 \label{\detokenize{ch/fluids/governing-equations:newtonian-fluid}}
 \sphinxAtStartPar
-The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the {\hyperref[\detokenize{ch/continuum/principles-differential:continuum-principles-differential}]{\sphinxcrossref{\DUrole{std,std-ref}{governing equations of a continuum medium in differential form}}}},
+The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the \DUrole{xref,myst}{governing equations of a continuum medium in differential form},
 \begin{equation*}
 \begin{split}\begin{cases}
   \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) = 0 \\
@@ -792,7 +904,7 @@ so that the momentum equation in Navier\sphinxhyphen{}Stokes equations \eqref{eq
 \sphinxAtStartPar
 Starting from the form \eqref{equation:ch/fluids/incompressible:eq:ns-mom-bernoulli}, different forms of Bernoulli theorems are readilty derived with the proper assumptions.
 \label{ch/fluids/incompressible:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 1 (Bernoulli theorem along path and vortex lines in steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 11.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
 
 
 
@@ -805,7 +917,7 @@ In a steady incompressible inviscid flow with conservative volume forces, \(\vec
 \sphinxAtStartPar
 The proof readily follows taking the scalar product with a unit\sphinxhyphen{}norm vector \(\hat{t}\) parallel to the local velocity or vorticity, and noting that \(\hat{t} \cdot \vec{u} \times \vec{\omega}\) is zero if either \(\hat{t} \parallel \vec{v}\) or \(\hat{t} \parallel \vec{\omega}\).
 \label{ch/fluids/incompressible:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 2 (Bernoulli theorem in irrotational inviscid steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 11.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
 
 
 
@@ -816,7 +928,7 @@ In a steady incompressible inviscid irrotational flow with conservative volume f
 \qquad \rightarrow \qquad \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = 0 \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/fluids/incompressible:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 3 (Bernoulli theorem in irrotational inviscid flows)}
+\begin{sphinxadmonition}{note}{Theorem 11.3.3 (Bernoulli theorem in irrotational inviscid flows)}
 
 
 

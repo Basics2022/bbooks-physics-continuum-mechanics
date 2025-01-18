@@ -170,26 +170,30 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/kinematics.html">Kinematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-integral.html">Princìpi in forma integrale per volumi materiali</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-integral-arbitrary.html">Princìpi in forma integrale per domini arbitrari</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/principles-differential.html">Princìpi in forma differenziale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/constitutive-equations.html">Equazioni di stato ed equazioni costitutive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/continuum/derived-balances.html">Equazioni di bilancio di altre grandezze fisiche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/continuum/kinematics.html">1. Kinematics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/continuum/governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/continuum/balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/continuum/balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/continuum/balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/continuum/balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch/continuum/constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/solids/intro.html">Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/solids/intro.html">5. Introduction to Solid Mechanics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/intro.html">Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/statics.html">Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/constitutive-equations.html">Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/governing-equations.html">Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/dimensional-analysis.html">Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/incompressible.html">Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/fluids/compressible.html">Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/intro.html">6. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/statics.html">7. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/constitutive-equations.html">8. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/governing-equations.html">9. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/dimensional-analysis.html">10. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/incompressible.html">11. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/fluids/compressible.html">12. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -297,6 +301,8 @@ document.write(`
 
    <div class="modindex-jumpbox">
    <a href="#cap-definition-0"><strong>definition-0</strong></a> | 
+   <a href="#cap-example-0"><strong>example-0</strong></a> | 
+   <a href="#cap-example-1"><strong>example-1</strong></a> | 
    <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
    <a href="#cap-theorem-1"><strong>theorem-1</strong></a> | 
    <a href="#cap-theorem-2"><strong>theorem-2</strong></a>
@@ -311,6 +317,22 @@ document.write(`
        <td>
        <a href="ch/fluids/statics.html#definition-0"><code class="xref">definition-0</code></a> <em>(ch/fluids/statics)</em></td><td>
        <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-0"><td></td><td>
+       <strong>example-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/fluids/governing-equations.html#example-0"><code class="xref">example-0</code></a> <em>(ch/fluids/governing-equations)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-1"><td></td><td>
+       <strong>example-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/fluids/governing-equations.html#example-1"><code class="xref">example-1</code></a> <em>(ch/fluids/governing-equations)</em></td><td>
+       <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-0"><td></td><td>
        <strong>theorem-0</strong></td><td></td></tr>

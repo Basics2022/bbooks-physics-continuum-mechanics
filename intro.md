@@ -1,10 +1,12 @@
 (continuum-mechanics:intro)=
 # Continuum mechanics
 
-First general approach and equations in continuum mechanics are presented, then these approach and equations are specialized to the most common models of solids - mainly elastic solids - and fluids - mainly Newtonian fluids.
+This material is part of the [**basics-books project**](https://basics2022.github.io/bbooks). It is also available as a [.pdf document](_build/latex/book.pdf).
+
+General approach and equations in continuum mechanics are first presented, and then specialized to the most common models of solids - mainly elastic solids - and fluids - mainly Newtonian fluids.
 
 ```{dropdown} [Introduction to Continuum Mechanics](continuum-mechanics:intro)
-**Kinematics of Continuum Media.** Lagrangian, Eulerian and arbitrary descriptions of the motion of continuous media is presented, and kinematic quantities are introduced.
+**Kinematics of continuum media.** Lagrangian, Eulerian and arbitrary descriptions of the motion of continuous media is presented, and kinematic quantities are introduced.
 
 **Balance equations of physical quantities.** Balance equations of physical quantities are introduced here for continuous media, both in integral and differential forms - in regular domains with "smooth" distribution of physical properties. Reynolds theorem and derivatives of composite functions are exploited to provide Lagrangian, Eulerian and arbitrary descriptions - and their relationship - both for integral and differential equations respectively.
 

@@ -1,29 +1,34 @@
 \selectlanguage *{english}
 \contentsline {part}{I\hspace {1em}Continuum Mechanics}{3}{part.1}%
-\contentsline {chapter}{\numberline {1}Cinematica}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Kinematics of two points}{6}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Princìpi in forma integrale per volumi materiali}{7}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Princìpi in forma integrale per domini arbitrari}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Volume di controllo, \(V\)}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Volume arbitrario, \(v_t\)}{9}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Princìpi in forma differenziale}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Bilanci in coordinate fisiche}{11}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Equazioni di stato ed equazioni costitutive}{13}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Equazioni di bilancio di altre grandezze fisiche}{15}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Bilanci in forma differenziale, convettiva}{15}{section.6.1}%
+\contentsline {chapter}{\numberline {1}Kinematics}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Material points in physical space}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Arbitrary points in physical space}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Time derivatives of a function from different descriptions}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Kinematics of two points}{7}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Governing Equations}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Integral Balance Equations of aaa physical quantities}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Principles of classical mechanics for closed systems \sphinxhyphen {} Lagrangian description}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Integral balance equations for arbitrary domains \sphinxhyphen {} arbitrary description}{10}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Integral balance equations for control volumes \sphinxhyphen {} Eulerian description}{11}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Differential Balance Equations of aaa physical quantities}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Differential Balance Equations of ddd physical quantities}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Integral Balance Equations of ddd physical quantities}{12}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Equazioni di stato ed equazioni costitutive}{13}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Equazioni di bilancio di altre grandezze fisiche}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Bilanci in forma differenziale, convettiva}{15}{section.4.1}%
 \contentsline {part}{II\hspace {1em}Solid Mechanics}{19}{part.2}%
-\contentsline {chapter}{\numberline {7}Introduction to Solid Mechanics}{21}{chapter.7}%
+\contentsline {chapter}{\numberline {5}Introduction to Solid Mechanics}{21}{chapter.5}%
 \contentsline {part}{III\hspace {1em}Fluid Mechanics}{23}{part.3}%
-\contentsline {chapter}{\numberline {8}Introduction to Fluid Mechanics}{25}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Statics}{27}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Constitutive Equations of Fluid Mechanics}{29}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Newtonian Fluids}{29}{section.10.1}%
-\contentsline {chapter}{\numberline {11}Governing Equations of Fluid Mechanics}{31}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Newtonian Fluid}{31}{section.11.1}%
-\contentsline {chapter}{\numberline {12}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{33}{chapter.12}%
-\contentsline {chapter}{\numberline {13}Incompressible Fluid Mechanics}{35}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Navier\sphinxhyphen {}Stokes Equations}{35}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Vorticity}{36}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Bernoulli theorems}{36}{section.13.3}%
-\contentsline {chapter}{\numberline {14}Compressible Fluid Mechanics}{39}{chapter.14}%
+\contentsline {chapter}{\numberline {6}Introduction to Fluid Mechanics}{25}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Statics}{27}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Constitutive Equations of Fluid Mechanics}{29}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Newtonian Fluids}{29}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Governing Equations of Fluid Mechanics}{31}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Newtonian Fluid}{31}{section.9.1}%
+\contentsline {chapter}{\numberline {10}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{33}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Incompressible Fluid Mechanics}{35}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Navier\sphinxhyphen {}Stokes Equations}{35}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Vorticity}{36}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Bernoulli theorems}{36}{section.11.3}%
+\contentsline {chapter}{\numberline {12}Compressible Fluid Mechanics}{39}{chapter.12}%
 \contentsline {chapter}{Proof Index}{41}{section*.4}%

@@ -5,17 +5,26 @@ format: jb-book
 root: intro
 parts:
 - caption: Continuum Mechanics
+  numbered: true
   chapters:
   - file: ch/continuum/kinematics
-  - file: ch/continuum/principles-integral
-  - file: ch/continuum/principles-integral-arbitrary
-  - file: ch/continuum/principles-differential
+  - file: ch/continuum/governing-equations
+    sections:
+    - file: ch/continuum/balance-primary-integral
+    - file: ch/continuum/balance-primary-differential
+    - file: ch/continuum/balance-derived-differential
+    - file: ch/continuum/balance-derived-integral
+    - file: ch/continuum/balance-summary
+# - file: ch/continuum/principles-integral-arbitrary
+# - file: ch/continuum/principles-differential
   - file: ch/continuum/constitutive-equations
   - file: ch/continuum/derived-balances
 - caption: Solid Mechanics
+  numbered: true
   chapters:
   - file: ch/solids/intro
 - caption: Fluid Mechanics
+  numbered: true
   chapters:
   - file: ch/fluids/intro
   - file: ch/fluids/statics
