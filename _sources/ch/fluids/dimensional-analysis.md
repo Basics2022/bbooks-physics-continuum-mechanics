@@ -7,8 +7,8 @@ $$d \rho = \left(\frac{\partial \rho}{\partial P}\right)_s \, d P + \left(\dfrac
 
 $$\begin{cases}
   \dfrac{D \rho}{D t} + \rho \nabla \cdot \vec{v} = 0  \\
-  \rho \dfrac{D \vec{v}}{D t} = \rho \vec{g} + \nabla \cdot \mathbf{T}  \\
-  \rho \dfrac{D e^t    }{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbf{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r \\
+  \rho \dfrac{D \vec{v}}{D t} = \rho \vec{g} + \nabla \cdot \mathbb{T}  \\
+  \rho \dfrac{D e^t    }{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r \\
 \end{cases}$$
 
 
