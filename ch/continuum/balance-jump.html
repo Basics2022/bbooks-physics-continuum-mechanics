@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Governing Equations &#8212; continuum mechanics</title>
+    <title>2.5. Jump conditions &#8212; continuum mechanics</title>
   
   
   
@@ -64,12 +64,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/governing-equations';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/balance-jump';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.1. Integral Balance Equations of aaa physical quantities" href="balance-primary-integral.html" />
-    <link rel="prev" title="1. Kinematics" href="kinematics.html" />
+    <link rel="next" title="3. Equazioni di stato ed equazioni costitutive" href="constitutive-equations.html" />
+    <link rel="prev" title="2.4. Integral Balance Equations of ddd physical quantities" href="balance-derived-integral.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="kinematics.html">1. Kinematics</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Governing Equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="governing-equations.html">2. Governing Equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="balance-jump.html">2.5. Jump conditions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Jump conditions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
@@ -244,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/continuum/governing-equations.md" target="_blank"
+      <li><a href="../../_sources/ch/continuum/balance-jump.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Governing Equations</h1>
+    <h1>Jump conditions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -340,15 +340,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="governing-equations">
-<span id="continuum-governing-equations"></span><h1><span class="section-number">2. </span>Governing Equations<a class="headerlink" href="#governing-equations" title="Permalink to this heading">#</a></h1>
-<p>The following process is detailed in the following sections</p>
-<p><strong>Integral balance equations for primary physical quantities.</strong> First, integral balance equations for closed systems are written as a manifestation of principles of classical mechanics for closed systems, namely mass conservation, second principle of mehcanics, and first principle of thermodynamics. Starting from integral balance equations for closed systems (material systems, Lagrange description), Reynolds transport theorem is used to derive integral balance equations for open systems, either stationary in space (control volume, Eulerian description) or with arbitrary motion (arbitrary description).</p>
-<p><strong>Differential balance equations for primary physical quantities.</strong> Starting from integral balance equations, under the assumption of sufficient regularity of the physical quantities, divergence theorem and arbitrariety of the domain is used to derive differential (local) balance equations of primary physical quantities.</p>
-<p><strong>Differential balance equations for derived physical quantities.</strong> Starting from differential equations of primary physical quantities, differential balance equations are derived for other physical quantities, as an example kinetic energy, internal energy and entropy.</p>
-<p><strong>Integral balance equations for derived physical quantities.</strong> Starting from differential balance equations, and exploiting divergence theorem (in the “opposite direction” w.r.t. what has been done before, to get differential from integral equations), integral balance equations are derived for derived quantities.</p>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="jump-conditions">
+<span id="continuum-governing-equations-jump-conditions"></span><h1><span class="section-number">2.5. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h1>
+<p>Jump conditions comes from integral balances for an anrbitrary domain. These conditions hold both across discontinuities - where fields are not regular enough for differential equations to hold - and in regular domains.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -382,20 +376,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="kinematics.html"
+       href="balance-derived-integral.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Kinematics</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Integral Balance Equations of ddd physical quantities</p>
       </div>
     </a>
     <a class="right-next"
-       href="balance-primary-integral.html"
+       href="constitutive-equations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Integral Balance Equations of aaa physical quantities</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Equazioni di stato ed equazioni costitutive</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
