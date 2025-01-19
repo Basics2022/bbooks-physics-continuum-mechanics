@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Equazioni di bilancio di altre grandezze fisiche &#8212; continuum mechanics</title>
+    <title>2.5. Jump conditions &#8212; continuum mechanics</title>
   
   
   
@@ -64,14 +64,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/derived-balances';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/balance-jump';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Introduction to Solid Mechanics" href="../solids/intro.html" />
-    <link rel="prev" title="3. Equazioni di stato ed equazioni costitutive" href="constitutive-equations.html" />
+    <link rel="next" title="3. Equazioni di stato ed equazioni costitutive" href="constitutive-equations.html" />
+    <link rel="prev" title="2.4. Integral Balance Equations of ddd physical quantities" href="balance-derived-integral.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,16 +166,16 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="kinematics.html">1. Kinematics</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="governing-equations.html">2. Governing Equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="balance-jump.html">2.5. Jump conditions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Jump conditions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
 <ul class="nav bd-sidenav">
@@ -246,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/continuum/derived-balances.md" target="_blank"
+      <li><a href="../../_sources/ch/continuum/balance-jump.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,9 +315,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -330,19 +326,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Equazioni di bilancio di altre grandezze fisiche</h1>
+    <h1>Jump conditions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanci-in-forma-differenziale-convettiva">4.1. Bilanci in forma differenziale, convettiva</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -352,82 +340,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="equazioni-di-bilancio-di-altre-grandezze-fisiche">
-<span id="continuum-derived-balances"></span><h1><span class="section-number">4. </span>Equazioni di bilancio di altre grandezze fisiche<a class="headerlink" href="#equazioni-di-bilancio-di-altre-grandezze-fisiche" title="Permalink to this heading">#</a></h1>
-<span style="color:red">
-- Aggiungere bilanci in altra forma (**integrale per volumi qualsiasi**, **differenziale convettiva**, **conservativa**; **coordinate non fisiche**; aggiungere considerazioni su **entropia in solidi**), anche in altre sezioni del bbook;
-</span><br>
-<span style="color:red">
-- Sistemare i contenuti
-</span><br>
-<p>Partendo dai bilanci di massa, quantità di moto e di energia totale, si possono ricare le le equazioni di bilancio di altre grandezze fisiche come l’<em>energia cinetica</em>, l’<em>energia interna</em>, l’<em>entropia</em>.</p>
-<div class="section" id="bilanci-in-forma-differenziale-convettiva">
-<h2><span class="section-number">4.1. </span>Bilanci in forma differenziale, convettiva<a class="headerlink" href="#bilanci-in-forma-differenziale-convettiva" title="Permalink to this heading">#</a></h2>
-<p><strong>Energia cinetica.</strong> L’energia cinetica (macroscopica) per unità di massa è <span class="math notranslate nohighlight">\(k = \frac{1}{2}|\mathbf{u}|^2 = \frac{1}{2} \mathbf{u} \cdot \mathbf{u}\)</span>. L’equazione di bilancio dell’energia cinetica viene derivata moltiplicando scalarmente l’equazione della quantità di moto</p>
-<div class="math notranslate nohighlight">
-\[\rho \dfrac{D \mathbf{u}}{Dt} = \rho \mathbf{g} + \nabla \cdot \mathbb{T} \ ,\]</div>
-<p>per il campo di velocità <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\rho \dfrac{D k}{Dt} = \rho \mathbf{g} \cdot \mathbf{u} + \nabla \cdot \mathbb{T} \cdot \mathbf{u} \ ,\]</div>
-<p>avendo usato <span class="math notranslate nohighlight">\(\mathbf{u} \cdot d \mathbf{u} = d \left( \dfrac{\mathbf{u} \cdot \mathbf{u}}{2} \right) = dk\)</span>.</p>
-<p><strong>Energia interna.</strong> L’energia interna per unità di massa è la differenza tra l’energia totale e l’energia cinetica, <span class="math notranslate nohighlight">\(e = e^{tot} - k\)</span>. L’equazione di bilancio dell’energia interna viene ottenuta come differenza dell’equazione dell’energia totale</p>
-<div class="math notranslate nohighlight">
-\[\rho \dfrac{D e^{tot}}{Dt} = \rho \mathbf{g} \cdot \mathbf{u} + \nabla \cdot (\mathbb{T} \cdot \mathbf{u}) - \nabla \cdot \mathbf{q} + \rho r \ ,\]</div>
-<p>e quella dell’energia cinetica, per ottenere</p>
-<div class="math notranslate nohighlight">
-\[\rho \dfrac{D e}{D t} = \mathbb{T} : \nabla \mathbf{u} - \nabla \cdot \mathbf{q} + \rho r \ . \]</div>
-<p><strong>Entropia.</strong></p>
-<ul>
-<li><p><strong>Entropia nei fluidi.</strong> Se l’entropia può essere scritta come funzione dell’energia interna e della densità, e il primo principio della termodinamica viene scritto come</p>
-<div class="math notranslate nohighlight">
-\[de = \frac{P}{\rho^2} \, d \rho + T \, ds \ ,\]</div>
-<p>e il tensore degli sforzi può essere rappresentato come somma degli sforzi di pressione e degli sforzi viscosi <strong>todo</strong> <em>riferimento alle leggi costitutive</em>,</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{T} = - P \mathbb{I} + \mathbb{S} = - P \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \mathbf{u}) \mathbb{I} \ ,\]</div>
-<p>si può ricavare l’equazione di governo dell’entropia usando il differenziale <span class="math notranslate nohighlight">\(ds = \dfrac{1}{T} \, de - \dfrac{P}{T \rho^2} \, d \rho\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-    \rho \dfrac{D s}{D t} 
-    &amp; = \dfrac{\rho}{T} \left( \dfrac{D e }{D t} - \dfrac{P}{\rho^2} \dfrac{D \rho}{D t} \right) = \\
-    &amp; = \dfrac{1}{T} \left( \rho \dfrac{D e }{D t} - \dfrac{P}{\rho} \dfrac{D \rho}{D t} \right) = \\
-    &amp; = \dfrac{1}{T} \left( \mathbb{T} : \nabla \mathbf{u} - \nabla \cdot \mathbf{q} + \rho r - \dfrac{P}{\rho} \left( \rho \nabla \cdot \mathbf{u} \right) \right) = \\
-    &amp; = \dfrac{1}{T} \left( -P \nabla \cdot \mathbf{u} + \mathbb{S} : \nabla \mathbf{u} - \nabla \cdot \mathbf{q} + \rho r + P \ \nabla \cdot \mathbf{u}  \right) = \\
-    &amp; = \dfrac{1}{T} \left( \mathbb{S} : \nabla \mathbf{u} - \nabla \cdot \mathbf{q} + \rho r \right) = \\
-    &amp; = \dfrac{1}{T} \left( 2 \mu |\mathbb{D}|^2 + \lambda |(\nabla \cdot \mathbf{u})|^2 - \nabla \cdot \mathbf{q} + \rho r \right) = \\
-    &amp; = \dfrac{2 \mu |\mathbb{D}|^2 + \lambda |(\nabla \cdot \mathbf{u})|^2 }{T} - \frac{\mathbf{q} \cdot \nabla T}{T^2} - \nabla \cdot \left( \dfrac{\mathbf{q}}{T} \right) + \dfrac{\rho r}{T} \ , \\
-  \end{aligned}\end{split}\]</div>
-<p>avendo usato la degola del prodotto <span class="math notranslate nohighlight">\(\nabla \cdot \left( \dfrac{\mathbf{q}}{T} \right) = \dfrac{\nabla \cdot \mathbf{q}}{T} - \dfrac{\mathbf{q} \cdot \nabla T}{T^2}\)</span>.</p>
-<p>Gli ultimi due termini sono legati alla <strong>sorgenti di entropia</strong> nel sistema, dovute alla sorgente di calore nel sistema e al flusso di calore tramite la frontiera del sistema.</p>
-<p>I primi due termini possono essere ricondotti alla <strong>dissipazione viscosa</strong> e dovuta alla <strong>conduzione termica</strong> all’interno del volume: entrambi devono essere non-negativi per il secondo principio della termodinamica <strong>todo</strong>. Il primo termine è positivo se i coefficienti di viscosità del modello di fluido newtoniano sono non-negativi</p>
-<div class="math notranslate nohighlight">
-\[\mu, \lambda \ge 0\]</div>
-<p>. Il secondo termine impone che il flusso di calore avvenga in direzione opposta al gradiente di temperatura locale, e quindi la proiezione su di esso sia negativa (traducendo il concetto che il calore trasferisce energia da un corpo caldo a uno freddo),</p>
-<div class="math notranslate nohighlight">
-\[- \mathbf{q} \cdot \nabla T \ge 0 \ ,\]</div>
-<p>come è facile da verificare per il modello di Fourier per la conduzione in mezzi isotropi, <span class="math notranslate nohighlight">\(\mathbf{q} = - k \nabla T\)</span>, <span class="math notranslate nohighlight">\(- \mathbf{q} \cdot \nabla T = k |\nabla T|^2 \ge 0\)</span> se</p>
-<div class="math notranslate nohighlight">
-\[k \ge 0 \ .\]</div>
-<p>Nel caso di modello lineare per la conduzione in mezzi non isotrpi, il flusso di conduzione può essere descritto usando un tensore del secondo ordine <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{q} = - \mathbb{K} \cdot \nabla T\)</span> (<strong>todo</strong> simmetria?) e la condizione diventa</p>
-<div class="math notranslate nohighlight">
-\[0 \le - \nabla T  \cdot \mathbf{q} = \nabla T \cdot \mathbb{K} \cdot \nabla T \ ,\]</div>
-<p>che impone che il tensore di conduzione sia (semi-)definito positivo, a causa dell’arbitrarietà del vettore <span class="math notranslate nohighlight">\(\nabla T\)</span>.</p>
-<p>Se questi due termini sono non-negativi, il bilancio di entropia può essere riscritto come la disuguaglianza</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-    \rho \dfrac{D s}{D t}
-    &amp; = \underbrace{\dfrac{2 \mu |\mathbb{D}|^2 + \lambda |(\nabla \cdot \mathbf{u})|^2 }{T} - \frac{\mathbf{q} \cdot \nabla T}{T^2}}_{\ge 0} - \nabla \cdot \left( \dfrac{\mathbf{q}}{T} \right) + \dfrac{\rho r}{T} = \\
-    &amp; \ge  - \nabla \cdot \left( \dfrac{\mathbf{q}}{T} \right) + \dfrac{\rho r}{T} \ ,
-  \end{aligned}\end{split}\]</div>
-<p>o nella forma integrale per un volume materiale</p>
-<div class="math notranslate nohighlight">
-\[\dfrac{d}{dt} \int_{V_t} \rho s \ge - \oint_{\partial V_t} \mathbf{\hat{n}} \cdot \dfrac{\mathbf{q}}{T} + \int_{V_t} \rho \dfrac{r}{T} \ ,\]</div>
-<p>che richiama alla mente la disuguaglianza di Clausius <strong>todo</strong> <em>aggiungere riferimento</em></p>
-<div class="math notranslate nohighlight">
-\[d S \ge \dfrac{\delta Q^{e}}{T} \ .\]</div>
-<p>La differenza di segno deriva dalla definizione di <span class="math notranslate nohighlight">\(d Q^e\)</span> come flusso di calore dall’ambiente verso il sistema e del vettore flusso di calore <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> come flusso di calore “uscente dal sistema” <strong>todo</strong></p>
-</li>
-</ul>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="jump-conditions">
+<span id="continuum-governing-equations-jump-conditions"></span><h1><span class="section-number">2.5. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h1>
+<p>Jump conditions comes from integral balances for an anrbitrary domain. These conditions hold both across discontinuities - where fields are not regular enough for differential equations to hold - and in regular domains.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -461,20 +376,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="constitutive-equations.html"
+       href="balance-derived-integral.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Equazioni di stato ed equazioni costitutive</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Integral Balance Equations of ddd physical quantities</p>
       </div>
     </a>
     <a class="right-next"
-       href="../solids/intro.html"
+       href="constitutive-equations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Introduction to Solid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Equazioni di stato ed equazioni costitutive</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -484,20 +399,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanci-in-forma-differenziale-convettiva">4.1. Bilanci in forma differenziale, convettiva</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

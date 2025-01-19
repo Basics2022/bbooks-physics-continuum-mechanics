@@ -264,6 +264,12 @@ strain velocity tensor
 \begin{equation}\label{equation:ch/continuum/kinematics:eq:strain-vel-tensor}
 \begin{split}\mathbb{D} = \frac{1}{2} \left[ \nabla \vec{u} + \nabla^T \vec{u} \right]\end{split}
 \end{equation}
+
+\section{Kinematics in reference space}
+\label{\detokenize{ch/continuum/kinematics:kinematics-in-reference-space}}\label{\detokenize{ch/continuum/kinematics:kinematics-reference-space}}
+\sphinxAtStartPar
+…
+
 \sphinxstepscope
 
 
@@ -436,33 +442,49 @@ Eulerian description of integral balance equations in continuum mechanics relies
 
 \section{Differential Balance Equations of aaa physical quantities}
 \label{\detokenize{ch/continuum/balance-primary-differential:differential-balance-equations-of-aaa-physical-quantities}}\label{\detokenize{ch/continuum/balance-primary-differential:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-primary-differential::doc}}
+
+\subsection{Balance equation in physical space}
+\label{\detokenize{ch/continuum/balance-primary-differential:balance-equation-in-physical-space}}\label{\detokenize{ch/continuum/balance-primary-differential:continuum-governing-equations-primary-integral-physical}}
+\sphinxAtStartPar
+In this section, differential form of balance equations is derived using time \(t\) and physical coordinate \(\vec{r}\) as independent variables of fields representing physical quantities \(f(\vec{r},t)\).
+
 \sphinxAtStartPar
 \sphinxstylestrong{Conservative form \sphinxhyphen{} Eulerian description in physical space.}
-\begin{equation*}
+\begin{equation}\label{equation:ch/continuum/balance-primary-differential:eq:continuum:primary:differential:conservative}
 \begin{split}\begin{aligned}
  & \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \vec{v} \right) = 0 \\
  & \dfrac{\partial }{\partial t} \left( \rho \vec{v} \right) +  \nabla \cdot \left( \rho \vec{v} \otimes \vec{v} \right) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
  & \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \vec{v} \right) = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
-\sphinxstylestrong{Convective form \sphinxhyphen{} Lagrangian description in physical space.} Using mass equation and relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives}
+\sphinxstylestrong{Convective form \sphinxhyphen{} Lagrangian description in physical space.} Using vector calculus identities to evaluate partial derivatives of products, mass equation and relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives} to write partial derivative w.r.t. material derivative,
 \begin{equation*}
 \begin{split}\begin{aligned}
  &      \dfrac{D \rho   }{D t} = - \rho \nabla \cdot \vec{v} \\
  & \rho \dfrac{D \vec{v}}{D t} = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
  & \rho \dfrac{D e^t    }{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation*}\subsubsection*{Proof}
+
 \sphinxAtStartPar
-\sphinxstylestrong{Arbitrary description in physical space.} Using relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives}
+\sphinxstylestrong{todo}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Arbitrary description in physical space.} Using relation \eqref{equation:ch/continuum/kinematics:eq:field-time-derivatives} to write material derivatives w.r.t. time derivative at constant \(\vec{r}_b\)
 \begin{equation*}
 \begin{split}\begin{aligned}
  &      \left.\dfrac{\partial \rho   }{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla \rho    = - \rho \nabla \cdot \vec{v} \\
- & \rho \left.\dfrac{\partial \vec{v}}{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla \vec{v} = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
- & \rho \left.\dfrac{\partial e^t    }{\partial t}\right|_{\vec{r}_b} + \left( \vec{v} - \vec{v}_b \right) \cdot \nabla e^t     = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
+ & \rho \left.\dfrac{\partial \vec{v}}{\partial t}\right|_{\vec{r}_b} + \rho \left( \vec{v} - \vec{v}_b \right) \cdot \nabla \vec{v} = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+ & \rho \left.\dfrac{\partial e^t    }{\partial t}\right|_{\vec{r}_b} + \rho \left( \vec{v} - \vec{v}_b \right) \cdot \nabla e^t     = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
 \end{aligned}\end{split}
 \end{equation*}
+
+\subsection{Balance equations in reference space}
+\label{\detokenize{ch/continuum/balance-primary-differential:balance-equations-in-reference-space}}\label{\detokenize{ch/continuum/balance-primary-differential:continuum-governing-equations-primary-integral-reference}}
+\sphinxAtStartPar
+In this section, differential form of balance equations is derived using time \(t\) and material coordinate \(\vec{r}_0\) as independent variables of fields representing physical quantities \(f_0(\vec{r}_0,t) = f(\vec{r}(\vec{r}_0, t), t)\), exploiting the change of variables \(\vec{r}(\vec{r}_0, t)\) and its inverse transformation \sphinxhyphen{} assumed to exist (with the same consideration done in the kinematics sections: while it’s likely that a global invertible transformation w.r.t. the original reference configuration doesn’t exist, limiting the time interval and space domain a “piecewise” invertible transformation w.r.t. intermetdiate states exists).
+
 
 
 \sphinxstepscope
@@ -476,11 +498,30 @@ Balance equations of kinetic energy, internal energy and entropy
 \begin{split}k = \frac{|\vec{v}|^2}{2} \quad , \qquad e = e^t - k \quad , \qquad s = \dots\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Convective form.} Kinetic energy equation is derived multiplying the momentum equation by the velocity field; internal energy equation is derived subtracting kinetic energy equation from the total energy equation; entropy equation…
+\sphinxstylestrong{Convective form \sphinxhyphen{} Lagrangian description in physical space.} Kinetic energy equation is derived multiplying the momentum equation by the velocity field; internal energy equation is derived subtracting kinetic energy equation from the total energy equation; entropy equation strongly depends on the constitutive equation of the material, as it’s shown for elastic solids and Newtonian fluids
 \begin{equation*}
 \begin{split}\begin{aligned}
- & \rho \frac{D k}{D t} = \\
- & \rho \frac{D e}{D t} = \\
+ & \rho \frac{D k}{D t} = \rho \vec{g} \cdot \vec{v} + \vec{v} \cdot \nabla \cdot \mathbb{T} \\
+ & \rho \frac{D e}{D t} = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r \\
+ & \dots
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Conservative form \sphinxhyphen{} Eulerian description in physical space.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ & \frac{\partial }{\partial t}\left(\rho k\right) + \nabla \cdot \left( \rho k \vec{v} \right) = \rho \vec{g} \cdot \vec{v} + \vec{v} \cdot \nabla \cdot \mathbb{T} \\
+ & \frac{\partial }{\partial t}\left(\rho e\right) + \nabla \cdot \left( \rho e \vec{v} \right) = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r \\
+ & \dots
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Arbitrary description in physical space.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ & \rho \left.\frac{\partial k}{\partial t}\right|_{\vec{r}_b} + \rho \left( \vec{v} - \vec{v}_b \right) \cdot \nabla k = \rho \vec{g} \cdot \vec{v} + \vec{v} \cdot \nabla \cdot \mathbb{T} \\
+ & \rho \left.\frac{\partial e}{\partial t}\right|_{\vec{r}_b} + \rho \left( \vec{v} - \vec{v}_b \right) \cdot \nabla e = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r \\
+ & \dots
 \end{aligned}\end{split}
 \end{equation*}
 
@@ -491,6 +532,14 @@ Balance equations of kinetic energy, internal energy and entropy
 \section{Integral Balance Equations of ddd physical quantities}
 \label{\detokenize{ch/continuum/balance-derived-integral:integral-balance-equations-of-ddd-physical-quantities}}\label{\detokenize{ch/continuum/balance-derived-integral:continuum-governing-equations-primary-integral}}\label{\detokenize{ch/continuum/balance-derived-integral::doc}}
 
+
+\sphinxstepscope
+
+
+\section{Jump conditions}
+\label{\detokenize{ch/continuum/balance-jump:jump-conditions}}\label{\detokenize{ch/continuum/balance-jump:continuum-governing-equations-jump-conditions}}\label{\detokenize{ch/continuum/balance-jump::doc}}
+\sphinxAtStartPar
+Jump conditions comes from integral balances for an anrbitrary domain. These conditions hold both across discontinuities \sphinxhyphen{} where fields are not regular enough for differential equations to hold \sphinxhyphen{} and in regular domains.
 
 \sphinxstepscope
 
@@ -754,21 +803,136 @@ The expression \eqref{equation:ch/fluids/constitutive-equations:eq:stress-viscou
 \section{Newtonian Fluid}
 \label{\detokenize{ch/fluids/governing-equations:newtonian-fluid}}
 \sphinxAtStartPar
-The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the \DUrole{xref,myst}{governing equations of a continuum medium in differential form},
+The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the expression \eqref{equation:ch/continuum/balance-primary-differential:eq:continuum:primary:differential:conservative} of {\hyperref[\detokenize{ch/continuum/balance-derived-differential:continuum-governing-equations-primary-integral}]{\sphinxcrossref{\DUrole{std,std-ref}{governing equations of a continuum medium in differential form}}}},
 \begin{equation*}
 \begin{split}\begin{cases}
-  \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) = 0 \\
-  \dfrac{\partial }{\partial t} \left( \rho \mathbf{u} \right) +  \nabla \cdot \left( \rho \mathbf{u} \otimes \mathbf{u} \right) = \rho \mathbf{g} - \nabla \cdot \mathbb{T} \\
-  \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \mathbf{u} \right) = \rho \mathbf{g} \cdot \mathbf{u} + \nabla \cdot \left( \mathbb{T} \cdot \mathbf{u} \right) - \nabla \cdot \mathbf{q} + \rho r
+  \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \vec{v} \right) = 0 \\
+  \dfrac{\partial }{\partial t} \left( \rho \vec{v} \right) +  \nabla \cdot \left( \rho \vec{v} \otimes \vec{v} \right) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+  \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \vec{v} \right) = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
 \end{cases}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-using the expression \eqref{equation:ch/fluids/constitutive-equations:eq:stress-newtonian} of the stress tensor of a Newtonian fluid, and the required constitutive equations and equations of state characterizing the behavior of the medium and required to get a well\sphinxhyphen{}defined mathematical problem, providing the expression of thermodynamic variables and heat conduction flux as a function of the primary variables of the problem. As an example, Fourier’s law for heat conduction reads
+using the expression \eqref{equation:ch/fluids/constitutive-equations:eq:stress-newtonian} of the stress tensor of a Newtonian fluid,
+\begin{equation*}
+\begin{split}\mathbb{T} = - p \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \vec{v}) \mathbb{I} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+a constitutive equation for conduction heat flux \(\vec{q}\), as an example \sphinxstylestrong{Fourier’s law}
 \begin{equation*}
 \begin{split}\vec{q} = - k \nabla T \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-…
+and the required state equations characterizing the behavior of the medium linking thermodynamic variables (assumption of \sphinxstylestrong{local thermodynamic equilibrium} \sphinxstylestrong{todo} \sphinxstyleemphasis{discuss this principle}), and required to get a well\sphinxhyphen{}defined mathematical problem, with the same number of equations and unknowns.
+\label{ch/fluids/governing-equations:example-0}
+\begin{sphinxadmonition}{note}{Example 9.1.1 (Equations of state)}
+
+
+
+\sphinxAtStartPar
+As an example, the required equations of states need to provide and expression of thermodynamic quantities as a function of the dynamical physical quantities. This could be quite a common choice in numerical methods using conservative form of the equations. Namely, defining momentum and total energy per unit volume
+\begin{equation*}
+\begin{split}\vec{m} := \rho \vec{v} \quad , \quad E^t := \rho e^t \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+equations of state should provide the expression of pressure \(p\), temperature \(T\), viscosity coefficients \(\mu\), \(\nu\) and thermal conductivity \(k\) as functions of “dynamic quantities” \(\rho, \, \vec{m}, \, E^t\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+        p & (\rho, \vec{m}, E^t) \\
+        T & (\rho, \vec{m}, E^t) \\
+      \mu & (\rho, \vec{m}, E^t) \\
+  \lambda & (\rho, \vec{m}, E^t) \\
+        k & (\rho, \vec{m}, E^t) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Usually, in thermodynamics pressure and temperature can be written as functions of other two thermodynamic variables, as an example density \(\rho\) and internal energy (per unit mass)
+\begin{equation*}
+\begin{split}e = e^t - \frac{|\vec{v}|^2}{2} = \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that \sphinxhyphen{} avoiding here notation abuses and using two different symbols for functions with different independent variables representing the same physical quantity \sphinxhyphen{},
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \Pi   \left( \rho, e \right) & = \Pi   \left( \rho, \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2} \right) = p(\rho, \vec{m}, E^t) \\
+  \Theta\left( \rho, e \right) & = \Theta\left( \rho, \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2} \right) = T(\rho, \vec{m}, E^t) \\
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\section{Derived quantities}
+\label{\detokenize{ch/fluids/governing-equations:derived-quantities}}
+\sphinxAtStartPar
+Balance equations of kinetic energy and internal energy readily follows from balance equations of continuum media in covective form.
+
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Kinetic energy.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Internal energy.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \rho \frac{D e}{D t}
+  & = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r  = \\
+  & = \left( -p \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \vec{v}) \mathbb{I} \right) : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r  = \\
+  & = - p \nabla \cdot \vec{v} + 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Details}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Entropy equation.} The first principle of thermodynamics for non\sphinxhyphen{}reactive fluid, with no electric charge and other processes, provides the expression of the differential of entropy as a function of internal energy and density, \(s(e, \rho)\)
+\begin{equation*}
+\begin{split}d e = T \, ds + \frac{P}{\rho^2} d \rho  \qquad , \qquad ds = \dfrac{1}{T} \, de - \frac{P}{T \rho^2} \, d \rho \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus the balance equation for entropy directly follows from the evaluation of the material derivative of entropy field, exploiting balance equations of mass and internal energy
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \rho \frac{D s}{D t}
+  & = \frac{1}{T} \left[ \rho \frac{D e}{D t} - \frac{P}{\rho} \dfrac{D \rho}{D t} \right] = \\
+  & = \frac{1}{T} \left[ - p \nabla \cdot \vec{v} + 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r - \frac{P}{\rho} \left( - \rho \nabla \cdot \vec{v} \right) \right] = \\
+  & = \frac{1}{T} \left[ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r \right] = \\
+  & = \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} - \frac{\vec{q} \cdot \nabla T}{T^2} - \nabla \cdot \left( \frac{\vec{q}}{T} \right) + \frac{\rho r}{T} = \\
+  & = \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} - \nabla \cdot \left( \frac{\vec{q}}{T} \right) + \frac{\rho r}{T} \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Details}
+\begin{equation*}
+\begin{split}\nabla \cdot \left( \frac{\vec{q}}{T} \right) = \frac{\nabla \cdot \vec{q}}{T} - \frac{\vec{q} \cdot \nabla T}{T^2}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Second principle of thermodyanamics and continuum mechanics.} Second principle of thermodynamics implies some constraints on the behavior of continuous media, and thus on the contitutive equations. Namely, Clausis statement of the second principle reads
+\begin{equation*}
+\begin{split}d S \ge \frac{\delta Q}{T} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the variation of entropy is greater or equal to the ratio of the heat flux added to the system and the temperature of the system itself. This can be written for a simple homogeneous system, or for a composite systems where physical quantities are not homogeneous in space \sphinxstylestrong{todo} ref
+
+\sphinxAtStartPar
+Integral form of balance equation of entropy of a system reads
+\begin{equation*}
+\begin{split}\frac{d S}{dt} = \frac{d}{dt} \int_{V_t} \rho s = \int_{V_t} \left\{ \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} \right\} \underbrace{- \oint_{\partial V_t} \frac{\vec{q}}{T} \cdot \hat{n} + \int_{V_t} \frac{\rho r}{T}}_{"\frac{\delta Q}{T}"} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and Clausius statement of the second principle implies
+\begin{equation*}
+\begin{split}0 \le \frac{d}{dt} \int_{V_t} \rho s - \left( - \oint_{\partial V_t} \frac{\vec{q}}{T} \cdot \hat{n} + \int_{V_t} \frac{\rho r}{T} \right) = \int_{V_t} \left\{ \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} \right\} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and, since this must hold for any volume \(V_t\) and state of the system \sphinxhyphen{} namley every velocity and temperature field \sphinxhyphen{} and thermodynamic temperature is positive, it follows that
+\begin{equation*}
+\begin{split}\mu \ge 0 \quad , \quad \lambda \ge 0 \quad , \quad k \ge 0\end{split}
+\end{equation*}\label{ch/fluids/governing-equations:example-1}
+\begin{sphinxadmonition}{note}{Example 9.2.1 (Sign of physical quantity)}
+
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} pay attention, that temperature, viscosity ccoefficients and thermal conductivity have physical dimensions…explain the meaning of positive physical quantities (scalar, w.r.t. a unit of measurement)…
+\end{sphinxadmonition}
 
 \sphinxstepscope
 
@@ -972,6 +1136,12 @@ The results of this section derived for a uniform density flow hold for a barotr
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{definition\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/fluids/statics}\sphinxstyleindexpageref{ch/fluids/statics:\detokenize{definition-0}}
+\indexspace
+\bigletter{example\sphinxhyphen{}0}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/fluids/governing\sphinxhyphen{}equations}\sphinxstyleindexpageref{ch/fluids/governing-equations:\detokenize{example-0}}
+\indexspace
+\bigletter{example\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/fluids/governing\sphinxhyphen{}equations}\sphinxstyleindexpageref{ch/fluids/governing-equations:\detokenize{example-1}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/fluids/incompressible}\sphinxstyleindexpageref{ch/fluids/incompressible:\detokenize{theorem-0}}
