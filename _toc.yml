@@ -16,6 +16,7 @@ parts:
     - file: ch/continuum/balance-derived-integral
     - file: ch/continuum/balance-jump
     - file: ch/continuum/balance-summary
+    - file: ch/continuum/balance-reference-integral
 # - file: ch/continuum/principles-integral-arbitrary
 # - file: ch/continuum/principles-differential
   - file: ch/continuum/constitutive-equations

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.4. Integral Balance Equations of ddd physical quantities &#8212; continuum mechanics</title>
+    <title>2.6. Integral Balance Equations in reference space &#8212; continuum mechanics</title>
   
   
   
@@ -64,12 +64,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/balance-derived-integral';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/continuum/balance-reference-integral';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5. Jump conditions" href="balance-jump.html" />
-    <link rel="prev" title="2.3. Differential Balance Equations of ddd physical quantities" href="balance-derived-differential.html" />
+    <link rel="next" title="3. Equazioni di stato ed equazioni costitutive" href="constitutive-equations.html" />
+    <link rel="prev" title="2.5. Jump conditions" href="balance-jump.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,9 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="balance-jump.html">2.5. Jump conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="balance-reference-integral.html">2.6. Integral Balance Equations in reference space</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. Integral Balance Equations in reference space</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
@@ -245,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/continuum/balance-derived-integral.md" target="_blank"
+      <li><a href="../../_sources/ch/continuum/balance-reference-integral.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +318,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -327,11 +331,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Integral Balance Equations of ddd physical quantities</h1>
+    <h1>Integral Balance Equations in reference space</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mass">2.6.1. Mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">2.6.2. Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">2.6.3. Kinetic energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-energy">2.6.4. Total energy</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -341,18 +356,134 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="integral-balance-equations-of-ddd-physical-quantities">
-<span id="continuum-governing-equations-primary-integral"></span><h1><span class="section-number">2.4. </span>Integral Balance Equations of ddd physical quantities<a class="headerlink" href="#integral-balance-equations-of-ddd-physical-quantities" title="Permalink to this heading">#</a></h1>
-<!--
-(continuum:governing-equations:primary-integral:lagrange)=
-## Principles of classical mechanics for closed systems - Lagrangian description
-
-(continuum:governing-equations:primary-integral:arbitrary)=
-## Integral balance equations for arbitrary domains - arbitrary description
-
-(continuum:governing-equations:primary-integral:euler)=
-## Integral balance equations for control volumes - Eulerian description
--->
+  <div class="tex2jax_ignore mathjax_ignore section" id="integral-balance-equations-in-reference-space">
+<span id="continuum-governing-equations-reference-integral"></span><h1><span class="section-number">2.6. </span>Integral Balance Equations in reference space<a class="headerlink" href="#integral-balance-equations-in-reference-space" title="Permalink to this heading">#</a></h1>
+<div class="section" id="mass">
+<span id="continuum-governing-equations-reference-integral-mass"></span><h2><span class="section-number">2.6.1. </span>Mass<a class="headerlink" href="#mass" title="Permalink to this heading">#</a></h2>
+<p>Integal balance for a material volume <span class="math notranslate nohighlight">\(V_t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \dfrac{d}{dt}\int_{V_t} \rho(\vec{r}, t) \, dV = \\
+  &amp; = \dfrac{d}{dt}\int_{V_0} \rho(\vec{r}(\vec{r}_0,t), t) \, J(\vec{r}_0,t) \, dV_0 = \\
+  &amp; = \dfrac{d}{dt}\int_{V_0} \rho_0(\vec{r}_0,t) \, J(\vec{r}_0,t) \, dV_0 = \\
+  &amp; = \int_{V_0} \dfrac{D}{D t} \left( \rho_0(\vec{r}_0,t) \, J(\vec{r}_0,t) \right) \, dV_0 \ . 
+\end{aligned}\end{split}\]</div>
+<p>Since the domain <span class="math notranslate nohighlight">\(V_0\)</span> is arbitrary, with some abuse of notation to indicate the density field as <span class="math notranslate nohighlight">\(\rho\)</span>, hidihg the dependence on the independet fvariables <span class="math notranslate nohighlight">\(\rho_0(\vec{r}_0,t)\)</span>, the differential balance in reference space follows</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{D}{Dt} \left( \rho \, J \right) = 0\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\rho \, J = \rho^0 \ ,\]</div>
+<p>i.e. the product <span class="math notranslate nohighlight">\(\rho \, J\)</span> equals the initial density field <span class="math notranslate nohighlight">\(\rho^0\)</span>, assuming that the determinant of the transformation is <span class="math notranslate nohighlight">\(J^0 = 1\)</span>, in the reference configuration.</p>
+</div>
+<div class="section" id="momentum">
+<span id="continuum-governing-equations-reference-integral-momentum"></span><h2><span class="section-number">2.6.2. </span>Momentum<a class="headerlink" href="#momentum" title="Permalink to this heading">#</a></h2>
+<p>Integral balance for a material volume <span class="math notranslate nohighlight">\(V_t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \dfrac{d}{dt}\int_{V_t} \rho \vec{v} \, dV = \int_{V_t} \rho \vec{g} + \oint_{\partial V_t} \hat{n} \cdot \mathbb{T} \, dS \\
+  &amp; \dfrac{d}{dt}\int_{V_0} \rho \, J \, \vec{v} \, dV_0 = \int_{V_0} \rho \, J \, \vec{g} + \oint_{\partial V_t} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \right) \, d S_0 \\
+  &amp; \dfrac{d}{dt}\int_{V_0} \rho^0 \, \vec{v} \, dV_0 = \int_{V_0} \rho^0 \, \vec{g} + \oint_{\partial V_0} \hat{n}_0 \cdot \mathbb{\Sigma}_n \, d S_0 \\
+  &amp; \int_{V_0} \rho^0 \, \dfrac{D}{Dt} \vec{v} \, dV_0 = \int_{V_0} \rho^0 \, \vec{g} + \oint_{V_0} \nabla_0 \cdot \mathbb{\Sigma}_n \, d S_0 \\
+\end{aligned}\end{split}\]</div>
+<p>Since the domain <span class="math notranslate nohighlight">\(V_0\)</span> is arbitrary, the differential balance in reference space follows</p>
+<div class="math notranslate nohighlight">
+\[\rho^0 \dfrac{D \vec{v}}{D t} = \rho^0 \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Nanson’s formula<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[d \vec{r} = d \vec{r}_0 \cdot \dfrac{\partial \vec{r}}{\partial \vec{r}_0} = d \vec{r}_0 \cdot \nabla_0 \vec{r} = d \vec{r}_0 \cdot \mathbb{F}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  dV &amp; = J \, dV_0 \\
+  d \vec{r} \cdot \hat{n} dS &amp; = J \, d \vec{r}_0 \cdot \hat{n}_0 \, dS_0 \\
+  d \vec{r}_0 \cdot \mathbb{F} \cdot \hat{n} \, dS &amp; = J \, d \vec{r}_0 \cdot \hat{n}_0 \, dS_0 \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">must be true for all <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> arbitrary, so that</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{F} \cdot \hat{n} \, d S = J \, \hat{n}_0 \, d S_0\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \hat{n} \, d S
+  &amp; = J \, \mathbb{F}^{-1}  \cdot  \hat{n}_0 \, d S_0 = \\
+  &amp; = J \, \hat{n}_0 \cdot \mathbb{F}^{-T} \, d S_0
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Stress tensors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Cauchy stress tensor.</strong></p>
+<p class="sd-card-text"><strong>Piola-Kirchhoff I - transpose of normal stress tensors.</strong></p>
+<p class="sd-card-text"><strong>Piola-Kirchhoff II</strong></p>
+</div>
+</details><div class="proof example dropdown admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 2.1 </span> (Relation between description in physical and reference space)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \rho^0 \dfrac{D \vec{v}}{D t} &amp; = \rho^0 \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n \\
+  J \, \rho \, \dfrac{D \vec{v}}{D t} &amp; = J \, \rho \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n \\
+  \rho \, \dfrac{D \vec{v}}{D t} &amp; = \rho \, \vec{g} + \frac{1}{J} \nabla_0 \cdot \mathbb{\Sigma}_n \\
+\end{aligned}\end{split}\]</div>
+<p>thus,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla \cdot \mathbb{T}
+  &amp; = \frac{1}{J} \nabla_0 \cdot \mathbb{\Sigma}_n = \\
+  &amp; = \frac{1}{J} \nabla_0 \cdot \left( J \, \mathbb{F}^{-T} \cdot \mathbb{T}  \right) 
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> Prove it with derivation!</p>
+</div>
+</div></div>
+<div class="section" id="kinetic-energy">
+<span id="continuum-governing-equations-reference-integral-kinetic-energy"></span><h2><span class="section-number">2.6.3. </span>Kinetic energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \vec{v} \cdot \left\{ \rho^0 \dfrac{D \vec{v}}{D t} - \rho^0 \vec{g} - \nabla_0 \cdot \mathbb{\Sigma}_n \right\} = \\
+  &amp; = \rho^0 \dfrac{D}{D t}\dfrac{|\vec{v}|^2}{2} - \rho^0 \vec{v} \cdot \vec{g} - \vec{v} \cdot \nabla_0 \cdot \mathbb{\Sigma}_n = \\
+  &amp; = \rho^0 \dfrac{D}{D t}\dfrac{|\vec{v}|^2}{2} - \rho^0 \vec{v} \cdot \vec{g} - \nabla_0 \cdot \left( \vec{v} \cdot  \mathbb{\Sigma}_n \right) + \nabla_0 \vec{v} :  \mathbb{\Sigma}_n 
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[v_i \partial^0_k \Sigma_{ki} = \partial^0_k \left( v_i \Sigma_{ki} \right) - \partial^0_k v_i \Sigma_{ki}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ &amp; d V = J d V_0 \\
+ &amp; dr_i n_i \, dS = J dr^0_{k} n^0_k \, dS_0 \\
+ &amp; dr^0_k \dfrac{\partial r_i}{\partial r^0_k} n_i \, dS = dr^0_{k} J n^0_k \, dS_0 \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{\partial r_i}{\partial r^0_k} n_i \, dS &amp; = J n^0_k \, dS_0 \\
+  \underbrace{\dfrac{\partial r^0_k}{\partial r_j} \dfrac{\partial r_i}{\partial r^0_k}}_{=\delta_{ij}} n_i \, dS &amp; = J \dfrac{\partial r^0_k}{\partial r_j} n^0_k \, dS_0 \\
+  n_j \, dS &amp; = J \frac{\partial r^0_k}{\partial r_j} n_k^0 \, dS_0
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{F} = \hat{e}^0_k \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_k}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{F}^{-1} = \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbb{F}^{-1} \cdot \mathbb{F} &amp; = \left( \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j} \right) \cdot \left( \hat{e}^0_l \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_l} \right) = \hat{e}^0_j \hat{e}^0_i \dfrac{\partial r^i}{\partial r_j} =  \hat{e}^0_j \hat{e}^0_i \delta_{ij} \\
+\mathbb{F} \cdot \mathbb{F}^{-1} &amp; = \left( \hat{e}^0_l \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_l} \right) \cdot \left( \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j} \right) = \hat{e}^0_l \hat{e}^0_k \dfrac{\partial r^k}{\partial r_l} =  \hat{e}^0_l \hat{e}^0_k \delta_{lk} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial r^0_k}{\partial r_i} \frac{\partial r_i}{\partial r^0_l} = \delta_{kl}\]</div>
+</div>
+<div class="section" id="total-energy">
+<span id="continuum-governing-equations-reference-integral-total-energy"></span><h2><span class="section-number">2.6.4. </span>Total energy<a class="headerlink" href="#total-energy" title="Permalink to this heading">#</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -386,20 +517,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="balance-derived-differential.html"
+       href="balance-jump.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Differential Balance Equations of ddd physical quantities</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Jump conditions</p>
       </div>
     </a>
     <a class="right-next"
-       href="balance-jump.html"
+       href="constitutive-equations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Jump conditions</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Equazioni di stato ed equazioni costitutive</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -409,6 +540,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mass">2.6.1. Mass</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">2.6.2. Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">2.6.3. Kinetic energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-energy">2.6.4. Total energy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
