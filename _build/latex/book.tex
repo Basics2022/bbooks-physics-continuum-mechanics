@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Jan 18, 2025}
+\date{Jan 22, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -268,8 +268,60 @@ strain velocity tensor
 \section{Kinematics in reference space}
 \label{\detokenize{ch/continuum/kinematics:kinematics-in-reference-space}}\label{\detokenize{ch/continuum/kinematics:kinematics-reference-space}}
 \sphinxAtStartPar
-…
+Let \(\vec{r}(\vec{r}_0, t)\), it’s differential \sphinxhyphen{} keeping \(t\) constant \sphinxhyphen{} reads
+\begin{equation*}
+\begin{split}d \vec{r} = d \vec{r}_0 \cdot \nabla_0 \vec{r} = d \vec{r}_0 \cdot \mathbb{F}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or using a Cartesian base in the reference space
+\begin{equation*}
+\begin{split}d \vec{r} = \hat{e}^0_i d x^0_k \dfrac{\partial x_i}{\partial x^0_k}  = \hat{e}^0_i \, d x^0_k \, F_{ki} = \hat{e}^0_i \, d x_i \ .\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}|d \vec{r}|^2 = d \vec{r} \cdot d \vec{r} = d \vec{r}_0 \cdot \mathbb{F} \cdot \mathbb{F}^T \cdot d \vec{r}_0 \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}|d \vec{r}|^2 - |d \vec{r}_0|^2 = d \vec{r}_0 \cdot \left[ \mathbb{F} \cdot \mathbb{F}^T - \mathbb{I} \right] \cdot d \vec{r}_0 \end{split}
+\end{equation*}
 
+\subsection{Strain}
+\label{\detokenize{ch/continuum/kinematics:strain}}\label{\detokenize{ch/continuum/kinematics:kinematics-reference-space-strain}}
+
+\subsubsection{Green\sphinxhyphen{}Lagrange tensor}
+\label{\detokenize{ch/continuum/kinematics:green-lagrange-tensor}}\label{\detokenize{ch/continuum/kinematics:kinematics-reference-space-strain-green-lagrange}}
+\sphinxAtStartPar
+\sphinxstylestrong{Green\sphinxhyphen{}Lagrange strain tensor} is defined as
+\begin{equation}\label{equation:ch/continuum/kinematics:eq:green-lagrange}
+\begin{split}\mathbb{\epsilon} := \frac{1}{2} \left[ \mathbb{F} \cdot \mathbb{F}^T - \mathbb{I} \right]\end{split}
+\end{equation}
+\sphinxAtStartPar
+or in Cartesian coordinates in the reference space
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \epsilon_{ij} 
+  & = \frac{1}{2} \left[ F_{ik} F_{jk} - \delta_{ij} \right] 
+    = \frac{1}{2} \left[ \dfrac{\partial x_i}{\partial x^0_k} \, \dfrac{\partial x_j}{\partial x^0_k} - \delta_{ij} \right]  \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Its (material) time derivative reads (\sphinxstylestrong{todo} \sphinxstyleemphasis{pay attention to vector basis in reference and physical space. Can they be compared/confused?})
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dfrac{D \epsilon_{ij}}{D t}
+  & = \dfrac{1}{2} \left[ \dfrac{D}{Dt}\dfrac{\partial x_k}{\partial x_i^0} \frac{\partial x_k}{\partial x^0_j} + \frac{\partial x_k}{\partial x^0_i} \dfrac{D}{Dt} \frac{\partial x_k}{\partial x^0_j}  \right] = \\
+  & = \dfrac{1}{2} \left[ \dfrac{\partial v_k}{\partial x_i^0} \frac{\partial x_k}{\partial x^0_j} + \frac{\partial x_k}{\partial x^0_i}  \frac{\partial v_k}{\partial x^0_j}  \right] = \\
+  & = \dfrac{1}{2} \left[ \dfrac{\partial x_l}{\partial x^0_i} \dfrac{\partial v_k}{\partial x_l} \frac{\partial x_k}{\partial x^0_j} + \frac{\partial x_k}{\partial x^0_i} \frac{\partial x_l}{\partial x^0_j} \frac{\partial v_k}{\partial x^l}  \right]  \\
+  & = \dfrac{\partial x_l}{\partial x^0_i} \left[ \frac{1}{2} \left( \dfrac{\partial v_k}{\partial x_l} + \frac{\partial v_l}{\partial x^k} \right) \right] \dfrac{\partial x_k}{\partial x^0_j} = \\
+  & = F_{il} \, D_{lk} \, F_{jk} \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation}\label{equation:ch/continuum/kinematics:eq:green-lagrange:dt}
+\begin{split}\begin{aligned}
+ \dfrac{D \mathbb{\epsilon}}{Dt} 
+ & = \dfrac{1}{2} \left[ \dfrac{D \mathbb{F}}{D t} \cdot \mathbb{F}^T + \mathbb{F} \cdot \frac{D \mathbb{F}^T}{D t} \right] = \\
+ & = \dfrac{1}{2} \left[ \, \nabla_0 \vec{v} \cdot \mathbb{F}^T + \mathbb{F} \cdot \nabla_0^T \vec{v} \, \right] = \\
+ & = \dfrac{1}{2} \left[ \, \mathbb{F} \cdot \nabla \vec{v} \cdot \mathbb{F}^T + \mathbb{F} \cdot \nabla^T \vec{v} \cdot \mathbb{F}^T \, \right] = \\
+ & = \mathbb{F} \cdot \left[ \, \dfrac{1}{2} \left( \, \nabla \vec{v} + \nabla^T \vec{v} \, \right) \, \right] \cdot \mathbb{F}^T = \\
+ & = \mathbb{F} \cdot \mathbb{D} \cdot \mathbb{F}^T \ .
+\end{aligned}\end{split}
+\end{equation}
 \sphinxstepscope
 
 
@@ -544,6 +596,326 @@ Jump conditions comes from integral balances for an anrbitrary domain. These con
 \sphinxstepscope
 
 
+\section{Integral Balance Equations in reference space}
+\label{\detokenize{ch/continuum/balance-reference-integral:integral-balance-equations-in-reference-space}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral}}\label{\detokenize{ch/continuum/balance-reference-integral::doc}}
+
+\subsection{Mass}
+\label{\detokenize{ch/continuum/balance-reference-integral:mass}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral-mass}}
+\sphinxAtStartPar
+Integal balance for a material volume \(V_t\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = \dfrac{d}{dt}\int_{V_t} \rho(\vec{r}, t) \, dV = \\
+  & = \dfrac{d}{dt}\int_{V_0} \rho(\vec{r}(\vec{r}_0,t), t) \, J(\vec{r}_0,t) \, dV_0 = \\
+  & = \dfrac{d}{dt}\int_{V_0} \rho_0(\vec{r}_0,t) \, J(\vec{r}_0,t) \, dV_0 = \\
+  & = \int_{V_0} \dfrac{D}{D t} \left( \rho_0(\vec{r}_0,t) \, J(\vec{r}_0,t) \right) \, dV_0 \ . 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Since the domain \(V_0\) is arbitrary, with some abuse of notation to indicate the density field as \(\rho\), hidihg the dependence on the independet fvariables \(\rho_0(\vec{r}_0,t)\), the differential balance in reference space follows
+\begin{equation*}
+\begin{split}\dfrac{D}{Dt} \left( \rho \, J \right) = 0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\rho \, J = \rho^0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the product \(\rho \, J\) equals the initial density field \(\rho^0\), assuming that the determinant of the transformation is \(J^0 = 1\), in the reference configuration.
+
+
+\subsection{Momentum}
+\label{\detokenize{ch/continuum/balance-reference-integral:momentum}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral-momentum}}
+\sphinxAtStartPar
+Integral balance for a material volume \(V_t\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \dfrac{d}{dt}\int_{V_t} \rho \vec{v} \, dV = \int_{V_t} \rho \vec{g} + \oint_{\partial V_t} \hat{n} \cdot \mathbb{T} \, dS \\
+  & \dfrac{d}{dt}\int_{V_0} \rho \, J \, \vec{v} \, dV_0 = \int_{V_0} \rho \, J \, \vec{g} + \oint_{\partial V_t} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \right) \, d S_0 \\
+  & \dfrac{d}{dt}\int_{V_0} \rho^0 \, \vec{v} \, dV_0 = \int_{V_0} \rho^0 \, \vec{g} + \oint_{\partial V_0} \hat{n}_0 \cdot \mathbb{\Sigma}_n \, d S_0 \\
+  & \int_{V_0} \rho^0 \, \dfrac{D}{Dt} \vec{v} \, dV_0 = \int_{V_0} \rho^0 \, \vec{g} + \oint_{V_0} \nabla_0 \cdot \mathbb{\Sigma}_n \, d S_0 \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Since the domain \(V_0\) is arbitrary, the differential balance in reference space follows
+\begin{equation*}
+\begin{split}\rho^0 \dfrac{D \vec{v}}{D t} = \rho^0 \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n\end{split}
+\end{equation*}\subsubsection*{Nanson’s formula}
+\begin{equation*}
+\begin{split}d \vec{r} = d \vec{r}_0 \cdot \dfrac{\partial \vec{r}}{\partial \vec{r}_0} = d \vec{r}_0 \cdot \nabla_0 \vec{r} = d \vec{r}_0 \cdot \mathbb{F}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  dV & = J \, dV_0 \\
+  d \vec{r} \cdot \hat{n} dS & = J \, d \vec{r}_0 \cdot \hat{n}_0 \, dS_0 \\
+  d \vec{r}_0 \cdot \mathbb{F} \cdot \hat{n} \, dS & = J \, d \vec{r}_0 \cdot \hat{n}_0 \, dS_0 \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+must be true for all \(\vec{r}_0\) arbitrary, so that
+\begin{equation*}
+\begin{split}\mathbb{F} \cdot \hat{n} \, d S = J \, \hat{n}_0 \, d S_0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \hat{n} \, d S
+  & = J \, \mathbb{F}^{-1}  \cdot  \hat{n}_0 \, d S_0 = \\
+  & = J \, \hat{n}_0 \cdot \mathbb{F}^{-T} \, d S_0
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Stress tensors}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Cauchy stress tensor.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Piola\sphinxhyphen{}Kirchhoff I \sphinxhyphen{} transpose of normal stress tensors.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Piola\sphinxhyphen{}Kirchhoff II}
+\label{ch/continuum/balance-reference-integral:example-0}
+\begin{sphinxadmonition}{note}{Example 2.6.1 (Relation between description in physical and reference space)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \rho^0 \dfrac{D \vec{v}}{D t} & = \rho^0 \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n \\
+  J \, \rho \, \dfrac{D \vec{v}}{D t} & = J \, \rho \, \vec{g} + \nabla_0 \cdot \mathbb{\Sigma}_n \\
+  \rho \, \dfrac{D \vec{v}}{D t} & = \rho \, \vec{g} + \frac{1}{J} \nabla_0 \cdot \mathbb{\Sigma}_n \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+thus,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \cdot \mathbb{T}
+  & = \frac{1}{J} \nabla_0 \cdot \mathbb{\Sigma}_n = \\
+  & = \frac{1}{J} \nabla_0 \cdot \left( J \, \mathbb{F}^{-T} \cdot \mathbb{T}  \right) 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Prove it with derivation!
+\end{sphinxadmonition}
+
+
+\subsection{Kinetic energy}
+\label{\detokenize{ch/continuum/balance-reference-integral:kinetic-energy}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral-kinetic-energy}}\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \vec{v} \cdot \left\{ \rho^0 \dfrac{D \vec{v}}{D t} - \rho^0 \vec{g} - \nabla_0 \cdot \mathbb{\Sigma}_n \right\} = \\
+  & = \rho^0 \dfrac{D}{D t}\dfrac{|\vec{v}|^2}{2} - \rho^0 \vec{v} \cdot \vec{g} - \vec{v} \cdot \nabla_0 \cdot \mathbb{\Sigma}_n = \\
+  & = \rho^0 \dfrac{D}{D t}\dfrac{|\vec{v}|^2}{2} - \rho^0 \vec{v} \cdot \vec{g} - \nabla_0 \cdot \left( \vec{v} \cdot  \mathbb{\Sigma}_n \right) + \nabla_0 \vec{v} :  \mathbb{\Sigma}_n 
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}v_i \partial^0_k \Sigma_{ki} = \partial^0_k \left( v_i \Sigma_{ki} \right) - \partial^0_k v_i \Sigma_{ki}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+ & d V = J d V_0 \\
+ & dr_i n_i \, dS = J dr^0_{k} n^0_k \, dS_0 \\
+ & dr^0_k \dfrac{\partial r_i}{\partial r^0_k} n_i \, dS = dr^0_{k} J n^0_k \, dS_0 \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \dfrac{\partial r_i}{\partial r^0_k} n_i \, dS & = J n^0_k \, dS_0 \\
+  \underbrace{\dfrac{\partial r^0_k}{\partial r_j} \dfrac{\partial r_i}{\partial r^0_k}}_{=\delta_{ij}} n_i \, dS & = J \dfrac{\partial r^0_k}{\partial r_j} n^0_k \, dS_0 \\
+  n_j \, dS & = J \frac{\partial r^0_k}{\partial r_j} n_k^0 \, dS_0
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbb{F} = \hat{e}^0_k \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_k}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbb{F}^{-1} = \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbb{F}^{-1} \cdot \mathbb{F} & = \left( \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j} \right) \cdot \left( \hat{e}^0_l \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_l} \right) = \hat{e}^0_j \hat{e}^0_i \dfrac{\partial r^i}{\partial r_j} =  \hat{e}^0_j \hat{e}^0_i \delta_{ij} \\
+\mathbb{F} \cdot \mathbb{F}^{-1} & = \left( \hat{e}^0_l \hat{e}^0_i \dfrac{\partial r_i}{\partial r^0_l} \right) \cdot \left( \hat{e}^0_j \hat{e}^0_k \dfrac{\partial r^0_k}{\partial r_j} \right) = \hat{e}^0_l \hat{e}^0_k \dfrac{\partial r^k}{\partial r_l} =  \hat{e}^0_l \hat{e}^0_k \delta_{lk} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\frac{\partial r^0_k}{\partial r_i} \frac{\partial r_i}{\partial r^0_l} = \delta_{kl}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbb{\Sigma} := \mathbb{\Sigma}_n \cdot \mathbb{F}^{-1} = J \mathbb{F}^{-T} \cdot \mathbb{T} \cdot \mathbb{F}^{-1}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbb{\Sigma}_n = \mathbb{\Sigma} \cdot \mathbb{F}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\Sigma_{ik} = \Sigma_{n, ij} \left( \mathbb{F}^{-1} \right)_{jk} = \Sigma_{n, ij} \frac{\partial r^0_k}{\partial r_j}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\Sigma_{n, ij} = \Sigma_{ik} \dfrac{\partial x_j}{\partial x^0_k}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla_0 \vec{v} : \mathbb{\Sigma}_n 
+  & = \frac{D}{Dt} \mathbb{F} : \mathbb{\Sigma}_n = \\
+  & = \dfrac{\partial v_j}{\partial x^0_i} \, \Sigma_{n, ij} = \\
+  & = \dfrac{\partial v_j}{\partial x^0_i} \, \Sigma_{ik} \, \dfrac{\partial x_j}{\partial x^0_k} = \\
+  & = \Sigma_{ik} \, \frac{1}{2} \left( \, \dfrac{\partial v_j}{\partial x^0_i} \, \dfrac{\partial x_j}{\partial x^0_k} + \dfrac{\partial v_j}{\partial x^0_k} \, \dfrac{\partial x_j}{\partial x^0_i} \, \right)
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+if \(\mathbb{\Sigma}\) is symmetric, \(\Sigma_{ik} = \Sigma_{ki}\), or with tensor notation
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla_0 \vec{v} : \mathbb{\Sigma}_n
+  & = \dfrac{D}{D t} \mathbb{F} : \mathbb{\Sigma}_n = \\
+  & = \nabla_0 \vec{v} : \left( \mathbb{\Sigma} \cdot \mathbb{F} \right) = \\
+  & = \mathbb{\Sigma} : \frac{1}{2} \left( \dfrac{D \mathbb{F}}{D t} \cdot \mathbb{F}^T + \mathbb{F} \cdot \frac{D \mathbb{F}^T}{D t}  \right) = \\
+  & = \mathbb{\Sigma} : \dfrac{D}{Dt} \mathbb{E} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having recognized the time derivative \eqref{equation:ch/continuum/kinematics:eq:green-lagrange:dt} of the {\hyperref[\detokenize{ch/continuum/kinematics:kinematics-reference-space-strain-green-lagrange}]{\sphinxcrossref{\DUrole{std,std-ref}{Green\sphinxhyphen{}Lagrange tensor}}}} \eqref{equation:ch/continuum/kinematics:eq:green-lagrange}.
+
+\sphinxAtStartPar
+Integral of the volume stress in the reference space can be recast as the volume in the physical space
+\begin{equation*}
+\begin{split}\int_{V_0} \nabla_0 \vec{v} : \mathbb{\Sigma}_n \, dV_0 = \int_{V_0} \mathbb{\Sigma} : \dfrac{D \mathbb{E}}{D t} \, d V_0 \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\Sigma_{n, ik} = J \, \dfrac{\partial x^0_i}{\partial x_k} \, T_{jk}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{V_0} \nabla_0 \vec{v} : \mathbb{\Sigma}_n \, dV_0 
+  & =  \int_{V_0} \dfrac{\partial v_k}{\partial x^0_i} \Sigma_{n, ik} \, dV_0 = \\
+  & =  \int_{V_0} \underbrace{\dfrac{\partial v_k}{\partial x^0_i} \left( \dfrac{\partial x^0_i}{\partial x_j} \right.}_{}  \, T_{kj}  \underbrace{J\, \bigg) dV_0}_{d V} = \\
+  & =  \int_{V} \dfrac{\partial v_k}{\partial x^j} \, T_{kj} \, d V = \\
+  & =  \int_{V} \frac{1}{2} \left( \dfrac{\partial v_k}{\partial x^j} + \dfrac{\partial v_j}{\partial x^k} \right) \, T_{kj} \, d V = \\
+  & =  \int_{V} D_{jk} \, T_{kj} \, d V = \\
+  & =  \int_{V} \mathbb{D} : \mathbb{T} \, d V  \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsubsection{Variational principles}
+\label{\detokenize{ch/continuum/balance-reference-integral:variational-principles}}
+\sphinxAtStartPar
+Using an arbitrary test function \(\vec{w}(\vec{r}_0)\),
+\begin{equation*}
+\begin{split}0 = \vec{w} \cdot \left\{ \rho^0 \dfrac{D \vec{v}}{D t} - \rho^0 \vec{g} - \nabla_0 \cdot \mathbb{\Sigma}_n \right\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and using rule of product
+\begin{equation*}
+\begin{split}\begin{aligned}
+  w_i \dfrac{\partial \Sigma_{n,ji}}{\partial x^0_j} 
+  & = \dfrac{\partial }{\partial x^0_j} \left( w_i \Sigma_{n, ji} \right) - \dfrac{\partial w_i}{\partial x^0_j} \Sigma_{n, ji} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the second term can be transformed using the relation bewteen normal stress and second Piola\sphinxhyphen{}Kirchhoff tensor
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dfrac{\partial w_i}{\partial x^0_j} \Sigma_{n, ji} = \dfrac{\partial w_i}{\partial x^0_j} \Sigma_{jk} \dfrac{\partial x_i}{\partial x^0_k}
+  = \Sigma_{jk} \, \dfrac{1}{2} \, \left[ \, \dfrac{\partial x_i}{\partial x^0_k} \dfrac{\partial w_i}{\partial x^0_j} + \dfrac{\partial x_i}{\partial x^0_j} \dfrac{\partial w_i}{\partial x^0_k} \, \right] = \Sigma_{jk} \, W_{ij}(\vec{w}) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having defined the tensor
+\begin{equation*}
+\begin{split}\mathbb{W}(\vec{w}) := \dfrac{1}{2} \left[ \, \nabla_0 \vec{w} \cdot \mathbb{F}^T + \mathbb{F} \cdot \nabla^T_0 \vec{w} \, \right] \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the evident analogy with the time derivative of Green\sphinxhyphen{}Lagrange strain tensor, namely
+\begin{equation*}
+\begin{split}\mathbb{\epsilon} = \mathbb{W}(\vec{v}) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(\vec{v}\) the velocity field. Integrating on the domain \(V_0\) and using divergence theorem, the problem is written in its weak form
+\begin{equation*}
+\begin{split}\int_{V_0} \left\{ \rho^0 \vec{w} \cdot \dfrac{D \vec{v}}{D t} + \mathbb{W}(\vec{w}) : \mathbb{\Sigma} \right\} = \int_{V_0} \rho^0 \vec{w} \cdot \vec{g} + \oint_{\partial V_0} \hat{n}_0 \cdot \mathbb{\Sigma}_n \cdot \vec{w} \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the proper boundary conditions and the corresponding conditions on the test function \(\vec{w}\). As an example, if the boundary is composed of two different regions, \(S_{D,0} \cup S_{N,0} = \partial V_0\), \(S_D \cap S_N = \emptyset\) where either position (called \(S_D\) from Dirichlet boundary) and stress (called \(S_N\) from Neumann boundary) are prescribed
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \vec{r} = \vec{r}_b \qquad , \qquad & \vec{w} = \vec{0} & \qquad \text{(on $ S_{D,0} $ Dirichlet - essential - boundary)} \\
+  \hat{n}_0 \cdot \mathbb{\Sigma}_n = \vec{t}_{0, \hat{n}_0} \qquad , \qquad & & \text{(on $ S_{N,0} $ Neumann - natural - boundary)} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the weak form of the equation reads
+\begin{equation*}
+\begin{split}\int_{V_0} \left\{ \rho^0 \vec{w} \cdot \dfrac{D \vec{v}}{D t} + \mathbb{W}(\vec{w}) : \mathbb{\Sigma} \right\} = \int_{V_0} \rho^0 \vec{w} \cdot \vec{g} + \int_{S_{n,0}} \hat{n}_0 \cdot \vec{t}_{\hat{n}_0} \end{split}
+\end{equation*}
+
+\subsection{Total energy}
+\label{\detokenize{ch/continuum/balance-reference-integral:total-energy}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral-total-energy}}
+\sphinxAtStartPar
+Using Nanson’s relation \(\hat{n} \, dS = \hat{n}_0 \cdot \left(J \mathbb{F}^{-T}\right) \, d S_0\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dfrac{d}{d t} \int_{V_t} \rho e^t \, dV
+  & = \int_{V_t} \rho \vec{g} \cdot \vec{v} \, dV + \oint_{\partial V_t} \vec{t}_{\hat{n}} \cdot \vec{v}  \, dS - \oint_{\partial V_t} \hat{n} \cdot \vec{q} + \int_{V_t} \rho \, r \, dV = \\
+  & = \int_{V_t} \rho \vec{g} \cdot \vec{v} \, dV + \oint_{\partial V_t} \hat{n} \cdot \mathbb{T} \cdot \vec{v} \, dS - \oint_{\partial V_t} \hat{n} \cdot \vec{q} \, dS + \int_{V_t} \rho \, r \, dV \\
+  & = \int_{V_0} \rho^0 \, \vec{g} \cdot \vec{v} \, dV_0 + \oint_{\partial V_0} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \right) \cdot \vec{v} \, dS_0 - \oint_{\partial V_0} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) \, dS_0 + \int_{V_0} \rho^0 \, r \, dV_0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the differential form reads
+\begin{equation*}
+\begin{split}
+\rho^0 \dfrac{D e^t}{Dt} = \rho^0 \vec{g} \cdot \vec{v} + \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \cdot \vec{v} \right) - \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) + \rho^0 \, r \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Comparison with equation in physical space (dividing by \(J\)) suggests the identity
+\begin{equation*}
+\begin{split}\dfrac{1}{J} \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) = \nabla \cdot \vec{a} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\nabla_0 \cdot ( J \mathbb{F}^{-T} ) = \vec{0} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+since
+\begin{equation*}
+\begin{split}
+\nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) 
+= \nabla_0 \cdot \left( J \mathbb{F}^{-T} \right) \cdot \vec{a}
++ J \mathbb{F}^{-T} : \nabla_0 \vec{a} = 
+ \nabla_0 \cdot \left( J \mathbb{F}^{-T} \right) \cdot \vec{a} + J \nabla \cdot \vec{a}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Proof.}
+\begin{equation*}
+\begin{split}J = \left| \dfrac{\partial r_k}{\partial r^0_i} \right| = \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\left( \mathbb{F}^{-T} \right)_{ij} = \dfrac{\partial r^0_i}{\partial r_j}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+\left\{ \nabla_0 \cdot \left( J \, \mathbb{F}^{-T} \right) \right\}_j
+ & = \dfrac{\partial }{\partial r_i^0} \left(  \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j}\right) = \\
+ & = \varepsilon_{i_1, i_2, i_3} \dfrac{\partial }{\partial r_i^0} \left(\dfrac{\partial r_{i_1}}{\partial r^0_1} \right)\dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j} 
+   + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1}  \dfrac{\partial }{\partial r_i^0} \left( \dfrac{\partial r_{i_2}}{\partial r^0_2} \right) \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j} + \\
+ & + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \, \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial }{\partial r_i^0} \left(\dfrac{\partial r_{i_3}}{\partial r^0_3}\right) \,  \dfrac{\partial r^0_i}{\partial r_j} 
+   + \varepsilon_{i_1, i_2, i_3}\dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \, \dfrac{\partial }{\partial r_i^0} \left(  \dfrac{\partial r^0_i}{\partial r_j} \right) = \\
+ & = \varepsilon_{i_1, i_2, i_3}  \, \underbrace{\dfrac{\partial r^0_i}{\partial r_j}\dfrac{\partial }{\partial r_i^0}}_{= \frac{\partial }{\partial r_j}} \left(\dfrac{\partial r_{i_1}}{\partial r^0_1} \right)\dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} 
+   + \varepsilon_{i_1, i_2, i_3}  \dfrac{\partial r_{i_1}}{\partial r^0_1} \underbrace{ \dfrac{\partial r^0_i}{\partial r_j} \dfrac{\partial }{\partial r_i^0}}_{= \frac{\partial }{\partial r_j}} \, \left(\dfrac{\partial r_{i_2}}{\partial r^0_2} \right) \dfrac{\partial r_{i_3}}{\partial r^0_3} + \\
+ & + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \, \dfrac{\partial r_{i_2}}{\partial r^0_2} \underbrace{\dfrac{\partial r^0_i}{\partial r_j}\dfrac{\partial }{\partial r_i^0}}_{=\frac{\partial}{\partial r_j}} \, \left(\dfrac{\partial r_{i_3}}{\partial r^0_3}\right)  
+   + \varepsilon_{i_1, i_2, i_3}\dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \, \dfrac{\partial }{\partial r_j} \underbrace{\left(  \dfrac{\partial r^0_i}{\partial r^0_i} \right)}_{=3} = \\
+   & = 0 \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+since
+\begin{equation*}
+\begin{split}\dfrac{\partial }{\partial r_j} \left( \dfrac{\partial r_{i_k}}{\partial r^0_k} \right) = \dfrac{\partial }{\partial r^0_k} \left( \dfrac{\partial r_{i_k}}{\partial r^j} \right) = \dfrac{\partial}{\partial r^0_k} \delta_{i_k j} = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus
+\begin{equation*}
+\begin{split}\dfrac{1}{J}\dfrac{\partial}{\partial r^0_i} \left( J \dfrac{\partial r^0_i}{\partial r_j} a_j \right) = 
+\dfrac{1}{J}\dfrac{\partial}{\partial r^0_i} \left( J \dfrac{\partial r^0_i}{\partial r_j} \right) a_j + \dfrac{1}{J} \, J \, \dfrac{\partial r^0_i}{\partial r_j} \, \dfrac{\partial a_j}{\partial r^0_i} = \dfrac{\partial a_j}{\partial r_j} = \nabla \cdot \vec{a} \ . \end{split}
+\end{equation*}
+
+\subsection{Internal energy}
+\label{\detokenize{ch/continuum/balance-reference-integral:internal-energy}}\label{\detokenize{ch/continuum/balance-reference-integral:continuum-governing-equations-reference-integral-internal-energy}}\begin{equation*}
+\begin{split}\begin{aligned}
+  & \dfrac{d}{d t} \int_{V_t} \rho e \, dV = \int_{V_t} \mathbb{T} : \nabla \vec{v} \, dV - \oint_{\partial V_t} \hat{n} \cdot \vec{q} \, dS + \int_{V_t} \rho \, r \, dV = \\
+  & \dfrac{d}{d t} \int_{V_0} \rho^0 e \, dV_0 = \int_{V_0} J \, \mathbb{T} : \nabla \vec{v} \, dV_0 - \oint_{\partial V_0} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) \, dS_0 + \int_{V_0} \rho^0 \, r \, dV_0 = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
 \chapter{Equazioni di stato ed equazioni costitutive}
 \label{\detokenize{ch/continuum/constitutive-equations:equazioni-di-stato-ed-equazioni-costitutive}}\label{\detokenize{ch/continuum/constitutive-equations:continuum-constitutive-equations}}\label{\detokenize{ch/continuum/constitutive-equations::doc}}
 \sphinxstepscope
@@ -803,7 +1175,7 @@ The expression \eqref{equation:ch/fluids/constitutive-equations:eq:stress-viscou
 \section{Newtonian Fluid}
 \label{\detokenize{ch/fluids/governing-equations:newtonian-fluid}}
 \sphinxAtStartPar
-The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the expression \eqref{equation:ch/continuum/balance-primary-differential:eq:continuum:primary:differential:conservative} of {\hyperref[\detokenize{ch/continuum/balance-derived-differential:continuum-governing-equations-primary-integral}]{\sphinxcrossref{\DUrole{std,std-ref}{governing equations of a continuum medium in differential form}}}},
+The differential conservative form of the governing equations of a {\hyperref[\detokenize{ch/fluids/constitutive-equations:fluid-mechanics-constutive-equations-newtonian}]{\sphinxcrossref{\DUrole{std,std-ref}{Newtonian fluid}}}} directly follows from the expression \eqref{equation:ch/continuum/balance-primary-differential:eq:continuum:primary:differential:conservative} of {\hyperref[\detokenize{ch/continuum/balance-primary-integral:continuum-governing-equations-primary-integral}]{\sphinxcrossref{\DUrole{std,std-ref}{governing equations of a continuum medium in differential form}}}},
 \begin{equation*}
 \begin{split}\begin{cases}
   \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \vec{v} \right) = 0 \\
@@ -938,9 +1310,16 @@ and, since this must hold for any volume \(V_t\) and state of the system \sphinx
 
 
 \chapter{Non\sphinxhyphen{}dimensional Equations of Fluid Mechanics}
-\label{\detokenize{ch/fluids/dimensional-analysis:non-dimensional-equations-of-fluid-mechanics}}\label{\detokenize{ch/fluids/dimensional-analysis:fluid-mechanics-dimensional-analysis}}\label{\detokenize{ch/fluids/dimensional-analysis::doc}}\begin{equation*}
+\label{\detokenize{ch/fluids/dimensional-analysis:non-dimensional-equations-of-fluid-mechanics}}\label{\detokenize{ch/fluids/dimensional-analysis:fluid-mechanics-dimensional-analysis}}\label{\detokenize{ch/fluids/dimensional-analysis::doc}}
+\sphinxAtStartPar
+If \(\rho(P, s)\),
+\begin{equation*}
+\begin{split}d \rho = \left(\frac{\partial \rho}{\partial P}\right)_s \, d P + \left(\dfrac{\partial \rho}{\partial s} \right)_{\rho} \, ds\end{split}
+\end{equation*}\begin{equation*}
 \begin{split}\begin{cases}
-  \frac{}{}
+  \dfrac{D \rho}{D t} + \rho \nabla \cdot \vec{v} = 0  \\
+  \rho \dfrac{D \vec{v}}{D t} = \rho \vec{g} + \nabla \cdot \left(-p \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \vec{v}) \mathbb{I} \right)  \\
+  \rho \dfrac{D e^t    }{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r \\
 \end{cases}\end{split}
 \end{equation*}
 \sphinxstepscope
@@ -1126,6 +1505,12 @@ The results of this section derived for a uniform density flow hold for a barotr
 
 \chapter{Compressible Fluid Mechanics}
 \label{\detokenize{ch/fluids/compressible:compressible-fluid-mechanics}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible}}\label{\detokenize{ch/fluids/compressible::doc}}
+
+\section{Compressible Inviscid Fluid Mechanics}
+\label{\detokenize{ch/fluids/compressible:compressible-inviscid-fluid-mechanics}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-invisid}}
+
+\subsection{Shocks}
+\label{\detokenize{ch/fluids/compressible:shocks}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-invisid-shocks}}
 
 
 
