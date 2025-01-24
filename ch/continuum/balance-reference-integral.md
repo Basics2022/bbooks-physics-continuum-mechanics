@@ -237,6 +237,17 @@ $$
 \rho^0 \dfrac{D e^t}{Dt} = \rho^0 \vec{g} \cdot \vec{v} + \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \cdot \vec{v} \right) - \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) + \rho^0 \, r \ .
 $$
 
+or
+
+$$
+\rho^0 \dfrac{D e^t}{Dt} = \rho^0 \vec{g} \cdot \vec{v} + \nabla_0 \cdot \left( \mathbb{\Sigma}_n \cdot \vec{v} \right) - \nabla_0 \cdot \vec{q}_0 + \rho^0 \, r \ .
+$$
+
+and dividing by $J$ and using the relation (**see below**) $\nabla_0 \cdot ( J \mathbb{F}^{-T} \cdot \vec{a} ) = J \, \nabla \cdot \vec{a}$,
+
+$$\rho \dfrac{D e^t}{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r \ .$$
+
+
 Comparison with equation in physical space (dividing by $J$) suggests the identity
 
 $$\dfrac{1}{J} \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) = \nabla \cdot \vec{a} \ ,$$
@@ -292,7 +303,12 @@ $$\begin{aligned}
   & \dfrac{d}{d t} \int_{V_0} \rho^0 e \, dV_0 = \int_{V_0} J \, \mathbb{T} : \nabla \vec{v} \, dV_0 - \oint_{\partial V_0} \hat{n}_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) \, dS_0 + \int_{V_0} \rho^0 \, r \, dV_0 = \\
 \end{aligned}$$
 
+and the differential form reads
 
+$$\rho^0 \dfrac{D e}{Dt} = \mathbb{\Sigma}_n : \nabla_0 \vec{v} - \nabla_0 \cdot \vec{q}^0 + \rho^0 r \ .$$
 
+**todo** *pay attention at the definition - choose one and keep using it! - of the product $\mathbb{A} : \mathbb{B}$*, in components
+
+$$\mathbb{A} : \mathbb{B} = A_{ij} B_{ij} \qquad \text{or} \qquad = A_{ij} B_{ji}$$
 
 

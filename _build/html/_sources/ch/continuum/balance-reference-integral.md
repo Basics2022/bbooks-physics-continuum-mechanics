@@ -237,9 +237,27 @@ $$
 \rho^0 \dfrac{D e^t}{Dt} = \rho^0 \vec{g} \cdot \vec{v} + \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \mathbb{T} \cdot \vec{v} \right) - \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{q} \right) + \rho^0 \, r \ .
 $$
 
+and dividing by $J$ and using the relation (**see below**) $\nabla_0 \cdot ( J \mathbb{F}^{-T} \cdot \vec{a} ) = J \, \nabla \cdot \vec{a}$,
+
+$$\rho \dfrac{D e^t}{D t} = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r \ .$$
+
+
 Comparison with equation in physical space (dividing by $J$) suggests the identity
 
-$$\dfrac{1}{J} \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) = \nabla \cdot \vec{a} \ .$$
+$$\dfrac{1}{J} \nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) = \nabla \cdot \vec{a} \ ,$$
+
+and thus 
+
+$$\nabla_0 \cdot ( J \mathbb{F}^{-T} ) = \vec{0} \ ,$$
+
+since
+
+$$
+\nabla_0 \cdot \left( J \mathbb{F}^{-T} \cdot \vec{a} \right) 
+= \nabla_0 \cdot \left( J \mathbb{F}^{-T} \right) \cdot \vec{a}
++ J \mathbb{F}^{-T} : \nabla_0 \vec{a} = 
+ \nabla_0 \cdot \left( J \mathbb{F}^{-T} \right) \cdot \vec{a} + J \nabla \cdot \vec{a}
+$$
 
 **Proof.**
 
@@ -251,14 +269,24 @@ $$\begin{aligned}
 \left\{ \nabla_0 \cdot \left( J \, \mathbb{F}^{-T} \right) \right\}_j
  & = \dfrac{\partial }{\partial r_i^0} \left(  \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j}\right) = \\
  & = \varepsilon_{i_1, i_2, i_3} \dfrac{\partial }{\partial r_i^0} \left(\dfrac{\partial r_{i_1}}{\partial r^0_1} \right)\dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j} 
-   + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial }{\partial r_i^0} \left(\dfrac{\partial r_{i_1}}{\partial r^0_1} \right)\dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j} + \\
+   + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1}  \dfrac{\partial }{\partial r_i^0} \left( \dfrac{\partial r_{i_2}}{\partial r^0_2} \right) \dfrac{\partial r_{i_3}}{\partial r^0_3} \,  \dfrac{\partial r^0_i}{\partial r_j} + \\
  & + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \, \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial }{\partial r_i^0} \left(\dfrac{\partial r_{i_3}}{\partial r^0_3}\right) \,  \dfrac{\partial r^0_i}{\partial r_j} 
-   + \varepsilon_{i_1, i_2, i_3}\dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \, \dfrac{\partial }{\partial r_i^0} \left(  \dfrac{\partial r^0_i}{\partial r_j} \right) \\
+   + \varepsilon_{i_1, i_2, i_3}\dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \, \dfrac{\partial }{\partial r_i^0} \left(  \dfrac{\partial r^0_i}{\partial r_j} \right) = \\
+ & = \varepsilon_{i_1, i_2, i_3}  \, \underbrace{\dfrac{\partial r^0_i}{\partial r_j}\dfrac{\partial }{\partial r_i^0}}_{= \frac{\partial }{\partial r_j}} \left(\dfrac{\partial r_{i_1}}{\partial r^0_1} \right)\dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} 
+   + \varepsilon_{i_1, i_2, i_3}  \dfrac{\partial r_{i_1}}{\partial r^0_1} \underbrace{ \dfrac{\partial r^0_i}{\partial r_j} \dfrac{\partial }{\partial r_i^0}}_{= \frac{\partial }{\partial r_j}} \, \left(\dfrac{\partial r_{i_2}}{\partial r^0_2} \right) \dfrac{\partial r_{i_3}}{\partial r^0_3} + \\
+ & + \varepsilon_{i_1, i_2, i_3} \dfrac{\partial r_{i_1}}{\partial r^0_1} \, \dfrac{\partial r_{i_2}}{\partial r^0_2} \underbrace{\dfrac{\partial r^0_i}{\partial r_j}\dfrac{\partial }{\partial r_i^0}}_{=\frac{\partial}{\partial r_j}} \, \left(\dfrac{\partial r_{i_3}}{\partial r^0_3}\right)  
+   + \varepsilon_{i_1, i_2, i_3}\dfrac{\partial r_{i_1}}{\partial r^0_1} \dfrac{\partial r_{i_2}}{\partial r^0_2} \dfrac{\partial r_{i_3}}{\partial r^0_3} \, \dfrac{\partial }{\partial r_j} \underbrace{\left(  \dfrac{\partial r^0_i}{\partial r^0_i} \right)}_{=3} = \\
+   & = 0 \ ,
 \end{aligned}$$
 
+since 
+
+$$\dfrac{\partial }{\partial r_j} \left( \dfrac{\partial r_{i_k}}{\partial r^0_k} \right) = \dfrac{\partial }{\partial r^0_k} \left( \dfrac{\partial r_{i_k}}{\partial r^j} \right) = \dfrac{\partial}{\partial r^0_k} \delta_{i_k j} = 0 \ .$$
+
+Thus
 
 $$\dfrac{1}{J}\dfrac{\partial}{\partial r^0_i} \left( J \dfrac{\partial r^0_i}{\partial r_j} a_j \right) = 
-\dfrac{1}{J}\dfrac{\partial}{\partial r^0_i} \left( J \dfrac{\partial r^0_i}{\partial r_j} \right) a_j + \dfrac{1}{J} \, J \, \dfrac{\partial}{\partial r^0_i} \dfrac{\partial r^0_i}{\partial r_j} \, a_j $$
+\dfrac{1}{J}\dfrac{\partial}{\partial r^0_i} \left( J \dfrac{\partial r^0_i}{\partial r_j} \right) a_j + \dfrac{1}{J} \, J \, \dfrac{\partial r^0_i}{\partial r_j} \, \dfrac{\partial a_j}{\partial r^0_i} = \dfrac{\partial a_j}{\partial r_j} = \nabla \cdot \vec{a} \ . $$
 
 
 (continuum:governing-equations:reference-integral:internal-energy)=
