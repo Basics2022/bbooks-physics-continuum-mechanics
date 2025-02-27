@@ -186,9 +186,24 @@ $$\begin{aligned}
  \mathcal{S} & = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}}\\
 \end{aligned}$$
 
+```
 
+```{dropdown} Comparing isothermal and isentropic conditions
+:open:
 
+Assuming small enough $\Delta T = T - T_0$ so that linear approximation of the relation between entropy, temperature and strain holds,
 
+$$\Delta \mathcal{S} = \beta \, \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T_0} \Delta T \ ,$$
+
+it's possible to write the stress tensor as a function of strain and entropy
+
+$$\begin{aligned}
+  \sigma_{ij} 
+  & = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \Delta T \delta_{ij} = \\
+  & = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \left[ \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} - \frac{T_0}{C_{\varepsilon_{ij}}} \beta \, \varepsilon_{ll}  \right] \delta_{ij} = \\
+  & = 2 \mu \varepsilon_{ij} + \left( \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \right) \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} = \\
+  & = 2 \mu_s \varepsilon_{ij} + \lambda_s \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} \ .
+\end{aligned}$$
 
 ```
 
