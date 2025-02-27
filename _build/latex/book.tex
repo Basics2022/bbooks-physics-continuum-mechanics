@@ -1087,18 +1087,215 @@ La differenza di segno deriva dalla definizione di \(d Q^e\) come flusso di calo
 \end{itemize}
 
 
-\section{Isotropic elastic medium}
-\label{\detokenize{ch/solids/small-displacements-statics:isotropic-elastic-medium}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-elastic-medium}}
+\section{Linear isotropic elastic medium}
+\label{\detokenize{ch/solids/small-displacements-statics:linear-isotropic-elastic-medium}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-elastic-medium}}
 
 \subsection{Constitutive equation}
 \label{\detokenize{ch/solids/small-displacements-statics:constitutive-equation}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-elastic-medium-constitutive-equation}}
 \sphinxAtStartPar
-An isotropic elastic medium has no prefereed orientation. The most general relation between stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\), and temperature difference \(\Delta T\) w.r.t. a reference temperature, \(\Delta T := T - T_0\),
+An isotropic elastic medium has no prefereed orientation. The most general linear relation between stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\), and temperature difference \(\Delta T\) w.r.t. a reference temperature, \(\Delta T := T - T_0\),
 \begin{equation*}
 \begin{split}\symbf{\sigma} = \mathbf{D} : \symbf{\varepsilon} - \symbf{\beta} \Delta T \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for isotropic media involves the rank\sphinxhyphen{}\(2\) and rank\sphinxhyphen{}\(4\) isotropic tensors, see \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}2\sphinxhyphen{}iso}, and \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}4\sphinxhyphen{}iso}. Since stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\) are symmetric the constitutive law for isotropic elastic media
+for isotropic media involves the rank\sphinxhyphen{}\(2\) and rank\sphinxhyphen{}\(4\) isotropic tensors, see \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}2\sphinxhyphen{}iso}, and \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}4\sphinxhyphen{}iso}. Since stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\) are symmetric the constitutive law for isotropic elastic media reads
+\begin{equation}\label{equation:ch/solids/small-displacements-statics:eq:linear-isotropic-elastic}
+\begin{split}\symbf{\sigma} = 2 \mu \symbf{\varepsilon} + \lambda \, \text{tr}(\symbf{\varepsilon}) \mathbb{I} - \beta \Delta T \mathbb{I} \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+being \(\mu\), \(\lambda\) the Lamé coefficients.
+
+\sphinxAtStartPar
+Decomposition of tensor in hydrostatic (proportional to \(\mathbb{I}\)) and deviatoric (traceless) parts reads
+\begin{equation}\label{equation:ch/solids/small-displacements-statics:eq:linear-isotropic-elastic:iso-dev}
+\begin{split}\symbf{\sigma} = \left( 2 \mu \symbf{\varepsilon} - \frac{2}{3} \mu \, \text{tr}(\varepsilon) \mathbb{I} \right) + \left( \lambda + \frac{2}{3} \mu \right)\text{tr}(\varepsilon) \mathbb{I} - \beta \Delta T \mathbb{I} \end{split}
+\end{equation}
+\sphinxAtStartPar
+The expression of strain tensor \(\symbf{\varepsilon}\) as a function of stress tensor and temperature difference
+\begin{equation*}
+\begin{split}\symbf{\varepsilon} = \end{split}
+\end{equation*}
+\sphinxAtStartPar
+can be easily evaluated, using the relation between the traces of the tensors
+\subsubsection*{Different expression of constitutive laws, and sets of parameters.}
+
+\sphinxAtStartPar
+Remembering that \(\text{tr}(\mathbb{I}) = 3\) in the 3\sphinxhyphen{}dimensional space, evaluating the trace of the relation \eqref{equation:ch/solids/small-displacements-statics:eq:linear-isotropic-elastic} provides the relation between the traces of strain and stress tensors and the temeprature difference
+\begin{equation*}
+\begin{split}\text{tr} (\symbf{\sigma}) = \left( 2 \mu + 3 \lambda \right) \text{tr} (\symbf{\varepsilon}) - 3 \beta \Delta T \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\text{tr} (\symbf{\varepsilon}) = \frac{1}{ 2 \mu + 3 \lambda} \text{tr} (\symbf{\sigma}) + \frac{3 \beta}{ 2 \mu + 3 \lambda} \Delta T \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using the relation between traces, it’s possible to find \(\symbf{\varepsilon}\left(\symbf{\sigma}, \Delta T \right)\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \symbf{\varepsilon}
+  & = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu} \text{tr}(\symbf{\varepsilon}) \mathbb{I} + \frac{\beta}{2 \mu} \Delta T \mathbb{I} = \\
+  & = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu} \left[ \frac{1}{2 \mu + 3 \lambda} \text{tr}(\symbf{\sigma}) + \frac{3 \beta}{2 \mu + 3 \lambda} \Delta T \right] \mathbb{I} + \frac{\beta}{2 \mu} \Delta T \mathbb{I} = \\
+  & = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu ( 2 \mu + 3 \lambda)} \text{tr}(\symbf{\sigma}) \mathbb{I} + \frac{1}{2 \mu}\left[ 1 - \frac{3 \lambda}{2 \mu + 3 \lambda} \right] \beta \Delta T \mathbb{I} = \\
+  & = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu ( 2 \mu + 3 \lambda)} \text{tr}(\symbf{\sigma}) \mathbb{I} + \frac{1}{2 \mu + 3 \lambda}  \beta \Delta T \mathbb{I} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Modulo elastico.} Il modulo elastico \(E\) è definito dalla relazione
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{1}{E} 
+  & = \frac{1}{2 \mu} - \frac{\lambda}{2 \mu (2 \mu + 3 \lambda)} = \\
+  & = \frac{1}{2 \mu} \frac{2 (\mu + \lambda)}{2 \mu + 3 \lambda} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+e quindi
+\begin{equation*}
+\begin{split}E = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Modulo di Poisson.} Il modulo di Poisson \(\nu\) è definito dalla relazione
+\begin{equation*}
+\begin{split}\frac{\nu}{E} = \frac{\lambda}{2\mu (2 \mu + 3 \lambda)} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+e quindi
+\begin{equation*}
+\begin{split}\nu = \frac{\lambda}{2 (\mu + \lambda)}\end{split}
+\end{equation*}\subsubsection*{Thermodynamics}
+
+\sphinxAtStartPar
+Helmholtz’s free energy is the thermodynamic potential \(F\) defined w.r.t. temperature \(T\) and generalized displacements \(\mathbf{X}_i\) as independet variables. Here \sphinxstylestrong{unit\sphinxhyphen{}volume} relation (Explain why! Link to general continuum mechanics, and equations in reference coordinates). Using difference of temperature \(\Delta T = T - T_0\) w.r.t. a reference temperature \(T_0\) instead of temperature \(T\), differential of Helmhtoltz’s free energy per unit volume for a linear elastic medium reads
+\begin{equation*}
+\begin{split}d\mathcal{F}(\varepsilon_{ij}, \Delta T) = - \mathcal{S} d \Delta T + \sigma_{ij} d \varepsilon_{ij} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}
+\sigma_{ij} = \left( \frac{\partial \mathcal{F}}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}}
+\qquad , \qquad
+\mathcal{S} = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using the constitutive law \eqref{equation:ch/solids/small-displacements-statics:eq:linear-isotropic-elastic} for a linear isotropic elastic medium, here written in Cartesian coordinates as
+\begin{equation*}
+\begin{split}\sigma_{ij} = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} - \beta \Delta T \delta_{ij} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+integration w.r.t. \(\varepsilon_{ij}\) gives
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathcal{F}(\varepsilon_{ij}, \Delta T) 
+  & = \frac{1}{2} \left( 2  \mu \varepsilon_{ij} \varepsilon_{ij} + \lambda \varepsilon_{kk} \varepsilon_{ll} \right) - \beta \Delta T \varepsilon_{ll} + \mathcal{F}(0, \Delta T) = \\
+  & = \frac{1}{2} \left( 2 \mu \symbf{\varepsilon} : \symbf{\varepsilon} + \lambda \left( \text{tr}(\symbf{\varepsilon}) \right)^2 \right) - \beta \Delta T \text{tr}(\symbf{\varepsilon}) + \mathcal{F}(0, \Delta T) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(\mathcal{F}(0, \Delta T) = F(\Delta T)\) a function of \(\Delta T\) appearing from integration in \(\varepsilon_{ij}\). If you don’t trust this, try do evaluate the partial derivative w.r.t. the components of the strain tensor of the last relation.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Entropy.} Entropy is the parital derivative w.r.t. \(T\) of Helmholtz’s free energy and, assuming constant parameters, its expression reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathcal{S}(\varepsilon_{ij}, \Delta T) 
+  = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}} 
+  = \beta \varepsilon_{ll} - F'(\Delta T) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Heat coefficients.} Heat coefficient at constant strain per unit\sphinxhyphen{}volume reads
+\begin{equation*}
+\begin{split}C_{\varepsilon_{ij}} := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\varepsilon_{ij}} = - (T_0 + \Delta T) F''(\Delta T) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Assuming that heat coefficient \(C_{\varepsilon_{ij}}\) is independent from \(T\), integration in \(\Delta T\) gives
+\begin{equation*}
+\begin{split}C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) = - F'(\Delta T) + F'(0) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus an expression for \(F'(\Delta T)\)
+\begin{equation*}
+\begin{split}F'(\Delta T) = - C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) + F'(0) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+to be inserted in the expression of entropy
+\begin{equation*}
+\begin{split}\mathcal{S}(\varepsilon_{ij}, \Delta T) = \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) - F'(0) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and \(-F'(0) = \mathcal{S}_0\) can be recognized as the entropy per unit volume in the reference condition with \(\varepsilon_{ij} = 0\), \(\Delta T = 0\). The differential of the last expression reads
+\begin{equation*}
+\begin{split}d \mathcal{S}
+ = \beta d \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T_0} \frac{1}{1 + \frac{\Delta T}{T_0}} \, d T  
+ = \beta d \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T}\, d T  
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}dT = \frac{T}{C_{\varepsilon_{ij}}} d \mathcal{S} - \frac{\beta T}{C_{\varepsilon_{ij}}} \, d \varepsilon_{ll}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Furhter integration in \(\Delta T\) of
+\begin{equation*}
+\begin{split}F'(\Delta T) = - C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \mathcal{S}_0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gives and expression of funtion \(F(\Delta T)\),
+\begin{equation*}
+\begin{split}F(\Delta T) - F(0) = -C_{\varepsilon_{ij}} \left[ (T_0 + \Delta T) \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \Delta T \right] - \mathcal{S}_0 \Delta T \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+that can be used int he expression of Helmholtz free energy, as an example, as show later.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Internal energy.} The relation between the internal energy and Hemlholtz free energy \(\mathcal{F} = \mathcal{E} - T \mathcal{S}\) allows to find the expression of the internal energy per unit volume of an elastic linear isotropic media,
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathcal{E} 
+& = \mathcal{F} + T \mathcal{S} = \\
+& = \mu \varepsilon_{ij} \varepsilon_{ij} + \frac{\lambda}{2} \left(  \varepsilon_{kk} \right)^2 - \beta \Delta T \varepsilon_{kk} + F(0) -C_{\varepsilon_{ij}} \left[ (T_0 + \Delta T) \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \Delta T \right] \\
+& \quad  - \mathcal{S}_0 \Delta T + (T_0 + \Delta T) \left( \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) + \mathcal{S}_0 \right) = \\
+& = \mu \varepsilon_{ij} \varepsilon_{ij} + \frac{\lambda}{2} \left(  \varepsilon_{kk} \right)^2 + \beta T_0 \varepsilon_{kk} + C_{\varepsilon_{ij}} \Delta T + F(0) + T_0 \mathcal{S}_0  \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the reference internal energy and reference Helmholtz free energy can be recognized as
+\begin{equation*}
+\begin{split}\mathcal{F}_0 = F(0) \qquad , \qquad \mathcal{E}_0 = \mathcal{F}_0 + T_0 \mathcal{S}_0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In order to write the differential of the internal energy w.r.t. its natural independent variables \(\mathcal{E}(\varepsilon_{ij}, \mathcal{S})\), the temperature difference must be written as a function of strain and entropy. Using relation \sphinxstylestrong{todo}, and performing derivatives of the composite funciton \(\mathcal{E}(\varepsilon_{ij}, \Delta T(\varepsilon_{ij}, \mathcal{S}))\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  d \mathcal{E} 
+  & = \left( \frac{\partial \mathcal{E}}{\partial \varepsilon_{ij}} \right)_{\Delta T} d \varepsilon_{ij} + \left( \frac{\partial \mathcal{E}}{\partial \Delta T} \right)_{\varepsilon_{ij}} \left[ \left( \frac{\partial \Delta T}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}} d \varepsilon_{ij} + \left( \frac{\partial \Delta T}{\partial \mathcal{S}} \right)_{\varepsilon_{ij}} d \mathcal{S} \right] = \\
+  & = \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} + \beta T_0 \delta_{ij} \right) d \varepsilon_{ij} + 
+   C_{\varepsilon_{ij}} \left[ -\frac{\beta T}{C_{\varepsilon_{ij}}} \delta_{ij} \, d \varepsilon_{ij} + \frac{T}{C_{\varepsilon_{ij}}} \, d \mathcal{S} \right] = \\
+  & = \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} - \beta \Delta T \delta_{ij} \right) d \varepsilon_{ij} + T \, d \mathcal{S} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. we found what we should have expected, i.e.
+\begin{equation*}
+\begin{split}d \mathcal{E} = \sigma_{ij} \, d \varepsilon_{ij} + T \, d\mathcal{S} \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+\sigma_{ij}
+ & = \left( \frac{\partial \mathcal{F}}{\partial \varepsilon_{ij}} \right)_{T}
+   = \left( \frac{\partial \mathcal{E}}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}} \\
+ T & = \left( \frac{\partial \mathcal{E}}{\partial \mathcal{S}} \right)_{\varepsilon_{ij}}\\
+ \mathcal{S} & = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}}\\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Fix admonition reference
 
 \begin{sphinxadmonition}{note}{Isotropic tensor}
 
