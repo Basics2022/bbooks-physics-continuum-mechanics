@@ -176,7 +176,7 @@ i.e. we found what we should have expected, i.e.
 
 $$d \mathcal{E} = \sigma_{ij} \, d \varepsilon_{ij} + T \, d\mathcal{S} \ , $$
 
-or
+and thus
 
 $$\begin{aligned}
 \sigma_{ij}
