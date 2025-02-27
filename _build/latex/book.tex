@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Jan 22, 2025}
+\date{Feb 27, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1070,6 +1070,102 @@ La differenza di segno deriva dalla definizione di \(d Q^e\) come flusso di calo
 \sphinxstepscope
 
 
+\chapter{Small displacement \sphinxhyphen{} statics}
+\label{\detokenize{ch/solids/small-displacements-statics:small-displacement-statics}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics}}\label{\detokenize{ch/solids/small-displacements-statics::doc}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Labile \sphinxhyphen{} Undetermined.}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Isostatic \sphinxhyphen{} “determined”.}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Hyperstatic \sphinxhyphen{} “overdetermined”.}
+
+\end{itemize}
+
+
+\section{Isotropic elastic medium}
+\label{\detokenize{ch/solids/small-displacements-statics:isotropic-elastic-medium}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-elastic-medium}}
+
+\subsection{Constitutive equation}
+\label{\detokenize{ch/solids/small-displacements-statics:constitutive-equation}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-elastic-medium-constitutive-equation}}
+\sphinxAtStartPar
+An isotropic elastic medium has no prefereed orientation. The most general relation between stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\), and temperature difference \(\Delta T\) w.r.t. a reference temperature, \(\Delta T := T - T_0\),
+\begin{equation*}
+\begin{split}\symbf{\sigma} = \mathbf{D} : \symbf{\varepsilon} - \symbf{\beta} \Delta T \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for isotropic media involves the rank\sphinxhyphen{}\(2\) and rank\sphinxhyphen{}\(4\) isotropic tensors, see \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}2\sphinxhyphen{}iso}, and \DUrole{xref,std,std-ref}{rank\sphinxhyphen{}4\sphinxhyphen{}iso}. Since stress tensor \(\symbf{\sigma}\) and strain tensor \(\symbf{\varepsilon}\) are symmetric the constitutive law for isotropic elastic media
+
+\begin{sphinxadmonition}{note}{Isotropic tensor}
+
+\sphinxAtStartPar
+An isotropic tensor is a tensor whose components do not change after a rotation of the vector basis. \sphinxstylestrong{todo} \sphinxstyleemphasis{Examples,…}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}{Rank\sphinxhyphen{}\protect\(2\protect\) isotropic tensor}
+
+\sphinxAtStartPar
+The most general expression of a rank\sphinxhyphen{}\(2\) isotropic tensor is proportional to the rank\sphinxhyphen{}\(2\) identity tensor, and can be written in a Cartesina basis using the Kroeneker delta,
+\begin{equation*}
+\begin{split}a \mathbf{I} = a \delta_{ij} \hat{e}_i \otimes \hat{e}_j \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Proof}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}{Rank\sphinxhyphen{}\protect\(4\protect\) isotropic tensor}
+
+\sphinxAtStartPar
+The most general expression of a rank\sphinxhyphen{}\(4\) isotropic tensor can be written using a Cartesian basis as
+\begin{equation*}
+\begin{split}\mathbf{D} = D_{ijkl} \hat{e}_i \otimes \hat{e}_j \otimes \hat{e}_k \otimes \hat{e}_l \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+where
+\begin{equation*}
+\begin{split}D_{ijkl} = a \delta_{ij} \delta_{kl} + b \delta_{ik} \delta_{jl} + c \delta_{il}\delta_{jk} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. depends on three possible combinations of rank\sphinxhyphen{}2 identity tensor, with 3 scalar parameters, \(a\), \(b\), \(c\). In isotropic relation between symmetric tensors, \(A_{ij} = A_{ji}\), \(B_{kl} = B_{lk}\) only two parameters are enough since
+\begin{equation*}
+\begin{split}\begin{aligned}
+  A_{ij} 
+  & = D_{ijkl} B_{kl} = \\
+  & = \left( a \delta_{ij} \delta_{kl} + b \delta_{ik} \delta_{jl} + c \delta_{il}\delta_{jk} \right) B_{kl} = \\
+  & = a \delta_{ij} B_{ll} + b B_{ij} + c  B_{ji} =  & (1) \\
+  & = a \delta_{ij} B_{ll} + (b+c) B_{ij} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used (1) the symmetry of tensor \(\mathbf{B}\), \(B_{ji} = B_{ij}\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{References.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://farside.ph.utexas.edu/teaching/336L/Fluid/node252.html}{Fluid Mechanics, R. Fitzpatrick, University of Texas, Austin}
+
+\item {} 
+\sphinxAtStartPar
+P.G. Hodge, \sphinxstyleemphasis{On Isotropic Cartesian Tensors}, 1961, The American Mathematical Monthly
+
+\end{itemize}
+\end{sphinxadmonition}
+
+
+\section{Beam models}
+\label{\detokenize{ch/solids/small-displacements-statics:beam-models}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-beam}}
+
+\section{Beam structures}
+\label{\detokenize{ch/solids/small-displacements-statics:beam-structures}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-beam-structures}}
+\sphinxstepscope
+
+
 \part{Fluid Mechanics}
 
 \sphinxstepscope
@@ -1139,7 +1235,7 @@ Inviscid
 \sphinxAtStartPar
 The behavior of continuous medium in static conditions can be used to define a fluid.
 \label{ch/fluids/statics:definition-0}
-\begin{sphinxadmonition}{note}{Definition 7.1 (Fluid)}
+\begin{sphinxadmonition}{note}{Definition 8.1 (Fluid)}
 
 
 
@@ -1173,7 +1269,7 @@ and the viscous stress tensor is isotropic and \sphinxstylestrong{linear} in the
 \sphinxAtStartPar
 being \(\mu, \lambda\) the viscosity coefficients, and \(\mathbb{D}\) the strain velocity tensor \eqref{equation:ch/continuum/kinematics:eq:strain-vel-tensor}. Thus, the definition
 \label{ch/fluids/constitutive-equations:definition-0}
-\begin{sphinxadmonition}{note}{Definition 8.1.1 (Newtonian fluid)}
+\begin{sphinxadmonition}{note}{Definition 9.1.1 (Newtonian fluid)}
 
 
 
@@ -1218,7 +1314,7 @@ a constitutive equation for conduction heat flux \(\vec{q}\), as an example \sph
 \sphinxAtStartPar
 and the required state equations characterizing the behavior of the medium linking thermodynamic variables (assumption of \sphinxstylestrong{local thermodynamic equilibrium} \sphinxstylestrong{todo} \sphinxstyleemphasis{discuss this principle}), and required to get a well\sphinxhyphen{}defined mathematical problem, with the same number of equations and unknowns.
 \label{ch/fluids/governing-equations:example-0}
-\begin{sphinxadmonition}{note}{Example 9.1.1 (Equations of state)}
+\begin{sphinxadmonition}{note}{Example 10.1.1 (Equations of state)}
 
 
 
@@ -1320,7 +1416,7 @@ and, since this must hold for any volume \(V_t\) and state of the system \sphinx
 \begin{equation*}
 \begin{split}\mu \ge 0 \quad , \quad \lambda \ge 0 \quad , \quad k \ge 0\end{split}
 \end{equation*}\label{ch/fluids/governing-equations:example-1}
-\begin{sphinxadmonition}{note}{Example 9.2.1 (Sign of physical quantity)}
+\begin{sphinxadmonition}{note}{Example 10.2.1 (Sign of physical quantity)}
 
 
 
@@ -1469,7 +1565,7 @@ so that the momentum equation in Navier\sphinxhyphen{}Stokes equations \eqref{eq
 \sphinxAtStartPar
 Starting from the form \eqref{equation:ch/fluids/incompressible:eq:ns-mom-bernoulli}, different forms of Bernoulli theorems are readilty derived with the proper assumptions.
 \label{ch/fluids/incompressible:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 11.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 12.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
 
 
 
@@ -1482,7 +1578,7 @@ In a steady incompressible inviscid flow with conservative volume forces, \(\vec
 \sphinxAtStartPar
 The proof readily follows taking the scalar product with a unit\sphinxhyphen{}norm vector \(\hat{t}\) parallel to the local velocity or vorticity, and noting that \(\hat{t} \cdot \vec{u} \times \vec{\omega}\) is zero if either \(\hat{t} \parallel \vec{v}\) or \(\hat{t} \parallel \vec{\omega}\).
 \label{ch/fluids/incompressible:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 11.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 12.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
 
 
 
@@ -1493,7 +1589,7 @@ In a steady incompressible inviscid irrotational flow with conservative volume f
 \qquad \rightarrow \qquad \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = 0 \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/fluids/incompressible:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 11.3.3 (Bernoulli theorem in irrotational inviscid flows)}
+\begin{sphinxadmonition}{note}{Theorem 12.3.3 (Bernoulli theorem in irrotational inviscid flows)}
 
 
 
