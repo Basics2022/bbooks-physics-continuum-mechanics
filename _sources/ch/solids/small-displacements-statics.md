@@ -254,7 +254,7 @@ $$\begin{aligned}
 
 ```
 
-```{dropdown} Heat capacity, thermal expansion coefficients, compressibility coefficients
+````{dropdown} Heat capacity, thermal expansion coefficients, compressibility coefficients
 :open:
 
 **Thermal expansion coefficient** reads
@@ -263,9 +263,12 @@ $$\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x$$
 
 with $\dfrac{dV}{V} = d \text{tr}(\symbf{\varepsilon})$ for small displacement and strain regime. At constant strain, $d \sigma_{ij} = 0$,
 
+$$
+  \alpha_{\sigma} = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma}
+$$
+
+```{dropdown} Some algebra
 $$\begin{aligned}
-  \alpha_{\sigma} 
-  & = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma} = \\
   & = \frac{3 \beta}{2 \mu + 3 \lambda} = \\
   & = 3 \beta \frac{2 G \nu }{E \lambda} = \\
   & = 3 \beta \frac{\nu }{(1+ \nu) \lambda} = \\
@@ -274,12 +277,76 @@ $$\begin{aligned}
   & = 3 \frac{\beta}{2G} \frac{\nu }{(1+ \nu)} \frac{1-2\nu}{\nu} = \\
   & = 3 \frac{\beta}{E} (1 - 2 \nu)  \ .
 \end{aligned}$$
-
-and thus
-
-$$\beta = \frac{\alpha_{\sigma} E}{3(1-2\nu)}$$
-
 ```
+so that
+
+$$\beta = K \alpha_{\sigma} = \left( \frac{2}{3} \mu +  \lambda \right) \, \alpha_{\sigma} = \frac{E}{3(1-2\nu)} \, \alpha_{\sigma} $$
+
+**Heat capacity.** The heat capacity at constant strain $C_{\varepsilon_{ij}}$ has been assumed to be constant (or just independent from temperature). Entropy can be written as functions of strain and temperature or - exploiting the relation between traces of tensors - stress and temperature
+
+$$\begin{aligned}
+  \mathcal{S} - \mathcal{S}_0
+  & = \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  & = \beta \left( \frac{1}{2\mu+3\lambda} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  & = \beta \left( \frac{1}{3 \, K} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+\end{aligned}$$
+
+and thus, constaint strain heat capacity per unit volume reads
+
+$$C_{\varepsilon_{ij}} := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\varepsilon} = C_{\varepsilon_{ij}} \ ,$$
+
+as defined above, whilte constant stress heat capacity per unit volume reads
+
+$$\begin{aligned}
+  C_{\sigma_{ij}}
+  & := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\sigma} = \\
+  &  = T \left( \beta \alpha_{\sigma} + C_{\varepsilon_{ij}} \frac{1}{T_0} \frac{1}{1 + \frac{\Delta T}{T_0}} \right) \\
+  &  = T K \alpha^2_{\sigma} + C_{\varepsilon_{ij}} \\
+\end{aligned}$$
+
+**Compressibility coefficients.** **todo** *check: Below, $T$ or $T_0$? It should be a minor change, since we're assuming small $\Delta T$ so that linearized constitutive equation holds?*
+
+$$\begin{aligned}
+  K   & = \frac{2}{3} \mu + \lambda \\
+  K_s & = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{K^2 \alpha^2_{\sigma} T}{C_{\varepsilon}}
+\end{aligned}$$
+
+$$\begin{aligned}
+  K_s 
+  & = K \left( 1 + \frac{\alpha^2 K T}{C_{\varepsilon}} \right) \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} \frac{C_{\varepsilon}}{C_{\sigma}} \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} \frac{C_{\sigma} - \alpha_{\sigma}^2 K T}{C_{\sigma}} \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} - \frac{\alpha_{\sigma}^2 T}{C_{\sigma}} \\
+\end{aligned}$$
+
+**Elastic modulus and Poisson ratio.**
+
+$$
+ E_s = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+ \qquad , \qquad
+ \nu_s = \frac{\nu + E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+$$
+
+```{dropdown} Some algebra
+$$\begin{aligned}
+  K 
+  & = \lambda + \frac{2}{3} G = \\
+  & = \frac{GE - 2G^2}{3G-E} + \frac{2}{3} G = \\
+  & = G \frac{3 E - 6 G + 6 G - 2 E}{3(3 G -  E)} = \frac{E G}{3 (3 G - E)}
+\end{aligned}$$
+
+$$E = \frac{9 G K}{ 3 K + G } = \frac{1}{ \frac{1}{3 G} + \frac{1}{9 K}} $$
+
+$$\begin{aligned}
+  E_s 
+  & = \frac{1}{ \dfrac{1}{3 G_s} + \dfrac{1}{9 K_s}} = \\
+  & = \frac{1}{\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+  & = \frac{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}}{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}\right)\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}} = \\
+  & = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+\end{aligned}$$
+```
+
+````
 
 
 
