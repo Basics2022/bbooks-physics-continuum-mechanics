@@ -237,7 +237,6 @@ so that
 
 $$\nu = \frac{E - 2G}{2G} \qquad , \qquad G = \frac{E}{2(1+\nu)}$$
 
-**Compressibility coefficients.**
 
 <!--
 $$\begin{aligned}
@@ -258,7 +257,7 @@ $$\begin{aligned}
 ```{dropdown} Heat capacity, thermal expansion coefficients, compressibility coefficients
 :open:
 
-Thermal expansion coefficient reads
+**Thermal expansion coefficient** reads
 
 $$\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x$$
 
