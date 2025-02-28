@@ -522,7 +522,7 @@ Thermodynamics<div class="sd-summary-down docutils">
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Comparing isothermal and isentropic conditions<div class="sd-summary-down docutils">
+Isothermal and isentropic elastic coefficients<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
@@ -539,6 +539,76 @@ Comparing isothermal and isentropic conditions<div class="sd-summary-down docuti
   &amp; = 2 \mu \varepsilon_{ij} + \left( \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \right) \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} = \\
   &amp; = 2 \mu_s \varepsilon_{ij} + \lambda_s \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} \ .
 \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having defined Lamé coefficients in isentropic conditions as functions of the cofficients in isothermal conditions,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lambda_s &amp; = \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \\
+      \mu_s &amp; = \mu
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Elastic modulus and Poisson ratio.</strong> Starting from the relations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E &amp; = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda} \\
+  \frac{E}{\nu} &amp; = \frac{2 \mu (2 \mu + 3 \lambda)}{\lambda} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[G E + \lambda E = 2 G^2 + 3 G \lambda\]</div>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{G (E - 2 G)}{ 3G - E }\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nu
+  &amp; = \frac{E \lambda}{2G(2G+3 \lambda)} = \\
+  &amp; = \frac{\lambda}{2G(2G+3 \lambda)} \frac{G (2G + 3\lambda)}{G + \lambda} = \\
+  &amp; = \frac{\lambda}{2(G + \lambda)} = \\ 
+  &amp; = \frac{G(E-2G)}{3G - E} \frac{1}{2 \left( G + \frac{G(E-2G)}{3G-E} \right)} = \\
+  &amp; = \frac{G}{2G} \frac{E-2G}{3G - E} \frac{3G - E}{3G - E + E - 2G } = \\
+  &amp; = \frac{1}{2} \frac{E - 2G}{G} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\nu = \frac{E - 2G}{2G} \qquad , \qquad G = \frac{E}{2(1+\nu)}\]</div>
+<p class="sd-card-text"><strong>Compressibility coefficients.</strong></p>
+<!--
+$$\begin{aligned}
+  K   & = \frac{2}{3} \mu + \lambda \\
+  K_s & = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}}
+\end{aligned}$$
+
+$$\begin{aligned}
+  E_s 
+  & = \frac{G_s (2 G_s + 3 \lambda_s)}{G_s + \lambda_s} = \\
+  & = \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda + A} = \\
+  & = \frac{G+\lambda}{G+\lambda+A} \left[ \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda}  \right] = \\
+\end{aligned}$$
+-->
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Heat capacity, thermal expansion coefficients, compressibility coefficients<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Thermal expansion coefficient reads</p>
+<div class="math notranslate nohighlight">
+\[\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\dfrac{dV}{V} = d \text{tr}(\symbf{\varepsilon})\)</span> for small displacement and strain regime. At constant strain, <span class="math notranslate nohighlight">\(d \sigma_{ij} = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \alpha_{\sigma} 
+  &amp; = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma} = \\
+  &amp; = \frac{3 \beta}{2 \mu + 3 \lambda} = \\
+  &amp; = 3 \beta \frac{2 G \nu }{E \lambda} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu) \lambda} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3G-E}{G(E-2G)} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3-2(1+\nu)}{G\left(2(1+\nu)  -2 \right)} = \\
+  &amp; = 3 \frac{\beta}{2G} \frac{\nu }{(1+ \nu)} \frac{1-2\nu}{\nu} = \\
+  &amp; = 3 \frac{\beta}{E} (1 - 2 \nu)  \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\beta = \frac{\alpha_{\sigma} E}{3(1-2\nu)}\]</div>
 </div>
 </details><p><span style="color:red">Fix admonition reference</span></p>
 <div class="dropdown admonition" id="isotropic-tensor">

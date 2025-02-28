@@ -188,7 +188,7 @@ $$\begin{aligned}
 
 ```
 
-```{dropdown} Comparing isothermal and isentropic conditions
+```{dropdown} Isothermal and isentropic elastic coefficients
 :open:
 
 Assuming small enough $\Delta T = T - T_0$ so that linear approximation of the relation between entropy, temperature and strain holds,
@@ -204,6 +204,81 @@ $$\begin{aligned}
   & = 2 \mu \varepsilon_{ij} + \left( \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \right) \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} = \\
   & = 2 \mu_s \varepsilon_{ij} + \lambda_s \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} \ .
 \end{aligned}$$
+
+having defined Lamé coefficients in isentropic conditions as functions of the cofficients in isothermal conditions,
+
+$$\begin{aligned}
+  \lambda_s & = \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \\
+      \mu_s & = \mu
+\end{aligned}$$
+
+**Elastic modulus and Poisson ratio.** Starting from the relations
+
+$$\begin{aligned}
+  E & = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda} \\
+  \frac{E}{\nu} & = \frac{2 \mu (2 \mu + 3 \lambda)}{\lambda} \\
+\end{aligned}$$
+
+$$G E + \lambda E = 2 G^2 + 3 G \lambda$$
+
+$$\lambda = \frac{G (E - 2 G)}{ 3G - E }$$
+
+$$\begin{aligned}
+  \nu
+  & = \frac{E \lambda}{2G(2G+3 \lambda)} = \\
+  & = \frac{\lambda}{2G(2G+3 \lambda)} \frac{G (2G + 3\lambda)}{G + \lambda} = \\
+  & = \frac{\lambda}{2(G + \lambda)} = \\ 
+  & = \frac{G(E-2G)}{3G - E} \frac{1}{2 \left( G + \frac{G(E-2G)}{3G-E} \right)} = \\
+  & = \frac{G}{2G} \frac{E-2G}{3G - E} \frac{3G - E}{3G - E + E - 2G } = \\
+  & = \frac{1}{2} \frac{E - 2G}{G} \ .
+\end{aligned}$$
+
+so that
+
+$$\nu = \frac{E - 2G}{2G} \qquad , \qquad G = \frac{E}{2(1+\nu)}$$
+
+**Compressibility coefficients.**
+
+<!--
+$$\begin{aligned}
+  K   & = \frac{2}{3} \mu + \lambda \\
+  K_s & = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}}
+\end{aligned}$$
+
+$$\begin{aligned}
+  E_s 
+  & = \frac{G_s (2 G_s + 3 \lambda_s)}{G_s + \lambda_s} = \\
+  & = \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda + A} = \\
+  & = \frac{G+\lambda}{G+\lambda+A} \left[ \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda}  \right] = \\
+\end{aligned}$$
+-->
+
+```
+
+```{dropdown} Heat capacity, thermal expansion coefficients, compressibility coefficients
+:open:
+
+Thermal expansion coefficient reads
+
+$$\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x$$
+
+with $\dfrac{dV}{V} = d \text{tr}(\symbf{\varepsilon})$ for small displacement and strain regime. At constant strain, $d \sigma_{ij} = 0$,
+
+$$\begin{aligned}
+  \alpha_{\sigma} 
+  & = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma} = \\
+  & = \frac{3 \beta}{2 \mu + 3 \lambda} = \\
+  & = 3 \beta \frac{2 G \nu }{E \lambda} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu) \lambda} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3G-E}{G(E-2G)} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3-2(1+\nu)}{G\left(2(1+\nu)  -2 \right)} = \\
+  & = 3 \frac{\beta}{2G} \frac{\nu }{(1+ \nu)} \frac{1-2\nu}{\nu} = \\
+  & = 3 \frac{\beta}{E} (1 - 2 \nu)  \ .
+\end{aligned}$$
+
+and thus
+
+$$\beta = \frac{\alpha_{\sigma} E}{3(1-2\nu)}$$
 
 ```
 
