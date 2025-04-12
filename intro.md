@@ -3,6 +3,8 @@
 
 This material is part of the [**basics-books project**](https://basics2022.github.io/bbooks). It is also available as a [.pdf document](_build/latex/book.pdf).
 
+<span style="color:red">**work-in-progress! Feel free to reach out on Github, leave a comment, a suggestion, a request or contribute**</span>
+
 General approach and equations in continuum mechanics are first presented, and then specialized to the most common models of solids - mainly elastic solids - and fluids - mainly Newtonian fluids.
 
 ```{dropdown} [Introduction to Continuum Mechanics](continuum-mechanics:intro)

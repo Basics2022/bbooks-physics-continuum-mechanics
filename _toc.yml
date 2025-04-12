@@ -26,6 +26,7 @@ parts:
   chapters:
   - file: ch/solids/intro
   - file: ch/solids/small-displacements-statics
+  - file: ch/solids/small-displacements-numerics
 - caption: Fluid Mechanics
   numbered: true
   chapters:

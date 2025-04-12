@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Non-dimensional Equations of Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>&lt;no title&gt; &#8212; continuum mechanics</title>
   
   
   
@@ -66,12 +66,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/fluid/dimensional-analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacement-numerics';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Incompressible Fluid Mechanics" href="incompressible.html" />
-    <link rel="prev" title="Statics" href="statics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,20 +174,33 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../continuum/kinematics.html">Cinematica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuum/principles-integral.html">Princìpi in forma integrale per volumi materiali</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuum/principles-integral-arbitrary.html">Princìpi in forma integrale per domini arbitrari</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuum/principles-differential.html">Princìpi in forma differenziale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuum/constitutive-equations.html">Equazioni di stato ed equazioni costitutive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">Equazioni di bilancio di altre grandezze fisiche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/kinematics.html">1. Kinematics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../continuum/governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-jump.html">2.5. Jump conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-reference-integral.html">2.6. Integral Balance Equations in reference space</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">Statics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compressible.html">Compressible Fluid Mechanics</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">7. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">8. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">9. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">10. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">11. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">12. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">13. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -244,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/fluid/dimensional-analysis.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/small-displacement-numerics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +326,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -326,11 +339,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Non-dimensional Equations of Fluid Mechanics</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -340,13 +361,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="non-dimensional-equations-of-fluid-mechanics">
-<span id="fluid-mechanics-dimensional-analysis"></span><h1>Non-dimensional Equations of Fluid Mechanics<a class="headerlink" href="#non-dimensional-equations-of-fluid-mechanics" title="Permalink to this heading">#</a></h1>
-<div class="math notranslate nohighlight">
-\[\begin{cases}
-  \frac{}{}
-\end{cases}\]</div>
-</div>
+  <div class="math notranslate nohighlight" id="solid-mechanics-intro-small-displacements-numerics">
+\[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\]</div>
 
     <script type="text/x-thebe-config">
     {
@@ -361,7 +377,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/fluid"
+            path: "./ch/solids"
         },
         predefinedOutput: true
     }
@@ -378,30 +394,26 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="statics.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statics</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="incompressible.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Incompressible Fluid Mechanics</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
