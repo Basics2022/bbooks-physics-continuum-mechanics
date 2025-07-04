@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Modal methods for structural problems &#8212; continuum mechanics</title>
+    <title>7. Waves in linear elastic homogeneous isotropic media &#8212; continuum mechanics</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-numerics';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-waves';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
-    <link rel="prev" title="7. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="next" title="8. Modal methods for structural problems" href="small-displacements-numerics.html" />
+    <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,8 +193,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">7. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Modal methods for structural problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">8. Modal methods for structural problems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-numerics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-waves.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +306,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/solids/small-displacements-numerics.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/small-displacements-waves.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modal methods for structural problems</h1>
+    <h1>Waves in linear elastic homogeneous isotropic media</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,15 +400,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">8.1. No free rigid motion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">8.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">8.1.1.1. Truncation and direct recovery of loads</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">8.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">8.2. With free rigid motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">7.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">7.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">7.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
 </ul>
             </nav>
         </div>
@@ -420,131 +414,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="modal-methods-for-structural-problems">
-<span id="solid-mechanics-intro-small-displacements-numerics"></span><h1><span class="section-number">8. </span>Modal methods for structural problems<a class="headerlink" href="#modal-methods-for-structural-problems" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="waves-in-linear-elastic-homogeneous-isotropic-media">
+<span id="solid-mechanics-intro-small-displacements-waves"></span><h1><span class="section-number">7. </span>Waves in linear elastic homogeneous isotropic media<a class="headerlink" href="#waves-in-linear-elastic-homogeneous-isotropic-media" title="Permalink to this heading">#</a></h1>
+<div class="section" id="navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">
+<h2><span class="section-number">7.1. </span>Navier-Cauchy equation: displacement formulation of the momentum equation<a class="headerlink" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation" title="Permalink to this heading">#</a></h2>
+<p>Momentum balance equation in differential form for continuous media in the small-displacement regime</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\]</div>
-<div class="section" id="no-free-rigid-motion">
-<h2><span class="section-number">8.1. </span>No free rigid motion<a class="headerlink" href="#no-free-rigid-motion" title="Permalink to this heading">#</a></h2>
-<p>If a structure has no free rigid motion, the stiffness matrix of mechanical systems is symmetric <strong>definite positive</strong>.</p>
-<p><strong>Spectral decomposition of the problem.</strong></p>
+\[\rho_0 \, \partial_{tt} \mathbf{s} = \rho_0 \, \mathbf{g} + \nabla \cdot \boldsymbol{\sigma} \ .\]</div>
+<ul>
+<li><p>Introducing the constitutive equation for linear elastic homogeneous isotropic media,</p>
 <div class="math notranslate nohighlight">
-\[\left[ s_i^2 \mathbf{M} + \mathbf{K} \right] \hat{\mathbf{u}}_i = \mathbf{0} \ ,\]</div>
-<p>or in index and matrix form</p>
+\[\boldsymbol{\sigma} = 2 \mu \, \boldsymbol{\varepsilon} + \lambda \, \text{tr} \left( \boldsymbol{\varepsilon} \right) \mathbf{I} \ ,\]</div>
+</li>
+<li><p>using the definition of the strain tensor</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 &amp; = s_i^2 M_{jk} U_{ki} + K_{jk} U_{ki} = \\
-    &amp; = \mathbf{M} \mathbf{U} \mathbf{S}^2 + \mathbf{K} \mathbf{U} \ ,
-\end{aligned}\end{split}\]</div>
-<p>with the diagonal matrix <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> collecting the eigenvalues,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{S} = \text{diag} \left\{ s_i \right\} \ .\]</div>
-<p><strong>Properties.</strong> For eigenvectors with different eigenvalues,</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-  \hat{\mathbf{u}}_j^* \mathbf{M} \hat{\mathbf{u}}_i = 0 \qquad , \qquad
-  \hat{\mathbf{u}}_j^* \mathbf{K} \hat{\mathbf{u}}_i = 0 \ .
-\end{aligned}\]</div>
-<p><strong>Nodal and modal unknowns.</strong> The nodal vector can be written as a combination of modes, being <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> the vector of modal amplitudes,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = \mathbf{U} \mathbf{q} = \left[ \hat{\mathbf{u}}_1 | \dots | \hat{\mathbf{u}}_N \right] \mathbf{q} \ .\]</div>
-<p><strong>Laplace domain.</strong> In Laplace domain</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \left[ s^2 \mathbf{U}^* \mathbf{M} \mathbf{U} + \mathbf{U}^* \mathbf{K} \mathbf{U}\right] \mathbf{q}(s) &amp; = \mathbf{U}^* \mathbf{f}(s) \\
-  \text{diag}\left[ s^2 m_i + k_i \right] \mathbf{q}(s) &amp; = \mathbf{U}^* \mathbf{f}(s) \ .
-\end{aligned}\end{split}\]</div>
-<p><strong>Modal damping</strong> Adding modal damping, with simultaneous diagonalization with mass and stiffness matrices,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-  \text{diag}\left[ s^2 m_i + s c_i + k_i \right] \mathbf{q}(s) &amp; = \mathbf{U}^* \mathbf{f}(s) \\
- \mathbf{q}(s) &amp; = \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \ .
-\end{split}\]</div>
-<p>The original equation becomes</p>
-<div class="math notranslate nohighlight">
-\[\left[s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{f} \ ,\]</div>
-<p>with</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{M} &amp; = \mathbf{U} \text{diag}\left\{ m_i \right\} \mathbf{U}^* \\
-  \mathbf{C} &amp; = \mathbf{U} \text{diag}\left\{ c_i \right\} \mathbf{U}^* \\
-  \mathbf{K} &amp; = \mathbf{U} \text{diag}\left\{ k_i \right\} \mathbf{U}^* \\
-\end{aligned}\end{split}\]</div>
-<p>and the eigenproblem reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0} &amp; = \left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \hat{\mathbf{u}}_i \\
-  \mathbf{0} &amp; = \mathbf{M} \mathbf{U} \mathbf{S}^2 + \mathbf{C} \mathbf{U} \mathbf{S} + \mathbf{K} \mathbf{U} \\
-\end{aligned}\end{split}\]</div>
-<p><strong>Nodal vector.</strong> Nodal vector thus reads</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u}(s) = \mathbf{U} \mathbf{q}(s) = \mathbf{U} \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \]</div>
-<p>and the internal forces usually derived from a manipulation of the term <span class="math notranslate nohighlight">\(\mathbf{K} \mathbf{u}(s)\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{K} \mathbf{u}(s) = \mathbf{K} \mathbf{U} \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \ .\]</div>
-<div class="section" id="dimension-reduction">
-<h3><span class="section-number">8.1.1. </span>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this heading">#</a></h3>
-<p>Modal unknowns can usually partitioned in slow (dynamical, resolved) and fast modes (with natural frequencies well above the frequency content of the forcing, and the dynamics of the system; can be treated as static modes),</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{q} = \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} \ ,\end{split}\]</div>
-<p>and the sum of their contributions give the nodal unknown,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{u} = \mathbf{U} \mathbf{q} = \begin{bmatrix} \mathbf{U}_s &amp; \mathbf{U}_f \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} = \mathbf{U}_s \mathbf{q}_s + \mathbf{U}_f \mathbf{q}_f \ .\end{split}\]</div>
-<div class="section" id="truncation-and-direct-recovery-of-loads">
-<h4><span class="section-number">8.1.1.1. </span>Truncation and direct recovery of loads<a class="headerlink" href="#truncation-and-direct-recovery-of-loads" title="Permalink to this heading">#</a></h4>
+\[\boldsymbol{\varepsilon} = \dfrac{1}{2} \left[ \nabla \mathbf{s} + \nabla^T \mathbf{s} \right] \ ,\]</div>
+<ul class="simple">
+<li><p>and under the assumption of no volume force <span class="math notranslate nohighlight">\(\mathbf{g} = \mathbf{0}\)</span>,</p></li>
+</ul>
+<p>the momentum equation becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-  \mathbf{u} 
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
-    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f ( s^2 + 2 \xi_f \omega_f s + \omega^2_f )} \right] \mathbf{U}_f^* \mathbf{f}
+  \rho_0 \partial_{tt} \mathbf{s} &amp; = \mu \nabla^2 \mathbf{s} + \left( \mu +\lambda \right) \nabla \nabla \cdot \mathbf{s} \ ,
 \end{aligned}\]</div>
 </div>
-<div class="section" id="mode-acceleration-and-static-recovery-of-fast-modes">
-<h4><span class="section-number">8.1.1.2. </span>Mode acceleration and static recovery of fast modes<a class="headerlink" href="#mode-acceleration-and-static-recovery-of-fast-modes" title="Permalink to this heading">#</a></h4>
-<p>Static approximation of fast modes gives</p>
+<div class="section" id="helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">
+<h2><span class="section-number">7.2. </span>Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves<a class="headerlink" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves" title="Permalink to this heading">#</a></h2>
+<p>Displacement field can be written using <a class="reference external" href="https://en.wikipedia.org/wiki/Helmholtz_decomposition">Helmholtz decomposition</a> as the sum of a potential <span class="math notranslate nohighlight">\(\mathbf{s}_p = \nabla \phi\)</span> (s.t. <span class="math notranslate nohighlight">\(\nabla \times \nabla \phi = \mathbf{0}\)</span>) and a divergence-free <span class="math notranslate nohighlight">\(\mathbf{s}_s = \nabla \times \mathbf{a}\)</span> (s.t. <span class="math notranslate nohighlight">\(\nabla \cdot \nabla \times \mathbf{a} = \mathbf{0}\)</span>) part,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s} = \mathbf{s}_p + \mathbf{s}_s = \nabla \phi + \nabla \times \mathbf{a} \ .\]</div>
+<p>Introducing the last expression in the momentum equation, using vector identity</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 \mathbf{v} = \nabla \nabla \cdot \mathbf{v} - \nabla \times \nabla \times \mathbf{v} \ , \]</div>
+<p>the equation can be written as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{u} 
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
-    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f ( s^2 + 2 \xi_f \omega_f s + \omega^2_f )} \right] \mathbf{U}_f^* \mathbf{f} = \\
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
-    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f \omega^2_f } \right] \mathbf{U}_f^* \mathbf{f}
+  \mathbf{0} 
+  &amp; = \rho_0 \partial_{tt} \nabla \phi - (2 \mu + \lambda) \nabla^2 \nabla \phi + \rho_0 \partial_{tt} \nabla \times \mathbf{a} + \mu \nabla^2 \nabla \times \mathbf{a} = \\
+  &amp; = \rho_0 \partial_{tt} \mathbf{s}_p - (2 \mu + \lambda) \nabla^2 \mathbf{s}_p + \rho_0 \partial_{tt} \mathbf{s}_s - \mu \nabla^2 \mathbf{s}_s \ ,
 \end{aligned}\end{split}\]</div>
-<p>and adding and subtracting the static response of the slow modes,</p>
+<p>i.e. as the “sum of two wave equations” for the potential part <span class="math notranslate nohighlight">\(\mathbf{s}_p\)</span> and the divergence-free part <span class="math notranslate nohighlight">\(\mathbf{s}_s\)</span> of the displacement. Speed of propagation of <span class="math notranslate nohighlight">\(p\)</span>- and <span class="math notranslate nohighlight">\(s\)</span>-displacement read</p>
+<div class="math notranslate nohighlight">
+\[c_p = \sqrt{\dfrac{2 \mu + \lambda}{\rho_0}} \qquad , \qquad c_s = \sqrt{\dfrac{\mu}{\rho_0}} \ .\]</div>
+</div>
+<div class="section" id="fourier-decomposition-p-is-longitudinal-s-is-transverse">
+<h2><span class="section-number">7.3. </span>Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse<a class="headerlink" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse" title="Permalink to this heading">#</a></h2>
+<p>Using <strong>Fourier decomposition</strong> of fields as sum of harmonic plane waves,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s}(\mathbf{r},t) = \sum_{\mathbf{k},\omega} \mathbf{s}_{\mathbf{k},\omega} e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} \ ,\]</div>
+<p>it’s immediate to prove that the potential part can be associated to a longitudinal perturbation (i.e. with displacement in the same direction of the wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>, representing the direction of propagation of  the perturbation, while the divergence-free part can be associated to a transverse perturnation (i.e. with displacement orthogonal to the wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>). Helmholtz’s decomposition of the field in Fourier domain reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{u} 
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
-    - \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s \omega^2_s } \right] \mathbf{U}_s^* \mathbf{f} + \\
-  &amp; + \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s \omega^2_s } \right] \mathbf{U}_s^* \mathbf{f}
-    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f \omega^2_f } \right] \mathbf{U}_f^* \mathbf{f} = \\
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
-    - \mathbf{U} \text{diag}\left[ \frac{1}{m_i \omega^2_i } \right] \mathbf{U}^* \mathbf{f} + \\
-  &amp; = \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f}
-    - \mathbf{K}^{-1} \mathbf{f} \\
-  &amp; = ... \\
-  &amp; = - \mathbf{U}_s \left( \mathbf{U}_s^ \mathbf{K} \mathbf{U}_s \right)^{-1} \left(  \right) \text{diag} \left[ \frac{1}{m_s (s^2 + 2 \xi_s \omega_s s + \omega^2_s) } \right] \mathbf{U}_s^* \mathbf{f} -  \mathbf{K}^{-1} \mathbf{f} \ .
+\mathbf{s}(\mathbf{r},t) 
+  &amp; = \sum_{\mathbf{k},\omega} \mathbf{s}_{\mathbf{k},\omega} e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \\
+  &amp; = \sum_{\mathbf{k},\omega} \left( \mathbf{s}^p_{\mathbf{k},\omega} + \mathbf{s}^s_{\mathbf{k}, \omega} \right) e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \\
+  &amp; = \sum_{\mathbf{k},\omega} \left( i \, \mathbf{k} \phi_{\mathbf{k},\omega} + i \, \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \ .
 \end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<p>For each individual harmonic contribution, the potential part is thus proportional, i.e. aligned, to wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- &amp; \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f}  = \\
- &amp; = \mathbf{U}_s \text{diag}\left[ \frac{1}{k_s} \right] \text{diag}\left[ m_s ( s^2 + 2  \xi_s \omega_s s ) \right]\text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s) } \right] \mathbf{U}_s^* \mathbf{f} = \\
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">…<strong>todo</strong>…</p>
-</div>
-</details></div>
-</div>
-</div>
-<div class="section" id="with-free-rigid-motion">
-<h2><span class="section-number">8.2. </span>With free rigid motion<a class="headerlink" href="#with-free-rigid-motion" title="Permalink to this heading">#</a></h2>
-<p>Free rigid degrees of freedom are associated with vectors of the kernel of the stiffness matrix. The stiffness matrix is singular…</p>
+\[\mathbf{s}^p_{\mathbf{k},\omega} = i \,\mathbf{k} \phi_{\mathbf{k},\omega}  \ ,\]</div>
+<p>while the divergence-free is orthogonal, and thus transverse, w.r.t. the direction of wave propagation,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{k} \cdot \mathbf{s}^s_{\mathbf{k},\omega} = i \, \mathbf{k} \times  \left( \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) = \mathbf{0} \ .\]</div>
 </div>
 </div>
 
@@ -579,20 +511,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="small-displacements-waves.html"
+       href="small-displacements-statics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Waves in linear elastic homogeneous isotropic media</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Small displacement - statics</p>
       </div>
     </a>
     <a class="right-next"
-       href="../fluids/intro.html"
+       href="small-displacements-numerics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Introduction to Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Modal methods for structural problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -611,15 +543,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">8.1. No free rigid motion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">8.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">8.1.1.1. Truncation and direct recovery of loads</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">8.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">8.2. With free rigid motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">7.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">7.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">7.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
 </ul>
   </nav></div>
 
