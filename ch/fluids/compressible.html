@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Compressible Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>16. Compressible Fluid Mechanics &#8212; continuum mechanics</title>
   
   
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="14. Incompressible Fluid Mechanics" href="incompressible.html" />
+    <link rel="prev" title="15. Incompressible Fluid Mechanics" href="incompressible.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,16 +194,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">7. Waves in linear elastic homogeneous isotropic media</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">8. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">9. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">9. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">10. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">11. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">12. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">13. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">14. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">10. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statics.html">11. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">12. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">13. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">14. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible.html">15. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -399,9 +400,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">15.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">15.1.1. Shocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">15.1.2. Quasi-1d flows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">16.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">16.1.1. Shocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">16.1.2. Quasi-1d flows</a></li>
 </ul>
 </li>
 </ul>
@@ -416,14 +417,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="compressible-fluid-mechanics">
-<span id="fluid-mechanics-compressible"></span><h1><span class="section-number">15. </span>Compressible Fluid Mechanics<a class="headerlink" href="#compressible-fluid-mechanics" title="Permalink to this heading">#</a></h1>
+<span id="fluid-mechanics-compressible"></span><h1><span class="section-number">16. </span>Compressible Fluid Mechanics<a class="headerlink" href="#compressible-fluid-mechanics" title="Permalink to this heading">#</a></h1>
 <div class="section" id="compressible-inviscid-fluid-mechanics">
-<span id="fluid-mechanics-compressible-inviscid"></span><h2><span class="section-number">15.1. </span>Compressible Inviscid Fluid Mechanics<a class="headerlink" href="#compressible-inviscid-fluid-mechanics" title="Permalink to this heading">#</a></h2>
+<span id="fluid-mechanics-compressible-inviscid"></span><h2><span class="section-number">16.1. </span>Compressible Inviscid Fluid Mechanics<a class="headerlink" href="#compressible-inviscid-fluid-mechanics" title="Permalink to this heading">#</a></h2>
 <div class="section" id="shocks">
-<span id="fluid-mechanics-compressible-inviscid-shocks"></span><h3><span class="section-number">15.1.1. </span>Shocks<a class="headerlink" href="#shocks" title="Permalink to this heading">#</a></h3>
+<span id="fluid-mechanics-compressible-inviscid-shocks"></span><h3><span class="section-number">16.1.1. </span>Shocks<a class="headerlink" href="#shocks" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="quasi-1d-flows">
-<span id="fluid-mechanics-compressible-inviscid-quasi-1d"></span><h3><span class="section-number">15.1.2. </span>Quasi-1d flows<a class="headerlink" href="#quasi-1d-flows" title="Permalink to this heading">#</a></h3>
+<span id="fluid-mechanics-compressible-inviscid-quasi-1d"></span><h3><span class="section-number">16.1.2. </span>Quasi-1d flows<a class="headerlink" href="#quasi-1d-flows" title="Permalink to this heading">#</a></h3>
 <p>If no shock occurs in the flow, Euler equations in differential form governs the dynamics of the flow</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -511,7 +512,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Incompressible Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Incompressible Fluid Mechanics</p>
       </div>
     </a>
 </div>
@@ -529,9 +530,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">15.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">15.1.1. Shocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">15.1.2. Quasi-1d flows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">16.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">16.1.1. Shocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">16.1.2. Quasi-1d flows</a></li>
 </ul>
 </li>
 </ul>
