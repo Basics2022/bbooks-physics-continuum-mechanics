@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Modal methods for structural problems &#8212; continuum mechanics</title>
+    <title>9. Modal methods for structural problems &#8212; continuum mechanics</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
-    <link rel="prev" title="7. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="next" title="10. Structural damping" href="structural-damping.html" />
+    <link rel="prev" title="8. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,18 +193,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">7. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">10. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">9. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">10. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">11. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">12. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">13. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">14. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">15. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -400,15 +402,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">8.1. No free rigid motion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">8.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">8.1.1.1. Truncation and direct recovery of loads</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">8.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">9.1. No free rigid motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">9.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">9.1.1.1. Truncation and direct recovery of loads</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">9.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">8.2. With free rigid motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">9.2. With free rigid motion</a></li>
 </ul>
             </nav>
         </div>
@@ -421,11 +423,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="modal-methods-for-structural-problems">
-<span id="solid-mechanics-intro-small-displacements-numerics"></span><h1><span class="section-number">8. </span>Modal methods for structural problems<a class="headerlink" href="#modal-methods-for-structural-problems" title="Permalink to this heading">#</a></h1>
+<span id="solid-mechanics-intro-small-displacements-numerics"></span><h1><span class="section-number">9. </span>Modal methods for structural problems<a class="headerlink" href="#modal-methods-for-structural-problems" title="Permalink to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\]</div>
 <div class="section" id="no-free-rigid-motion">
-<h2><span class="section-number">8.1. </span>No free rigid motion<a class="headerlink" href="#no-free-rigid-motion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>No free rigid motion<a class="headerlink" href="#no-free-rigid-motion" title="Permalink to this heading">#</a></h2>
 <p>If a structure has no free rigid motion, the stiffness matrix of mechanical systems is symmetric <strong>definite positive</strong>.</p>
 <p><strong>Spectral decomposition of the problem.</strong></p>
 <div class="math notranslate nohighlight">
@@ -483,7 +485,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathbf{K} \mathbf{u}(s) = \mathbf{K} \mathbf{U} \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \ .\]</div>
 <div class="section" id="dimension-reduction">
-<h3><span class="section-number">8.1.1. </span>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this heading">#</a></h3>
 <p>Modal unknowns can usually partitioned in slow (dynamical, resolved) and fast modes (with natural frequencies well above the frequency content of the forcing, and the dynamics of the system; can be treated as static modes),</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{q} = \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} \ ,\end{split}\]</div>
@@ -491,7 +493,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{u} = \mathbf{U} \mathbf{q} = \begin{bmatrix} \mathbf{U}_s &amp; \mathbf{U}_f \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} = \mathbf{U}_s \mathbf{q}_s + \mathbf{U}_f \mathbf{q}_f \ .\end{split}\]</div>
 <div class="section" id="truncation-and-direct-recovery-of-loads">
-<h4><span class="section-number">8.1.1.1. </span>Truncation and direct recovery of loads<a class="headerlink" href="#truncation-and-direct-recovery-of-loads" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.1.1. </span>Truncation and direct recovery of loads<a class="headerlink" href="#truncation-and-direct-recovery-of-loads" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
   \mathbf{u} 
@@ -500,7 +502,7 @@ document.write(`
 \end{aligned}\]</div>
 </div>
 <div class="section" id="mode-acceleration-and-static-recovery-of-fast-modes">
-<h4><span class="section-number">8.1.1.2. </span>Mode acceleration and static recovery of fast modes<a class="headerlink" href="#mode-acceleration-and-static-recovery-of-fast-modes" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.1.2. </span>Mode acceleration and static recovery of fast modes<a class="headerlink" href="#mode-acceleration-and-static-recovery-of-fast-modes" title="Permalink to this heading">#</a></h4>
 <p>Static approximation of fast modes gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -543,7 +545,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="with-free-rigid-motion">
-<h2><span class="section-number">8.2. </span>With free rigid motion<a class="headerlink" href="#with-free-rigid-motion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>With free rigid motion<a class="headerlink" href="#with-free-rigid-motion" title="Permalink to this heading">#</a></h2>
 <p>Free rigid degrees of freedom are associated with vectors of the kernel of the stiffness matrix. The stiffness matrix is singular…</p>
 </div>
 </div>
@@ -584,15 +586,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Waves in linear elastic homogeneous isotropic media</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Waves in linear elastic homogeneous isotropic media</p>
       </div>
     </a>
     <a class="right-next"
-       href="../fluids/intro.html"
+       href="structural-damping.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Introduction to Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Structural damping</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -611,15 +613,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">8.1. No free rigid motion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">8.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">8.1.1.1. Truncation and direct recovery of loads</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">8.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-free-rigid-motion">9.1. No free rigid motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-reduction">9.1.1. Dimension reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation-and-direct-recovery-of-loads">9.1.1.1. Truncation and direct recovery of loads</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mode-acceleration-and-static-recovery-of-fast-modes">9.1.1.2. Mode acceleration and static recovery of fast modes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">8.2. With free rigid motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-free-rigid-motion">9.2. With free rigid motion</a></li>
 </ul>
   </nav></div>
 

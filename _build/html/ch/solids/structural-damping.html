@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Compressible Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>10. Structural damping &#8212; continuum mechanics</title>
   
   
   
@@ -66,11 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/fluids/compressible';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/structural-damping';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="16. Incompressible Fluid Mechanics" href="incompressible.html" />
+    <link rel="next" title="11. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
+    <link rel="prev" title="9. Modal methods for structural problems" href="small-displacements-numerics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,23 +190,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">10. Structural damping</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">11. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">12. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">16. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Compressible Fluid Mechanics</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -277,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/fluids/compressible.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/structural-damping.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/fluids/compressible.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/structural-damping.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Compressible Fluid Mechanics</h1>
+    <h1>Structural damping</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,11 +402,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">17.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">17.1.1. Shocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">17.1.2. Quasi-1d flows</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">10.1. Small damping</a></li>
 </ul>
             </nav>
         </div>
@@ -417,64 +414,107 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="compressible-fluid-mechanics">
-<span id="fluid-mechanics-compressible"></span><h1><span class="section-number">17. </span>Compressible Fluid Mechanics<a class="headerlink" href="#compressible-fluid-mechanics" title="Permalink to this heading">#</a></h1>
-<div class="section" id="compressible-inviscid-fluid-mechanics">
-<span id="fluid-mechanics-compressible-inviscid"></span><h2><span class="section-number">17.1. </span>Compressible Inviscid Fluid Mechanics<a class="headerlink" href="#compressible-inviscid-fluid-mechanics" title="Permalink to this heading">#</a></h2>
-<div class="section" id="shocks">
-<span id="fluid-mechanics-compressible-inviscid-shocks"></span><h3><span class="section-number">17.1.1. </span>Shocks<a class="headerlink" href="#shocks" title="Permalink to this heading">#</a></h3>
-</div>
-<div class="section" id="quasi-1d-flows">
-<span id="fluid-mechanics-compressible-inviscid-quasi-1d"></span><h3><span class="section-number">17.1.2. </span>Quasi-1d flows<a class="headerlink" href="#quasi-1d-flows" title="Permalink to this heading">#</a></h3>
-<p>If no shock occurs in the flow, Euler equations in differential form governs the dynamics of the flow</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="structural-damping">
+<span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">10. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
+<p>As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there’s no rigid motion allowed, can be represented by the second order system</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \partial_t \rho + \nabla \cdot (\rho \vec{u}) = 0 \\
-  \partial_t \left( \rho \vec{u} \right) + \nabla \cdot (\rho \vec{u} \otimes \vec{u} + P \mathbb{I}) = 0 \\
-  \partial_t \left( \rho e^t \right) + \nabla \cdot (\rho \vec{u} h^t) = 0 \\
-\end{cases}\end{split}\]</div>
-<p>Quasi-1d model for steady flows is a simple model that provides good-enough results for flows delimited by streamlines that varies gently in the streamwise direction (or by solid walls, in the limit of the high-Reynolds flow without separations, where viscous effects are confined to a thin region - boundary layer - close to the walls).</p>
-<p>This model is derived integrating over the sections of the stream tube, so that the physical quantities are functions of the streamwise coordinate <span class="math notranslate nohighlight">\(x\)</span> only. Integration over an elementary volume between sections at <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x+dx\)</span> of the mass and momentum equations, in steady conditions, gives</p>
+\[\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\]</div>
+<p>being mass and stiffness matrices <span class="math notranslate nohighlight">\(\mathbf{M}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> that are positive definite, and symmetric if derived as an example from a Lagrangian formulation of the problem.</p>
+<p><strong>todo</strong> Add reference to Lagrange mechanics and its properties in the classical mechanics bbooks.</p>
+<p>This kind of systems are conveniently described using <strong>modal basis</strong>, as modes (or free/natural modes of vibrations) are orthogonal w.r.t. both mass and stiffness matrix.</p>
+<p><strong>todo</strong> Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.</p>
+<p><strong>Free response</strong> using modal basis</p>
+<div class="section" id="small-damping">
+<h2><span class="section-number">10.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
+<p>Structural small damping can be treated as a first order perturbation of the undamped system,</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  d (\rho u A) = 0 \\
-  d (\rho u^2 A) + d (P A) + \displaystyle\int_{S_{lat}(x,dx)} P n_x = 0 \ ,
-\end{cases}\end{split}\]</div>
-<p>where the last equation comes from the contribution of the lateral surfaces, that has non zero contribution in the streamwise component of momentum equation if sections is not constant, and thus the unit normal vector <span class="math notranslate nohighlight">\(\hat{n}\)</span> on the lateral surface has non-zero <span class="math notranslate nohighlight">\(x\)</span>-component <span class="math notranslate nohighlight">\(n_x\)</span>. This contribution on the elementary lateral surface (where pressure is assumed to be uniform), can be evaluated summing and subracting the contributions on the <span class="math notranslate nohighlight">\(A(x)\)</span> and <span class="math notranslate nohighlight">\(A(x+dx)\)</span> surface,</p>
+\[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
+<p>or in Laplace domain</p>
 <div class="math notranslate nohighlight">
-\[\underbrace{\displaystyle\int_{S_{lat}(x,dx)} P n_x + P (A+dA) - P A}_{ = P \oint_{\partial V} n_x = 0 } - P(A+dA) + PA =  - P dA \]</div>
-<p>Thus the equations become</p>
+\[\left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{f} \ .\]</div>
+<p>Here two assumptions are made and justified later:</p>
+<ul class="simple">
+<li><p>matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> is (semi)positive symmetric</p></li>
+<li><p>matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> becomes diagonal in the modal basis, i.e. modal basis simoultaneously diagonalize mass, damping and stiffness matrices</p></li>
+</ul>
+<p>If these two assumption holds, using the modal base collected in matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  0 = d (\rho u A) = 0 \\
-  0 = d (\rho u^2 A) + A dP = \rho u A \, du + A \, dP \ ,
-\end{cases}\end{split}\]</div>
-<p>having used the mass equation to simplify the first term in the momentum equation, since</p>
-<div class="math notranslate nohighlight">
-\[d(\rho u^2 A) = \underbrace{d(\rho u A)}_{=0} u + \rho u A \, du \ .\]</div>
-<p>Now, from momentum equation a relation from changes in velocity and pressure holds</p>
-<div class="math notranslate nohighlight">
-\[\rho u \, du = - dP \ .\]</div>
-<p>If the flow is isentropic (i.e. negligible viscous effects, no heat conduction, no shocks), <span class="math notranslate nohighlight">\(s = \overline{s}\)</span>, the definition of the speed of sound</p>
-<div class="math notranslate nohighlight">
-\[c^2(\rho, s) = \left( \frac{\partial P}{\partial \rho} \right)_s \ ,\]</div>
-<p>can be used to write a relation between changes in pressure and density <span class="math notranslate nohighlight">\(d P = c^2 d \rho\)</span>. Using this formula and mass equation <span class="math notranslate nohighlight">\(d(\rho u A) = 0\)</span>, it’s possible to write relations between physical quantities and the variation of the section of the stream tube. Mass equation can be recast as</p>
+\[\mathbf{u} = \mathbf{U} \mathbf{q} \ ,\]</div>
+<p>the diagonalization reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  0 &amp; = \dfrac{dA}{A} + \dfrac{d \rho}{\rho} + \dfrac{d u}{u} = \\
-    &amp; = \dfrac{dA}{A} + \frac{1}{c^2} \dfrac{d P}{\rho} + \dfrac{d u}{u} = \\
-    &amp; = \dfrac{dA}{A} + \frac{1}{c^2} \dfrac{d P}{\rho} - \dfrac{d P}{\rho u^2} 
+\mathbf{U}^T \mathbf{f}
+&amp; = \mathbf{U}^T \left\{ \mathbf{M} \mathbf{U} \ddot{\mathbf{q}} + \mathbf{C} \mathbf{U} \dot{\mathbf{q}} + \mathbf{K} \mathbf{U} \mathbf{q} \right\} = \\
+&amp; = \text{diag} \{ m_i \} \ddot{\mathbf{q}} + \text{diag}\{ c_i \} \dot{\mathbf{q}} + \text{diag}\{ k_i \} \mathbf{q} = \\
+&amp; = \text{diag} \{ m_i \ddot{q}_i + c_i \dot{q}_i + k_i q_i \} \ .
 \end{aligned}\end{split}\]</div>
-<p>and thus, introducing Mach number <span class="math notranslate nohighlight">\(M := \dfrac{u}{c}\)</span>,</p>
+<p>being <span class="math notranslate nohighlight">\(m_i := \mathbf{u}_i^T \mathbf{M} \mathbf{u}_i\)</span>, <span class="math notranslate nohighlight">\(c_i := \mathbf{u}_i^T \mathbf{C} \mathbf{u}_i\)</span>, <span class="math notranslate nohighlight">\(k_i := \mathbf{u}_i^T \mathbf{K} \mathbf{u}_i\)</span>, the modal mass, damping and stiffness.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+(Semi)definite positive damping matrix<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Starting from the equations of motion</p>
 <div class="math notranslate nohighlight">
-\[\dfrac{d A}{A} = (1 - M^2)\dfrac{dP}{\rho u^2} = -(1 - M^2)\dfrac{du}{u} \ .\]</div>
-<p>From this equation, it’s immediate to realize that:</p>
-<ul class="simple">
-<li><p>for subsonic flows <span class="math notranslate nohighlight">\(M&lt;1\)</span>, if section of the stream tube increases, <span class="math notranslate nohighlight">\(dA &gt; 0\)</span>, thus velocity descreases <span class="math notranslate nohighlight">\(du &lt; 0\)</span>, and pressure increases <span class="math notranslate nohighlight">\(dP &gt; 0\)</span>, and viceversa</p></li>
-<li><p>for supersonic flows <span class="math notranslate nohighlight">\(M&gt;1\)</span>, if section of the stream tube increases, <span class="math notranslate nohighlight">\(dA &gt; 0\)</span>, thus velocity increases <span class="math notranslate nohighlight">\(du &gt; 0\)</span>, and pressure decreases <span class="math notranslate nohighlight">\(dP &lt; 0\)</span></p></li>
-</ul>
+\[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
+<p class="sd-card-text">the kinetic energy and the mechanical energy balance is derived (<strong>todo</strong> add references) with scalar multiplication by <span class="math notranslate nohighlight">\(\dot{\mathbf{u}}\)</span>. For constant matrices,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} &amp; = \dot{\mathbf{u}}^T \mathbf{f} \\
+ \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
+ \dfrac{d}{dt} \left( K + V \right) &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having recognized <span class="math notranslate nohighlight">\(D = \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} \ge 0\)</span> as the dissipation from damping, that can’t make the mechanical energy of the system <span class="math notranslate nohighlight">\(K + V\)</span> increase. This condition implies that <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> is (semi)definite positive.</p>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Diagonal damping in modal basis<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let’s write here the perturbed free damped system in Laplace domain using modal basis,</p>
+<div class="math notranslate nohighlight">
+\[\left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{0} \ ,\]</div>
+<p class="sd-card-text">and evaluate the derivative of this relation w.r.t. a parameter <span class="math notranslate nohighlight">\(p\)</span> associated to the damping, and not influencing mass or stiffness properties, <span class="math notranslate nohighlight">\(\mathbf{M}_{/p} = \mathbf{0}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K}_{/p} = \mathbf{0}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0} 
+  &amp; = \left\{ \left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} \right\}_{/p} = \\
+  &amp; = \left[ (2 s \mathbf{M} + \mathbf{C} ) s_{/p} + s \mathbf{C}_{/p} \right] \mathbf{u}
+    + \left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u}_{/p} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Let’s investigate the effect of small damping on the eigensolution <span class="math notranslate nohighlight">\(\left(s_i, \mathbf{u}_i \right)\)</span>. Exploiting the symmetry of the matrices of the system (following from the assumed simultaneous diagonalization of the damping matrix <span class="math notranslate nohighlight">\(\mathbf{C} = \mathbf{U} \text{diag}\{ c_i \} \mathbf{U}^*\)</span>), and evaluating the dot product of the latter relation for the <span class="math notranslate nohighlight">\(i\)</span>-th eigensolution with the eigenvector <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \mathbf{u}_i^T \left\{ \left[ (2 s_i \mathbf{M} + \mathbf{C} ) s_{i/p} + s_i \mathbf{C}_{/p} \right] \mathbf{u}_i
+      + \left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_{i/p} \right\} = \\
+    &amp; = \mathbf{u}_i^T \left[ (2 s_i \mathbf{M} + \mathbf{C} ) s_{i/p} + s_i \mathbf{C}_{/p} \right] \mathbf{u}_i
+      + \mathbf{u}_{i/p}^T \underbrace{\left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i}_{=\mathbf{0}} = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">it follows that the derivative of the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue w.r.t. the parameter <span class="math notranslate nohighlight">\(p\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[s_{i/p} = - \dfrac{s_i \mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{\mathbf{u}_i^T (2 s_i \mathbf{M} + \mathbf{C} ) \mathbf{u}_i} \ .\]</div>
+<p class="sd-card-text">This derivative evaluated for the reference undamped condition <span class="math notranslate nohighlight">\(\mathbf{C} = \mathbf{0}\)</span> becomes</p>
+<div class="math notranslate nohighlight">
+\[s_{i/p} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{\mathbf{u}_i^T \mathbf{M} \mathbf{u}_i} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{m_i} \ ,\]</div>
+<p class="sd-card-text">having recognized the modal mass <span class="math notranslate nohighlight">\(m_i := \mathbf{u}_i^T \mathbf{M} \mathbf{u}_i\)</span> associated to the <span class="math notranslate nohighlight">\(i^{th}\)</span> mode. Now, let’s evaluate the derivative of the eigenvalue <span class="math notranslate nohighlight">\(s_i\)</span> w.r.t. the components of the damping matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{C}_{/C_{jk}}\)</span> that is a matrix full of zero, except for the component <span class="math notranslate nohighlight">\((j,k)\)</span> equal to one,</p>
+<div class="math notranslate nohighlight">
+\[s_{i/C_{jk}} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/C_{jk}} \mathbf{u}_i}{m_i} = -\dfrac{1}{2} \dfrac{u^{(i)}_j u^{(i)}_k}{m_i} \ ,\]</div>
+<p class="sd-card-text">and the first order polynomial expansion of <span class="math notranslate nohighlight">\(s_i\)</span> in coefficients <span class="math notranslate nohighlight">\(C_{jk}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_i &amp; = s_{i,0} + s_{i/C_{jk}} C_{jk} = \\
+      &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
+      &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
+\ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">From this expression, it’s possible to deduce that the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue of the slightly damped system differs from the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue of the undamped system <span class="math notranslate nohighlight">\(s_{i,0} = \mp j \omega_{i}\)</span> of a real non-positive (as <span class="math notranslate nohighlight">\(\mathbf{C} \ge 0\)</span> for dissipative damping actions) term <span class="math notranslate nohighlight">\(\Delta s_i = - \frac{1}{2} \frac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i} \in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(\Delta s_i \le 0\)</span>, depending only on the damping matrix and the <span class="math notranslate nohighlight">\(i^{th}\)</span> mode. This term shifts the eigenvalue <span class="math notranslate nohighlight">\(s_i\)</span> to the left in the complex plane, and thus makes it asymptotically stable.</p>
+<p class="sd-card-text">As the variation <span class="math notranslate nohighlight">\(\Delta s_i\)</span> only depends on the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvector, and not on other eigenvectors, the assumption of siultaneously diagonalizable damping matrix is consistent with the results from this assumption.</p>
 </div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -490,7 +530,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/fluids"
+            path: "./ch/solids"
         },
         predefinedOutput: true
     }
@@ -508,13 +548,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="incompressible.html"
+       href="small-displacements-numerics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Incompressible Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Modal methods for structural problems</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../fluids/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Introduction to Fluid Mechanics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -531,11 +580,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressible-inviscid-fluid-mechanics">17.1. Compressible Inviscid Fluid Mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shocks">17.1.1. Shocks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasi-1d-flows">17.1.2. Quasi-1d flows</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">10.1. Small damping</a></li>
 </ul>
   </nav></div>
 

@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Feb 27, 2025}
+\date{Sep 02, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -103,6 +103,9 @@
 
 \sphinxAtStartPar
 This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{work\sphinxhyphen{}in\sphinxhyphen{}progress! Feel free to reach out on Github, leave a comment, a suggestion, a request or contribute}
 
 \sphinxAtStartPar
 General approach and equations in continuum mechanics are first presented, and then specialized to the most common models of solids \sphinxhyphen{} mainly elastic solids \sphinxhyphen{} and fluids \sphinxhyphen{} mainly Newtonian fluids.
@@ -1293,6 +1296,157 @@ and thus
  T & = \left( \frac{\partial \mathcal{E}}{\partial \mathcal{S}} \right)_{\varepsilon_{ij}}\\
  \mathcal{S} & = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}}\\
 \end{aligned}\end{split}
+\end{equation*}\subsubsection*{Isothermal and isentropic elastic coefficients}
+
+\sphinxAtStartPar
+Assuming small enough \(\Delta T = T - T_0\) so that linear approximation of the relation between entropy, temperature and strain holds,
+\begin{equation*}
+\begin{split}\Delta \mathcal{S} = \beta \, \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T_0} \Delta T \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it’s possible to write the stress tensor as a function of strain and entropy
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \sigma_{ij} 
+  & = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \Delta T \delta_{ij} = \\
+  & = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \left[ \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} - \frac{T_0}{C_{\varepsilon_{ij}}} \beta \, \varepsilon_{ll}  \right] \delta_{ij} = \\
+  & = 2 \mu \varepsilon_{ij} + \left( \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \right) \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} = \\
+  & = 2 \mu_s \varepsilon_{ij} + \lambda_s \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having defined Lamé coefficients in isentropic conditions as functions of the cofficients in isothermal conditions,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \lambda_s & = \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \\
+      \mu_s & = \mu
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Elastic modulus and Poisson ratio.} Starting from the relations
+\begin{equation*}
+\begin{split}\begin{aligned}
+  E & = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda} \\
+  \frac{E}{\nu} & = \frac{2 \mu (2 \mu + 3 \lambda)}{\lambda} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}G E + \lambda E = 2 G^2 + 3 G \lambda\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\lambda = \frac{G (E - 2 G)}{ 3G - E }\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \nu
+  & = \frac{E \lambda}{2G(2G+3 \lambda)} = \\
+  & = \frac{\lambda}{2G(2G+3 \lambda)} \frac{G (2G + 3\lambda)}{G + \lambda} = \\
+  & = \frac{\lambda}{2(G + \lambda)} = \\ 
+  & = \frac{G(E-2G)}{3G - E} \frac{1}{2 \left( G + \frac{G(E-2G)}{3G-E} \right)} = \\
+  & = \frac{G}{2G} \frac{E-2G}{3G - E} \frac{3G - E}{3G - E + E - 2G } = \\
+  & = \frac{1}{2} \frac{E - 2G}{G} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}\nu = \frac{E - 2G}{2G} \qquad , \qquad G = \frac{E}{2(1+\nu)}\end{split}
+\end{equation*}
+
+\subsubsection*{Heat capacity, thermal expansion coefficients, compressibility coefficients}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Thermal expansion coefficient} reads
+\begin{equation*}
+\begin{split}\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\dfrac{dV}{V} = d \text{tr}(\symbf{\varepsilon})\) for small displacement and strain regime. At constant strain, \(d \sigma_{ij} = 0\),
+\begin{equation*}
+\begin{split}
+  \alpha_{\sigma} = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma}
+\end{split}
+\end{equation*}\subsubsection*{Some algebra}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & = \frac{3 \beta}{2 \mu + 3 \lambda} = \\
+  & = 3 \beta \frac{2 G \nu }{E \lambda} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu) \lambda} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3G-E}{G(E-2G)} = \\
+  & = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3-2(1+\nu)}{G\left(2(1+\nu)  -2 \right)} = \\
+  & = 3 \frac{\beta}{2G} \frac{\nu }{(1+ \nu)} \frac{1-2\nu}{\nu} = \\
+  & = 3 \frac{\beta}{E} (1 - 2 \nu)  \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}\beta = K \alpha_{\sigma} = \left( \frac{2}{3} \mu +  \lambda \right) \, \alpha_{\sigma} = \frac{E}{3(1-2\nu)} \, \alpha_{\sigma} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Heat capacity.} The heat capacity at constant strain \(C_{\varepsilon_{ij}}\) has been assumed to be constant (or just independent from temperature). Entropy can be written as functions of strain and temperature or \sphinxhyphen{} exploiting the relation between traces of tensors \sphinxhyphen{} stress and temperature
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathcal{S} - \mathcal{S}_0
+  & = \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  & = \beta \left( \frac{1}{2\mu+3\lambda} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  & = \beta \left( \frac{1}{3 \, K} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, constaint strain heat capacity per unit volume reads
+\begin{equation*}
+\begin{split}C_{\varepsilon_{ij}} := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\varepsilon} = C_{\varepsilon_{ij}} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as defined above, whilte constant stress heat capacity per unit volume reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  C_{\sigma_{ij}}
+  & := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\sigma} = \\
+  &  = T \left( \beta \alpha_{\sigma} + C_{\varepsilon_{ij}} \frac{1}{T_0} \frac{1}{1 + \frac{\Delta T}{T_0}} \right) \\
+  &  = T K \alpha^2_{\sigma} + C_{\varepsilon_{ij}} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Compressibility coefficients.} \sphinxstylestrong{todo} \sphinxstyleemphasis{check: Below, \(T\) or \(T_0\)? It should be a minor change, since we’re assuming small \(\Delta T\) so that linearized constitutive equation holds?}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  K   & = \frac{2}{3} \mu + \lambda \\
+  K_s & = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{K^2 \alpha^2_{\sigma} T}{C_{\varepsilon}}
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  K_s 
+  & = K \left( 1 + \frac{\alpha^2 K T}{C_{\varepsilon}} \right) \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} \frac{C_{\varepsilon}}{C_{\sigma}} \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} \frac{C_{\sigma} - \alpha_{\sigma}^2 K T}{C_{\sigma}} \\
+ \rightarrow \quad  & \frac{1}{K_s} = \frac{1}{K} - \frac{\alpha_{\sigma}^2 T}{C_{\sigma}} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Elastic modulus and Poisson ratio.}
+\begin{equation*}
+\begin{split}
+ E_s = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+ \qquad , \qquad
+ \nu_s = \frac{\nu + E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+\end{split}
+\end{equation*}\subsubsection*{Some algebra}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  K 
+  & = \lambda + \frac{2}{3} G = \\
+  & = \frac{GE - 2G^2}{3G-E} + \frac{2}{3} G = \\
+  & = G \frac{3 E - 6 G + 6 G - 2 E}{3(3 G -  E)} = \frac{E G}{3 (3 G - E)}
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}E = \frac{9 G K}{ 3 K + G } = \frac{1}{ \frac{1}{3 G} + \frac{1}{9 K}} \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  E_s 
+  & = \frac{1}{ \dfrac{1}{3 G_s} + \dfrac{1}{9 K_s}} = \\
+  & = \frac{1}{\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+  & = \frac{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}}{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}\right)\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}} = \\
+  & = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Fix admonition reference
@@ -1360,6 +1514,404 @@ P.G. Hodge, \sphinxstyleemphasis{On Isotropic Cartesian Tensors}, 1961, The Amer
 
 \section{Beam structures}
 \label{\detokenize{ch/solids/small-displacements-statics:beam-structures}}\label{\detokenize{ch/solids/small-displacements-statics:solid-mechanics-intro-small-displacements-statics-beam-structures}}
+\sphinxstepscope
+
+
+\chapter{Waves in linear elastic homogeneous isotropic media}
+\label{\detokenize{ch/solids/small-displacements-waves:waves-in-linear-elastic-homogeneous-isotropic-media}}\label{\detokenize{ch/solids/small-displacements-waves:solid-mechanics-intro-small-displacements-waves}}\label{\detokenize{ch/solids/small-displacements-waves::doc}}
+
+\section{Navier\sphinxhyphen{}Cauchy equation: displacement formulation of the momentum equation}
+\label{\detokenize{ch/solids/small-displacements-waves:navier-cauchy-equation-displacement-formulation-of-the-momentum-equation}}
+\sphinxAtStartPar
+Momentum balance equation in differential form for continuous media in the small\sphinxhyphen{}displacement regime
+\begin{equation*}
+\begin{split}\rho_0 \, \partial_{tt} \mathbf{s} = \rho_0 \, \mathbf{g} + \nabla \cdot \boldsymbol{\sigma} \ .\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Introducing the constitutive equation for linear elastic homogeneous isotropic media,
+\begin{equation*}
+\begin{split}\boldsymbol{\sigma} = 2 \mu \, \boldsymbol{\varepsilon} + \lambda \, \text{tr} \left( \boldsymbol{\varepsilon} \right) \mathbf{I} \ ,\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+using the definition of the strain tensor
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\boldsymbol{\varepsilon} = \dfrac{1}{2} \left[ \nabla \mathbf{s} + \nabla^T \mathbf{s} \right] \ ,\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+and under the assumption of no volume force \(\mathbf{g} = \mathbf{0}\),
+
+\end{itemize}
+
+\sphinxAtStartPar
+the momentum equation becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \rho_0 \partial_{tt} \mathbf{s} & = \mu \nabla^2 \mathbf{s} + \left( \mu +\lambda \right) \nabla \nabla \cdot \mathbf{s} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+
+\section{Helmholtz decomposition and sum of waves equation for \protect\(p\protect\) and \protect\(s\protect\) waves}
+\label{\detokenize{ch/solids/small-displacements-waves:helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves}}
+\sphinxAtStartPar
+Displacement field can be written using \sphinxhref{https://en.wikipedia.org/wiki/Helmholtz\_decomposition}{Helmholtz decomposition} as the sum of a potential \(\mathbf{s}_p = \nabla \phi\) (s.t. \(\nabla \times \nabla \phi = \mathbf{0}\)) and a divergence\sphinxhyphen{}free \(\mathbf{s}_s = \nabla \times \mathbf{a}\) (s.t. \(\nabla \cdot \nabla \times \mathbf{a} = \mathbf{0}\)) part,
+\begin{equation*}
+\begin{split}\mathbf{s} = \mathbf{s}_p + \mathbf{s}_s = \nabla \phi + \nabla \times \mathbf{a} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Introducing the last expression in the momentum equation, using vector identity
+\begin{equation*}
+\begin{split}\nabla^2 \mathbf{v} = \nabla \nabla \cdot \mathbf{v} - \nabla \times \nabla \times \mathbf{v} \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+the equation can be written as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} 
+  & = \rho_0 \partial_{tt} \nabla \phi - (2 \mu + \lambda) \nabla^2 \nabla \phi + \rho_0 \partial_{tt} \nabla \times \mathbf{a} + \mu \nabla^2 \nabla \times \mathbf{a} = \\
+  & = \rho_0 \partial_{tt} \mathbf{s}_p - (2 \mu + \lambda) \nabla^2 \mathbf{s}_p + \rho_0 \partial_{tt} \mathbf{s}_s - \mu \nabla^2 \mathbf{s}_s \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. as the “sum of two wave equations” for the potential part \(\mathbf{s}_p\) and the divergence\sphinxhyphen{}free part \(\mathbf{s}_s\) of the displacement. Speed of propagation of \(p\)\sphinxhyphen{} and \(s\)\sphinxhyphen{}displacement read
+\begin{equation*}
+\begin{split}c_p = \sqrt{\dfrac{2 \mu + \lambda}{\rho_0}} \qquad , \qquad c_s = \sqrt{\dfrac{\mu}{\rho_0}} \ .\end{split}
+\end{equation*}
+
+\section{Fourier decomposition: \protect\(p\protect\) is longitudinal, \protect\(s\protect\) is transverse}
+\label{\detokenize{ch/solids/small-displacements-waves:fourier-decomposition-p-is-longitudinal-s-is-transverse}}
+\sphinxAtStartPar
+Using \sphinxstylestrong{Fourier decomposition} of fields as sum of harmonic plane waves,
+\begin{equation*}
+\begin{split}\mathbf{s}(\mathbf{r},t) = \sum_{\mathbf{k},\omega} \mathbf{s}_{\mathbf{k},\omega} e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it’s immediate to prove that the potential part can be associated to a longitudinal perturbation (i.e. with displacement in the same direction of the wave vector \(\mathbf{k}\), representing the direction of propagation of  the perturbation, while the divergence\sphinxhyphen{}free part can be associated to a transverse perturnation (i.e. with displacement orthogonal to the wave vector \(\mathbf{k}\)). Helmholtz’s decomposition of the field in Fourier domain reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{s}(\mathbf{r},t) 
+  & = \sum_{\mathbf{k},\omega} \mathbf{s}_{\mathbf{k},\omega} e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \\
+  & = \sum_{\mathbf{k},\omega} \left( \mathbf{s}^p_{\mathbf{k},\omega} + \mathbf{s}^s_{\mathbf{k}, \omega} \right) e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \\
+  & = \sum_{\mathbf{k},\omega} \left( i \, \mathbf{k} \phi_{\mathbf{k},\omega} + i \, \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} = \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For each individual harmonic contribution, the potential part is thus proportional, i.e. aligned, to wave vector \(\mathbf{k}\),
+\begin{equation*}
+\begin{split}\mathbf{s}^p_{\mathbf{k},\omega} = i \,\mathbf{k} \phi_{\mathbf{k},\omega}  \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.t. the direction of wave propagation,
+\begin{equation*}
+\begin{split}\mathbf{k} \cdot \mathbf{s}^s_{\mathbf{k},\omega} = i \, \mathbf{k} \times  \left( \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) = \mathbf{0} \ .\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
+\chapter{Modal methods for structural problems}
+\label{\detokenize{ch/solids/small-displacements-numerics:modal-methods-for-structural-problems}}\label{\detokenize{ch/solids/small-displacements-numerics:solid-mechanics-intro-small-displacements-numerics}}\label{\detokenize{ch/solids/small-displacements-numerics::doc}}\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\end{split}
+\end{equation*}
+
+\section{No free rigid motion}
+\label{\detokenize{ch/solids/small-displacements-numerics:no-free-rigid-motion}}
+\sphinxAtStartPar
+If a structure has no free rigid motion, the stiffness matrix of mechanical systems is symmetric \sphinxstylestrong{definite positive}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Spectral decomposition of the problem.}
+\begin{equation*}
+\begin{split}\left[ s_i^2 \mathbf{M} + \mathbf{K} \right] \hat{\mathbf{u}}_i = \mathbf{0} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or in index and matrix form
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = s_i^2 M_{jk} U_{ki} + K_{jk} U_{ki} = \\
+    & = \mathbf{M} \mathbf{U} \mathbf{S}^2 + \mathbf{K} \mathbf{U} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the diagonal matrix \(\mathbf{S}\) collecting the eigenvalues,
+\begin{equation*}
+\begin{split}\mathbf{S} = \text{diag} \left\{ s_i \right\} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Properties.} For eigenvectors with different eigenvalues,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \hat{\mathbf{u}}_j^* \mathbf{M} \hat{\mathbf{u}}_i = 0 \qquad , \qquad
+  \hat{\mathbf{u}}_j^* \mathbf{K} \hat{\mathbf{u}}_i = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Nodal and modal unknowns.} The nodal vector can be written as a combination of modes, being \(\mathbf{q}\) the vector of modal amplitudes,
+\begin{equation*}
+\begin{split}\mathbf{u} = \mathbf{U} \mathbf{q} = \left[ \hat{\mathbf{u}}_1 | \dots | \hat{\mathbf{u}}_N \right] \mathbf{q} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Laplace domain.} In Laplace domain
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \left[ s^2 \mathbf{U}^* \mathbf{M} \mathbf{U} + \mathbf{U}^* \mathbf{K} \mathbf{U}\right] \mathbf{q}(s) & = \mathbf{U}^* \mathbf{f}(s) \\
+  \text{diag}\left[ s^2 m_i + k_i \right] \mathbf{q}(s) & = \mathbf{U}^* \mathbf{f}(s) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Modal damping} Adding modal damping, with simultaneous diagonalization with mass and stiffness matrices,
+\begin{equation*}
+\begin{split}
+  \text{diag}\left[ s^2 m_i + s c_i + k_i \right] \mathbf{q}(s) & = \mathbf{U}^* \mathbf{f}(s) \\
+ \mathbf{q}(s) & = \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The original equation becomes
+\begin{equation*}
+\begin{split}\left[s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{f} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{M} & = \mathbf{U} \text{diag}\left\{ m_i \right\} \mathbf{U}^* \\
+  \mathbf{C} & = \mathbf{U} \text{diag}\left\{ c_i \right\} \mathbf{U}^* \\
+  \mathbf{K} & = \mathbf{U} \text{diag}\left\{ k_i \right\} \mathbf{U}^* \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the eigenproblem reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} & = \left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \hat{\mathbf{u}}_i \\
+  \mathbf{0} & = \mathbf{M} \mathbf{U} \mathbf{S}^2 + \mathbf{C} \mathbf{U} \mathbf{S} + \mathbf{K} \mathbf{U} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Nodal vector.} Nodal vector thus reads
+\begin{equation*}
+\begin{split}\mathbf{u}(s) = \mathbf{U} \mathbf{q}(s) = \mathbf{U} \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the internal forces usually derived from a manipulation of the term \(\mathbf{K} \mathbf{u}(s)\),
+\begin{equation*}
+\begin{split}\mathbf{K} \mathbf{u}(s) = \mathbf{K} \mathbf{U} \text{diag}\left[ \frac{1}{m_i ( s^2 + 2 \xi_i \omega_i s + \omega^2_i )} \right]\mathbf{U}^* \mathbf{f}(s) \ .\end{split}
+\end{equation*}
+
+\subsection{Dimension reduction}
+\label{\detokenize{ch/solids/small-displacements-numerics:dimension-reduction}}
+\sphinxAtStartPar
+Modal unknowns can usually partitioned in slow (dynamical, resolved) and fast modes (with natural frequencies well above the frequency content of the forcing, and the dynamics of the system; can be treated as static modes),
+\begin{equation*}
+\begin{split}\mathbf{q} = \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the sum of their contributions give the nodal unknown,
+\begin{equation*}
+\begin{split}\mathbf{u} = \mathbf{U} \mathbf{q} = \begin{bmatrix} \mathbf{U}_s & \mathbf{U}_f \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \mathbf{q}_f \end{bmatrix} = \mathbf{U}_s \mathbf{q}_s + \mathbf{U}_f \mathbf{q}_f \ .\end{split}
+\end{equation*}
+
+\subsubsection{Truncation and direct recovery of loads}
+\label{\detokenize{ch/solids/small-displacements-numerics:truncation-and-direct-recovery-of-loads}}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u} 
+  & = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
+    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f ( s^2 + 2 \xi_f \omega_f s + \omega^2_f )} \right] \mathbf{U}_f^* \mathbf{f}
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsubsection{Mode acceleration and static recovery of fast modes}
+\label{\detokenize{ch/solids/small-displacements-numerics:mode-acceleration-and-static-recovery-of-fast-modes}}
+\sphinxAtStartPar
+Static approximation of fast modes gives
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u} 
+  & = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
+    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f ( s^2 + 2 \xi_f \omega_f s + \omega^2_f )} \right] \mathbf{U}_f^* \mathbf{f} = \\
+  & = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
+    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f \omega^2_f } \right] \mathbf{U}_f^* \mathbf{f}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and adding and subtracting the static response of the slow modes,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u} 
+  & = \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
+    - \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s \omega^2_s } \right] \mathbf{U}_s^* \mathbf{f} + \\
+  & + \mathbf{U}_s \text{diag}\left[ \frac{1}{m_s \omega^2_s } \right] \mathbf{U}_s^* \mathbf{f}
+    + \mathbf{U}_f \text{diag}\left[ \frac{1}{m_f \omega^2_f } \right] \mathbf{U}_f^* \mathbf{f} = \\
+  & = \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f} 
+    - \mathbf{U} \text{diag}\left[ \frac{1}{m_i \omega^2_i } \right] \mathbf{U}^* \mathbf{f} + \\
+  & = \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f}
+    - \mathbf{K}^{-1} \mathbf{f} \\
+  & = ... \\
+  & = - \mathbf{U}_s \left( \mathbf{U}_s^ \mathbf{K} \mathbf{U}_s \right)^{-1} \left(  \right) \text{diag} \left[ \frac{1}{m_s (s^2 + 2 \xi_s \omega_s s + \omega^2_s) } \right] \mathbf{U}_s^* \mathbf{f} -  \mathbf{K}^{-1} \mathbf{f} \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+ & \mathbf{U}_s \text{diag}\left[ \frac{-s^2 -2 \xi_s \omega_s s}{m_s \omega^2_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s )} \right] \mathbf{U}_s^* \mathbf{f}  = \\
+ & = \mathbf{U}_s \text{diag}\left[ \frac{1}{k_s} \right] \text{diag}\left[ m_s ( s^2 + 2  \xi_s \omega_s s ) \right]\text{diag}\left[ \frac{1}{m_s ( s^2 + 2 \xi_s \omega_s s + \omega^2_s) } \right] \mathbf{U}_s^* \mathbf{f} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+…\sphinxstylestrong{todo}…
+
+
+\section{With free rigid motion}
+\label{\detokenize{ch/solids/small-displacements-numerics:with-free-rigid-motion}}
+\sphinxAtStartPar
+Free rigid degrees of freedom are associated with vectors of the kernel of the stiffness matrix. The stiffness matrix is singular…
+
+\sphinxstepscope
+
+
+\chapter{Structural damping}
+\label{\detokenize{ch/solids/structural-damping:structural-damping}}\label{\detokenize{ch/solids/structural-damping:solid-mechanics-intro-small-displacements-damping}}\label{\detokenize{ch/solids/structural-damping::doc}}
+\sphinxAtStartPar
+As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there’s no rigid motion allowed, can be represented by the second order system
+\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being mass and stiffness matrices \(\mathbf{M}\), \(\mathbf{K}\) that are positive definite, and symmetric if derived as an example from a Lagrangian formulation of the problem.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Add reference to Lagrange mechanics and its properties in the classical mechanics bbooks.
+
+\sphinxAtStartPar
+This kind of systems are conveniently described using \sphinxstylestrong{modal basis}, as modes (or free/natural modes of vibrations) are orthogonal w.r.t. both mass and stiffness matrix.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Free response} using modal basis
+
+
+\section{Small damping}
+\label{\detokenize{ch/solids/structural-damping:small-damping}}
+\sphinxAtStartPar
+Structural small damping can be treated as a first order perturbation of the undamped system,
+\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or in Laplace domain
+\begin{equation*}
+\begin{split}\left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{f} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Here two assumptions are made and justified later:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+matrix \(\mathbf{C}\) is (semi)positive symmetric
+
+\item {} 
+\sphinxAtStartPar
+matrix \(\mathbf{C}\) becomes diagonal in the modal basis, i.e. modal basis simoultaneously diagonalize mass, damping and stiffness matrices
+
+\end{itemize}
+
+\sphinxAtStartPar
+If these two assumption holds, using the modal base collected in matrix \(\mathbf{U}\),
+\begin{equation*}
+\begin{split}\mathbf{u} = \mathbf{U} \mathbf{q} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the diagonalization reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{U}^T \mathbf{f}
+& = \mathbf{U}^T \left\{ \mathbf{M} \mathbf{U} \ddot{\mathbf{q}} + \mathbf{C} \mathbf{U} \dot{\mathbf{q}} + \mathbf{K} \mathbf{U} \mathbf{q} \right\} = \\
+& = \text{diag} \{ m_i \} \ddot{\mathbf{q}} + \text{diag}\{ c_i \} \dot{\mathbf{q}} + \text{diag}\{ k_i \} \mathbf{q} = \\
+& = \text{diag} \{ m_i \ddot{q}_i + c_i \dot{q}_i + k_i q_i \} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(m_i := \mathbf{u}_i^T \mathbf{M} \mathbf{u}_i\), \(c_i := \mathbf{u}_i^T \mathbf{C} \mathbf{u}_i\), \(k_i := \mathbf{u}_i^T \mathbf{K} \mathbf{u}_i\), the modal mass, damping and stiffness.
+\subsubsection*{(Semi)definite positive damping matrix}
+
+\sphinxAtStartPar
+Starting from the equations of motion
+\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the kinetic energy and the mechanical energy balance is derived (\sphinxstylestrong{todo} add references) with scalar multiplication by \(\dot{\mathbf{u}}\). For constant matrices,
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} & = \dot{\mathbf{u}}^T \mathbf{f} \\
+ \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] & = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
+ \dfrac{d}{dt} \left( K + V \right) & = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having recognized \(D = \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} \ge 0\) as the dissipation from damping, that can’t make the mechanical energy of the system \(K + V\) increase. This condition implies that \(\mathbf{C}\) is (semi)definite positive.
+\subsubsection*{Diagonal damping in modal basis}
+
+\sphinxAtStartPar
+Let’s write here the perturbed free damped system in Laplace domain using modal basis,
+\begin{equation*}
+\begin{split}\left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} = \mathbf{0} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and evaluate the derivative of this relation w.r.t. a parameter \(p\) associated to the damping, and not influencing mass or stiffness properties, \(\mathbf{M}_{/p} = \mathbf{0}\), \(\mathbf{K}_{/p} = \mathbf{0}\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} 
+  & = \left\{ \left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u} \right\}_{/p} = \\
+  & = \left[ (2 s \mathbf{M} + \mathbf{C} ) s_{/p} + s \mathbf{C}_{/p} \right] \mathbf{u}
+    + \left[ s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right] \mathbf{u}_{/p} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let’s investigate the effect of small damping on the eigensolution \(\left(s_i, \mathbf{u}_i \right)\). Exploiting the symmetry of the matrices of the system (following from the assumed simultaneous diagonalization of the damping matrix \(\mathbf{C} = \mathbf{U} \text{diag}\{ c_i \} \mathbf{U}^*\)), and evaluating the dot product of the latter relation for the \(i\)\sphinxhyphen{}th eigensolution with the eigenvector \(\mathbf{u}_i\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \mathbf{u}_i^T \left\{ \left[ (2 s_i \mathbf{M} + \mathbf{C} ) s_{i/p} + s_i \mathbf{C}_{/p} \right] \mathbf{u}_i
+      + \left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_{i/p} \right\} = \\
+    & = \mathbf{u}_i^T \left[ (2 s_i \mathbf{M} + \mathbf{C} ) s_{i/p} + s_i \mathbf{C}_{/p} \right] \mathbf{u}_i
+      + \mathbf{u}_{i/p}^T \underbrace{\left[ s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i}_{=\mathbf{0}} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it follows that the derivative of the \(i^{th}\) eigenvalue w.r.t. the parameter \(p\) reads
+\begin{equation*}
+\begin{split}s_{i/p} = - \dfrac{s_i \mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{\mathbf{u}_i^T (2 s_i \mathbf{M} + \mathbf{C} ) \mathbf{u}_i} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This derivative evaluated for the reference undamped condition \(\mathbf{C} = \mathbf{0}\) becomes
+\begin{equation*}
+\begin{split}s_{i/p} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{\mathbf{u}_i^T \mathbf{M} \mathbf{u}_i} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/p} \mathbf{u}_i}{m_i} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having recognized the modal mass \(m_i := \mathbf{u}_i^T \mathbf{M} \mathbf{u}_i\) associated to the \(i^{th}\) mode. Now, let’s evaluate the derivative of the eigenvalue \(s_i\) w.r.t. the components of the damping matrix \(\mathbf{C}\), i.e. \(\mathbf{C}_{/C_{jk}}\) that is a matrix full of zero, except for the component \((j,k)\) equal to one,
+\begin{equation*}
+\begin{split}s_{i/C_{jk}} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/C_{jk}} \mathbf{u}_i}{m_i} = -\dfrac{1}{2} \dfrac{u^{(i)}_j u^{(i)}_k}{m_i} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the first order polynomial expansion of \(s_i\) in coefficients \(C_{jk}\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_i & = s_{i,0} + s_{i/C_{jk}} C_{jk} = \\
+      & = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
+      & = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
+\ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From this expression, it’s possible to deduce that the \(i^{th}\) eigenvalue of the slightly damped system differs from the \(i^{th}\) eigenvalue of the undamped system \(s_{i,0} = \mp j \omega_{i}\) of a real non\sphinxhyphen{}positive (as \(\mathbf{C} \ge 0\) for dissipative damping actions) term \(\Delta s_i = - \frac{1}{2} \frac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i} \in \mathbb{R}\), \(\Delta s_i \le 0\), depending only on the damping matrix and the \(i^{th}\) mode. This term shifts the eigenvalue \(s_i\) to the left in the complex plane, and thus makes it asymptotically stable.
+
+\sphinxAtStartPar
+As the variation \(\Delta s_i\) only depends on the \(i^{th}\) eigenvector, and not on other eigenvectors, the assumption of siultaneously diagonalizable damping matrix is consistent with the results from this assumption.
+
 \sphinxstepscope
 
 
@@ -1432,7 +1984,7 @@ Inviscid
 \sphinxAtStartPar
 The behavior of continuous medium in static conditions can be used to define a fluid.
 \label{ch/fluids/statics:definition-0}
-\begin{sphinxadmonition}{note}{Definition 8.1 (Fluid)}
+\begin{sphinxadmonition}{note}{Definition 11.1 (Fluid)}
 
 
 
@@ -1466,7 +2018,7 @@ and the viscous stress tensor is isotropic and \sphinxstylestrong{linear} in the
 \sphinxAtStartPar
 being \(\mu, \lambda\) the viscosity coefficients, and \(\mathbb{D}\) the strain velocity tensor \eqref{equation:ch/continuum/kinematics:eq:strain-vel-tensor}. Thus, the definition
 \label{ch/fluids/constitutive-equations:definition-0}
-\begin{sphinxadmonition}{note}{Definition 9.1.1 (Newtonian fluid)}
+\begin{sphinxadmonition}{note}{Definition 12.1.1 (Newtonian fluid)}
 
 
 
@@ -1511,7 +2063,7 @@ a constitutive equation for conduction heat flux \(\vec{q}\), as an example \sph
 \sphinxAtStartPar
 and the required state equations characterizing the behavior of the medium linking thermodynamic variables (assumption of \sphinxstylestrong{local thermodynamic equilibrium} \sphinxstylestrong{todo} \sphinxstyleemphasis{discuss this principle}), and required to get a well\sphinxhyphen{}defined mathematical problem, with the same number of equations and unknowns.
 \label{ch/fluids/governing-equations:example-0}
-\begin{sphinxadmonition}{note}{Example 10.1.1 (Equations of state)}
+\begin{sphinxadmonition}{note}{Example 13.1.1 (Equations of state)}
 
 
 
@@ -1613,7 +2165,7 @@ and, since this must hold for any volume \(V_t\) and state of the system \sphinx
 \begin{equation*}
 \begin{split}\mu \ge 0 \quad , \quad \lambda \ge 0 \quad , \quad k \ge 0\end{split}
 \end{equation*}\label{ch/fluids/governing-equations:example-1}
-\begin{sphinxadmonition}{note}{Example 10.2.1 (Sign of physical quantity)}
+\begin{sphinxadmonition}{note}{Example 13.2.1 (Sign of physical quantity)}
 
 
 
@@ -1762,7 +2314,7 @@ so that the momentum equation in Navier\sphinxhyphen{}Stokes equations \eqref{eq
 \sphinxAtStartPar
 Starting from the form \eqref{equation:ch/fluids/incompressible:eq:ns-mom-bernoulli}, different forms of Bernoulli theorems are readilty derived with the proper assumptions.
 \label{ch/fluids/incompressible:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 12.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 15.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
 
 
 
@@ -1775,7 +2327,7 @@ In a steady incompressible inviscid flow with conservative volume forces, \(\vec
 \sphinxAtStartPar
 The proof readily follows taking the scalar product with a unit\sphinxhyphen{}norm vector \(\hat{t}\) parallel to the local velocity or vorticity, and noting that \(\hat{t} \cdot \vec{u} \times \vec{\omega}\) is zero if either \(\hat{t} \parallel \vec{v}\) or \(\hat{t} \parallel \vec{\omega}\).
 \label{ch/fluids/incompressible:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 12.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 15.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
 
 
 
@@ -1786,7 +2338,7 @@ In a steady incompressible inviscid irrotational flow with conservative volume f
 \qquad \rightarrow \qquad \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = 0 \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/fluids/incompressible:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 12.3.3 (Bernoulli theorem in irrotational inviscid flows)}
+\begin{sphinxadmonition}{note}{Theorem 15.3.3 (Bernoulli theorem in irrotational inviscid flows)}
 
 
 
@@ -1822,10 +2374,88 @@ The results of this section derived for a uniform density flow hold for a barotr
 \label{\detokenize{ch/fluids/compressible:compressible-fluid-mechanics}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible}}\label{\detokenize{ch/fluids/compressible::doc}}
 
 \section{Compressible Inviscid Fluid Mechanics}
-\label{\detokenize{ch/fluids/compressible:compressible-inviscid-fluid-mechanics}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-invisid}}
+\label{\detokenize{ch/fluids/compressible:compressible-inviscid-fluid-mechanics}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-inviscid}}
 
 \subsection{Shocks}
-\label{\detokenize{ch/fluids/compressible:shocks}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-invisid-shocks}}
+\label{\detokenize{ch/fluids/compressible:shocks}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-inviscid-shocks}}
+
+\subsection{Quasi\sphinxhyphen{}1d flows}
+\label{\detokenize{ch/fluids/compressible:quasi-1d-flows}}\label{\detokenize{ch/fluids/compressible:fluid-mechanics-compressible-inviscid-quasi-1d}}
+\sphinxAtStartPar
+If no shock occurs in the flow, Euler equations in differential form governs the dynamics of the flow
+\begin{equation*}
+\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot (\rho \vec{u}) = 0 \\
+  \partial_t \left( \rho \vec{u} \right) + \nabla \cdot (\rho \vec{u} \otimes \vec{u} + P \mathbb{I}) = 0 \\
+  \partial_t \left( \rho e^t \right) + \nabla \cdot (\rho \vec{u} h^t) = 0 \\
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Quasi\sphinxhyphen{}1d model for steady flows is a simple model that provides good\sphinxhyphen{}enough results for flows delimited by streamlines that varies gently in the streamwise direction (or by solid walls, in the limit of the high\sphinxhyphen{}Reynolds flow without separations, where viscous effects are confined to a thin region \sphinxhyphen{} boundary layer \sphinxhyphen{} close to the walls).
+
+\sphinxAtStartPar
+This model is derived integrating over the sections of the stream tube, so that the physical quantities are functions of the streamwise coordinate \(x\) only. Integration over an elementary volume between sections at \(x\) and \(x+dx\) of the mass and momentum equations, in steady conditions, gives
+\begin{equation*}
+\begin{split}\begin{cases}
+  d (\rho u A) = 0 \\
+  d (\rho u^2 A) + d (P A) + \displaystyle\int_{S_{lat}(x,dx)} P n_x = 0 \ ,
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+where the last equation comes from the contribution of the lateral surfaces, that has non zero contribution in the streamwise component of momentum equation if sections is not constant, and thus the unit normal vector \(\hat{n}\) on the lateral surface has non\sphinxhyphen{}zero \(x\)\sphinxhyphen{}component \(n_x\). This contribution on the elementary lateral surface (where pressure is assumed to be uniform), can be evaluated summing and subracting the contributions on the \(A(x)\) and \(A(x+dx)\) surface,
+\begin{equation*}
+\begin{split}\underbrace{\displaystyle\int_{S_{lat}(x,dx)} P n_x + P (A+dA) - P A}_{ = P \oint_{\partial V} n_x = 0 } - P(A+dA) + PA =  - P dA \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus the equations become
+\begin{equation*}
+\begin{split}\begin{cases}
+  0 = d (\rho u A) = 0 \\
+  0 = d (\rho u^2 A) + A dP = \rho u A \, du + A \, dP \ ,
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used the mass equation to simplify the first term in the momentum equation, since
+\begin{equation*}
+\begin{split}d(\rho u^2 A) = \underbrace{d(\rho u A)}_{=0} u + \rho u A \, du \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now, from momentum equation a relation from changes in velocity and pressure holds
+\begin{equation*}
+\begin{split}\rho u \, du = - dP \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If the flow is isentropic (i.e. negligible viscous effects, no heat conduction, no shocks), \(s = \overline{s}\), the definition of the speed of sound
+\begin{equation*}
+\begin{split}c^2(\rho, s) = \left( \frac{\partial P}{\partial \rho} \right)_s \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+can be used to write a relation between changes in pressure and density \(d P = c^2 d \rho\). Using this formula and mass equation \(d(\rho u A) = 0\), it’s possible to write relations between physical quantities and the variation of the section of the stream tube. Mass equation can be recast as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \dfrac{dA}{A} + \dfrac{d \rho}{\rho} + \dfrac{d u}{u} = \\
+    & = \dfrac{dA}{A} + \frac{1}{c^2} \dfrac{d P}{\rho} + \dfrac{d u}{u} = \\
+    & = \dfrac{dA}{A} + \frac{1}{c^2} \dfrac{d P}{\rho} - \dfrac{d P}{\rho u^2} 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, introducing Mach number \(M := \dfrac{u}{c}\),
+\begin{equation*}
+\begin{split}\dfrac{d A}{A} = (1 - M^2)\dfrac{dP}{\rho u^2} = -(1 - M^2)\dfrac{du}{u} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From this equation, it’s immediate to realize that:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+for subsonic flows \(M<1\), if section of the stream tube increases, \(dA > 0\), thus velocity descreases \(du < 0\), and pressure increases \(dP > 0\), and viceversa
+
+\item {} 
+\sphinxAtStartPar
+for supersonic flows \(M>1\), if section of the stream tube increases, \(dA > 0\), thus velocity increases \(du > 0\), and pressure decreases \(dP < 0\)
+
+\end{itemize}
+
 
 
 

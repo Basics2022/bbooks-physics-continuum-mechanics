@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16. Incompressible Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>7. Small displacement - Statics - Weak formulation and “Energy” theorems &#8212; continuum mechanics</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/fluids/incompressible';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-statics-weak-form';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="17. Compressible Fluid Mechanics" href="compressible.html" />
-    <link rel="prev" title="15. Non-dimensional Equations of Fluid Mechanics" href="dimensional-analysis.html" />
+    <link rel="next" title="8. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,23 +190,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">10. Structural damping</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">10. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">11. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">12. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compressible.html">17. Compressible Fluid Mechanics</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -278,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/fluids/incompressible.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-statics-weak-form.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/fluids/incompressible.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/small-displacements-statics-weak-form.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Incompressible Fluid Mechanics</h1>
+    <h1>Small displacement - Statics - Weak formulation and “Energy” theorems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,9 +402,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes-equations">16.1. Navier-Stokes Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorticity">16.2. Vorticity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-theorems">16.3. Bernoulli theorems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.6. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -416,108 +424,132 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="incompressible-fluid-mechanics">
-<span id="fluid-mechanics-incompressible"></span><h1><span class="section-number">16. </span>Incompressible Fluid Mechanics<a class="headerlink" href="#incompressible-fluid-mechanics" title="Permalink to this heading">#</a></h1>
-<p>Chapter of a introductory course in incompressible fluid mechanics:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems">
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “Energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
+<p>Starting from strong form of equilibrium equations, inner compatibility and congruence with essential boundary conditions, it’s possible to:</p>
 <ul class="simple">
-<li><p>statics</p></li>
-<li><p>kinematics</p></li>
-<li><p>governing equations</p></li>
-<li><p>non-dimensional equations</p></li>
-<li><p>vorticity dynamics</p></li>
-<li><p>low-<span class="math notranslate nohighlight">\(Re\)</span> exact solutions</p></li>
-<li><p>high-<span class="math notranslate nohighlight">\(Re\)</span> flows, incompressible inviscid irrotational flows:</p>
-<ul>
-<li><p>vorticity dynamics and Bernoulli theorems</p></li>
-<li><p>aeronautical applications</p></li>
+<li><p>derive a weak formulation of the problem</p></li>
+<li><p>derive energy theorems, with a proper choice of the test function involved in the weak formulation.</p></li>
 </ul>
-</li>
-<li><p>boundary layer</p></li>
-<li><p>instability and turbulence</p></li>
-</ul>
-<div class="section" id="navier-stokes-equations">
-<span id="fluid-mechanics-incompressible-ns-eqn"></span><h2><span class="section-number">16.1. </span>Navier-Stokes Equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this heading">#</a></h2>
-<p>The kinematic constraints (link to <a class="reference internal" href="dimensional-analysis.html#fluid-mechanics-dimensional-analysis"><span class="std std-ref">Non-dimensional Equations of Fluid Mechanics</span></a>?)</p>
-<div class="math notranslate nohighlight">
-\[\nabla \cdot \vec{v} = 0\]</div>
-<p>replaces mass balance in the governing equation and implies <span class="math notranslate nohighlight">\(\frac{D \rho}{D t} = 0\)</span>, i.e. all the material particles have constant density in time.</p>
-<p>If …</p>
-<div class="math notranslate nohighlight" id="equation-eq-ns-eqn">
-<span class="eqno">(16.1)<a class="headerlink" href="#equation-eq-ns-eqn" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
-\rho \left[ \frac{\partial \vec{u}}{\partial t} + \vec{u} \cdot \nabla ) \vec{u} \right] - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
-\nabla \cdot \vec{u} = 0
-\end{cases}\end{split}\]</div>
-<p>with the proper initial conditions, boundary conditions and - if required - <a class="reference internal" href="#fluid-mechanics-incompressible-compatibility"><span class="std std-ref">compatibility conditions</span></a>.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="fluid-mechanics-incompressible-compatibility">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Compatibility condition<div class="sd-summary-down docutils">
+Summary<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">A compatibility condition is needed if the velocity field is prescribed on the whole boundary <span class="math notranslate nohighlight">\(\partial V\)</span> of the domain <span class="math notranslate nohighlight">\(V\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\vec{u}\bigg|_{\partial V} = \vec{b}_n \ .\]</div>
-<p class="sd-card-text">The compatibility condition reads</p>
-<div class="math notranslate nohighlight">
-\[\oint_{\partial V} \vec{b}  \cdot \hat{n} = 0 \ ,\]</div>
-<p class="sd-card-text">to ensure that the conudary conditions are consistent with the incompressibility constraint, as it is readily proved using divergence theorem on the velocity field in <span class="math notranslate nohighlight">\(V\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[0 \equiv \int_V \underbrace{\nabla \cdot \vec{u}}_{= 0} = \oint_{\partial V} \hat{v} \cdot \hat{n} = \oint_{\partial V} \vec{b} \cdot \hat{n} \ .\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">Strong formulation of the problem</p></li>
+<li><p class="sd-card-text">Weak formulation</p>
+<ul>
+<li><p class="sd-card-text">Existence and uniqueness of the solution</p></li>
+<li><p class="sd-card-text">Principle of virtual work and complementary virtual work</p></li>
+<li><p class="sd-card-text">Principle of stationariety of the total potential energy <span class="math notranslate nohighlight">\(\Pi\)</span> and total complementary potential energy <span class="math notranslate nohighlight">\(\Pi^*\)</span></p></li>
+<li><p class="sd-card-text">Classical theorems: Maxwell-Betti (<span class="math notranslate nohighlight">\(F^1 s^2 = F^2 s^1\)</span>), Menabrea-Castigliano (<span class="math notranslate nohighlight">\(s_i = \partial_{F_i} \Pi\)</span>, <span class="math notranslate nohighlight">\(F_i = \partial_{s_i} \Pi\)</span>)</p></li>
+</ul>
+</li>
+</ul>
 </div>
-</details></div>
-<div class="section" id="vorticity">
-<span id="fluid-mechanics-incompressible-vorticity"></span><h2><span class="section-number">16.2. </span>Vorticity<a class="headerlink" href="#vorticity" title="Permalink to this heading">#</a></h2>
-<p>A dynamical equation for vorticity <span class="math notranslate nohighlight">\(\vec{\omega} := \nabla \times \vec{u}\)</span> reailty follows taking the curl of Navier-Stokes equations <a class="reference internal" href="#equation-eq-ns-eqn">(16.1)</a></p>
-<div class="math notranslate nohighlight" id="equation-eq-vorticity">
-<span class="eqno">(16.2)<a class="headerlink" href="#equation-eq-vorticity" title="Permalink to this equation">#</a></span>\[\frac{D \vec{\omega}}{D t} = (\vec{\omega} \cdot \nabla) \vec{u} + \nu \Delta \vec{\omega} \ ,\]</div>
-<p>i.e. vorticity can be stretched-tilted by the term <span class="math notranslate nohighlight">\((\vec{\omega} \cdot \nabla) \vec{u}\)</span>, or diffused by the term <span class="math notranslate nohighlight">\(\nu \Delta \vec{\omega}\)</span>.</p>
-<p>…</p>
-</div>
-<div class="section" id="bernoulli-theorems">
-<span id="id1"></span><h2><span class="section-number">16.3. </span>Bernoulli theorems<a class="headerlink" href="#bernoulli-theorems" title="Permalink to this heading">#</a></h2>
-<p>For an incompressible fluid, the advective term <span class="math notranslate nohighlight">\((\vec{u} \cdot \nabla) \cdot \vec{u}\)</span> can be recasted as</p>
+</details><div class="section" id="strong-formulation-of-the-problem">
+<h2><span class="section-number">7.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<p><strong>Indefinite equilibrium and natural boundary conditions on <span class="math notranslate nohighlight">\(S_N\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[(\vec{u} \cdot \nabla) \cdot \vec{u} = \vec{\omega} \times \vec{u} + \nabla \frac{|\vec{u}|^2}{2} \ ,\]</div>
-<p>so that the momentum equation in Navier-Stokes equations <a class="reference internal" href="#equation-eq-ns-eqn">(16.1)</a> for fluids with uniform density <span class="math notranslate nohighlight">\(\rho\)</span> reads</p>
-<div class="math notranslate nohighlight" id="equation-eq-ns-mom-bernoulli">
-<span class="eqno">(16.3)<a class="headerlink" href="#equation-eq-ns-mom-bernoulli" title="Permalink to this equation">#</a></span>\[ \rho \left[ \frac{\partial \vec{u}}{\partial t} + \vec{\omega} \times \vec{u} + \nabla \frac{|\vec{u}|^2}{2} \right] - \mu \Delta \vec{u} + \nabla P = \rho \vec{g} \ .\]</div>
-<p>Starting from the form <a class="reference internal" href="#equation-eq-ns-mom-bernoulli">(16.3)</a>, different forms of Bernoulli theorems are readilty derived with the proper assumptions.</p>
-<div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 16.1 </span> (Bernoulli theorem along path and vortex lines in steady flows)</p>
-<div class="theorem-content section" id="proof-content">
-<p>In a steady incompressible inviscid flow with conservative volume forces, <span class="math notranslate nohighlight">\(\vec{g} = - \nabla \chi\)</span>, the Bernoulli polynomial is constant along path (everywhere tangent to the velocity field, <span class="math notranslate nohighlight">\(\hat{t}(\vec{r}) \parallel \vec{u}(\vec{r})\)</span>) and vortex lines (everywhere tangent to the vorticity field, <span class="math notranslate nohighlight">\(\hat{t}(\vec{r}) \parallel \vec{\omega}(\vec{r})\)</span>), i.e. the directional derivative of the Bernoulli polynomial in the direction of the velocity or the vorticity field is identically zero,</p>
+\[\begin{split}\begin{cases}
+  \nabla \cdot \boldsymbol \sigma + \overline{\mathbf{f}} =  \mathbf{0} &amp; \text{ in $V$} \\
+  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_{\mathbf{n}} &amp; \text{on $S_N$}
+\end{cases}\end{split}\]</div>
+<p><strong>Internal congruence and compatibility with essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[\hat{t} \cdot \nabla \left( \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi \right) = 0 \ .\]</div>
-</div>
-</div><p>The proof readily follows taking the scalar product with a unit-norm vector <span class="math notranslate nohighlight">\(\hat{t}\)</span> parallel to the local velocity or vorticity, and noting that <span class="math notranslate nohighlight">\(\hat{t} \cdot \vec{u} \times \vec{\omega}\)</span> is zero if either <span class="math notranslate nohighlight">\(\hat{t} \parallel \vec{v}\)</span> or <span class="math notranslate nohighlight">\(\hat{t} \parallel \vec{\omega}\)</span>.</p>
-<div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 16.2 </span> (Bernoulli theorem in irrotational inviscid steady flows)</p>
-<div class="theorem-content section" id="proof-content">
-<p>In a steady incompressible inviscid irrotational flow with conservative volume forces, <span class="math notranslate nohighlight">\(\vec{g} = - \nabla \chi\)</span>, the Bernoulli polynomial is uniform in the whole domain, since its gradient is identically zero</p>
+\[\begin{split}\begin{cases}
+\boldsymbol\varepsilon = \nabla^S \mathbf{s} = \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) &amp; \text{in $V$} \\
+\mathbf{s} = \overline{\mathbf{s}} &amp; \text{on $S_D$}
+\end{cases}\end{split}\]</div>
+<p><strong>Other boundary conditions - e.g. Robin.</strong> Beside essential boundary conditions (prescribing the displacement) and natural boundary condtions (prescribing the stress vector), other boundary conditions may exist. As an example, Robin boundary conditions are defined as a boundary condition prescribing a linear combination of displacement and stress, and may represent <em>flexible constraints</em>. The most general affine relation between dispacement and stress vector reads</p>
 <div class="math notranslate nohighlight">
-\[\nabla \left( \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi \right) = 0 
-\qquad \rightarrow \qquad \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = 0 \ .\]</div>
-</div>
-</div><div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 16.3 </span> (Bernoulli theorem in irrotational inviscid flows)</p>
-<div class="theorem-content section" id="proof-content">
-<p>In an incompressible inviscid irrotational flow with conservative volume forces, <span class="math notranslate nohighlight">\(\vec{g} = - \nabla \chi\)</span>, the Bernoulli polynomial is uniform in the connected irrotational regions of the domain - but not constant in time in general - , since its gradient is identically zero</p>
+\[\mathbf{a} \cdot \mathbf{s} = \mathbf{b} \cdot \boldsymbol\sigma \cdot \hat{\mathbf{n}} + \mathbf{c}  \qquad \text{on $S_R$} \ ,\]</div>
+<p>having exploited here the symmetry (<strong>todo</strong>) of the stress tensor <span class="math notranslate nohighlight">\(\boldsymbol\sigma\)</span>.
+If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is invertible, the latter relation may be written in the form</p>
 <div class="math notranslate nohighlight">
-\[\nabla \left( \frac{\partial \phi}{\partial t} + \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi \right) = 0 
-\qquad \rightarrow \qquad \frac{\partial \phi}{\partial t} + \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = C(t) \ .\]</div>
-<p>being <span class="math notranslate nohighlight">\(\phi\)</span> the velocity potential used to write the irrotational velocity field as the gradient of a scalar function <span class="math notranslate nohighlight">\(\vec{u} = \nabla \phi\)</span>.</p>
-</div>
-</div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The assumption of inviscid flow is not directly required if irrotationality holds. Anyway the inviscid flow assumption may be required to make irrotationality condition holds. Lookinig at the vorticity equation <a class="reference internal" href="#equation-eq-vorticity">(16.2)</a> the assumption of negligible viscosity prevents diffusion of vorticity from rotational regions to irrotational regions.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A barotropic fluid is defined as a fluid where the pressure is a function of density only, <span class="math notranslate nohighlight">\(P(\rho)\)</span>. For this kind of flows it’s possible to find a function <span class="math notranslate nohighlight">\(\Pi\)</span> so that</p>
+\[\mathbf{s} = \mathbf{b} \cdot \boldsymbol\sigma \cdot \hat{\mathbf{n}} + \mathbf{c} \qquad \text{on $S_R$} \ .\]</div>
+<p><strong>Linear elastic constitutive equation.</strong> Constitutive equation of linear elastic media in the regime of small displacement reads</p>
 <div class="math notranslate nohighlight">
-\[d \Pi = \frac{d P}{\rho} \ .\]</div>
-<p>The results of this section derived for a uniform density flow hold for a barotropic fluid as well, replacing <span class="math notranslate nohighlight">\(\frac{P}{\rho}\)</span> with <span class="math notranslate nohighlight">\(\Pi\)</span>.</p>
+\[\boldsymbol\varepsilon = \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \, \Delta T \ ,\]</div>
+<p>being the latter the contribution of thermal strains. The “inverse” relation reads</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \, \Delta T \ .\]</div>
+<p>If temperature field is prescribed and known it can be treated as a forcing, otherwise its an unkown physical quantity and the internal energy (or temperature) balance equation needs to be solved along with the mechanical equilibrium equation.</p>
+</div>
+<div class="section" id="weak-formulations-of-the-problem">
+<h2><span class="section-number">7.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<div class="section" id="weak-formulation-of-equilibrium-conditions">
+<h3><span class="section-number">7.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<p>For every<a class="footnote-reference brackets" href="#test-fun-regularity" id="id1">1</a> function <span class="math notranslate nohighlight">\(\mathbf{w}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{V} \mathbf{w} \cdot \left\{ \nabla \cdot \boldsymbol\sigma + \overline{\boldsymbol{f}} \right\} = \\
+  &amp; = \int_{V} w_j \left\{ \sigma_{ij/i} + \overline{f}_j \right\} = \\
+  &amp; = \oint_{\partial V} n_i \sigma_{ij} w_j - \int_{V} w_{j/i} \sigma_{ij} + \int_{V}  w_j \overline{f}_j = \\
+  &amp; = - \int_{V} w_{j/i} \sigma_{ij} + \int_{V}  w_j \overline{f}_j + \int_{S_N} w_j \overline{t}_n + \int_{\partial V / S_N} w_j t_j = \\
+  &amp; = - \int_{V} \dfrac{1}{2} \left(  w_{j/i} + w_{i/j} \right) \sigma_{ij} + \int_{V}  w_j \overline{f}_j + \int_{S_N} w_j \overline{t}_n + \int_{\partial V / S_N} w_j t_j = \\
+\end{aligned}\end{split}\]</div>
+<p>having exploited symmetry of stress tensor <span class="math notranslate nohighlight">\(\boldsymbol\sigma\)</span>.</p>
+</div>
+<div class="section" id="weak-formulation-of-compatibility-conditions">
+<h3><span class="section-number">7.2.2. </span>Weak formulation of compatibility conditions<a class="headerlink" href="#weak-formulation-of-compatibility-conditions" title="Permalink to this heading">#</a></h3>
+<p>For every 2<span class="math notranslate nohighlight">\(^{nd}\)</span> order tensor function <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_V \boldsymbol\Omega : \left\{ \boldsymbol\varepsilon - \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) \right\} = \\
+  &amp; = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} + \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
+  &amp; = - \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
+\end{aligned}\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> is chosen to be symmetric,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} n_i \Omega_{ij} s_j = \\
+  &amp; = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \int_{S_D} n_i \Omega_{ij} \overline{s}_j + \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="existence-and-uniqueness-of-the-solution">
+<h3><span class="section-number">7.2.3. </span>Existence and uniqueness of the solution<a class="headerlink" href="#existence-and-uniqueness-of-the-solution" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-virtual-work">
+<h3><span class="section-number">7.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the weak form of equilibrium conditions, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a displacement field <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence and compatibility with essential constraints, i.e. that satisfies the conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \tilde{\boldsymbol{\varepsilon}} &amp; := \dfrac{1}{2} \left( \nabla \tilde{\mathbf{s}} + \nabla^T \tilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \tilde{\mathbf{s}} &amp; = \overline{\mathbf{s}} &amp;&amp; \text{on $S_D$} \ ,
+\end{aligned}\end{split}\]</div>
+<p>from the definition <span class="math notranslate nohighlight">\(\mathbf{w} = \delta \tilde{\mathbf{s}}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta \tilde{\boldsymbol{\varepsilon}} &amp; = \dfrac{1}{2} \left( \nabla \delta \tilde{\mathbf{s}} + \nabla^T \delta \tilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \delta \tilde{\mathbf{s}} &amp; = \mathbf{0} &amp;&amp; \text{on $S_D$} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+0 &amp; = - \int_{V} \delta \tilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \tilde{s}_j \overline{f}_j + \int_{S_N} \delta{s}_j \overline{t}_n + \int_{S_R} \partial \delta{s}_j t_j \ .
+\end{aligned}\]</div>
+</div>
+<div class="section" id="principle-of-complementary-virtual-work">
+<h3><span class="section-number">7.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-potential-energy">
+<h3><span class="section-number">7.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>With prescribed temperature field,</p>
+<div class="math notranslate nohighlight">
+\[\delta \varepsilon_{ij} = D_{ijkl} \delta \sigma_{kl} \ ,\]</div>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
+<h3><span class="section-number">7.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="test-fun-regularity"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>For every test function that is <strong>regular enough</strong>, meaning that everything that is written in the equatiions exist.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -535,7 +567,7 @@ Compatibility condition<div class="sd-summary-down docutils">
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/fluids"
+            path: "./ch/solids"
         },
         predefinedOutput: true
     }
@@ -553,20 +585,20 @@ Compatibility condition<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dimensional-analysis.html"
+       href="small-displacements-statics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Non-dimensional Equations of Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Small displacement - statics</p>
       </div>
     </a>
     <a class="right-next"
-       href="compressible.html"
+       href="small-displacements-waves.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Compressible Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Waves in linear elastic homogeneous isotropic media</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -585,9 +617,17 @@ Compatibility condition<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-stokes-equations">16.1. Navier-Stokes Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorticity">16.2. Vorticity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-theorems">16.3. Bernoulli theorems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.6. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

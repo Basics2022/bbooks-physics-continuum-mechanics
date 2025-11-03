@@ -1,6 +1,19 @@
 (solid-mechanics:intro:small-displacements-statics)=
 # Small displacement - statics
 
+
+## \texttt{todo}
+
+```{dropdown} todo list
+
+- "Kinematics": labile, isostatic, hyperstatics
+- Stress tensor: Cauchy relation, proof of symmetry (under non-polar assumption)
+- Small strain tensor: definition and compatibility conditions
+- ...
+
+```
+
+
 - **Labile - Undetermined.**
 - **Isostatic - "determined".**
 - **Hyperstatic - "overdetermined".**

@@ -34,22 +34,35 @@
 \contentsline {chapter}{\numberline {6}Small displacement \sphinxhyphen {} statics}{31}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Linear isotropic elastic medium}{31}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Constitutive equation}{31}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Beam models}{35}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Beam structures}{35}{section.6.3}%
-\contentsline {part}{III\hspace {1em}Fluid Mechanics}{37}{part.3}%
-\contentsline {chapter}{\numberline {7}Introduction to Fluid Mechanics}{39}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Statics}{41}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Constitutive Equations of Fluid Mechanics}{43}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Newtonian Fluids}{43}{section.9.1}%
-\contentsline {chapter}{\numberline {10}Governing Equations of Fluid Mechanics}{45}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Newtonian Fluid}{45}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Derived quantities}{46}{section.10.2}%
-\contentsline {chapter}{\numberline {11}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{49}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Incompressible Fluid Mechanics}{51}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Navier\sphinxhyphen {}Stokes Equations}{51}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Vorticity}{52}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Bernoulli theorems}{52}{section.12.3}%
-\contentsline {chapter}{\numberline {13}Compressible Fluid Mechanics}{55}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Compressible Inviscid Fluid Mechanics}{55}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}Shocks}{55}{subsection.13.1.1}%
-\contentsline {chapter}{Proof Index}{57}{section*.6}%
+\contentsline {section}{\numberline {6.2}Beam models}{38}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Beam structures}{38}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Waves in linear elastic homogeneous isotropic media}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Navier\sphinxhyphen {}Cauchy equation: displacement formulation of the momentum equation}{39}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Helmholtz decomposition and sum of waves equation for \(p\) and \(s\) waves}{39}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Fourier decomposition: \(p\) is longitudinal, \(s\) is transverse}{40}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Modal methods for structural problems}{41}{chapter.8}%
+\contentsline {section}{\numberline {8.1}No free rigid motion}{41}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Dimension reduction}{42}{subsection.8.1.1}%
+\contentsline {subsubsection}{Truncation and direct recovery of loads}{42}{subsubsection*.5}%
+\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{42}{subsubsection*.6}%
+\contentsline {section}{\numberline {8.2}With free rigid motion}{43}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Structural damping}{45}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Small damping}{45}{section.9.1}%
+\contentsline {part}{III\hspace {1em}Fluid Mechanics}{49}{part.3}%
+\contentsline {chapter}{\numberline {10}Introduction to Fluid Mechanics}{51}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Statics}{53}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Constitutive Equations of Fluid Mechanics}{55}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Newtonian Fluids}{55}{section.12.1}%
+\contentsline {chapter}{\numberline {13}Governing Equations of Fluid Mechanics}{57}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Newtonian Fluid}{57}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Derived quantities}{58}{section.13.2}%
+\contentsline {chapter}{\numberline {14}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{61}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Incompressible Fluid Mechanics}{63}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Navier\sphinxhyphen {}Stokes Equations}{63}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Vorticity}{64}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Bernoulli theorems}{64}{section.15.3}%
+\contentsline {chapter}{\numberline {16}Compressible Fluid Mechanics}{67}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Compressible Inviscid Fluid Mechanics}{67}{section.16.1}%
+\contentsline {subsection}{\numberline {16.1.1}Shocks}{67}{subsection.16.1.1}%
+\contentsline {subsection}{\numberline {16.1.2}Quasi\sphinxhyphen {}1d flows}{67}{subsection.16.1.2}%
+\contentsline {chapter}{Proof Index}{69}{section*.8}%

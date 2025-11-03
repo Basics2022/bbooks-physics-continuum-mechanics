@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Introduction to Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>11. Introduction to Fluid Mechanics &#8212; continuum mechanics</title>
   
   
   
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Statics" href="statics.html" />
-    <link rel="prev" title="8. Modal methods for structural problems" href="../solids/small-displacements-numerics.html" />
+    <link rel="next" title="12. Statics" href="statics.html" />
+    <link rel="prev" title="10. Structural damping" href="../solids/structural-damping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,18 +191,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">7. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">8. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">10. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">10. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">11. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">12. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">13. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">14. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compressible.html">15. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statics.html">12. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible.html">16. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compressible.html">17. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -401,7 +403,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-fluid-mechanics">
-<span id="fluid-mechanics-intro"></span><h1><span class="section-number">9. </span>Introduction to Fluid Mechanics<a class="headerlink" href="#introduction-to-fluid-mechanics" title="Permalink to this heading">#</a></h1>
+<span id="fluid-mechanics-intro"></span><h1><span class="section-number">11. </span>Introduction to Fluid Mechanics<a class="headerlink" href="#introduction-to-fluid-mechanics" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Statics and definition of fluids, as medium that has no shear stress at rest.</p></li>
 <li><p>Kinematics</p></li>
@@ -460,12 +462,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../solids/small-displacements-numerics.html"
+       href="../solids/structural-damping.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Modal methods for structural problems</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Structural damping</p>
       </div>
     </a>
     <a class="right-next"
@@ -473,7 +475,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Statics</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Statics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

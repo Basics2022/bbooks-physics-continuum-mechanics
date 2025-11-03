@@ -26,8 +26,10 @@ parts:
   chapters:
   - file: ch/solids/intro
   - file: ch/solids/small-displacements-statics
+  - file: ch/solids/small-displacements-statics-weak-form
   - file: ch/solids/small-displacements-waves
   - file: ch/solids/small-displacements-numerics
+  - file: ch/solids/structural-damping
 - caption: Fluid Mechanics
   numbered: true
   chapters:
