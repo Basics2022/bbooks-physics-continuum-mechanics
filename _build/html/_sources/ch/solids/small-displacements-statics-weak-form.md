@@ -75,51 +75,190 @@ For every 2$^{nd}$ order tensor function $\boldsymbol\Omega$
 
 $$\begin{aligned}
 0 & = \int_V \boldsymbol\Omega : \left\{ \boldsymbol\varepsilon - \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) \right\} = \\
-  & = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} + \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
-  & = - \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
+  & = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} - \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
+  & = \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
 \end{aligned}$$
 
 If $\boldsymbol\Omega$ is chosen to be symmetric,
 
 $$\begin{aligned}
-0 & = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} n_i \Omega_{ij} s_j = \\
-  & = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \int_{S_D} n_i \Omega_{ij} \overline{s}_j + \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
+0 & = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} n_i \Omega_{ij} s_j = \\
+  & = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \int_{S_D} n_i \Omega_{ij} \overline{s}_j - \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
 \end{aligned}$$
 
 ### Existence and uniqueness of the solution
 
+```{prf:theorem} Existence and uniqueness of the solution of the small-strain, small-displacement elastic problem
+
+Under the assumptions ..., there exists a unique solution of the elastic problem that is at the same time congruent and equilibrated.
+
+```
+
+...**todo**...
+
 ### Principle of virtual work
 
-Starting from the weak form of equilibrium conditions, and choosing $\mathbf{w}$ to be the variation of a displacement field $\widetilde{s}$  with internal congruence and compatibility with essential constraints, i.e. that satisfies the conditions
+Starting from the weak form of equilibrium conditions, and choosing $\mathbf{w}$ to be the variation of a **congruent displacement field** $\widetilde{s}$  with internal congruence in $V$ and compatibility with *given* essential constraints on $S_D$, i.e. that satisfies the conditions
 
 $$\begin{aligned}
-  \tilde{\boldsymbol{\varepsilon}} & := \dfrac{1}{2} \left( \nabla \tilde{\mathbf{s}} + \nabla^T \tilde{\mathbf{s}} \right) && \text{in $V$} \\
-  \tilde{\mathbf{s}} & = \overline{\mathbf{s}} && \text{on $S_D$} \ ,
+  \widetilde{\boldsymbol{\varepsilon}} & := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) && \text{in $V$} \\
+  \widetilde{\mathbf{s}} & = \overline{\mathbf{s}} && \text{on $S_D$} \ ,
 \end{aligned}$$
 
-from the definition $\mathbf{w} = \delta \tilde{\mathbf{s}}$, it follows
+with **no other conditions** on $\widetilde{\boldsymbol\sigma}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$. From the definition $\mathbf{w} = \delta \widetilde{\mathbf{s}}$, it follows
 
 $$\begin{aligned}
-  \delta \tilde{\boldsymbol{\varepsilon}} & = \dfrac{1}{2} \left( \nabla \delta \tilde{\mathbf{s}} + \nabla^T \delta \tilde{\mathbf{s}} \right) && \text{in $V$} \\
-  \delta \tilde{\mathbf{s}} & = \mathbf{0} && \text{on $S_D$} \ ,
+  \delta \widetilde{\boldsymbol{\varepsilon}} & = \dfrac{1}{2} \left( \nabla \delta \widetilde{\mathbf{s}} + \nabla^T \delta \widetilde{\mathbf{s}} \right) && \text{in $V$} \\
+  \delta \widetilde{\mathbf{s}} & = \mathbf{0} && \text{on $S_D$} \ ,
 \end{aligned}$$
 
 and
 
 $$\begin{aligned}
-0 & = - \int_{V} \delta \tilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \tilde{s}_j \overline{f}_j + \int_{S_N} \delta{s}_j \overline{t}_n + \int_{S_R} \partial \delta{s}_j t_j \ .
+0 & = - \int_{V} \delta \widetilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \widetilde{s}_j \overline{f}_j + \int_{S_N} \delta \widetilde{s}_j \overline{t}_j + \int_{S_R} \delta \widetilde{s}_j t_j \ .
 \end{aligned}$$
-
 
 ### Principle of complementary virtual work
 
+Starting from the weak form of the compatibility conditions, and choosing $\boldsymbol\Omega$ to be the variation of an **equilibrated stress field** $\widetilde{\boldsymbol{\sigma}}$ due to *given* external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$, i.e. satisfying the conditions
+
+$$\begin{cases}
+  \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 & \text{in $V$} \\
+  n_i \widetilde{\sigma}_{ij} = \widetilde{t}_j   & \text{in $S_N$}
+\end{cases}$$
+
+with **no other conditions** on $\boldsymbol\varepsilon$ and $\mathbf{s}$ in $V$ and $S_D$. From the definition $\Omega_{ij} = \delta \widetilde{\sigma}_{ij}$, it follows
+
+$$\begin{cases}
+  \delta \widetilde{\sigma}_{ij/i}      = 0   & \text{in $V$} \\
+  n_i \, \delta \widetilde{\sigma}_{ij} = 0   & \text{in $S_N$}
+\end{cases}$$
+
+and
+
+$$\begin{aligned}
+0 & = \int_V \underbrace{\delta \widetilde{\sigma}_{ij/i}}_{= 0} s_j  + \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j  - \int_{S_N} \underbrace{n_i \delta \widetilde{\sigma}_{ij}}_{=0} s_j  - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j = \\
+  & = \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j \ . 
+\end{aligned}$$
+
+
 ### Principle of stationariety of total potential energy
 
-With prescribed temperature field,
+Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, $\widetilde{\mathbf{s}} = \mathbf{s}$, $\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}$, it follows that
 
-$$\delta \varepsilon_{ij} = D_{ijkl} \delta \sigma_{kl} \ ,$$
+$$\begin{aligned}
+ 0 & = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \mathbf{t} =  
+\end{aligned}$$
+
+```{dropdown} Different expressions of variation of the "internal energy"
+:open:
+
+**todo** check which kind of thermodynamic potential it really is.
+
+$$\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  & = \int_V \delta \boldsymbol\varepsilon : \left( \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T \right) = \\
+  & = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\varepsilon : \boldsymbol\beta \Delta T \right\} + \int_V \boldsymbol\varepsilon : \boldsymbol\beta \delta \Delta T 
+\end{aligned}$$
+
+
+$$\begin{aligned}
+  \int_V \delta \boldsymbol\sigma : \boldsymbol\varepsilon
+  & = \int_V \delta \boldsymbol\sigma : \left( \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \Delta T \right) = \\
+  & = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \boldsymbol\sigma : \boldsymbol\alpha\Delta T \right\} - \int_V \boldsymbol\sigma : \boldsymbol\alpha\delta \Delta T 
+\end{aligned}$$
 
 
 
+<!--
+
+$$\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  & = \int_V \boldsymbol\sigma : \left( \mathbf{D} : \delta \boldsymbol\sigma - \boldsymbol\beta \delta \Delta T \right) = \\
+  & = \delta \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \int_V \boldsymbol\sigma : \boldsymbol\beta \, \delta \Delta T = \\
+  & = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \boldsymbol\sigma : \boldsymbol\beta \Delta T \right\} + \int_V \delta \boldsymbol\sigma : \boldsymbol\beta  \Delta T 
+\end{aligned}$$
+
+-->
+
+```
+
+If the stress vector on Robin boundary reads $\mathbf{t} = - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}}$, it follows
+
+$$\begin{aligned}
+ 0 & = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \left( - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}} \right) = \\ 
+   & = \delta \underbrace{\left\{ - \int_V \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \Delta T + \int_{V} \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \mathbf{s} \cdot \overline{\mathbf{t}} - \int_{S_R} \dfrac{1}{2}\mathbf{s} \cdot \mathbf{K} \cdot \mathbf{s} + \int_{S_R} \mathbf{s} \cdot \overline{\mathbf{h}} \right\}}_{ =: \Pi(\boldsymbol\varepsilon, \mathbf{s})} + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \ \delta \Delta T \ , 
+\end{aligned}$$
+
+and if $\Delta T$ is prescribed, it follows $\delta \Delta T = 0$, and
+
+$$0 = \delta \Pi(\boldsymbol\varepsilon, \mathbf{s}) \ . $$
+
+```{prf:theorem} Principle of stationariety of total potential energy
+
+Among all the equilibrated solutions, the congruent solution (and thus the unique solution of the elastic problem) is the one that makes the total potential energy stationary.
+
+```
 
 ### Principle of stationariety of total complementary potential energy
+
+If the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
+
+$$\begin{aligned}
+0 & = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
+  & = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
+\end{aligned}$$
+
+and if $\Delta T$ is prescribed, it follows $\delta \, \Delta T = 0$, and
+
+$$\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .$$
+
+```{prf:theorem} Principle of stationariety of total complementary potential energy
+
+Among all the congruent solutions, the equilibrated solution (and thus the unique solution of the elastic problem) is the one that makes the total complementary potential energy stationary.
+
+```
+
+## Classical theorems
+
+### Maxwell-Betti
+
+Let $1$ and $2$ label two sets of loads acting on a structure. Now, using displacement $s^2$ as the test function in the weak formulation of equilibrium conditions for $1$, and displacement $s^1$ for equilibrium conditions for $2$
+
+$$\begin{aligned}
+ 0 & = - \int_V \varepsilon^2_{ij} \sigma^1_{ij} + \int_V s^2_j f^1_j + \oint_{\partial V} s^2_j t^1_j \\
+ 0 & = - \int_V \varepsilon^1_{ij} \sigma^2_{ij} + \int_V s^1_j f^2_j + \oint_{\partial V} s^1_j t^2_j \\
+\end{aligned}$$
+
+Let $\varepsilon^a_{ij} = D_{ijkl} \sigma^a_{kl} + \alpha_{ij} \Delta T^a = \varepsilon^{a,mech}_{ij} + \varepsilon^{a,th}_{ij}$. Subtracting the two latter equations,
+
+$$
+-\int_{V} \varepsilon^{2,th}_{ij} \sigma^1_{ij} + \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+-\int_{V} \varepsilon^{1,th}_{ij} \sigma^2_{ij} + \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+$$
+
+If no thermal strain exists,
+
+$$
+ \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+ \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+$$
+
+
+**Examples.**
+
+- If displacement is constrained on Dirichlet boundary, $\mathbf{s}|_{S_D} = \mathbf{0}$, and the loads are made of a set of lumped forces,
+
+   $$\mathbf{f}^1(\mathbf{r}) = \sum_{m} \mathbf{F}^1_m \delta(\mathbf{r}-\mathbf{r}_m) \ ,$$
+
+   the expression of Maxwell-Betti theorem reads
+
+   $$\sum_a \mathbf{F}^1_a \cdot \mathbf{s}^2_a = \sum_b \mathbf{F}^2_b \cdot \mathbf{s}^1_b \ , $$
+
+   with $\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)$. Moreover, if only one load exists
+
+   $$\mathbf{F}^1_a \cdot \mathbf{s}^2(\mathbf{r}_a) = \mathbf{F}^2_b \cdot \mathbf{s}^1(\mathbf{r}_b) \ .$$
+
+### Menabrea-Castigliano
+
+

@@ -27,7 +27,18 @@ parts:
   - file: ch/solids/intro
   - file: ch/solids/small-displacements-statics
   - file: ch/solids/small-displacements-statics-weak-form
+  - file: ch/solids/small-displacements-statics-beams-weak-form
   - file: ch/solids/small-displacements-waves
+  - file: ch/solids/beams
+    sections:
+    - file: ch/solids/beams/de-saint-venant
+    - file: ch/solids/beams/thin-walled
+    - file: ch/solids/beams/timoshenko
+    - file: ch/solids/beams/bernoulli
+    - file: ch/solids/beams/aeronautical
+    - file: ch/solids/beams/problems
+#     sections:
+#     - file: ch/solids/beams/problem-1
   - file: ch/solids/small-displacements-numerics
   - file: ch/solids/structural-damping
 - caption: Fluid Mechanics

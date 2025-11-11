@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="next" title="8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
     <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,19 +194,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">10. Structural damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">9. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">12. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">13. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">14. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">18. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">19. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -413,6 +422,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-theorems">7.3. Classical theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-betti">7.3.1. Maxwell-Betti</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menabrea-castigliano">7.3.2. Menabrea-Castigliano</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -500,50 +514,175 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 0 &amp; = \int_V \boldsymbol\Omega : \left\{ \boldsymbol\varepsilon - \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) \right\} = \\
-  &amp; = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} + \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
-  &amp; = - \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
+  &amp; = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} - \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
+  &amp; = \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
 \end{aligned}\end{split}\]</div>
 <p>If <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> is chosen to be symmetric,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-0 &amp; = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \oint_{\partial V} n_i \Omega_{ij} s_j = \\
-  &amp; = - \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} + \int_{S_D} n_i \Omega_{ij} \overline{s}_j + \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
+0 &amp; = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} n_i \Omega_{ij} s_j = \\
+  &amp; = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \int_{S_D} n_i \Omega_{ij} \overline{s}_j - \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="existence-and-uniqueness-of-the-solution">
 <h3><span class="section-number">7.2.3. </span>Existence and uniqueness of the solution<a class="headerlink" href="#existence-and-uniqueness-of-the-solution" title="Permalink to this heading">#</a></h3>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Existence and uniqueness of the solution of the small-strain, small-displacement elastic problem)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Under the assumptions …, there exists a unique solution of the elastic problem that is at the same time congruent and equilibrated.</p>
+</div>
+</div><p>…<strong>todo</strong>…</p>
 </div>
 <div class="section" id="principle-of-virtual-work">
 <h3><span class="section-number">7.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
-<p>Starting from the weak form of equilibrium conditions, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a displacement field <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence and compatibility with essential constraints, i.e. that satisfies the conditions</p>
+<p>Starting from the weak form of equilibrium conditions, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a <strong>congruent displacement field</strong> <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence in <span class="math notranslate nohighlight">\(V\)</span> and compatibility with <em>given</em> essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>, i.e. that satisfies the conditions</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \tilde{\boldsymbol{\varepsilon}} &amp; := \dfrac{1}{2} \left( \nabla \tilde{\mathbf{s}} + \nabla^T \tilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
-  \tilde{\mathbf{s}} &amp; = \overline{\mathbf{s}} &amp;&amp; \text{on $S_D$} \ ,
+  \widetilde{\boldsymbol{\varepsilon}} &amp; := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \widetilde{\mathbf{s}} &amp; = \overline{\mathbf{s}} &amp;&amp; \text{on $S_D$} \ ,
 \end{aligned}\end{split}\]</div>
-<p>from the definition <span class="math notranslate nohighlight">\(\mathbf{w} = \delta \tilde{\mathbf{s}}\)</span>, it follows</p>
+<p>with <strong>no other conditions</strong> on <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol\sigma}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>. From the definition <span class="math notranslate nohighlight">\(\mathbf{w} = \delta \widetilde{\mathbf{s}}\)</span>, it follows</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \delta \tilde{\boldsymbol{\varepsilon}} &amp; = \dfrac{1}{2} \left( \nabla \delta \tilde{\mathbf{s}} + \nabla^T \delta \tilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
-  \delta \tilde{\mathbf{s}} &amp; = \mathbf{0} &amp;&amp; \text{on $S_D$} \ ,
+  \delta \widetilde{\boldsymbol{\varepsilon}} &amp; = \dfrac{1}{2} \left( \nabla \delta \widetilde{\mathbf{s}} + \nabla^T \delta \widetilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \delta \widetilde{\mathbf{s}} &amp; = \mathbf{0} &amp;&amp; \text{on $S_D$} \ ,
 \end{aligned}\end{split}\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-0 &amp; = - \int_{V} \delta \tilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \tilde{s}_j \overline{f}_j + \int_{S_N} \delta{s}_j \overline{t}_n + \int_{S_R} \partial \delta{s}_j t_j \ .
+0 &amp; = - \int_{V} \delta \widetilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \widetilde{s}_j \overline{f}_j + \int_{S_N} \delta \widetilde{s}_j \overline{t}_j + \int_{S_R} \delta \widetilde{s}_j t_j \ .
 \end{aligned}\]</div>
 </div>
 <div class="section" id="principle-of-complementary-virtual-work">
 <h3><span class="section-number">7.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the weak form of the compatibility conditions, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 &amp; \text{in $V$} \\
+  n_i \widetilde{\sigma}_{ij} = \widetilde{t}_j   &amp; \text{in $S_N$}
+\end{cases}\end{split}\]</div>
+<p>with <strong>no other conditions</strong> on <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon\)</span> and <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(S_D\)</span>. From the definition <span class="math notranslate nohighlight">\(\Omega_{ij} = \delta \widetilde{\sigma}_{ij}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \delta \widetilde{\sigma}_{ij/i}      = 0   &amp; \text{in $V$} \\
+  n_i \, \delta \widetilde{\sigma}_{ij} = 0   &amp; \text{in $S_N$}
+\end{cases}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_V \underbrace{\delta \widetilde{\sigma}_{ij/i}}_{= 0} s_j  + \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j  - \int_{S_N} \underbrace{n_i \delta \widetilde{\sigma}_{ij}}_{=0} s_j  - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j = \\
+  &amp; = \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j \ . 
+\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
 <h3><span class="section-number">7.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
-<p>With prescribed temperature field,</p>
+<p>Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\)</span>, it follows that</p>
 <div class="math notranslate nohighlight">
-\[\delta \varepsilon_{ij} = D_{ijkl} \delta \sigma_{kl} \ ,\]</div>
+\[\begin{aligned}
+ 0 &amp; = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \mathbf{t} =  
+\end{aligned}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Different expressions of variation of the “internal energy”<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong> check which kind of thermodynamic potential it really is.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  &amp; = \int_V \delta \boldsymbol\varepsilon : \left( \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T \right) = \\
+  &amp; = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\varepsilon : \boldsymbol\beta \Delta T \right\} + \int_V \boldsymbol\varepsilon : \boldsymbol\beta \delta \Delta T 
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_V \delta \boldsymbol\sigma : \boldsymbol\varepsilon
+  &amp; = \int_V \delta \boldsymbol\sigma : \left( \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \Delta T \right) = \\
+  &amp; = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \boldsymbol\sigma : \boldsymbol\alpha\Delta T \right\} - \int_V \boldsymbol\sigma : \boldsymbol\alpha\delta \Delta T 
+\end{aligned}\end{split}\]</div>
+<!--
+
+$$\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  & = \int_V \boldsymbol\sigma : \left( \mathbf{D} : \delta \boldsymbol\sigma - \boldsymbol\beta \delta \Delta T \right) = \\
+  & = \delta \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \int_V \boldsymbol\sigma : \boldsymbol\beta \, \delta \Delta T = \\
+  & = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \boldsymbol\sigma : \boldsymbol\beta \Delta T \right\} + \int_V \delta \boldsymbol\sigma : \boldsymbol\beta  \Delta T 
+\end{aligned}$$
+
+-->
 </div>
+</details><p>If the stress vector on Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{t} = - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0 &amp; = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \left( - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}} \right) = \\ 
+   &amp; = \delta \underbrace{\left\{ - \int_V \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \Delta T + \int_{V} \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \mathbf{s} \cdot \overline{\mathbf{t}} - \int_{S_R} \dfrac{1}{2}\mathbf{s} \cdot \mathbf{K} \cdot \mathbf{s} + \int_{S_R} \mathbf{s} \cdot \overline{\mathbf{h}} \right\}}_{ =: \Pi(\boldsymbol\varepsilon, \mathbf{s})} + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \ \delta \Delta T \ , 
+\end{aligned}\end{split}\]</div>
+<p>and if <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \Delta T = 0\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[0 = \delta \Pi(\boldsymbol\varepsilon, \mathbf{s}) \ . \]</div>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Principle of stationariety of total potential energy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Among all the equilibrated solutions, the congruent solution (and thus the unique solution of the elastic problem) is the one that makes the total potential energy stationary.</p>
+</div>
+</div></div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
 <h3><span class="section-number">7.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>If the displacement of the Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
+  &amp; = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
+\end{aligned}\end{split}\]</div>
+<p>and if <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \, \Delta T = 0\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .\]</div>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 7.3 </span> (Principle of stationariety of total complementary potential energy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Among all the congruent solutions, the equilibrated solution (and thus the unique solution of the elastic problem) is the one that makes the total complementary potential energy stationary.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="classical-theorems">
+<h2><span class="section-number">7.3. </span>Classical theorems<a class="headerlink" href="#classical-theorems" title="Permalink to this heading">#</a></h2>
+<div class="section" id="maxwell-betti">
+<h3><span class="section-number">7.3.1. </span>Maxwell-Betti<a class="headerlink" href="#maxwell-betti" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> label two sets of loads acting on a structure. Now, using displacement <span class="math notranslate nohighlight">\(s^2\)</span> as the test function in the weak formulation of equilibrium conditions for <span class="math notranslate nohighlight">\(1\)</span>, and displacement <span class="math notranslate nohighlight">\(s^1\)</span> for equilibrium conditions for <span class="math notranslate nohighlight">\(2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0 &amp; = - \int_V \varepsilon^2_{ij} \sigma^1_{ij} + \int_V s^2_j f^1_j + \oint_{\partial V} s^2_j t^1_j \\
+ 0 &amp; = - \int_V \varepsilon^1_{ij} \sigma^2_{ij} + \int_V s^1_j f^2_j + \oint_{\partial V} s^1_j t^2_j \\
+\end{aligned}\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(\varepsilon^a_{ij} = D_{ijkl} \sigma^a_{kl} + \alpha_{ij} \Delta T^a = \varepsilon^{a,mech}_{ij} + \varepsilon^{a,th}_{ij}\)</span>. Subtracting the two latter equations,</p>
+<div class="math notranslate nohighlight">
+\[
+-\int_{V} \varepsilon^{2,th}_{ij} \sigma^1_{ij} + \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+-\int_{V} \varepsilon^{1,th}_{ij} \sigma^2_{ij} + \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+\]</div>
+<p>If no thermal strain exists,</p>
+<div class="math notranslate nohighlight">
+\[
+ \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+ \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+\]</div>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><p>If displacement is constrained on Dirichlet boundary, <span class="math notranslate nohighlight">\(\mathbf{s}|_{S_D} = \mathbf{0}\)</span>, and the loads are made of a set of lumped forces,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{f}^1(\mathbf{r}) = \sum_{m} \mathbf{F}^1_m \delta(\mathbf{r}-\mathbf{r}_m) \ ,\]</div>
+<p>the expression of Maxwell-Betti theorem reads</p>
+<div class="math notranslate nohighlight">
+\[\sum_a \mathbf{F}^1_a \cdot \mathbf{s}^2_a = \sum_b \mathbf{F}^2_b \cdot \mathbf{s}^1_b \ , \]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)\)</span>. Moreover, if only one load exists</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F}^1_a \cdot \mathbf{s}^2(\mathbf{r}_a) = \mathbf{F}^2_b \cdot \mathbf{s}^1(\mathbf{r}_b) \ .\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="menabrea-castigliano">
+<h3><span class="section-number">7.3.2. </span>Menabrea-Castigliano<a class="headerlink" href="#menabrea-castigliano" title="Permalink to this heading">#</a></h3>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="test-fun-regularity"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -594,11 +733,11 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
       </div>
     </a>
     <a class="right-next"
-       href="small-displacements-waves.html"
+       href="small-displacements-statics-beams-weak-form.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Waves in linear elastic homogeneous isotropic media</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -626,6 +765,11 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.6. Principle of stationariety of total potential energy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-theorems">7.3. Classical theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-betti">7.3.1. Maxwell-Betti</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menabrea-castigliano">7.3.2. Menabrea-Castigliano</a></li>
 </ul>
 </li>
 </ul>

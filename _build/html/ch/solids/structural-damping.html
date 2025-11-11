@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Structural damping &#8212; continuum mechanics</title>
+    <title>12. Structural damping &#8212; continuum mechanics</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="11. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
-    <link rel="prev" title="9. Modal methods for structural problems" href="small-displacements-numerics.html" />
+    <link rel="next" title="13. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
+    <link rel="prev" title="11. Modal methods for structural problems" href="small-displacements-numerics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,19 +194,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Structural damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">9. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">13. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">14. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">18. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">19. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -402,7 +411,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">10.1. Small damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">12.1. Small damping</a></li>
 </ul>
             </nav>
         </div>
@@ -415,7 +424,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="structural-damping">
-<span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">10. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
+<span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">12. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
 <p>As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there’s no rigid motion allowed, can be represented by the second order system</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\]</div>
@@ -425,7 +434,7 @@ document.write(`
 <p><strong>todo</strong> Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.</p>
 <p><strong>Free response</strong> using modal basis</p>
 <div class="section" id="small-damping">
-<h2><span class="section-number">10.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
 <p>Structural small damping can be treated as a first order perturbation of the undamped system,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
@@ -553,7 +562,7 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Modal methods for structural problems</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Modal methods for structural problems</p>
       </div>
     </a>
     <a class="right-next"
@@ -561,7 +570,7 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Introduction to Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Introduction to Fluid Mechanics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -580,7 +589,7 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">10.1. Small damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">12.1. Small damping</a></li>
 </ul>
   </nav></div>
 
