@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Waves in linear elastic homogeneous isotropic media &#8212; continuum mechanics</title>
+    <title>9. Waves in linear elastic homogeneous isotropic media &#8212; continuum mechanics</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Modal methods for structural problems" href="small-displacements-numerics.html" />
-    <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
+    <link rel="next" title="10. Beams" href="beams.html" />
+    <link rel="prev" title="8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,18 +193,29 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">8. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">12. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">9. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">10. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">11. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">12. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">13. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">14. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">15. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">13. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">14. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">18. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">19. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -400,9 +411,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">7.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">7.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">7.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">9.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">9.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">9.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
 </ul>
             </nav>
         </div>
@@ -415,9 +426,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="waves-in-linear-elastic-homogeneous-isotropic-media">
-<span id="solid-mechanics-intro-small-displacements-waves"></span><h1><span class="section-number">7. </span>Waves in linear elastic homogeneous isotropic media<a class="headerlink" href="#waves-in-linear-elastic-homogeneous-isotropic-media" title="Permalink to this heading">#</a></h1>
+<span id="solid-mechanics-intro-small-displacements-waves"></span><h1><span class="section-number">9. </span>Waves in linear elastic homogeneous isotropic media<a class="headerlink" href="#waves-in-linear-elastic-homogeneous-isotropic-media" title="Permalink to this heading">#</a></h1>
 <div class="section" id="navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">
-<h2><span class="section-number">7.1. </span>Navier-Cauchy equation: displacement formulation of the momentum equation<a class="headerlink" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Navier-Cauchy equation: displacement formulation of the momentum equation<a class="headerlink" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation" title="Permalink to this heading">#</a></h2>
 <p>Momentum balance equation in differential form for continuous media in the small-displacement regime</p>
 <div class="math notranslate nohighlight">
 \[\rho_0 \, \partial_{tt} \mathbf{s} = \rho_0 \, \mathbf{g} + \nabla \cdot \boldsymbol{\sigma} \ .\]</div>
@@ -440,7 +451,7 @@ document.write(`
 \end{aligned}\]</div>
 </div>
 <div class="section" id="helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">
-<h2><span class="section-number">7.2. </span>Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves<a class="headerlink" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves<a class="headerlink" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves" title="Permalink to this heading">#</a></h2>
 <p>Displacement field can be written using <a class="reference external" href="https://en.wikipedia.org/wiki/Helmholtz_decomposition">Helmholtz decomposition</a> as the sum of a potential <span class="math notranslate nohighlight">\(\mathbf{s}_p = \nabla \phi\)</span> (s.t. <span class="math notranslate nohighlight">\(\nabla \times \nabla \phi = \mathbf{0}\)</span>) and a divergence-free <span class="math notranslate nohighlight">\(\mathbf{s}_s = \nabla \times \mathbf{a}\)</span> (s.t. <span class="math notranslate nohighlight">\(\nabla \cdot \nabla \times \mathbf{a} = \mathbf{0}\)</span>) part,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{s} = \mathbf{s}_p + \mathbf{s}_s = \nabla \phi + \nabla \times \mathbf{a} \ .\]</div>
@@ -459,7 +470,7 @@ document.write(`
 \[c_p = \sqrt{\dfrac{2 \mu + \lambda}{\rho_0}} \qquad , \qquad c_s = \sqrt{\dfrac{\mu}{\rho_0}} \ .\]</div>
 </div>
 <div class="section" id="fourier-decomposition-p-is-longitudinal-s-is-transverse">
-<h2><span class="section-number">7.3. </span>Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse<a class="headerlink" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse<a class="headerlink" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse" title="Permalink to this heading">#</a></h2>
 <p>Using <strong>Fourier decomposition</strong> of fields as sum of harmonic plane waves,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{s}(\mathbf{r},t) = \sum_{\mathbf{k},\omega} \mathbf{s}_{\mathbf{k},\omega} e^{i\left( \mathbf{k} \cdot \mathbf{r}- \omega t \right)} \ ,\]</div>
@@ -511,20 +522,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="small-displacements-statics.html"
+       href="small-displacements-statics-beams-weak-form.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Small displacement - statics</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
       </div>
     </a>
     <a class="right-next"
-       href="small-displacements-numerics.html"
+       href="beams.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Modal methods for structural problems</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Beams</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -543,9 +554,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">7.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">7.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">7.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navier-cauchy-equation-displacement-formulation-of-the-momentum-equation">9.1. Navier-Cauchy equation: displacement formulation of the momentum equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-decomposition-and-sum-of-waves-equation-for-p-and-s-waves">9.2. Helmholtz decomposition and sum of waves equation for <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(s\)</span> waves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-decomposition-p-is-longitudinal-s-is-transverse">9.3. Fourier decomposition: <span class="math notranslate nohighlight">\(p\)</span> is longitudinal, <span class="math notranslate nohighlight">\(s\)</span> is transverse</a></li>
 </ul>
   </nav></div>
 

@@ -191,17 +191,29 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">7. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">9. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../solids/beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../solids/beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solids/beams/thin-walled.html">10.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solids/beams/timoshenko.html">10.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solids/beams/bernoulli.html">10.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solids/beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">12. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">8. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">9. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">10. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">11. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">12. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">13. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compressible.html">14. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">13. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statics.html">14. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="incompressible.html">18. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compressible.html">19. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -401,7 +413,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="fluid-mechanics-ideal">
 <span id="ideal-fluids"></span><h1>Ideal Fluids<a class="headerlink" href="#fluid-mechanics-ideal" title="Permalink to this heading">#</a></h1>
-<p>Ideal fluids are defined as fluids with negligible viscosity and heat conduction. Under these assumptions, if no <span class="xref myst">shock</span> occurs, material derivative of entropy is zero and thus:</p>
+<p>Ideal fluids are defined as fluids with negligible viscosity and heat conduction. Under these assumptions, if no <a class="reference internal" href="compressible.html#fluid-mechanics-compressible-inviscid-shocks"><span class="std std-ref">shock</span></a> occurs, material derivative of entropy is zero and thus:</p>
 <ul class="simple">
 <li><p>each material particle has constant entropy</p></li>
 <li><p>if entropy is uniform at inflow boundaries <span class="math notranslate nohighlight">\(S_{inflow} \subseteq \partial V\)</span>, <span class="math notranslate nohighlight">\(S_{inflow}\)</span> s.t. <span class="math notranslate nohighlight">\((\vec{v} - \vec{v}_b) \cdot \hat{n} \lt 0\)</span>, entropy is uniform in the domain</p></li>

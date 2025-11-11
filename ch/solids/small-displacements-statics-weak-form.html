@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Small displacement - Statics - Weak formulation and “Energy” theorems &#8212; continuum mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-statics-weak-form';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
+    <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1Z86N0G4V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1Z86N0G4V');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="continuum mechanics - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="continuum mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../continuum/kinematics.html">1. Kinematics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../continuum/governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-jump.html">2.5. Jump conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-reference-integral.html">2.6. Integral Balance Equations in reference space</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">9. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">12. Structural damping</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">13. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">14. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">18. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">19. Compressible Fluid Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-statics-weak-form.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/solids/small-displacements-statics-weak-form.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Small displacement - Statics - Weak formulation and “Energy” theorems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.6. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-theorems">7.3. Classical theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-betti">7.3.1. Maxwell-Betti</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menabrea-castigliano">7.3.2. Menabrea-Castigliano</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems">
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “Energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
+<p>Starting from strong form of equilibrium equations, inner compatibility and congruence with essential boundary conditions, it’s possible to:</p>
+<ul class="simple">
+<li><p>derive a weak formulation of the problem</p></li>
+<li><p>derive energy theorems, with a proper choice of the test function involved in the weak formulation.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Summary<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Strong formulation of the problem</p></li>
+<li><p class="sd-card-text">Weak formulation</p>
+<ul>
+<li><p class="sd-card-text">Existence and uniqueness of the solution</p></li>
+<li><p class="sd-card-text">Principle of virtual work and complementary virtual work</p></li>
+<li><p class="sd-card-text">Principle of stationariety of the total potential energy <span class="math notranslate nohighlight">\(\Pi\)</span> and total complementary potential energy <span class="math notranslate nohighlight">\(\Pi^*\)</span></p></li>
+<li><p class="sd-card-text">Classical theorems: Maxwell-Betti (<span class="math notranslate nohighlight">\(F^1 s^2 = F^2 s^1\)</span>), Menabrea-Castigliano (<span class="math notranslate nohighlight">\(s_i = \partial_{F_i} \Pi\)</span>, <span class="math notranslate nohighlight">\(F_i = \partial_{s_i} \Pi\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><div class="section" id="strong-formulation-of-the-problem">
+<h2><span class="section-number">7.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<p><strong>Indefinite equilibrium and natural boundary conditions on <span class="math notranslate nohighlight">\(S_N\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \nabla \cdot \boldsymbol \sigma + \overline{\mathbf{f}} =  \mathbf{0} &amp; \text{ in $V$} \\
+  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_{\mathbf{n}} &amp; \text{on $S_N$}
+\end{cases}\end{split}\]</div>
+<p><strong>Internal congruence and compatibility with essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+\boldsymbol\varepsilon = \nabla^S \mathbf{s} = \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) &amp; \text{in $V$} \\
+\mathbf{s} = \overline{\mathbf{s}} &amp; \text{on $S_D$}
+\end{cases}\end{split}\]</div>
+<p><strong>Other boundary conditions - e.g. Robin.</strong> Beside essential boundary conditions (prescribing the displacement) and natural boundary condtions (prescribing the stress vector), other boundary conditions may exist. As an example, Robin boundary conditions are defined as a boundary condition prescribing a linear combination of displacement and stress, and may represent <em>flexible constraints</em>. The most general affine relation between dispacement and stress vector reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{a} \cdot \mathbf{s} = \mathbf{b} \cdot \boldsymbol\sigma \cdot \hat{\mathbf{n}} + \mathbf{c}  \qquad \text{on $S_R$} \ ,\]</div>
+<p>having exploited here the symmetry (<strong>todo</strong>) of the stress tensor <span class="math notranslate nohighlight">\(\boldsymbol\sigma\)</span>.
+If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is invertible, the latter relation may be written in the form</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s} = \mathbf{b} \cdot \boldsymbol\sigma \cdot \hat{\mathbf{n}} + \mathbf{c} \qquad \text{on $S_R$} \ .\]</div>
+<p><strong>Linear elastic constitutive equation.</strong> Constitutive equation of linear elastic media in the regime of small displacement reads</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\varepsilon = \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \, \Delta T \ ,\]</div>
+<p>being the latter the contribution of thermal strains. The “inverse” relation reads</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \, \Delta T \ .\]</div>
+<p>If temperature field is prescribed and known it can be treated as a forcing, otherwise its an unkown physical quantity and the internal energy (or temperature) balance equation needs to be solved along with the mechanical equilibrium equation.</p>
+</div>
+<div class="section" id="weak-formulations-of-the-problem">
+<h2><span class="section-number">7.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<div class="section" id="weak-formulation-of-equilibrium-conditions">
+<h3><span class="section-number">7.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<p>For every<a class="footnote-reference brackets" href="#test-fun-regularity" id="id1">1</a> function <span class="math notranslate nohighlight">\(\mathbf{w}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{V} \mathbf{w} \cdot \left\{ \nabla \cdot \boldsymbol\sigma + \overline{\boldsymbol{f}} \right\} = \\
+  &amp; = \int_{V} w_j \left\{ \sigma_{ij/i} + \overline{f}_j \right\} = \\
+  &amp; = \oint_{\partial V} n_i \sigma_{ij} w_j - \int_{V} w_{j/i} \sigma_{ij} + \int_{V}  w_j \overline{f}_j = \\
+  &amp; = - \int_{V} w_{j/i} \sigma_{ij} + \int_{V}  w_j \overline{f}_j + \int_{S_N} w_j \overline{t}_n + \int_{\partial V / S_N} w_j t_j = \\
+  &amp; = - \int_{V} \dfrac{1}{2} \left(  w_{j/i} + w_{i/j} \right) \sigma_{ij} + \int_{V}  w_j \overline{f}_j + \int_{S_N} w_j \overline{t}_n + \int_{\partial V / S_N} w_j t_j = \\
+\end{aligned}\end{split}\]</div>
+<p>having exploited symmetry of stress tensor <span class="math notranslate nohighlight">\(\boldsymbol\sigma\)</span>.</p>
+</div>
+<div class="section" id="weak-formulation-of-compatibility-conditions">
+<h3><span class="section-number">7.2.2. </span>Weak formulation of compatibility conditions<a class="headerlink" href="#weak-formulation-of-compatibility-conditions" title="Permalink to this heading">#</a></h3>
+<p>For every 2<span class="math notranslate nohighlight">\(^{nd}\)</span> order tensor function <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_V \boldsymbol\Omega : \left\{ \boldsymbol\varepsilon - \dfrac{1}{2} \left( \nabla \mathbf{s} + \nabla^T \mathbf{s} \right) \right\} = \\
+  &amp; = \int_V \Omega_{ij} \left\{ \varepsilon_{ij} - \frac{1}{2}\left( s_{i/j} + s_{j/i} \right) \right\} = \\
+  &amp; = \int_V \dfrac{1}{2} \left\{ \Omega_{ij/j} s_i + \Omega_{ij/i} s_j \right\} + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} \dfrac{1}{2} \left\{ n_j \Omega_{ij} s_i + n_i \Omega_{ij} s_j \right\} \ .
+\end{aligned}\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> is chosen to be symmetric,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \oint_{\partial V} n_i \Omega_{ij} s_j = \\
+  &amp; = \int_V \Omega_{ij/j} s_i  + \int_{V} \Omega_{ij} \varepsilon_{ij} - \int_{S_D} n_i \Omega_{ij} \overline{s}_j - \int_{\partial V / S_D} n_i \Omega_{ij} s_j \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="existence-and-uniqueness-of-the-solution">
+<h3><span class="section-number">7.2.3. </span>Existence and uniqueness of the solution<a class="headerlink" href="#existence-and-uniqueness-of-the-solution" title="Permalink to this heading">#</a></h3>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Existence and uniqueness of the solution of the small-strain, small-displacement elastic problem)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Under the assumptions …, there exists a unique solution of the elastic problem that is at the same time congruent and equilibrated.</p>
+</div>
+</div><p>…<strong>todo</strong>…</p>
+</div>
+<div class="section" id="principle-of-virtual-work">
+<h3><span class="section-number">7.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the weak form of equilibrium conditions, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a <strong>congruent displacement field</strong> <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence in <span class="math notranslate nohighlight">\(V\)</span> and compatibility with <em>given</em> essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>, i.e. that satisfies the conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \widetilde{\boldsymbol{\varepsilon}} &amp; := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \widetilde{\mathbf{s}} &amp; = \overline{\mathbf{s}} &amp;&amp; \text{on $S_D$} \ ,
+\end{aligned}\end{split}\]</div>
+<p>with <strong>no other conditions</strong> on <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol\sigma}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>. From the definition <span class="math notranslate nohighlight">\(\mathbf{w} = \delta \widetilde{\mathbf{s}}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta \widetilde{\boldsymbol{\varepsilon}} &amp; = \dfrac{1}{2} \left( \nabla \delta \widetilde{\mathbf{s}} + \nabla^T \delta \widetilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
+  \delta \widetilde{\mathbf{s}} &amp; = \mathbf{0} &amp;&amp; \text{on $S_D$} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+0 &amp; = - \int_{V} \delta \widetilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \widetilde{s}_j \overline{f}_j + \int_{S_N} \delta \widetilde{s}_j \overline{t}_j + \int_{S_R} \delta \widetilde{s}_j t_j \ .
+\end{aligned}\]</div>
+</div>
+<div class="section" id="principle-of-complementary-virtual-work">
+<h3><span class="section-number">7.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the weak form of the compatibility conditions, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 &amp; \text{in $V$} \\
+  n_i \widetilde{\sigma}_{ij} = \widetilde{t}_j   &amp; \text{in $S_N$}
+\end{cases}\end{split}\]</div>
+<p>with <strong>no other conditions</strong> on <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon\)</span> and <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(S_D\)</span>. From the definition <span class="math notranslate nohighlight">\(\Omega_{ij} = \delta \widetilde{\sigma}_{ij}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \delta \widetilde{\sigma}_{ij/i}      = 0   &amp; \text{in $V$} \\
+  n_i \, \delta \widetilde{\sigma}_{ij} = 0   &amp; \text{in $S_N$}
+\end{cases}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_V \underbrace{\delta \widetilde{\sigma}_{ij/i}}_{= 0} s_j  + \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j  - \int_{S_N} \underbrace{n_i \delta \widetilde{\sigma}_{ij}}_{=0} s_j  - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j = \\
+  &amp; = \int_{V} \delta \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \delta \widetilde{\sigma}_{ij} \overline{s}_j - \int_{S_R} n_i \delta \widetilde{\sigma}_{ij} s_j \ . 
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-potential-energy">
+<h3><span class="section-number">7.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\)</span>, it follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+ 0 &amp; = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \mathbf{t} =  
+\end{aligned}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Different expressions of variation of the “internal energy”<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong> check which kind of thermodynamic potential it really is.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  &amp; = \int_V \delta \boldsymbol\varepsilon : \left( \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T \right) = \\
+  &amp; = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\varepsilon : \boldsymbol\beta \Delta T \right\} + \int_V \boldsymbol\varepsilon : \boldsymbol\beta \delta \Delta T 
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_V \delta \boldsymbol\sigma : \boldsymbol\varepsilon
+  &amp; = \int_V \delta \boldsymbol\sigma : \left( \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \Delta T \right) = \\
+  &amp; = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \boldsymbol\sigma : \boldsymbol\alpha\Delta T \right\} - \int_V \boldsymbol\sigma : \boldsymbol\alpha\delta \Delta T 
+\end{aligned}\end{split}\]</div>
+<!--
+
+$$\begin{aligned}
+  \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma 
+  & = \int_V \boldsymbol\sigma : \left( \mathbf{D} : \delta \boldsymbol\sigma - \boldsymbol\beta \delta \Delta T \right) = \\
+  & = \delta \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \int_V \boldsymbol\sigma : \boldsymbol\beta \, \delta \Delta T = \\
+  & = \delta \int_V \left\{ \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma - \boldsymbol\sigma : \boldsymbol\beta \Delta T \right\} + \int_V \delta \boldsymbol\sigma : \boldsymbol\beta  \Delta T 
+\end{aligned}$$
+
+-->
+</div>
+</details><p>If the stress vector on Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{t} = - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0 &amp; = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \left( - \mathbf{K} \cdot \mathbf{s} + \overline{\mathbf{h}} \right) = \\ 
+   &amp; = \delta \underbrace{\left\{ - \int_V \dfrac{1}{2} \boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \Delta T + \int_{V} \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \mathbf{s} \cdot \overline{\mathbf{t}} - \int_{S_R} \dfrac{1}{2}\mathbf{s} \cdot \mathbf{K} \cdot \mathbf{s} + \int_{S_R} \mathbf{s} \cdot \overline{\mathbf{h}} \right\}}_{ =: \Pi(\boldsymbol\varepsilon, \mathbf{s})} + \int_{V} \boldsymbol\varepsilon : \boldsymbol\beta \ \delta \Delta T \ , 
+\end{aligned}\end{split}\]</div>
+<p>and if <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \Delta T = 0\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[0 = \delta \Pi(\boldsymbol\varepsilon, \mathbf{s}) \ . \]</div>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Principle of stationariety of total potential energy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Among all the equilibrated solutions, the congruent solution (and thus the unique solution of the elastic problem) is the one that makes the total potential energy stationary.</p>
+</div>
+</div></div>
+<div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
+<h3><span class="section-number">7.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>If the displacement of the Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
+  &amp; = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
+\end{aligned}\end{split}\]</div>
+<p>and if <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \, \Delta T = 0\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .\]</div>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 7.3 </span> (Principle of stationariety of total complementary potential energy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Among all the congruent solutions, the equilibrated solution (and thus the unique solution of the elastic problem) is the one that makes the total complementary potential energy stationary.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="classical-theorems">
+<h2><span class="section-number">7.3. </span>Classical theorems<a class="headerlink" href="#classical-theorems" title="Permalink to this heading">#</a></h2>
+<div class="section" id="maxwell-betti">
+<h3><span class="section-number">7.3.1. </span>Maxwell-Betti<a class="headerlink" href="#maxwell-betti" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> label two sets of loads acting on a structure. Now, using displacement <span class="math notranslate nohighlight">\(s^2\)</span> as the test function in the weak formulation of equilibrium conditions for <span class="math notranslate nohighlight">\(1\)</span>, and displacement <span class="math notranslate nohighlight">\(s^1\)</span> for equilibrium conditions for <span class="math notranslate nohighlight">\(2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0 &amp; = - \int_V \varepsilon^2_{ij} \sigma^1_{ij} + \int_V s^2_j f^1_j + \oint_{\partial V} s^2_j t^1_j \\
+ 0 &amp; = - \int_V \varepsilon^1_{ij} \sigma^2_{ij} + \int_V s^1_j f^2_j + \oint_{\partial V} s^1_j t^2_j \\
+\end{aligned}\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(\varepsilon^a_{ij} = D_{ijkl} \sigma^a_{kl} + \alpha_{ij} \Delta T^a = \varepsilon^{a,mech}_{ij} + \varepsilon^{a,th}_{ij}\)</span>. Subtracting the two latter equations,</p>
+<div class="math notranslate nohighlight">
+\[
+-\int_{V} \varepsilon^{2,th}_{ij} \sigma^1_{ij} + \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+-\int_{V} \varepsilon^{1,th}_{ij} \sigma^2_{ij} + \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+\]</div>
+<p>If no thermal strain exists,</p>
+<div class="math notranslate nohighlight">
+\[
+ \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
+ \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
+\]</div>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><p>If displacement is constrained on Dirichlet boundary, <span class="math notranslate nohighlight">\(\mathbf{s}|_{S_D} = \mathbf{0}\)</span>, and the loads are made of a set of lumped forces,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{f}^1(\mathbf{r}) = \sum_{m} \mathbf{F}^1_m \delta(\mathbf{r}-\mathbf{r}_m) \ ,\]</div>
+<p>the expression of Maxwell-Betti theorem reads</p>
+<div class="math notranslate nohighlight">
+\[\sum_a \mathbf{F}^1_a \cdot \mathbf{s}^2_a = \sum_b \mathbf{F}^2_b \cdot \mathbf{s}^1_b \ , \]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)\)</span>. Moreover, if only one load exists</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F}^1_a \cdot \mathbf{s}^2(\mathbf{r}_a) = \mathbf{F}^2_b \cdot \mathbf{s}^1(\mathbf{r}_b) \ .\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="menabrea-castigliano">
+<h3><span class="section-number">7.3.2. </span>Menabrea-Castigliano<a class="headerlink" href="#menabrea-castigliano" title="Permalink to this heading">#</a></h3>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="test-fun-regularity"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>For every test function that is <strong>regular enough</strong>, meaning that everything that is written in the equatiions exist.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/solids"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="small-displacements-statics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Small displacement - statics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="small-displacements-statics-beams-weak-form.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.6. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.7. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-theorems">7.3. Classical theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-betti">7.3.1. Maxwell-Betti</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menabrea-castigliano">7.3.2. Menabrea-Castigliano</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
