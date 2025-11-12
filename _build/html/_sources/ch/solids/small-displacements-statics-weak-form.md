@@ -16,6 +16,7 @@ Starting from strong form of equilibrium equations, inner compatibility and cong
 
 ```
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:strong)=
 ## Strong formulation of the problem
 
 **Indefinite equilibrium and natural boundary conditions on $S_N$.** 
@@ -51,8 +52,10 @@ $$\boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \, 
 
 If temperature field is prescribed and known it can be treated as a forcing, otherwise its an unkown physical quantity and the internal energy (or temperature) balance equation needs to be solved along with the mechanical equilibrium equation.
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak)=
 ## Weak formulations of the problem
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:equilibrium)=
 ### Weak formulation of equilibrium conditions
 
 For every[^test-fun-regularity] function $\mathbf{w}$
@@ -69,7 +72,8 @@ $$\begin{aligned}
 
 having exploited symmetry of stress tensor $\boldsymbol\sigma$.
 
-### Weak formulation of compatibility conditions
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:congruence)=
+### Weak formulation of congruence conditions
 
 For every 2$^{nd}$ order tensor function $\boldsymbol\Omega$
 
@@ -96,9 +100,10 @@ Under the assumptions ..., there exists a unique solution of the elastic problem
 
 ...**todo**...
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:pvw)=
 ### Principle of virtual work
 
-Starting from the weak form of equilibrium conditions, and choosing $\mathbf{w}$ to be the variation of a **congruent displacement field** $\widetilde{s}$  with internal congruence in $V$ and compatibility with *given* essential constraints on $S_D$, i.e. that satisfies the conditions
+Starting from the [weak form of equilibrium conditions](solid-mechanics:intro:small-displacements-statics-weak-form:weak:equilibrium), and choosing $\mathbf{w}$ to be the variation of a **congruent displacement field** $\widetilde{s}$  with internal congruence in $V$ and compatibility with *given* essential constraints on $S_D$, i.e. that satisfies the conditions
 
 $$\begin{aligned}
   \widetilde{\boldsymbol{\varepsilon}} & := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) && \text{in $V$} \\
@@ -118,9 +123,10 @@ $$\begin{aligned}
 0 & = - \int_{V} \delta \widetilde{\varepsilon}_{ij} \sigma_{ij} + \int_{V}  \delta \widetilde{s}_j \overline{f}_j + \int_{S_N} \delta \widetilde{s}_j \overline{t}_j + \int_{S_R} \delta \widetilde{s}_j t_j \ .
 \end{aligned}$$
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:pcvw)=
 ### Principle of complementary virtual work
 
-Starting from the weak form of the compatibility conditions, and choosing $\boldsymbol\Omega$ to be the variation of an **equilibrated stress field** $\widetilde{\boldsymbol{\sigma}}$ due to *given* external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$, i.e. satisfying the conditions
+Starting from the weak form of the [congruence condition](solid-mechanics:intro:small-displacements-statics-weak-form:weak:congruence), and choosing $\boldsymbol\Omega$ to be the variation of an **equilibrated stress field** $\widetilde{\boldsymbol{\sigma}}$ due to *given* external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$, i.e. satisfying the conditions
 
 $$\begin{cases}
   \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 & \text{in $V$} \\
@@ -142,6 +148,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:stationariety-potential)=
 ### Principle of stationariety of total potential energy
 
 Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, $\widetilde{\mathbf{s}} = \mathbf{s}$, $\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}$, it follows that
@@ -200,6 +207,7 @@ Among all the equilibrated solutions, the congruent solution (and thus the uniqu
 
 ```
 
+(solid-mechanics:intro:small-displacements-statics-weak-form:weak:stationariety-potential-complementary)=
 ### Principle of stationariety of total complementary potential energy
 
 If the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
