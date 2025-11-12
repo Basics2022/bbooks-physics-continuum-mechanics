@@ -542,11 +542,11 @@ Solution.<div class="sd-summary-down docutils">
 <p class="sd-card-text">The structure is hyper-static once. Let’s use the verical reaction <span class="math notranslate nohighlight">\(V_B\)</span> introduced by the cart in <span class="math notranslate nohighlight">\(B\)</span> as the (independent) unknown hyper-static action. Exploiting the results of the previous problems (1, 2) and the principle of superposition of causes and effects, bending momentum reads</p>
 <div class="math notranslate nohighlight">
 \[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z )  \ ,\]</div>
-<p class="sd-card-text">and integrating twice,</p>
+<p class="sd-card-text"><strong>Method 1 - Elastic line.</strong> Integrating the expression of the bending moment twice</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   w'(z) &amp; = -\dfrac{q z^3}{6 EJ} + (q b - V_B) \frac{z^2}{2 EJ} + \left[ \dfrac{1}{EJ} \left( - \frac{q b^2}{2} + V_B b \right) + \frac{\alpha \, \Delta T}{h} \right] z + a \\
-  w (z) &amp; = -\dfrac{q z^4}{24 EJ} + (q b - V_B) \frac{z^3}{6 EJ} + \left[ \dfrac{1}{EJ} \left( - \frac{q b^2}{2} + V_B b \right) + \frac{\alpha \, \Delta T}{h} \right] \frac{z^2}{2} + a z + b \\
+  w (z) &amp; = -\dfrac{q z^4}{24 EJ} + (q b - V_B) \frac{z^3}{6 EJ} + \left[ \dfrac{1}{EJ} \left( - \frac{q b^2}{2} + V_B b \right) + \frac{\alpha \, \Delta T}{h} \right] \frac{z^2}{2} + a z + b \ .
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">Boundary conditions (3) are</p>
 <div class="math notranslate nohighlight">
@@ -563,6 +563,17 @@ Solution.<div class="sd-summary-down docutils">
 <p class="sd-card-text">Thus, the displacement reads</p>
 <div class="math notranslate nohighlight">
 \[w(z) = \dfrac{qb^4}{EJ} \left( - \dfrac{1}{24} \dfrac{z^4}{b^4} + \dfrac{5}{48} \dfrac{z^3}{b^3} - \dfrac{1}{16} \dfrac{z^2}{b^2} \right) + \dfrac{\alpha \Delta T}{h} \left( \frac{1}{4} \dfrac{z^3}{b^3} - \dfrac{1}{4} \dfrac{z^2}{b^2} \right) \ .\]</div>
+<p class="sd-card-text"><strong>Method 2 - PCVW.</strong> The problem can be also solved using the <a class="reference internal" href="../small-displacements-statics-beams-weak-form.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"><span class="std std-ref">principle of complementary virtual work for beams</span></a>, ignoring contributions of axial and shear deformation. Here, a virtual load corresponding to unitary hyperstatic action in <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\widetilde{V}_B = 1\)</span>, s.t. the virtual internal bending moment reads <span class="math notranslate nohighlight">\(\widetilde{M}(z) = b - z\)</span>, and the “real” displacement <span class="math notranslate nohighlight">\(w_B = 0\)</span> due to the carti constraint in <span class="math notranslate nohighlight">\(B\)</span>. Thus, the PCVW reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{str} \widetilde{M}(s) \theta'(s) \, ds - \widetilde{F}_B w_B = \\
+  &amp; = \int_{z=0}^{b} \widetilde{M}(z) \left( \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz = \\
+  &amp; = \int_{z=0}^{b} \left( b - z \right) \left[ \dfrac{1}{EJ} \left( -q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z) \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz = \\
+  &amp; = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{3} \dfrac{V_B b^3}{EJ} + \dfrac{\alpha \Delta T b^2}{2 h} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that the hyper-static action is</p>
+<div class="math notranslate nohighlight">
+\[V_B = \dfrac{3}{8} qb - \dfrac{3}{2} \dfrac{\alpha \Delta T}{h b} \ .\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -585,13 +596,49 @@ Problem 4.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The structure is three times hyper-static. One hyperstatic acting in the axial direction is identically zero. Other two hyper-static actions are choosen here to be thhe vertical reaction <span class="math notranslate nohighlight">\(V_B\)</span> and moment <span class="math notranslate nohighlight">\(M_B\)</span> at the clamp in <span class="math notranslate nohighlight">\(B\)</span>. Bending moment as a function of the hyperstatics reads</p>
+<div class="math notranslate nohighlight">
+\[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,\]</div>
+<p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{str} \widetilde{M}(s) \theta'(s) \, ds - \widetilde{V}_B w_B - \widetilde{M}_B \theta_B = \\
+  &amp; = \int_{z=0}^{b} \widetilde{M}(z) \left( \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as the two real displacements in <span class="math notranslate nohighlight">\(B\)</span> are zero, <span class="math notranslate nohighlight">\(w_B = 0\)</span>, <span class="math notranslate nohighlight">\(\theta_B = 0\)</span>.
+Two independent <em>virtual loads</em> are used to get a system of 2 equations in the 2 hyperstatic unknowns:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\widetilde{V}_B^1 = 1\)</span>, <span class="math notranslate nohighlight">\(\widetilde{M}_B^1 = 0\)</span> and thus <span class="math notranslate nohighlight">\(\widetilde{M}^1(z) = b-z\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\widetilde{V}_B^2 = 0\)</span>, <span class="math notranslate nohighlight">\(\widetilde{M}_B^2 = 1\)</span> and thus <span class="math notranslate nohighlight">\(\widetilde{M}^2(z) = 1\)</span></p></li>
+</ol>
+<p class="sd-card-text">The equations become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{z=0}^{b} \left( b - z \right) \left[ \dfrac{1}{EJ} \left( -q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz = \\
+  &amp; = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{3} \dfrac{V_B b^3}{EJ} + \dfrac{1}{2} \dfrac{M_B b^2}{EJ} + \dfrac{\alpha \Delta T b^2}{2 h} \\
+0 &amp; = \int_{z=0}^{b} 1 \, \left[ \dfrac{1}{EJ} \left( -q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz = \\
+  &amp; = - \dfrac{1}{6} \dfrac{q b^3}{EJ} + \dfrac{1}{2} \dfrac{V_B b^2}{EJ} + \dfrac{M_B b}{EJ} + \dfrac{\alpha \Delta T b}{h} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">or in matrix form,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} \frac{1}{3} &amp; \frac{1}{2} \\ \frac{1}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} = \begin{bmatrix} \frac{1}{8} \\ \frac{1}{6} \end{bmatrix} qb + \begin{bmatrix} -\frac{1}{2} \\ - 1 \end{bmatrix} \dfrac{\alpha \Delta T  \, EJ}{h b} \ .
+\end{split}\]</div>
+<p class="sd-card-text">The solution of the linear system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} &amp; = \dfrac{1}{\frac{1}{3} - \frac{1}{2} \frac{1}{2}} \begin{bmatrix} 1 &amp; -\frac{1}{2} \\ -\frac{1}{2} &amp; \frac{1}{3} \end{bmatrix} \left(  \begin{bmatrix} \frac{1}{8} \\ \frac{1}{6} \end{bmatrix} qb + \begin{bmatrix} -\frac{1}{2} \\ - 1 \end{bmatrix} \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
+ &amp; = 12 \left( \begin{bmatrix} \frac{1}{24} \\ \frac{-1}{144} \end{bmatrix} qb + \begin{bmatrix} 0 \\ \frac{1}{12} \end{bmatrix}  \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
+ &amp; = \begin{bmatrix} \frac{1}{2} \\ - \frac{1}{12} \end{bmatrix} qb + \begin{bmatrix} 0 \\ -1 \end{bmatrix} \dfrac{\alpha \Delta T \, EJ}{hb}
+\end{split}\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">

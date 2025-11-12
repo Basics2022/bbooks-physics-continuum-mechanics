@@ -202,6 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">10.6. Problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
@@ -414,7 +415,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">7.2.2. Weak formulation of congruence conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>
@@ -465,7 +466,7 @@ Summary<div class="sd-summary-down docutils">
 </ul>
 </div>
 </details><div class="section" id="strong-formulation-of-the-problem">
-<h2><span class="section-number">7.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-strong"></span><h2><span class="section-number">7.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
 <p><strong>Indefinite equilibrium and natural boundary conditions on <span class="math notranslate nohighlight">\(S_N\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -494,9 +495,9 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 <p>If temperature field is prescribed and known it can be treated as a forcing, otherwise its an unkown physical quantity and the internal energy (or temperature) balance equation needs to be solved along with the mechanical equilibrium equation.</p>
 </div>
 <div class="section" id="weak-formulations-of-the-problem">
-<h2><span class="section-number">7.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak"></span><h2><span class="section-number">7.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
 <div class="section" id="weak-formulation-of-equilibrium-conditions">
-<h3><span class="section-number">7.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-equilibrium"></span><h3><span class="section-number">7.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
 <p>For every<a class="footnote-reference brackets" href="#test-fun-regularity" id="id1">1</a> function <span class="math notranslate nohighlight">\(\mathbf{w}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -508,8 +509,8 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 \end{aligned}\end{split}\]</div>
 <p>having exploited symmetry of stress tensor <span class="math notranslate nohighlight">\(\boldsymbol\sigma\)</span>.</p>
 </div>
-<div class="section" id="weak-formulation-of-compatibility-conditions">
-<h3><span class="section-number">7.2.2. </span>Weak formulation of compatibility conditions<a class="headerlink" href="#weak-formulation-of-compatibility-conditions" title="Permalink to this heading">#</a></h3>
+<div class="section" id="weak-formulation-of-congruence-conditions">
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence"></span><h3><span class="section-number">7.2.2. </span>Weak formulation of congruence conditions<a class="headerlink" href="#weak-formulation-of-congruence-conditions" title="Permalink to this heading">#</a></h3>
 <p>For every 2<span class="math notranslate nohighlight">\(^{nd}\)</span> order tensor function <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -534,8 +535,8 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 </div><p>…<strong>todo</strong>…</p>
 </div>
 <div class="section" id="principle-of-virtual-work">
-<h3><span class="section-number">7.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
-<p>Starting from the weak form of equilibrium conditions, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a <strong>congruent displacement field</strong> <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence in <span class="math notranslate nohighlight">\(V\)</span> and compatibility with <em>given</em> essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>, i.e. that satisfies the conditions</p>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-pvw"></span><h3><span class="section-number">7.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-equilibrium"><span class="std std-ref">weak form of equilibrium conditions</span></a>, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a <strong>congruent displacement field</strong> <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence in <span class="math notranslate nohighlight">\(V\)</span> and compatibility with <em>given</em> essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>, i.e. that satisfies the conditions</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \widetilde{\boldsymbol{\varepsilon}} &amp; := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) &amp;&amp; \text{in $V$} \\
@@ -554,8 +555,8 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 \end{aligned}\]</div>
 </div>
 <div class="section" id="principle-of-complementary-virtual-work">
-<h3><span class="section-number">7.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
-<p>Starting from the weak form of the compatibility conditions, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-pcvw"></span><h3><span class="section-number">7.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the weak form of the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence"><span class="std std-ref">congruence condition</span></a>, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 &amp; \text{in $V$} \\
@@ -575,7 +576,7 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
-<h3><span class="section-number">7.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">7.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
 <p>Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\)</span>, it follows that</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
@@ -628,7 +629,7 @@ $$\begin{aligned}
 </div>
 </div></div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
-<h3><span class="section-number">7.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">7.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
 <p>If the displacement of the Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -759,7 +760,7 @@ $$\begin{aligned}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.1. Strong formulation of the problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.1. Weak formulation of equilibrium conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-compatibility-conditions">7.2.2. Weak formulation of compatibility conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">7.2.2. Weak formulation of congruence conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness-of-the-solution">7.2.3. Existence and uniqueness of the solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.4. Principle of virtual work</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.5. Principle of complementary virtual work</a></li>

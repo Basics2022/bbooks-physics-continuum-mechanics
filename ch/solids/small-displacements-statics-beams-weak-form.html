@@ -202,9 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">10.4. Bernoulli beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">10.5. Aeronautical beam</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="beams/problems.html">10.6. Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">10.6. Problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
@@ -415,6 +413,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">8.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">8.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">8.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">8.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">8.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">8.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">8.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">8.2.6. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -431,7 +438,7 @@ document.write(`
 <p>In this section, theorems for elastic structures are specialized for beam structures.</p>
 <p><strong>todo</strong> Beam model used here…</p>
 <div class="section" id="strong-formulation-of-the-problem">
-<h2><span class="section-number">8.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong"></span><h2><span class="section-number">8.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
 <p><strong>Indefinite equilibrium.</strong> External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -473,6 +480,44 @@ document.write(`
  0 &amp; = f_x + T_x' = f_x - M''_y = f_x - ( EJ_y \theta'_y )'' = f_x - ( EJ_y u''_x )'' \\
  0 &amp; = f_y + T_y' = f_y + M''_x = f_y + ( EJ_x \theta'_x )'' = f_y - ( EJ_x u''_y )'' \\
 \end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="weak-formulations-of-the-problem">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak"></span><h2><span class="section-number">8.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<div class="section" id="weak-formulation-of-equilibrium-conditions">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"></span><h3><span class="section-number">8.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<p>Under the assumption of negligible contribution of shear stress and deformation, and Bernoulli kinematic assumption, the weak form of equilibrium equation is derived as follows: axial and bending indefinite equilibrium equations for each beam (or structural element in general) are multiplied by arbitrary test functions, these products are integrated over the beam length. Then, natural boundary conditions are applied. Namely, assuming here 2-dimensional problem (and thus only one component of the bending moment, no torsion)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \int_{\text{beams}} \left[ v \left( N'(s) + n(s) \right) + w \left( - M''(s) + f(s) \right) \right] \, ds = \\
+    &amp; = \int_{\text{beams}} \left[ v \left( (EA u'_z(s))' + n(s) \right) + w \left( - (EJ u''_x(s))'' + f_x(s) \right) \right] \, ds = \\
+    &amp; = - \int_{\text{beams}} v' EA u'_z + \int_{\text{beams}} v n + \left.\left[ v \, (EA u'_z) \right]\right|_{\partial \, \text{str.}} + \\
+    &amp; \quad - \int_{\text{beams}} w'' \, EJ u''_x + \int_{\text{beams}} w f - \left. \left[ w ( EJ u''_x )' \right] \right|_{\partial \, \text{str.}} + \left. \left[ w' ( EJ u''_x ) \right] \right|_{\partial \, \text{str.}} = \\
+    &amp; = ...
+\end{aligned}\end{split}\]</div>
+<p>having used integration by parts and boundary conditions on Neumann boundaries where force and moments are prescribed.</p>
+</div>
+<div class="section" id="weak-formulation-of-congruence-conditions">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence"></span><h3><span class="section-number">8.2.2. </span>Weak formulation of congruence conditions<a class="headerlink" href="#weak-formulation-of-congruence-conditions" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-virtual-work">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">8.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>Starting from the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"><span class="std std-ref">weak form of equilibrium conditions</span></a>, and choosing the test functions <span class="math notranslate nohighlight">\(v = \delta u_z\)</span>, <span class="math notranslate nohighlight">\(w = \delta u_x\)</span> to be variations of congruent displacement fields (<span class="math notranslate nohighlight">\(v\)</span> congruent to the axial displacement, and <span class="math notranslate nohighlight">\(w\)</span> congruent to transverse displacement and rotation),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ &amp; \delta u_z  = 0 &amp;&amp; \text{where axial displacement is prescribed} \\
+ &amp; \delta u'_x = 0 &amp;&amp; \text{where rotation is prescribed, e.g. clamp} \\
+ &amp; \delta u_x  = 0 &amp;&amp; \text{where transverse displacement is prescribed, e.g. clamp, hinge} \\
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="principle-of-complementary-virtual-work">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"></span><h3><span class="section-number">8.2.4. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-potential-energy">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">8.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">8.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+</div>
 </div>
 </div>
 
@@ -540,6 +585,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">8.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">8.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">8.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">8.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">8.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">8.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">8.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">8.2.6. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
