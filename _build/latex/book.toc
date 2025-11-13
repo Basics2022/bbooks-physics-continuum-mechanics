@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {7.1}Strong formulation of the problem}{39}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Weak formulations of the problem}{40}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Weak formulation of equilibrium conditions}{40}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Weak formulation of compatibility conditions}{40}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.2}Weak formulation of congruence conditions}{40}{subsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}Existence and uniqueness of the solution}{41}{subsection.7.2.3}%
 \contentsline {subsection}{\numberline {7.2.4}Principle of virtual work}{41}{subsection.7.2.4}%
 \contentsline {subsection}{\numberline {7.2.5}Principle of complementary virtual work}{41}{subsection.7.2.5}%
@@ -51,10 +51,14 @@
 \contentsline {subsection}{\numberline {7.3.1}Maxwell\sphinxhyphen {}Betti}{43}{subsection.7.3.1}%
 \contentsline {subsection}{\numberline {7.3.2}Menabrea\sphinxhyphen {}Castigliano}{44}{subsection.7.3.2}%
 \contentsline {chapter}{\numberline {8}Small displacement \sphinxhyphen {} Statics \sphinxhyphen {} Weak formulation and “Energy” theorems for beam structures}{45}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Principle of stationariety of total complementary potential energy}{46}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Classical theorems}{46}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Maxwell\sphinxhyphen {}Betti}{46}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Menabrea\sphinxhyphen {}Castigliano}{47}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.1}Strong formulation of the problem}{45}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Weak formulations of the problem}{46}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Weak formulation of equilibrium conditions}{46}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Weak formulation of congruence conditions}{46}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Principle of virtual work}{46}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Principle of complementary virtual work}{47}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Principle of stationariety of total potential energy}{47}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Principle of stationariety of total complementary potential energy}{47}{subsection.8.2.6}%
 \contentsline {chapter}{\numberline {9}Waves in linear elastic homogeneous isotropic media}{49}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Navier\sphinxhyphen {}Cauchy equation: displacement formulation of the momentum equation}{49}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Helmholtz decomposition and sum of waves equation for \(p\) and \(s\) waves}{49}{section.9.2}%
@@ -65,6 +69,7 @@
 \contentsline {section}{\numberline {10.3}Timoshenko beam}{51}{section.10.3}%
 \contentsline {section}{\numberline {10.4}Bernoulli beam}{51}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Aeronautical beam}{51}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Problems}{51}{section.10.6}%
 \contentsline {chapter}{\numberline {11}Modal methods for structural problems}{53}{chapter.11}%
 \contentsline {section}{\numberline {11.1}No free rigid motion}{53}{section.11.1}%
 \contentsline {subsection}{\numberline {11.1.1}Dimension reduction}{54}{subsection.11.1.1}%

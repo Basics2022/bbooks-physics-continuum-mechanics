@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Nov 11, 2025}
+\date{Nov 13, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,7 +102,7 @@
 
 
 \sphinxAtStartPar
-This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,myst}{.pdf document}.
 
 \sphinxAtStartPar
 \sphinxstylestrong{work\sphinxhyphen{}in\sphinxhyphen{}progress! Feel free to reach out on Github, leave a comment, a suggestion, a request or contribute}
@@ -1633,7 +1633,7 @@ Classical theorems: Maxwell\sphinxhyphen{}Betti (\(F^1 s^2 = F^2 s^1\)), Menabre
 
 
 \section{Strong formulation of the problem}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:strong-formulation-of-the-problem}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:strong-formulation-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-strong}}
 \sphinxAtStartPar
 \sphinxstylestrong{Indefinite equilibrium and natural boundary conditions on \(S_N\).}
 \begin{equation*}
@@ -1676,10 +1676,10 @@ If temperature field is prescribed and known it can be treated as a forcing, oth
 
 
 \section{Weak formulations of the problem}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulations-of-the-problem}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulations-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak}}
 
 \subsection{Weak formulation of equilibrium conditions}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulation-of-equilibrium-conditions}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulation-of-equilibrium-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-equilibrium}}
 \sphinxAtStartPar
 For every%
 \begin{footnote}[1]\sphinxAtStartFootnote
@@ -1699,8 +1699,8 @@ For every test function that is \sphinxstylestrong{regular enough}, meaning that
 having exploited symmetry of stress tensor \(\boldsymbol\sigma\).
 
 
-\subsection{Weak formulation of compatibility conditions}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulation-of-compatibility-conditions}}
+\subsection{Weak formulation of congruence conditions}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:weak-formulation-of-congruence-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence}}
 \sphinxAtStartPar
 For every 2\(^{nd}\) order tensor function \(\boldsymbol\Omega\)
 \begin{equation*}
@@ -1734,9 +1734,9 @@ Under the assumptions …, there exists a unique solution of the elastic problem
 
 
 \subsection{Principle of virtual work}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-virtual-work}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-pvw}}
 \sphinxAtStartPar
-Starting from the weak form of equilibrium conditions, and choosing \(\mathbf{w}\) to be the variation of a \sphinxstylestrong{congruent displacement field} \(\widetilde{s}\)  with internal congruence in \(V\) and compatibility with \sphinxstyleemphasis{given} essential constraints on \(S_D\), i.e. that satisfies the conditions
+Starting from the {\hyperref[\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-equilibrium}]{\sphinxcrossref{\DUrole{std,std-ref}{weak form of equilibrium conditions}}}}, and choosing \(\mathbf{w}\) to be the variation of a \sphinxstylestrong{congruent displacement field} \(\widetilde{s}\)  with internal congruence in \(V\) and compatibility with \sphinxstyleemphasis{given} essential constraints on \(S_D\), i.e. that satisfies the conditions
 \begin{equation*}
 \begin{split}\begin{aligned}
   \widetilde{\boldsymbol{\varepsilon}} & := \dfrac{1}{2} \left( \nabla \widetilde{\mathbf{s}} + \nabla^T \widetilde{\mathbf{s}} \right) && \text{in $V$} \\
@@ -1760,9 +1760,9 @@ and
 \end{equation*}
 
 \subsection{Principle of complementary virtual work}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-complementary-virtual-work}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-complementary-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-pcvw}}
 \sphinxAtStartPar
-Starting from the weak form of the compatibility conditions, and choosing \(\boldsymbol\Omega\) to be the variation of an \sphinxstylestrong{equilibrated stress field} \(\widetilde{\boldsymbol{\sigma}}\) due to \sphinxstyleemphasis{given} external loads \(\widetilde{\mathbf{f}}\) in \(V\) and \(\widetilde{\mathbf{t}}_{\mathbf{n}}\) on \(S_N\), i.e. satisfying the conditions
+Starting from the weak form of the {\hyperref[\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence}]{\sphinxcrossref{\DUrole{std,std-ref}{congruence condition}}}}, and choosing \(\boldsymbol\Omega\) to be the variation of an \sphinxstylestrong{equilibrated stress field} \(\widetilde{\boldsymbol{\sigma}}\) due to \sphinxstyleemphasis{given} external loads \(\widetilde{\mathbf{f}}\) in \(V\) and \(\widetilde{\mathbf{t}}_{\mathbf{n}}\) on \(S_N\), i.e. satisfying the conditions
 \begin{equation*}
 \begin{split}\begin{cases}
   \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 & \text{in $V$} \\
@@ -1787,7 +1787,7 @@ and
 \end{equation*}
 
 \subsection{Principle of stationariety of total potential energy}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-stationariety-of-total-potential-energy}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-stationariety-of-total-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential}}
 \sphinxAtStartPar
 Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, \(\widetilde{\mathbf{s}} = \mathbf{s}\), \(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\), it follows that
 \begin{equation*}
@@ -1836,7 +1836,7 @@ Among all the equilibrated solutions, the congruent solution (and thus the uniqu
 
 
 \subsection{Principle of stationariety of total complementary potential energy}
-\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-stationariety-of-total-complementary-potential-energy}}
+\label{\detokenize{ch/solids/small-displacements-statics-weak-form:principle-of-stationariety-of-total-complementary-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-weak-form:solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential-complementary}}
 \sphinxAtStartPar
 If the displacement of the Robin boundary reads \(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\),
 \begin{equation*}
@@ -1922,110 +1922,111 @@ with \(\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)\). Moreover, if only one load
 \chapter{Small displacement \sphinxhyphen{} Statics \sphinxhyphen{} Weak formulation and “Energy” theorems for beam structures}
 \label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:small-displacement-statics-weak-formulation-and-energy-theorems-for-beam-structures}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form::doc}}
 \sphinxAtStartPar
-In this section, theorems for elastic structures are specialized for beam structures. This topic here is treated using Bernoulli\sphinxhyphen{}de Saint Venant beam model (or everything is written w.r.t. principal axes), so that actions are decoupled, in order to get ready to face some small problems that can be solved with pen and paper.
+In this section, theorems for elastic structures are specialized for beam structures.
 
-
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-
-If the stress vector on Robin boundary reads \PYGZdl{}\PYGZbs{}mathbf\PYGZob{}t\PYGZcb{} = \PYGZhy{} \PYGZbs{}mathbf\PYGZob{}K\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} + \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}h\PYGZcb{}\PYGZcb{}\PYGZdl{}, it follows
-
-\PYGZdl{}\PYGZdl{}\PYGZbs{}begin\PYGZob{}aligned\PYGZcb{}
- 0 \PYGZam{} = \PYGZhy{} \PYGZbs{}int\PYGZus{}V \PYGZbs{}delta \PYGZbs{}boldsymbol\PYGZbs{}varepsilon : \PYGZbs{}boldsymbol\PYGZbs{}sigma + \PYGZbs{}int\PYGZus{}\PYGZob{}V\PYGZcb{} \PYGZbs{}delta \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}f\PYGZcb{}\PYGZcb{} + \PYGZbs{}int\PYGZus{}\PYGZob{}S\PYGZus{}N\PYGZcb{} \PYGZbs{}delta \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}t\PYGZcb{}\PYGZcb{} + \PYGZbs{}int\PYGZus{}\PYGZob{}S\PYGZus{}R\PYGZcb{} \PYGZbs{}delta \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}left( \PYGZhy{} \PYGZbs{}mathbf\PYGZob{}K\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} + \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}h\PYGZcb{}\PYGZcb{} \PYGZbs{}right) = \PYGZbs{}\PYGZbs{} 
-   \PYGZam{} = \PYGZbs{}delta \PYGZbs{}underbrace\PYGZob{}\PYGZbs{}left\PYGZbs{}\PYGZob{} \PYGZhy{} \PYGZbs{}int\PYGZus{}V \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{} \PYGZbs{}boldsymbol\PYGZbs{}varepsilon : \PYGZbs{}mathbf\PYGZob{}C\PYGZcb{} : \PYGZbs{}boldsymbol\PYGZbs{}varepsilon + \PYGZbs{}int\PYGZus{}\PYGZob{}V\PYGZcb{} \PYGZbs{}boldsymbol\PYGZbs{}varepsilon : \PYGZbs{}boldsymbol\PYGZbs{}beta \PYGZbs{}Delta T + \PYGZbs{}int\PYGZus{}\PYGZob{}V\PYGZcb{} \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}f\PYGZcb{}\PYGZcb{} + \PYGZbs{}int\PYGZus{}\PYGZob{}S\PYGZus{}N\PYGZcb{} \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}t\PYGZcb{}\PYGZcb{} \PYGZhy{} \PYGZbs{}int\PYGZus{}\PYGZob{}S\PYGZus{}R\PYGZcb{} \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}\PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}mathbf\PYGZob{}K\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} + \PYGZbs{}int\PYGZus{}\PYGZob{}S\PYGZus{}R\PYGZcb{} \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}\PYGZbs{}mathbf\PYGZob{}h\PYGZcb{}\PYGZcb{} \PYGZbs{}right\PYGZbs{}\PYGZcb{}\PYGZcb{}\PYGZus{}\PYGZob{} =: \PYGZbs{}Pi(\PYGZbs{}boldsymbol\PYGZbs{}varepsilon, \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{})\PYGZcb{} + \PYGZbs{}int\PYGZus{}\PYGZob{}V\PYGZcb{} \PYGZbs{}boldsymbol\PYGZbs{}varepsilon : \PYGZbs{}boldsymbol\PYGZbs{}beta \PYGZbs{} \PYGZbs{}delta \PYGZbs{}Delta T \PYGZbs{} , 
-\PYGZbs{}end\PYGZob{}aligned\PYGZcb{}\PYGZdl{}\PYGZdl{}
-
-and if \PYGZdl{}\PYGZbs{}Delta T\PYGZdl{} is prescribed, it follows \PYGZdl{}\PYGZbs{}delta \PYGZbs{}Delta T = 0\PYGZdl{}, and
-
-\PYGZdl{}\PYGZdl{}0 = \PYGZbs{}delta \PYGZbs{}Pi(\PYGZbs{}boldsymbol\PYGZbs{}varepsilon, \PYGZbs{}mathbf\PYGZob{}s\PYGZcb{}) \PYGZbs{} . \PYGZdl{}\PYGZdl{}
-
-```\PYGZob{}prf:theorem\PYGZcb{} Principle of stationariety of total potential energy
-
-Among all the equilibrated solutions, the congruent solution (and thus the unique solution of the elastic problem) is the one that makes the total potential energy stationary.
-
-\end{sphinxVerbatim}
-
-
-\section{Principle of stationariety of total complementary potential energy}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-stationariety-of-total-complementary-potential-energy}}
 \sphinxAtStartPar
-If the displacement of the Robin boundary reads \(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\),
+\sphinxstylestrong{todo} Beam model used here…
+
+
+\section{Strong formulation of the problem}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:strong-formulation-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong}}
+\sphinxAtStartPar
+\sphinxstylestrong{Indefinite equilibrium.} External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.
 \begin{equation*}
 \begin{split}\begin{aligned}
-0 & = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
-  & = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
+  0 & = T_z'(z) + n(z)    && \text{(axial loads)} \\
+  0 & = T_x'(z) + f_x(z)  && \text{(shear loads)} \\
+  0 & = T_y'(z) + f_y(z)  &&                      \\
+  0 & = M_x'(z) - T_y(z)  && \text{(bending)}     \\
+  0 & = M_y'(z) + T_x(z)  &&                      \\
+  0 & = M_z'(z) + m_z(z)  && \text{(torsion)}     \\
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and if \(\Delta T\) is prescribed, it follows \(\delta \, \Delta T = 0\), and
-\begin{equation*}
-\begin{split}\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .\end{split}
-\end{equation*}\label{None:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem  (Principle of stationariety of total complementary potential energy)}
-
-
+\sphinxstylestrong{Kinematics.}
 
 \sphinxAtStartPar
-Among all the congruent solutions, the equilibrated solution (and thus the unique solution of the elastic problem) is the one that makes the total complementary potential energy stationary.
-\end{sphinxadmonition}
-
-
-\section{Classical theorems}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:classical-theorems}}
-
-\subsection{Maxwell\sphinxhyphen{}Betti}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:maxwell-betti}}
-\sphinxAtStartPar
-Let \(1\) and \(2\) label two sets of loads acting on a structure. Now, using displacement \(s^2\) as the test function in the weak formulation of equilibrium conditions for \(1\), and displacement \(s^1\) for equilibrium conditions for \(2\)
+\sphinxstylestrong{Constitutive equations.} Under the assumptions … (kinematic assumptions, decoupling,…),
 \begin{equation*}
 \begin{split}\begin{aligned}
- 0 & = - \int_V \varepsilon^2_{ij} \sigma^1_{ij} + \int_V s^2_j f^1_j + \oint_{\partial V} s^2_j t^1_j \\
- 0 & = - \int_V \varepsilon^1_{ij} \sigma^2_{ij} + \int_V s^1_j f^2_j + \oint_{\partial V} s^1_j t^2_j \\
+  T_z(z) & = EA u'_z(z)  \\
+  T_x(z) & = \chi GA_x u'_x(z)  \\
+  T_y(z) & = \chi GA_y u'_y(z)  \\
+  M_x(z) & = EJ_x \theta'_x(z)  \\
+  M_y(z) & = EJ_y \theta'_y(z)  \\
+  M_z(z) & = GJ_y \theta'_z(z)  \\
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Let \(\varepsilon^a_{ij} = D_{ijkl} \sigma^a_{kl} + \alpha_{ij} \Delta T^a = \varepsilon^{a,mech}_{ij} + \varepsilon^{a,th}_{ij}\). Subtracting the two latter equations,
+With thermal strains due to temperature distribution \(T(z) = T_0(z) + \Delta_x T(z) \frac{x}{h_x} + \Delta_y T(z) \frac{y}{h_y}\), these constitutive equations hold for the mechanical part only, while the most general constitutive equations read
 \begin{equation*}
-\begin{split}
--\int_{V} \varepsilon^{2,th}_{ij} \sigma^1_{ij} + \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
--\int_{V} \varepsilon^{1,th}_{ij} \sigma^2_{ij} + \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
-\end{split}
+\begin{split}\begin{aligned}
+  u'_z      & = u^{mech \ '}_z + u^{th \ '}_z = \dfrac{T_z}{EA} + \alpha \Delta T \\
+  \theta'_x & = \theta^{mech \ '}_x + \theta^{th \ '}_x = \dfrac{M_x}{EJ_x} + \alpha \dfrac{\Delta_y T}{h_y} \\
+  \theta'_y & = \theta^{mech \ '}_y + \theta^{th \ '}_y = \dfrac{M_y}{EJ_y} - \alpha \dfrac{\Delta_x T}{h_x} \\
+  ... \\
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-If no thermal strain exists,
+\sphinxstylestrong{Bernoulli beam.} If Bernoulli kinematic assumption
 \begin{equation*}
-\begin{split}
- \int_{V} s_j^2 f^1_j + \oint_{\partial V} s^2_j t^1_j =
- \int_{V} s_j^1 f^2_j + \oint_{\partial V} s^1_j t^2_j \ .
-\end{split}
+\begin{split}\begin{aligned}
+  \theta_x(z) & = - u'_y(z) \\
+  \theta_y(z) & =   u'_x(z) \\
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Examples.}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-If displacement is constrained on Dirichlet boundary, \(\mathbf{s}|_{S_D} = \mathbf{0}\), and the loads are made of a set of lumped forces,
+holds, bending equilibrium equations read
 \begin{equation*}
-\begin{split}\mathbf{f}^1(\mathbf{r}) = \sum_{m} \mathbf{F}^1_m \delta(\mathbf{r}-\mathbf{r}_m) \ ,\end{split}
+\begin{split}\begin{aligned}
+ 0 & = f_x + T_x' = f_x - M''_y = f_x - ( EJ_y \theta'_y )'' = f_x - ( EJ_y u''_x )'' \\
+ 0 & = f_y + T_y' = f_y + M''_x = f_y + ( EJ_x \theta'_x )'' = f_y - ( EJ_x u''_y )'' \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\section{Weak formulations of the problem}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulations-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak}}
+
+\subsection{Weak formulation of equilibrium conditions}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulation-of-equilibrium-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}}
+\sphinxAtStartPar
+Under the assumption of negligible contribution of shear stress and deformation, and Bernoulli kinematic assumption, the weak form of equilibrium equation is derived as follows: axial and bending indefinite equilibrium equations for each beam (or structural element in general) are multiplied by arbitrary test functions, these products are integrated over the beam length. Then, natural boundary conditions are applied. Namely, assuming here 2\sphinxhyphen{}dimensional problem (and thus only one component of the bending moment, no torsion)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \int_{\text{beams}} \left[ v \left( N'(s) + n(s) \right) + w \left( - M''(s) + f(s) \right) \right] \, ds = \\
+    & = \int_{\text{beams}} \left[ v \left( (EA u'_z(s))' + n(s) \right) + w \left( - (EJ u''_x(s))'' + f_x(s) \right) \right] \, ds = \\
+    & = - \int_{\text{beams}} v' EA u'_z + \int_{\text{beams}} v n + \left.\left[ v \, (EA u'_z) \right]\right|_{\partial \, \text{str.}} + \\
+    & \quad - \int_{\text{beams}} w'' \, EJ u''_x + \int_{\text{beams}} w f - \left. \left[ w ( EJ u''_x )' \right] \right|_{\partial \, \text{str.}} + \left. \left[ w' ( EJ u''_x ) \right] \right|_{\partial \, \text{str.}} = \\
+    & = ...
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-the expression of Maxwell\sphinxhyphen{}Betti theorem reads
-\begin{equation*}
-\begin{split}\sum_a \mathbf{F}^1_a \cdot \mathbf{s}^2_a = \sum_b \mathbf{F}^2_b \cdot \mathbf{s}^1_b \ , \end{split}
-\end{equation*}
-\sphinxAtStartPar
-with \(\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)\). Moreover, if only one load exists
-\begin{equation*}
-\begin{split}\mathbf{F}^1_a \cdot \mathbf{s}^2(\mathbf{r}_a) = \mathbf{F}^2_b \cdot \mathbf{s}^1(\mathbf{r}_b) \ .\end{split}
-\end{equation*}
-\end{itemize}
+having used integration by parts and boundary conditions on Neumann boundaries where force and moments are prescribed.
 
 
-\subsection{Menabrea\sphinxhyphen{}Castigliano}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:menabrea-castigliano}}
-\sphinxAtStartPar
-–>
+\subsection{Weak formulation of congruence conditions}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulation-of-congruence-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence}}
 
+\subsection{Principle of virtual work}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw}}
+\sphinxAtStartPar
+Starting from the {\hyperref[\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}]{\sphinxcrossref{\DUrole{std,std-ref}{weak form of equilibrium conditions}}}}, and choosing the test functions \(v = \delta u_z\), \(w = \delta u_x\) to be variations of congruent displacement fields (\(v\) congruent to the axial displacement, and \(w\) congruent to transverse displacement and rotation),
+\begin{equation*}
+\begin{split}\begin{aligned}
+ & \delta u_z  = 0 && \text{where axial displacement is prescribed} \\
+ & \delta u'_x = 0 && \text{where rotation is prescribed, e.g. clamp} \\
+ & \delta u_x  = 0 && \text{where transverse displacement is prescribed, e.g. clamp, hinge} \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Principle of complementary virtual work}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-complementary-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw}}
+
+\subsection{Principle of stationariety of total potential energy}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-stationariety-of-total-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential}}
+
+\subsection{Principle of stationariety of total complementary potential energy}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-stationariety-of-total-complementary-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary}}
 \sphinxstepscope
 
 
@@ -2173,6 +2174,13 @@ while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.
 
 \section{Aeronautical beam}
 \label{\detokenize{ch/solids/beams/aeronautical:aeronautical-beam}}\label{\detokenize{ch/solids/beams/aeronautical:solid-mechanics-small-displacements-beams-aeronautical}}\label{\detokenize{ch/solids/beams/aeronautical::doc}}
+\sphinxstepscope
+
+
+\section{Problems}
+\label{\detokenize{ch/solids/beams/problems:problems}}\label{\detokenize{ch/solids/beams/problems:solid-mechanics-small-displacements-beams-problems}}\label{\detokenize{ch/solids/beams/problems::doc}}
+
+
 \sphinxstepscope
 
 
@@ -3038,7 +3046,7 @@ for supersonic flows \(M>1\), if section of the stream tube increases, \(dA > 0\
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/fluids/governing\sphinxhyphen{}equations}\sphinxstyleindexpageref{ch/fluids/governing-equations:\detokenize{example-1}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/solids/small\sphinxhyphen{}displacements\sphinxhyphen{}statics\sphinxhyphen{}beams\sphinxhyphen{}weak\sphinxhyphen{}form}\sphinxstyleindexpageref{ch/solids/small-displacements-statics-beams-weak-form:\detokenize{theorem-0}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/solids/small\sphinxhyphen{}displacements\sphinxhyphen{}statics\sphinxhyphen{}weak\sphinxhyphen{}form}\sphinxstyleindexpageref{ch/solids/small-displacements-statics-weak-form:\detokenize{theorem-0}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}1}\sphinxstyleindexextra{ch/solids/small\sphinxhyphen{}displacements\sphinxhyphen{}statics\sphinxhyphen{}weak\sphinxhyphen{}form}\sphinxstyleindexpageref{ch/solids/small-displacements-statics-weak-form:\detokenize{theorem-1}}
