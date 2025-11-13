@@ -733,13 +733,68 @@ Problem 6.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The structure is hyper-static once. Let the vertical component <span class="math notranslate nohighlight">\(V_C\)</span> of the reaction in <span class="math notranslate nohighlight">\(B\)</span> be the (independent unknown) hyperstatic action.
+From equilibrium conditions, the reactions in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  M_A: &amp; \  0 = 2 b V_C + b H_B - \frac{qb^2}{2} \\
+    H: &amp; \  0 = H_A + H_B \\
+    V: &amp; \  0 = V_A + V_C - qb \\
+\end{aligned} \quad \rightarrow \quad
+\begin{aligned}
+  H_B &amp; = - 2 V_C + \frac{qb^2}{2} \\
+  H_A &amp; = - H_B = 2 V_C - \frac{qb^2}{2} \\
+  V_A &amp; = qb - V_C
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Bending moment.</strong> In <span class="math notranslate nohighlight">\(AB\)</span>, with <span class="math notranslate nohighlight">\(z\)</span>-coordinate as the coordinate along the axis from <span class="math notranslate nohighlight">\(A: z= 0\)</span>, to <span class="math notranslate nohighlight">\(B: z=\sqrt{2}b\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  M_{AB}(z) 
+  &amp; = \left( V_A + H_A \right) \frac{z}{\sqrt{2}} - \frac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} = \quad , \quad z \in \left[0, \sqrt{2} b \right] \\
+  &amp; = \left( \dfrac{q b}{2} + V_C \right) \dfrac{z}{\sqrt{2}} - \dfrac{q z^2}{4}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">In <span class="math notranslate nohighlight">\(CB\)</span>, with <span class="math notranslate nohighlight">\(z\)</span>-coordinate from <span class="math notranslate nohighlight">\(C\)</span> to <span class="math notranslate nohighlight">\(B\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  M_{BC}(z)
+  &amp; = V_C z \quad , \quad z \in \left[ 0 , b \right] \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text">…</p>
+<p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{str} \widetilde{M}(s) \theta'(s; V_C) \, ds - \widetilde{V}_C w_C  = \\
+  &amp; = \int_{AB \cup BC} \widetilde{M}(z) \left( \dfrac{M(z; V_C)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as the real displacement <span class="math notranslate nohighlight">\(w_C = 0\)</span>.
+One set of <em>virtual loads</em> is used to get the equation required to evaluate the hyper-static action <span class="math notranslate nohighlight">\(V_C\)</span>:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\widetilde{V}_C^1 = 1\)</span> and thus <span class="math notranslate nohighlight">\(\widetilde{M}_{AB}^1(z) = \frac{z}{\sqrt{2}}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{M}_{BC}^1(z) = z\)</span></p></li>
+</ol>
+<p class="sd-card-text">The equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{z=0}^{\sqrt{2} b} \dfrac{z}{\sqrt{2}} \dfrac{1}{EJ} \left( \left( \dfrac{qb}{2} + V_C \right) \dfrac{z}{\sqrt{2}} - \dfrac{q z^2}{4} \right) \, dz
+    + \int_{z=0}^{         b}        z           \left( \dfrac{1}{EJ} V_C z + \dfrac{\alpha \Delta T}{h} \right)  \, dz = \\
+  &amp; = \dfrac{1}{EJ} \left( \left( qb + V_C \right) \dfrac{\left(\sqrt{2} b \right)^3}{6} - \dfrac{q \left(\sqrt{2}b\right)^4}{16 \sqrt{2}} \right) + \dfrac{V_C b^3}{3 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} = \\
+  &amp; = \dfrac{qb^4}{EJ} \left( \dfrac{\sqrt{2}}{6} - \dfrac{\sqrt{2}}{8} \right) + \dfrac{V_C b^3}{EJ} \left( \dfrac{\sqrt{2}}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T \, b^2}{2 h} = \\
+  &amp; = \dfrac{\sqrt{2}}{24} \dfrac{qb^4}{EJ} + \dfrac{V_C b^3}{EJ} \dfrac{\sqrt{2}+1}{3} + \dfrac{\alpha \Delta T \, b^2}{2h}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V_C 
+  &amp; = - \dfrac{\sqrt{2}}{8(\sqrt{2}+1)} qb - \dfrac{3}{2(\sqrt{2}+1)} \dfrac{\alpha \Delta T \, E J}{2 h b} = \\
+  &amp; = - \dfrac{\sqrt{2}-1}{4\sqrt{2}} qb - \dfrac{3(\sqrt{2}-1)}{2} \dfrac{\alpha \Delta T \, E J}{2 h b} \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">

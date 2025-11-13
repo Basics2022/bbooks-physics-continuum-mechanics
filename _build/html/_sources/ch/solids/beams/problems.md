@@ -331,6 +331,71 @@ $$\begin{aligned}
 ::::
 
 ```{dropdown} Solution.
+:open:
+
+The structure is hyper-static once. Let the vertical component $V_C$ of the reaction in $B$ be the (independent unknown) hyperstatic action.
+From equilibrium conditions, the reactions in $A$ and $B$ read
+
+$$\begin{aligned}
+  M_A: & \  0 = 2 b V_C + b H_B - \frac{qb^2}{2} \\
+    H: & \  0 = H_A + H_B \\
+    V: & \  0 = V_A + V_C - qb \\
+\end{aligned} \quad \rightarrow \quad
+\begin{aligned}
+  H_B & = - 2 V_C + \frac{qb^2}{2} \\
+  H_A & = - H_B = 2 V_C - \frac{qb^2}{2} \\
+  V_A & = qb - V_C
+\end{aligned}$$
+
+**Bending moment.** In $AB$, with $z$-coordinate as the coordinate along the axis from $A: z= 0$, to $B: z=\sqrt{2}b$,
+
+$$\begin{aligned}
+  M_{AB}(z) 
+  & = \left( V_A + H_A \right) \frac{z}{\sqrt{2}} - \frac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} = \quad , \quad z \in \left[0, \sqrt{2} b \right] \\
+  & = \left( \dfrac{q b}{2} + V_C \right) \dfrac{z}{\sqrt{2}} - \dfrac{q z^2}{4}
+\end{aligned}$$
+
+In $CB$, with $z$-coordinate from $C$ to $B$
+
+$$\begin{aligned}
+  M_{BC}(z)
+  & = V_C z \quad , \quad z \in \left[ 0 , b \right] \\
+\end{aligned}$$
+
+**Method 1 - Elastic line.**
+
+...
+
+**Method 2 - PCVW.**
+
+$$\begin{aligned}
+0 & = \int_{str} \widetilde{M}(s) \theta'(s; V_C) \, ds - \widetilde{V}_C w_C  = \\
+  & = \int_{AB \cup BC} \widetilde{M}(z) \left( \dfrac{M(z; V_C)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz \ .
+\end{aligned}$$
+
+as the real displacement $w_C = 0$.
+One set of *virtual loads* is used to get the equation required to evaluate the hyper-static action $V_C$:
+1. $\widetilde{V}_C^1 = 1$ and thus $\widetilde{M}_{AB}^1(z) = \frac{z}{\sqrt{2}}$, $\widetilde{M}_{BC}^1(z) = z$
+
+The equation becomes
+
+$$\begin{aligned}
+0 & = \int_{z=0}^{\sqrt{2} b} \dfrac{z}{\sqrt{2}} \dfrac{1}{EJ} \left( \left( \dfrac{qb}{2} + V_C \right) \dfrac{z}{\sqrt{2}} - \dfrac{q z^2}{4} \right) \, dz
+    + \int_{z=0}^{         b}        z           \left( \dfrac{1}{EJ} V_C z + \dfrac{\alpha \Delta T}{h} \right)  \, dz = \\
+  & = \dfrac{1}{EJ} \left( \left( qb + V_C \right) \dfrac{\left(\sqrt{2} b \right)^3}{6} - \dfrac{q \left(\sqrt{2}b\right)^4}{16 \sqrt{2}} \right) + \dfrac{V_C b^3}{3 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} = \\
+  & = \dfrac{qb^4}{EJ} \left( \dfrac{\sqrt{2}}{6} - \dfrac{\sqrt{2}}{8} \right) + \dfrac{V_C b^3}{EJ} \left( \dfrac{\sqrt{2}}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T \, b^2}{2 h} = \\
+  & = \dfrac{\sqrt{2}}{24} \dfrac{qb^4}{EJ} + \dfrac{V_C b^3}{EJ} \dfrac{\sqrt{2}+1}{3} + \dfrac{\alpha \Delta T \, b^2}{2h}
+\end{aligned}$$
+
+so that
+
+$$\begin{aligned}
+  V_C 
+  & = - \dfrac{\sqrt{2}}{8(\sqrt{2}+1)} qb - \dfrac{3}{2(\sqrt{2}+1)} \dfrac{\alpha \Delta T \, E J}{2 h b} = \\
+  & = - \dfrac{\sqrt{2}-1}{4\sqrt{2}} qb - \dfrac{3(\sqrt{2}-1)}{2} \dfrac{\alpha \Delta T \, E J}{2 h b} \ .
+\end{aligned}$$
+
+
 
 ```
 
