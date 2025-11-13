@@ -603,10 +603,11 @@ Solution.<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">The structure is three times hyper-static. One hyperstatic acting in the axial direction is identically zero. Other two hyper-static actions are choosen here to be thhe vertical reaction <span class="math notranslate nohighlight">\(V_B\)</span> and moment <span class="math notranslate nohighlight">\(M_B\)</span> at the clamp in <span class="math notranslate nohighlight">\(B\)</span>. Bending moment as a function of the hyperstatics reads</p>
+<p class="sd-card-text">The structure is three times hyper-static. One hyperstatic acting in the axial direction is identically zero. Other two hyper-static actions are choosen here to be the vertical reaction <span class="math notranslate nohighlight">\(V_B\)</span> and moment <span class="math notranslate nohighlight">\(M_B\)</span> at the clamp in <span class="math notranslate nohighlight">\(B\)</span>. Bending moment as a function of the hyperstatics reads</p>
 <div class="math notranslate nohighlight">
 \[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,\]</div>
 <p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text">…</p>
 <p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -637,7 +638,7 @@ Two independent <em>virtual loads</em> are used to get a system of 2 equations i
 \[\begin{split}
 \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} &amp; = \dfrac{1}{\frac{1}{3} - \frac{1}{2} \frac{1}{2}} \begin{bmatrix} 1 &amp; -\frac{1}{2} \\ -\frac{1}{2} &amp; \frac{1}{3} \end{bmatrix} \left(  \begin{bmatrix} \frac{1}{8} \\ \frac{1}{6} \end{bmatrix} qb + \begin{bmatrix} -\frac{1}{2} \\ - 1 \end{bmatrix} \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
  &amp; = 12 \left( \begin{bmatrix} \frac{1}{24} \\ \frac{-1}{144} \end{bmatrix} qb + \begin{bmatrix} 0 \\ \frac{1}{12} \end{bmatrix}  \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
- &amp; = \begin{bmatrix} \frac{1}{2} \\ - \frac{1}{12} \end{bmatrix} qb + \begin{bmatrix} 0 \\ -1 \end{bmatrix} \dfrac{\alpha \Delta T \, EJ}{hb}
+ &amp; = \begin{bmatrix} \frac{1}{2} \\ - \frac{1}{12} \end{bmatrix} qb + \begin{bmatrix} 0 \\ -1 \end{bmatrix} \dfrac{\alpha \Delta T \, EJ}{hb} \ .
 \end{split}\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
@@ -661,13 +662,55 @@ Problem 5.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Rotational spring in <span class="math notranslate nohighlight">\(B\)</span> links the rotation with the moment as <span class="math notranslate nohighlight">\(M_B = - k \theta_B = - k w'_B\)</span>. Mathematically, this is a Robin boundary condition, i.e. a linear combination of a kinematic variable and an action, here an angle and a moment.</p>
+<p class="sd-card-text">As the elastic constraint introduce the unknown moment <span class="math notranslate nohighlight">\(M_B\)</span>, or equivalenly the unknown angle <span class="math notranslate nohighlight">\(\theta_B = - \frac{M_B}{k}\)</span>, the structure can be treated as three times hyper-static. One hyperstatic acting in the axial direction is identically zero. Other two hyper-static actions are choosen here to be the vertical reaction <span class="math notranslate nohighlight">\(V_B\)</span> and moment <span class="math notranslate nohighlight">\(M_B\)</span> at the clamp in <span class="math notranslate nohighlight">\(B\)</span>. Bending moment as a function of the hyperstatics reads</p>
+<div class="math notranslate nohighlight">
+\[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,\]</div>
+<p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text"><strong>Method 2 - PCVW.</strong> Differently from previous problems, the real displacements are not identically zero as the rotation <span class="math notranslate nohighlight">\(\theta_B\)</span> is not rigidly constrained to be zero, but this rotation is contrasted by an elastic spring introducing a real benging moment <span class="math notranslate nohighlight">\(M_B = - k \theta_B\)</span> into the beam. The principle of complementary virtual work reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{str} \widetilde{M}(s) \theta'(s; V_B, M_B) \, ds - \widetilde{V}_B w_B - \widetilde{M}_B \theta_B = \\
+  &amp; = \int_{z=0}^{b} \widetilde{M}(z) \left( \dfrac{M(z; V_B, M_B)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz + \widetilde{M}_B \dfrac{M_B}{k} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as the two real displacements in <span class="math notranslate nohighlight">\(B\)</span> are <span class="math notranslate nohighlight">\(w_B = 0\)</span>, <span class="math notranslate nohighlight">\(\theta_B = - \frac{M_B}{k}\)</span>.
+Two independent <em>virtual loads</em> are used to get a system of 2 equations in the 2 hyperstatic unknowns:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\widetilde{V}_B^1 = 1\)</span>, <span class="math notranslate nohighlight">\(\widetilde{M}_B^1 = 0\)</span> and thus <span class="math notranslate nohighlight">\(\widetilde{M}^1(z) = b-z\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\widetilde{V}_B^2 = 0\)</span>, <span class="math notranslate nohighlight">\(\widetilde{M}_B^2 = 1\)</span> and thus <span class="math notranslate nohighlight">\(\widetilde{M}^2(z) = 1\)</span></p></li>
+</ol>
+<p class="sd-card-text">The equations become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 &amp; = \int_{z=0}^{b} \left( b - z \right) \left[ \dfrac{1}{EJ} \left( -q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz = \\
+  &amp; = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{3} \dfrac{V_B b^3}{EJ} + \dfrac{1}{2} \dfrac{M_B b^2}{EJ} + \dfrac{\alpha \Delta T b^2}{2 h} \\
+0 &amp; = \int_{z=0}^{b} 1 \, \left[ \dfrac{1}{EJ} \left( -q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz + 1 \cdot \dfrac{M_B}{k} = \\
+  &amp; = - \dfrac{1}{6} \dfrac{q b^3}{EJ} + \dfrac{1}{2} \dfrac{V_B b^2}{EJ} + \dfrac{M_B b}{EJ} + \dfrac{\alpha \Delta T b}{h} + \frac{M_B}{k} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">or in matrix form,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} \frac{1}{3} &amp; \frac{1}{2} \\ \frac{1}{2} &amp; 1 + \frac{EJ}{k b^2} \end{bmatrix} \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} = \begin{bmatrix} \frac{1}{8} \\ \frac{1}{6} \end{bmatrix} qb + \begin{bmatrix} -\frac{1}{2} \\ - 1 \end{bmatrix} \dfrac{\alpha \Delta T  \, EJ}{h b} \ .
+\end{split}\]</div>
+<p class="sd-card-text">The solution of the linear system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} &amp; = \dfrac{1}{\frac{1}{3} + \frac{EJ}{3 k b^2} - \frac{1}{2} \frac{1}{2}} \begin{bmatrix} 1 + \frac{EJ}{k b^2} &amp; -\frac{1}{2} \\ -\frac{1}{2} &amp; \frac{1}{3} \end{bmatrix} \left(  \begin{bmatrix} \frac{1}{8} \\ \frac{1}{6} \end{bmatrix} qb + \begin{bmatrix} -\frac{1}{2} \\ - 1 \end{bmatrix} \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
+ &amp; = \dfrac{1}{\frac{1}{12} + \frac{EJ}{3 k b^2}} \left( \begin{bmatrix} \frac{1}{24} + \frac{EJ}{8 k b^2} \\ \frac{-1}{144} \end{bmatrix} qb + \begin{bmatrix} -\frac{EJ}{2 k b^2} \\ \frac{1}{12} \end{bmatrix}  \dfrac{\alpha \Delta T  \, EJ}{h b} \right) = \\
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Limit cases.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{k b^2}{EJ} &amp; \rightarrow +\infty &amp;&amp; : &amp;&amp; \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} \rightarrow \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix}_{clamp} = \begin{bmatrix} \frac{1}{2} \\ \frac{-1}{12} \end{bmatrix} qb + \begin{bmatrix} 0 \\ 1 \end{bmatrix}  \dfrac{\alpha \Delta T  \, EJ}{h b} \\
+  \frac{k b^2}{EJ} &amp; \rightarrow 0       &amp;&amp; : &amp;&amp; \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix} \rightarrow \begin{bmatrix} V_B \\ \frac{M_B}{b} \end{bmatrix}_{hinge} = \begin{bmatrix} \frac{3}{8} \\ 0 \end{bmatrix} qb + \begin{bmatrix} -\frac{3}{2} \\ 0 \end{bmatrix}  \dfrac{\alpha \Delta T  \, EJ}{h b} \\
+\end{aligned}\end{split}\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -712,7 +755,7 @@ Problem 7.</div>
 <div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="" src="../../../_images/s03.png" /></p>
+<p class="sd-card-text"><img alt="" src="media/solids/s03.png" /></p>
 <!-- *Didascalia, se necessaria* -->
 </div>
 </div>
