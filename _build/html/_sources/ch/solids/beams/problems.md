@@ -419,6 +419,97 @@ $$\begin{aligned}
 ::::
 
 ```{dropdown} Solution.
+:open:
+
+Solve with $F = qb$.
+
+**Kinematic analysis.**
+
+...as the reactions from the springs are unknown, the structure can be considered as three times hyperstatic ($3$ beams: $3 \times 3 = 9$ d.o.f., $12$ d.o.c., $12-9 = 3$ actual d.o.c.; todo: explicitly prove that there's no rigid degree of freedom...)
+
+**Reactions at ground and opening the loops.**
+
+![](../../../media/solids/s03-iso.png)
+
+With an incremental removal of constraints, and the corresponding equilibrium conditions provide 5 relations between 8 unknown actions,
+
+$$\begin{aligned}
+  M_{G,3}    : & \quad 0 = V_H b + M_H \\
+  M_{A,1+2+3}: & \quad 0 = - \dfrac{qb^2}{2} - F \frac{3}{2}b + M_H + 3b V_H + 2b H_H + M_A \\
+  M_{G,2}    : & \quad 0 = F \frac{b}{2} - V_D b - H_D b \\
+  V_{1+2+3}  : & \quad 0 = - qb - F + V_A + V_H \\
+  H_{1+2+3}  : & \quad 0 =            H_A + H_H \ ,
+\end{aligned}$$
+
+i.e. a linear system that is 3 times under-determined (in agreement with the 3 hyperstatics evaluated above). Here the independent unknown hyperstatics are chosen to be $V_D$, $M_A$, $M_H$, and thus
+
+$$\begin{aligned}
+  V_H & = - \frac{M_H}{b} \\
+  H_H & = F - \dfrac{3}{2} V_H - \dfrac{1}{2} \dfrac{M_H}{b} - \dfrac{1}{2} \dfrac{M_A}{b} && = F + \dfrac{M_H}{b} - \dfrac{1}{2}\dfrac{M_A}{b} \\
+  H_D & = \dfrac{F}{2} - V_D \\
+  V_A & = 2 F - V_H = 2 F + \dfrac{M_H}{b} \\
+  H_A & = - H_H = - F - \dfrac{M_H}{b} + \dfrac{1}{2} \dfrac{M_A}{b} \ .
+\end{aligned}$$
+
+**Internal bending moment, as a function of the hyperstatics.**
+
+$$\begin{aligned}
+  M_{AD}(z) & = -M_A + \left( H_A + V_A \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} = \\
+            & = -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \\
+  M_{DF}(z) & = -M_A + H_A ( b + z ) + V_A b - \dfrac{q b^2}{2} - H_D z = \\
+            & = -M_A + Fb + \dfrac{3}{2} M_A + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) = \\
+            & = \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \\
+  M_{FG}(z) & = -M_A + 2 H_A b  + V_A ( b + z ) - qb \left( \dfrac{b}{2} + z \right) - H_D b - V_D z \\
+            & = -M_A - M_H + M_A - \frac{qb^2}{2} - \frac{Fb}{2} + V_D b + z \left( 2 F + \dfrac{M_H}{b} - V_D - qb \right) = \\
+            & = \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) \\
+  M_{DE}(z) & = V_D z \\
+  M_{BC}(z) & = - F z \\
+  M_{CE}(z) & = - F \frac{b}{2} \\
+  M_{EG}(z) & = - F \frac{b}{2} + V_D b + H_D z = \\
+            & = \left( \dfrac{F}{2} - V_D \right) \left( z - b \right) \\
+  M_{HG}(z) & = M_H + V_H z = \\
+            & = M_H \left( 1 - \dfrac{z}{b} \right) \ .
+\end{aligned}$$
+
+**Method 1 - Elastic line.**
+
+**Method 2 - PCVW.**
+
+$$\begin{aligned}
+0 & = \int_{str} \widetilde{M}(s) \theta'(s; M_A, M_H, V_D) \, ds - \widetilde{M}_A \theta_A - \widetilde{M}_H \theta_H - \widetilde{V}_D ( u_{D,2} - u_{D,1} )  = \\
+  & = \int_{str} \widetilde{M}(z) \left( \dfrac{M(z; M_A, M_H, V_D)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) + \widetilde{M}_A \dfrac{M_A}{k} + \widetilde{M}_H \dfrac{M_H}{k}  \ ,
+\end{aligned}$$
+
+as the hinge constraint set no relative displacement in $D$, $u_{D,2} - u_{D,1} = 0$, and the rotations in $A$ and $H$ can be written as functions of the moments $M_A$, $M_H$ introduced into the structure by the rotational springs.
+Three sets of *virtual loads* are used to get the linear system required to evaluate the hyper-static actions $M_A$, $M_H$, $V_D$
+1. $\widetilde{M}_A^1 = 1$, $\widetilde{M}_H^1 = 0$, $\widetilde{V}_D^1 = 0$,
+2. $\widetilde{M}_A^2 = 0$, $\widetilde{M}_H^2 = 1$, $\widetilde{V}_D^2 = 0$,
+3. $\widetilde{M}_A^3 = 0$, $\widetilde{M}_H^3 = 0$, $\widetilde{V}_D^3 = 1$,
+
+$$\begin{aligned}
+0 & = 
+    \int_{z=0}^{\sqrt{2}b} \left( \dfrac{z}{2 \sqrt{2} b} - 1 \right) \dfrac{1}{EJ} \left[ -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \right] \, dz 
+  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \ , dz + \dfrac{M_A}{k} 
+\end{aligned}$$
+
+$$\begin{aligned}
+0 & =
+    \int_{z=0}^{b} - \dfrac{z}{b} \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz 
+  + \int_{z=0}^{b} \left( \dfrac{z}{b} - 1  \right) \left[ \dfrac{1}{EJ} \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz
+  + \int_{z=0}^{b} \left( 1 - \dfrac{z}{b} \right) \dfrac{1}{EJ} M_H \left( 1 - \dfrac{z}{b} \right) \, dz + \dfrac{M_H}{k}
+\end{aligned}$$
+
+$$\begin{aligned}
+0 & = 
+    \int_{z=0}^{b} z \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz
+  + \int_{z=0}^{b} - b\left( \dfrac{z}{b} - 1  \right) \left[ \dfrac{1}{EJ} \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz
+  + \int_{z=0}^{b} z \, \dfrac{1}{EJ} V_D z \, dz
+  + \int_{z=0}^{b} - (z-b) \dfrac{1}{EJ} \left( \dfrac{F}{2} - V_D \right) (z-b) \, dz
+\end{aligned}$$
+
+
+$$\begin{bmatrix} 11 & 12 & 13 \\ 12 & 22 & 23 \\ 13 & 23 & 33 \end{bmatrix} \begin{bmatrix} M_A \\ M_H \\ V_D b \end{bmatrix} = \begin{bmatrix} f_1 \\ f_2 \\ f_3  \end{bmatrix} \dfrac{F \dots}{\dots} + \begin{bmatrix} t_1 \\ t_2 \\ t_3 \end{bmatrix} \dfrac{\alpha \Delta T \dots}{\dots}$$
+
 
 ```
 
