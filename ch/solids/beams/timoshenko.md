@@ -27,6 +27,36 @@ $$\begin{aligned}
  2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
 \end{aligned}$$
 
+**Stress.** ...todo... usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross-coupling terms. Here, using a simplified (or modified, so that no contribution of $\varepsilon_{xx}$, $\varepsilon_{yy}$ exists) version of the constitutive law for elastic media,
+
+$$\begin{aligned}
+  \sigma_{zz} & = E \varepsilon_{zz} \\
+  \tau_{zx}   & = 2 G \varepsilon_{zx} \\
+  \tau_{zy}   & = 2 G \varepsilon_{zy} \\
+\end{aligned}$$
+
+## Internal actions
+
+$$\begin{aligned}
+  \mathbf{F} & = \int_{A} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} \\
+  \mathbf{M} & = \int_{A} \mathbf{r} \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+\end{aligned}$$
+
+**Internal actions as function of displacement.** Neglecting warping and strain due to non-zero Poisson ratio,
+
+$$\begin{aligned}
+  \mathbf{F} 
+  & = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} = \\
+  & = \int_{A} \hat{\mathbf{x}} G ( s'_{Px} - \theta_y - y \theta'_z ) + \hat{\mathbf{y}} G ( s'_{Py} + \theta_x + x \theta'_z) + \hat{\mathbf{z}} E ( s'_{Pz} + y \theta'_x - x \theta'_y) = \\
+  & = \hat{\mathbf{x}} \left( \chi_x GA ( s'_{Px} - \theta_y ) - G S_x \theta'_z \right)
+    + \hat{\mathbf{y}} \left( \chi_y GA ( s'_{Py} + \theta_x ) + G S_y \theta'_z \right)
+    + \hat{\mathbf{z}} \left( EA s'_{Pz} + E S_x \theta'_x - E S_y \theta'_y \right) \ , \\
+  \mathbf{M}
+  & = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+\end{aligned}$$
+
+
+
 ## Balance equations
 
 Balance equations for a beam can be obtained integrating indefinite balance equations for a 3-dimensional solid on the sections $A(z)$ of the beam, with some further assumption on non-rigid contributions to displacement.
@@ -60,7 +90,6 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ```{dropdown} Contribution of stress to moment
-:open:
 
 $$\begin{aligned}
   \int_{V} \mathbf{r} \times \nabla \cdot \boldsymbol\sigma 
@@ -84,6 +113,7 @@ $$\begin{aligned}
   & = \Delta z \, \hat{\mathbf{z}} \times \mathbf{F} \ .
 \end{aligned}$$
 
-
 ```
+
+
 
