@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/beams/de-saint-venant';</script>
     <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,15 +75,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1Z86N0G4V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z1Z86N0G4V');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -387,7 +380,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -403,6 +398,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">10.1.1. Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.1.2. Internal actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axial">10.1.2.1. Axial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shear">10.1.2.2. Shear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bending">10.1.2.3. Bending</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torsion">10.1.2.4. Torsion</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -414,6 +424,66 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="de-saint-venant-beam">
 <span id="solid-mechanics-small-displacements-beams-de-saint-venant"></span><h1><span class="section-number">10.1. </span>de Saint Venant beam<a class="headerlink" href="#de-saint-venant-beam" title="Permalink to this heading">#</a></h1>
+<div class="section" id="assumptions">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-assumptions"></span><h2><span class="section-number">10.1.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="internal-actions">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions"></span><h2><span class="section-number">10.1.2. </span>Internal actions<a class="headerlink" href="#internal-actions" title="Permalink to this heading">#</a></h2>
+<div class="section" id="axial">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-axial"></span><h3><span class="section-number">10.1.2.1. </span>Axial<a class="headerlink" href="#axial" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="shear">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-shear"></span><h3><span class="section-number">10.1.2.2. </span>Shear<a class="headerlink" href="#shear" title="Permalink to this heading">#</a></h3>
+<p>…</p>
+<p>The axial equilibrium of an infinitesimal section of the beam between <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(z+dz\)</span> and <span class="math notranslate nohighlight">\(y = y^*\)</span>, under linear axial stress, <span class="math notranslate nohighlight">\(\sigma_z = \sigma_{z/y} \, y = \frac{M_x}{J_x} \, y\)</span>, reads for beams with constant section (<strong>todo</strong> is this assumption really required?)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = - \int_{x \in b(y*)} \int_{dz} \tau_{zy} \, dz \, dx + \int_{A^*(z+dz)} \sigma_z \, dz \, dy - \int_{A^*(z)} \sigma_z \, dz \, dy = \\
+  &amp; \simeq - dz \int_{x \in b(y*)} \tau_{zy} + M_x(z+dz) \int_{A^*(z+dz)} \dfrac{y}{J_x} - M_x(z) \int_{A^*(z)} \dfrac{y}{J_x} = \\
+  &amp; \simeq dz \left[ - \int_{x \in b(y*)} \tau_{zy} + M'_x(z) \dfrac{S^*(z)}{J_x} \right] \ ,
+\end{aligned}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(S^*(z) = \int_{A^*(z)} y\)</span>. Expliting the rotational equilibrium, <span class="math notranslate nohighlight">\(0 = M'_x(z) - T(z)\)</span>, and the definition of the average shear stress <span class="math notranslate nohighlight">\(\overline{\tau}_{zy} = \frac{1}{b(y^*)} \int_{x \in b(y^*)} \tau_{zy}\)</span>, it follows that</p>
+<div class="math notranslate nohighlight">
+\[\overline{\tau}_{zy}(z,y) = \dfrac{S^*(y)}{b^*(y) J_x} T_y \ .\]</div>
+<p>…</p>
+<p><strong>Shear stiffness.</strong> <strong>todo</strong> “decouple” shear and bending contributions to the transverse displacement…</p>
+<p>With <span class="math notranslate nohighlight">\(\gamma_{zy} = 2 \varepsilon_{zy} = \partial_y s_z + \partial_z s_y = \frac{\tau_{zy}}{G}\)</span>, and an equilibrated shar load <span class="math notranslate nohighlight">\(\widetilde{T}(y) = \widetilde{T}(y+dy) = 1\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \int_V \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \widetilde{\sigma}_{ij} s_j = \dots \\
+    &amp; = \int_V 2 \widetilde{\tau}(z) \frac{\tau(z)}{2 G} + \widetilde{T}_y(z) s_y(z) - \widetilde{T}_y(z+dz) s_y(z+dz) = \\
+    &amp; = \int_{\ell} \int_A \dfrac{S^*}{b^* J} \widetilde{T} \dfrac{1}{G} \dfrac{S^*}{b^* J} T \, dA \, d\ell - s'_y(z) \, dz = \\
+    &amp; = dz \left[ \dfrac{1}{GA} \ \underbrace{A \int_{A} \dfrac{S^{* 2}}{b^{* 2} J^2}}_{ \chi } \, T(z) - s'_y(z) \right]
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[s'_y(z) = \dfrac{\chi}{GA} T(z) \ ,\]</div>
+<p>having introduced the definition of the <strong>shear factor</strong> <span class="math notranslate nohighlight">\(\chi\)</span> into the shear stiffness <span class="math notranslate nohighlight">\(\frac{GA}{\chi}\)</span>.</p>
+<div class="proof example dropdown admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 10.1 </span> (Shear factor of a rectangular section)</p>
+<div class="example-content section" id="proof-content">
+<p>As the static moment <span class="math notranslate nohighlight">\(S^*(y)\)</span> of a rectangular section with base <span class="math notranslate nohighlight">\(a\)</span> and height <span class="math notranslate nohighlight">\(b\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[S^*(y) = a \left( \frac{b}{2} - y \right) \cdot \frac{1}{2} \left( \frac{b}{2} + y \right) = \frac{1}{2} \left( \frac{b^2}{4} - y^2 \right) a \ .\]</div>
+<p>the shear factor <span class="math notranslate nohighlight">\(\chi\)</span> of a rectangular section is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \chi 
+  &amp; = ab \, \int_{x = -a/2}^{a/2} \int_{y = -b/2}^{b/2} \dfrac{ \frac{1}{4} \left( \frac{b^4}{16} - \frac{b^2 y^2}{2} + y^4 \right)}{ b^2 \left(\frac{1}{12} a b^3\right)^2 a^2 } = \\
+  &amp; = \frac{36 \, ab}{b^8} a \left( \dfrac{1}{16} - \dfrac{1}{6}\dfrac{1}{4} + \frac{1}{5} \dfrac{1}{16} \right) b^5 = \\
+  &amp; = \frac{ab}{b^8} a \left( \dfrac{9}{4} - \dfrac{3}{2} + \frac{9}{20} \right) b^5 = \\
+  &amp; = \dfrac{6}{5} \dfrac{a^2}{b^2} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div></div>
+<div class="section" id="bending">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-bending"></span><h3><span class="section-number">10.1.2.3. </span>Bending<a class="headerlink" href="#bending" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="torsion">
+<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-torsion"></span><h3><span class="section-number">10.1.2.4. </span>Torsion<a class="headerlink" href="#torsion" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -470,6 +540,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">10.1.1. Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.1.2. Internal actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axial">10.1.2.1. Axial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shear">10.1.2.2. Shear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bending">10.1.2.3. Bending</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torsion">10.1.2.4. Torsion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
