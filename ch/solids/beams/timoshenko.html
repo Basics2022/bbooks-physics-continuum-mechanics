@@ -75,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1Z86N0G4V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1Z86N0G4V');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -404,7 +413,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematic-assumptions">10.3.1. Kinematic assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">10.3.2. Balance equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.3.2. Internal actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">10.3.3. Balance equations</a></li>
 </ul>
             </nav>
         </div>
@@ -439,9 +449,36 @@ document.write(`
  2 \varepsilon_{zy} &amp; = s'_{Py} + \theta_x + x \theta'_z + s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
  2 \varepsilon_{xy} &amp; = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
 \end{aligned}\end{split}\]</div>
+<p><strong>Stress.</strong> …todo… usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross-coupling terms. Here, using a simplified (or modified, so that no contribution of <span class="math notranslate nohighlight">\(\varepsilon_{xx}\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_{yy}\)</span> exists) version of the constitutive law for elastic media,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \sigma_{zz} &amp; = E \varepsilon_{zz} \\
+  \tau_{zx}   &amp; = 2 G \varepsilon_{zx} \\
+  \tau_{zy}   &amp; = 2 G \varepsilon_{zy} \\
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="internal-actions">
+<h2><span class="section-number">10.3.2. </span>Internal actions<a class="headerlink" href="#internal-actions" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{F} &amp; = \int_{A} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} \\
+  \mathbf{M} &amp; = \int_{A} \mathbf{r} \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+\end{aligned}\end{split}\]</div>
+<p><strong>Internal actions as function of displacement.</strong> Neglecting warping and strain due to non-zero Poisson ratio,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{F} 
+  &amp; = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} = \\
+  &amp; = \int_{A} \hat{\mathbf{x}} G ( s'_{Px} - \theta_y - y \theta'_z ) + \hat{\mathbf{y}} G ( s'_{Py} + \theta_x + x \theta'_z) + \hat{\mathbf{z}} E ( s'_{Pz} + y \theta'_x - x \theta'_y) = \\
+  &amp; = \hat{\mathbf{x}} \left( \chi_x GA ( s'_{Px} - \theta_y ) - G S_x \theta'_z \right)
+    + \hat{\mathbf{y}} \left( \chi_y GA ( s'_{Py} + \theta_x ) + G S_y \theta'_z \right)
+    + \hat{\mathbf{z}} \left( EA s'_{Pz} + E S_x \theta'_x - E S_y \theta'_y \right) \ , \\
+  \mathbf{M}
+  &amp; = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="balance-equations">
-<h2><span class="section-number">10.3.2. </span>Balance equations<a class="headerlink" href="#balance-equations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.3.3. </span>Balance equations<a class="headerlink" href="#balance-equations" title="Permalink to this heading">#</a></h2>
 <p>Balance equations for a beam can be obtained integrating indefinite balance equations for a 3-dimensional solid on the sections <span class="math notranslate nohighlight">\(A(z)\)</span> of the beam, with some further assumption on non-rigid contributions to displacement.</p>
 <p>Momentum equation</p>
 <div class="math notranslate nohighlight">
@@ -467,7 +504,7 @@ document.write(`
     + \dots \\
 &amp; = \Delta z \left[ - \mathbf{S}_P^T \cdot \ddot{\mathbf{s}}_P - \mathbf{I}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \right] \ .
 \end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Contribution of stress to moment<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -562,7 +599,8 @@ Contribution of stress to moment<div class="sd-summary-down docutils">
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematic-assumptions">10.3.1. Kinematic assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">10.3.2. Balance equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.3.2. Internal actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">10.3.3. Balance equations</a></li>
 </ul>
   </nav></div>
 
