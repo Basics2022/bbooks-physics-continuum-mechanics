@@ -73,15 +73,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1Z86N0G4V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z1Z86N0G4V');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -387,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -403,6 +396,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-section">10.2.1. Open section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-section">10.2.2. Closed section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-loop-section">10.2.3. Multiple-loop section</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -414,6 +417,20 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="thin-walled-beam">
 <span id="solid-mechanics-small-displacements-beams-thin-walled"></span><h1><span class="section-number">10.2. </span>Thin-walled beam<a class="headerlink" href="#thin-walled-beam" title="Permalink to this heading">#</a></h1>
+<p>Shear and torsion approximation exists for thin-walled beams. Different approximations apply to open and closed section beams</p>
+<p>…</p>
+<div class="section" id="open-section">
+<h2><span class="section-number">10.2.1. </span>Open section<a class="headerlink" href="#open-section" title="Permalink to this heading">#</a></h2>
+<p>…</p>
+</div>
+<div class="section" id="closed-section">
+<h2><span class="section-number">10.2.2. </span>Closed section<a class="headerlink" href="#closed-section" title="Permalink to this heading">#</a></h2>
+<p>…</p>
+</div>
+<div class="section" id="multiple-loop-section">
+<h2><span class="section-number">10.2.3. </span>Multiple-loop section<a class="headerlink" href="#multiple-loop-section" title="Permalink to this heading">#</a></h2>
+<p>…</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -470,6 +487,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-section">10.2.1. Open section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-section">10.2.2. Closed section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-loop-section">10.2.3. Multiple-loop section</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

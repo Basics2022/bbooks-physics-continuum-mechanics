@@ -67,9 +67,11 @@
 \contentsline {section}{\numberline {10.1}de Saint Venant beam}{51}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Thin\sphinxhyphen {}walled beam}{51}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Timoshenko beam}{51}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Bernoulli beam}{51}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Aeronautical beam}{51}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Problems}{51}{section.10.6}%
+\contentsline {subsection}{\numberline {10.3.1}Kinematic assumptions}{51}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Balance equations}{51}{subsection.10.3.2}%
+\contentsline {section}{\numberline {10.4}Bernoulli beam}{52}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Aeronautical beam}{52}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Problems}{52}{section.10.6}%
 \contentsline {chapter}{\numberline {11}Modal methods for structural problems}{53}{chapter.11}%
 \contentsline {section}{\numberline {11.1}No free rigid motion}{53}{section.11.1}%
 \contentsline {subsection}{\numberline {11.1.1}Dimension reduction}{54}{subsection.11.1.1}%

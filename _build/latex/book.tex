@@ -2164,6 +2164,43 @@ while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.
 
 \section{Timoshenko beam}
 \label{\detokenize{ch/solids/beams/timoshenko:timoshenko-beam}}\label{\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}}\label{\detokenize{ch/solids/beams/timoshenko::doc}}
+
+\subsection{Kinematic assumptions}
+\label{\detokenize{ch/solids/beams/timoshenko:kinematic-assumptions}}
+\sphinxAtStartPar
+Let \(z\) coordinate the axial coordinate of a beam, and \(x\), \(y\) a pair of cartesian coordinates to represent the points on a beam section. Displacement of the points of a beam can written as
+\begin{equation*}
+\begin{split}\mathbf{s}(x,y,z,t) = \mathbf{s}_P(z,t) + \boldsymbol{\theta}(z,t) \times \mathbf{r}_P(x,y) + \mathbf{s}^{\nu + w}(x,y,z,t) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+where the first two contributions represent a rigid motion of the section identified by the value \(z\) of the axial coordinate, and \(\mathbf{s}^{\nu + w}\) the contribution of strain (due to non\sphinxhyphen{}zero Poisson ration) and warping of the section. Here the vector \(\mathbf{r}_P\)(x,y) lies in the same section of referencce point \(P\), i.e. \(\mathbf{r}_P = (x-x_P) \hat{\mathbf{x}} + (y-y_P) \hat{\mathbf{y}}\), so that the motion of points on section \(A(z)\) only depends on the displacement of \(P(z)\) and the rotation of the section \(A(z)\).
+
+
+\subsection{Balance equations}
+\label{\detokenize{ch/solids/beams/timoshenko:balance-equations}}
+\sphinxAtStartPar
+Balance equations for a beam can be obtained integrating indefinite balance equations for a 3\sphinxhyphen{}dimensional solid on the sections \(A(z)\) of the beam, with some further assumption on non\sphinxhyphen{}rigid contributions to displacement.
+
+\sphinxAtStartPar
+Momentum equation gives
+\begin{equation*}
+\begin{split}\mathbf{\rho}_0 \ddot{\mathbf{s}} = \nabla \cdot \boldsymbol\sigma + \mathbf{f}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} 
+& = \int_{A} \rho_0 \ddot{\mathbf{s}} - \dots
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Angular momentum equation gives
+\begin{equation*}
+\begin{split}\mathbf{r}_P \times \mathbf{\rho}_0 \ddot{\mathbf{s}} = \mathbf{r}_P \times \left( \nabla \cdot \boldsymbol\sigma + \mathbf{f} \right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} 
+& = \int_{A} \mathbf{r}_P \times \rho_0 \ddot{\mathbf{s}} - \dots
+\end{aligned}\end{split}
+\end{equation*}
 \sphinxstepscope
 
 
