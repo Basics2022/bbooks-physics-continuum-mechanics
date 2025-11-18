@@ -569,10 +569,20 @@ Contribution of stress to moment<div class="sd-summary-down docutils">
   &amp; = \Delta z \, \hat{\mathbf{z}} \times \mathbf{F} \ .
 \end{aligned}\end{split}\]</div>
 </div>
-</details><p>Using matrix formalism, momentum and angular momentum equations read</p>
+</details><p>In components, for an inertially decoupled set of Cartesian coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = - m   \ddot{s}_{Px}   + F'_x       + f_x \\ 
+  0 &amp; = - m   \ddot{s}_{Py}   + F'_y       + f_y \\ 
+  0 &amp; = - m   \ddot{s}_{Pz}   + F'_z       + f_z \\ 
+  0 &amp; = - I_x \ddot{\theta}_x + M'_x - T_y + m_x \\ 
+  0 &amp; = - I_y \ddot{\theta}_y + M'_y + T_x + m_y \\ 
+  0 &amp; = - I_z \ddot{\theta}_z + M'_z       + m_z \\ 
+\end{aligned}\end{split}\]</div>
+<p>Using matrix formalism, momentum and angular momentum equations for an isotropic elastic beam read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{bmatrix}
+\mathbf{0} = - \begin{bmatrix}
  m     &amp;       &amp;       &amp;         &amp;         &amp;-S_y    \\
        &amp; m     &amp;       &amp;         &amp;         &amp; S_x    \\
        &amp;       &amp; m     &amp; S_y     &amp; -S_x    &amp;        \\
@@ -621,6 +631,16 @@ Contribution of stress to moment<div class="sd-summary-down docutils">
   f_x \\ f_y \\ f_z \\ m_x \\ m_y \\ m_z
 \end{bmatrix}
 \end{split}\]</div>
+<p><strong>Structural and inertial simoultaneously decoupled isotropic elastic beam.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = - m   \ddot{s}_{Px}   + \left( \chi_x^{-1} GA ( s'_{Px} - \theta_y ) \right)'                                         + f_x \\ 
+  0 &amp; = - m   \ddot{s}_{Py}   + \left( \chi_y^{-1} GA ( s'_{Py} + \theta_x ) \right)'                                         + f_y \\ 
+  0 &amp; = - m   \ddot{s}_{Pz}   + \left( EA s'_{Pz}                            \right)'                                         + f_z \\ 
+  0 &amp; = - I_x \ddot{\theta}_x + \left( EJ_x \theta'_x                        \right)' - \chi_y^{-1} GA ( s'_{Py} + \theta_x ) + m_x \\ 
+  0 &amp; = - I_y \ddot{\theta}_y + \left( EJ_y \theta'_y                        \right)' + \chi_x^{-1} GA ( s'_{Px} - \theta_y ) + m_y \\ 
+  0 &amp; = - I_z \ddot{\theta}_z + \left( GJ_z \theta'_z                        \right)'                                         + m_z \\ 
+\end{aligned}\end{split}\]</div>
 </div>
 </div>
 

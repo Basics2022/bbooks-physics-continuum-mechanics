@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.1. de Saint Venant beam &#8212; continuum mechanics</title>
+    <title>10.6. Slender beams &#8212; continuum mechanics</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/beams/de-saint-venant';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/beams/slender';</script>
     <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="10.2. Thin-walled beam" href="thin-walled.html" />
-    <link rel="prev" title="10. Beams" href="../beams.html" />
+    <link rel="next" title="10.7. Problems" href="problems.html" />
+    <link rel="prev" title="10.5. Aeronautical beam" href="aeronautical.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,12 +197,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-waves.html">9. Waves in linear elastic homogeneous isotropic media</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../beams.html">10. Beams</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="de-saint-venant.html">10.1. de Saint Venant beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thin-walled.html">10.2. Thin-walled beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timoshenko.html">10.3. Timoshenko beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bernoulli.html">10.4. Bernoulli beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeronautical.html">10.5. Aeronautical beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problems.html">10.6. Problems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.6. Slender beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems.html">10.7. Problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
@@ -288,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/beams/de-saint-venant.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/beams/slender.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -318,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/ch/solids/beams/de-saint-venant.md" target="_blank"
+      <li><a href="../../../_sources/ch/solids/beams/slender.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -389,9 +390,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -402,26 +401,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>de Saint Venant beam</h1>
+    <h1>Slender beams</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">10.1.1. Assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.1.2. Internal actions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axial">10.1.2.1. Axial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shear">10.1.2.2. Shear</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bending">10.1.2.3. Bending</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torsion">10.1.2.4. Torsion</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -431,68 +415,66 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="de-saint-venant-beam">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant"></span><h1><span class="section-number">10.1. </span>de Saint Venant beam<a class="headerlink" href="#de-saint-venant-beam" title="Permalink to this heading">#</a></h1>
-<div class="section" id="assumptions">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-assumptions"></span><h2><span class="section-number">10.1.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h2>
-</div>
-<div class="section" id="internal-actions">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions"></span><h2><span class="section-number">10.1.2. </span>Internal actions<a class="headerlink" href="#internal-actions" title="Permalink to this heading">#</a></h2>
-<div class="section" id="axial">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-axial"></span><h3><span class="section-number">10.1.2.1. </span>Axial<a class="headerlink" href="#axial" title="Permalink to this heading">#</a></h3>
-</div>
-<div class="section" id="shear">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-shear"></span><h3><span class="section-number">10.1.2.2. </span>Shear<a class="headerlink" href="#shear" title="Permalink to this heading">#</a></h3>
-<p>…</p>
-<p>The axial equilibrium of an infinitesimal section of the beam between <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(z+dz\)</span> and <span class="math notranslate nohighlight">\(y = y^*\)</span>, under linear axial stress, <span class="math notranslate nohighlight">\(\sigma_z = \sigma_{z/y} \, y = \frac{M_x}{J_x} \, y\)</span>, reads for beams with constant section (<strong>todo</strong> is this assumption really required?)</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 
-  &amp; = - \int_{x \in b(y*)} \int_{dz} \tau_{zy} \, dz \, dx + \int_{A^*(z+dz)} \sigma_z \, dz \, dy - \int_{A^*(z)} \sigma_z \, dz \, dy = \\
-  &amp; \simeq - dz \int_{x \in b(y*)} \tau_{zy} + M_x(z+dz) \int_{A^*(z+dz)} \dfrac{y}{J_x} - M_x(z) \int_{A^*(z)} \dfrac{y}{J_x} = \\
-  &amp; \simeq dz \left[ - \int_{x \in b(y*)} \tau_{zy} + M'_x(z) \dfrac{S^*(z)}{J_x} \right] \ ,
-\end{aligned}\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(S^*(z) = \int_{A^*(z)} y\)</span>. Expliting the rotational equilibrium, <span class="math notranslate nohighlight">\(0 = M'_x(z) - T(z)\)</span>, and the definition of the average shear stress <span class="math notranslate nohighlight">\(\overline{\tau}_{zy} = \frac{1}{b(y^*)} \int_{x \in b(y^*)} \tau_{zy}\)</span>, it follows that</p>
-<div class="math notranslate nohighlight">
-\[\overline{\tau}_{zy}(z,y) = \dfrac{S^*(y)}{b^*(y) J_x} T_y \ .\]</div>
-<p>…</p>
-<p><strong>Shear stiffness.</strong> With <span class="math notranslate nohighlight">\(\gamma_{zy} = 2 \varepsilon_{zy} = \partial_y s_z + \partial_z s_y = \frac{\tau_{zy}}{G}\)</span>, and an equilibrated shaer load <span class="math notranslate nohighlight">\(\widetilde{T}(z) = \widetilde{T}(z+dz) = 1\)</span>, so that <span class="math notranslate nohighlight">\(\widetilde{M}(z+dz) = \widetilde{M}(z) + \widetilde{T}(z) d z\)</span> with <span class="math notranslate nohighlight">\(\widetilde{M}(z) = 0\)</span>, and <span class="math notranslate nohighlight">\(\widetilde{\tau} = \frac{S^*}{b^* J} \widetilde{T}\)</span>, and <span class="math notranslate nohighlight">\(\widetilde{\sigma} = \frac{\widetilde{M}}{J} y\)</span>, it follows</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 &amp; = \int_V \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \widetilde{\sigma}_{ij} s_j = \dots \\
-    &amp; = \int_V 2 \widetilde{\tau}(z) \frac{\tau(z)}{2 G} + \widetilde{T}_y(z) s_y(z) - \widetilde{T}_y(z+dz) s_y(z+dz) - \widetilde{M}_x(z+dz) \theta_x (z + d z) = \\
-    &amp; = \int_{\ell} \int_A \dfrac{S^*}{b^* J} \widetilde{T} \dfrac{1}{G} \dfrac{S^*}{b^* J} T \, dA \, d\ell - \widetilde{T}_y(z) s'_y(z) \, dz - \widetilde{T}(z) dz \, \left( \theta(z) + \theta'(z) d z \right) \simeq \\
-    &amp; = dz \left[ \dfrac{1}{GA} \ \underbrace{A \int_{A} \dfrac{S^{* 2}}{b^{* 2} J^2}}_{ \chi } \, T(z) - \left( s'_y(z) + \theta_x(z) \right) \right]
-\end{aligned}\end{split}\]</div>
-<p>and thus</p>
-<div class="math notranslate nohighlight">
-\[s'_y(z) + \theta_x(z) = \dfrac{\chi_y}{GA} T_y(z) \ ,\]</div>
-<p>having introduced the definition of the <strong>shear factor</strong> <span class="math notranslate nohighlight">\(\chi\)</span> into the shear stiffness <span class="math notranslate nohighlight">\(\frac{GA}{\chi}\)</span>.</p>
-<div class="proof example dropdown admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 10.1 </span> (Shear factor of a rectangular section)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="slender-beams">
+<span id="solid-mechanics-small-displacements-beams-slender"></span><h1><span class="section-number">10.6. </span>Slender beams<a class="headerlink" href="#slender-beams" title="Permalink to this heading">#</a></h1>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 10.2 </span> (Clamped beam)</p>
 <div class="example-content section" id="proof-content">
-<p>As the static moment <span class="math notranslate nohighlight">\(S^*(y)\)</span> of a rectangular section with base <span class="math notranslate nohighlight">\(a\)</span> and height <span class="math notranslate nohighlight">\(b\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[S^*(y) = a \left( \frac{b}{2} - y \right) \cdot \frac{1}{2} \left( \frac{b}{2} + y \right) = \frac{1}{2} \left( \frac{b^2}{4} - y^2 \right) a \ .\]</div>
-<p>the shear factor <span class="math notranslate nohighlight">\(\chi\)</span> of a rectangular section is</p>
+<p>Internal equilibrium equations read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \chi 
-  &amp; = ab \, \int_{x = -a/2}^{a/2} \int_{y = -b/2}^{b/2} \dfrac{ \frac{1}{4} \left( \frac{b^4}{16} - \frac{b^2 y^2}{2} + y^4 \right)}{ b^2 \left(\frac{1}{12} a b^3\right)^2 a^2 } = \\
-  &amp; = \frac{36 \, ab}{b^8} a \left( \dfrac{1}{16} - \dfrac{1}{6}\dfrac{1}{4} + \frac{1}{5} \dfrac{1}{16} \right) b^5 = \\
-  &amp; = \frac{ab}{b^8} a \left( \dfrac{9}{4} - \dfrac{3}{2} + \frac{9}{20} \right) b^5 = \\
-  &amp; = \dfrac{6}{5} \dfrac{a^2}{b^2} \ .
+  0 &amp; = F_z' + f_z       &amp;&amp; \text{(axial)}   \\
+  0 &amp; = F'_y + f_y       &amp;&amp; \text{(shear)}   \\
+  0 &amp; = M'_x - T_y + m_x &amp;&amp; \text{(bending)} \\
 \end{aligned}\end{split}\]</div>
+<p>with axial force <span class="math notranslate nohighlight">\(F_z = EA s'_{Pz}\)</span>, shear force <span class="math notranslate nohighlight">\(F_y = \chi^{-1} GA ( s'_{Py} + \theta_x )\)</span>, and bending moment <span class="math notranslate nohighlight">\(M_x = EJ \theta'_x\)</span>. The beam has length <span class="math notranslate nohighlight">\(b\)</span>, it’s clamped in <span class="math notranslate nohighlight">\(A: z=0\)</span>, s.t. essential boundary conditions in <span class="math notranslate nohighlight">\(A\)</span> read</p>
+<div class="math notranslate nohighlight">
+\[s_{Pz}(z=0) = 0 \quad , \quad s_{Py}(z=0) = 0 \quad , \quad \theta_{x}(z=0) = 0 \ ,\]</div>
+<p>and loaded lumped force and moment in <span class="math notranslate nohighlight">\(B: z=b\)</span>, s.t. natural boundary conditions in <span class="math notranslate nohighlight">\(B\)</span> read</p>
+<div class="math notranslate nohighlight">
+\[F_z(z=b) = Z \quad , \quad F_y(z=b) = Y \quad , \quad M_x(z=b) = M\]</div>
+<p>and no distributed actions <span class="math notranslate nohighlight">\(f_y = f_z = 0\)</span>, <span class="math notranslate nohighlight">\(m_z = 0\)</span>, s.t. equilibrium equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = F_z'             &amp;&amp; \text{(axial)}   \\
+  0 &amp; = F'_y             &amp;&amp; \text{(shear)}   \\
+  0 &amp; = M'_x - F_y       &amp;&amp; \text{(bending)} \\
+\end{aligned}\end{split}\]</div>
+<p>From the equilibrium equations and the boundary conditions in <span class="math notranslate nohighlight">\(z=b\)</span>, it immediately follows the distribution of the internal actions along the beam</p>
+<div class="math notranslate nohighlight">
+\[F_z(z) = Z \quad , \quad F_y(z) = Y \quad , \quad M_x(z) = M + Y ( z - b ) \ .\]</div>
+<p>Using the constitutive laws and the essential boundary conditions in <span class="math notranslate nohighlight">\(z=0\)</span>, it immediately follows the displacement field along the beam,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_{Pz}(z)   &amp; = \frac{Z}{EA} z \\
+  s_{Py}(z)   &amp; = - \frac{1}{EJ} \left( Y \frac{z^3}{6} + (M-Yb) \frac{z^2}{2} \right) + \frac{Y}{\chi^{-1} GA} z \\
+  \theta_x(z) &amp; = \frac{1}{EJ} \left( Y \frac{z^2}{2} + (M-Yb) z \right)
+\end{aligned}\end{split}\]</div>
+<p>The displacement of the extreme point <span class="math notranslate nohighlight">\(B\)</span> thus reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_{Bz}      &amp; = s_{Pz}(z=b)   &amp;&amp; = \frac{Z b}{EA} \\
+  s_{By}      &amp; = s_{Py}(z=b)   &amp;&amp; = -\frac{M b^2}{2 EJ} + \frac{Y b^3}{3EJ} + \frac{Y b}{\chi^{-1} GA} \\
+  \theta_{Bx} &amp; = \theta_x(z=b) &amp;&amp; = \frac{M b}{EJ} - \frac{Y b^2}{2 EJ}
+\end{aligned}\end{split}\]</div>
+<p>Let’s discuss the order of magnitude of the two terms in <span class="math notranslate nohighlight">\(s_{By}\)</span> due to <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p><strong>Transverse displacement: bending and shear contributions.</strong> For an elastic medium, the shear modulus <span class="math notranslate nohighlight">\(G\)</span> can be written as a function of the elastic modulus <span class="math notranslate nohighlight">\(E\)</span> and the Poisson ration <span class="math notranslate nohighlight">\(\nu\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[G = \frac{E}{2 (1 + \nu)} \ .\]</div>
+<p>While the value of the Poisson ratio i limited to <span class="math notranslate nohighlight">\(-1 \le \nu \le 0.5\)</span>, it’s usually in the range <span class="math notranslate nohighlight">\([0,0.5]\)</span>. If Poisson ratio belongs to the latter range, the ratio <span class="math notranslate nohighlight">\(\frac{G}{E}\)</span> belongs to the range <span class="math notranslate nohighlight">\(\left[ \frac{1}{3} , \frac{1}{2} \right]\)</span>, and thus <span class="math notranslate nohighlight">\(G\)</span> has the same order of magnitude as <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>Section properties of a beam with square section with side <span class="math notranslate nohighlight">\(a\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[A = a^2 \quad , \quad J = \frac{1}{12} a^4 \quad , \quad \chi = \frac{6}{5} \ .\]</div>
+<p>Thus the ratio of the two contributions to transverse displacement has order of magnitude</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{\frac{Y b^3}{3 EJ}}{\frac{Yb}{ \chi^{-1} G A}} = \dfrac{G}{E} \chi \dfrac{ b^2 A }{ J } = \dfrac{G}{E} \frac{6}{5} 12 \dfrac{b^2}{a^2} = \dfrac{24}{5} \div \dfrac{36}{5} \dfrac{b^2}{a^2} = 4.8 \div 7.2 \left( \dfrac{b}{a} \right)^2 \ .\]</div>
+<p>It immediately follows that the displacement of <span class="math notranslate nohighlight">\(B\)</span> due to shear deformation for a beam with square section with side <span class="math notranslate nohighlight">\(a\)</span> and length <span class="math notranslate nohighlight">\(b = 10 a\)</span> is <span class="math notranslate nohighlight">\(480 \div 720\)</span> times larger than the contribution due to bending (and the following transverse displacement of the axis of the beam associated with the rotation of tits sections).</p>
+<p><strong>Transverse and axial displacement.</strong> The comparison of the transverse displacement and the axial displacement gives the ratio</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{\frac{Y b^3}{3 EJ}}{\frac{Z b}{E A}} = \dfrac{Y}{Z} \dfrac{ b^2 A }{ J } = \dfrac{Y}{Z} 12 \left(\dfrac{b}{a}\right)^2 \ ,\]</div>
+<p>and if the components of the force have similar magnitude <span class="math notranslate nohighlight">\(Y \sim Z\)</span>, the order of magnitude of the ratio becomes <span class="math notranslate nohighlight">\(12 \left( \frac{b}{a} \right)^2\)</span>, so that axial displacement of slender beams <span class="math notranslate nohighlight">\(\frac{b}{a} \gg 1\)</span> becomes negligible if compared with transverse displacement.</p>
 </div>
 </div></div>
-<div class="section" id="bending">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-bending"></span><h3><span class="section-number">10.1.2.3. </span>Bending<a class="headerlink" href="#bending" title="Permalink to this heading">#</a></h3>
-</div>
-<div class="section" id="torsion">
-<span id="solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-torsion"></span><h3><span class="section-number">10.1.2.4. </span>Torsion<a class="headerlink" href="#torsion" title="Permalink to this heading">#</a></h3>
-</div>
-</div>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -525,20 +507,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../beams.html"
+       href="aeronautical.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Beams</p>
+        <p class="prev-next-title"><span class="section-number">10.5. </span>Aeronautical beam</p>
       </div>
     </a>
     <a class="right-next"
-       href="thin-walled.html"
+       href="problems.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.2. </span>Thin-walled beam</p>
+        <p class="prev-next-title"><span class="section-number">10.7. </span>Problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -548,27 +530,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">10.1.1. Assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">10.1.2. Internal actions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axial">10.1.2.1. Axial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shear">10.1.2.2. Shear</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bending">10.1.2.3. Bending</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torsion">10.1.2.4. Torsion</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
