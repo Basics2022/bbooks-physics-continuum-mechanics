@@ -27,7 +27,7 @@ $$\begin{aligned}
  2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
 \end{aligned}$$
 
-**Stress.** ...todo... usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross-coupling terms. Here, using a simplified (or modified, so that no contribution of $\varepsilon_{xx}$, $\varepsilon_{yy}$ exists) version of the constitutive law for elastic media,
+**Stress.** ...todo... usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross-coupling terms. Here, using a simplified (or modified, so that no contribution of $\varepsilon_{xx}$, $\varepsilon_{yy}$ exists) version of the constitutive law for **elastic isotropic media**,
 
 $$\begin{aligned}
   \sigma_{zz} & = E \varepsilon_{zz} \\
@@ -42,7 +42,7 @@ $$\begin{aligned}
   \mathbf{M} & = \int_{A} \mathbf{r} \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
 \end{aligned}$$
 
-**Internal actions as function of displacement.** Neglecting warping and strain due to non-zero Poisson ratio,
+**Internal actions as function of displacement - elastic isotropic media.** Neglecting warping and strain due to non-zero Poisson ratio,
 
 $$\begin{aligned}
   \mathbf{F} 
@@ -52,16 +52,54 @@ $$\begin{aligned}
     + \hat{\mathbf{y}} \left( \chi_y GA ( s'_{Py} + \theta_x ) + G S_y \theta'_z \right)
     + \hat{\mathbf{z}} \left( EA s'_{Pz} + E S_x \theta'_x - E S_y \theta'_y \right) \ , \\
   \mathbf{M}
-  & = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+  & = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right) = \\
+  & = \int_{A} \hat{\mathbf{x}} y E \left( s'_{Pz} + y \theta'_x - x \theta'_y \right) - \hat{\mathbf{y}} x E \left( s'_{Pz} + y \theta'_x - x \theta'_y \right) + \hat{\mathbf{z}} G \left( x ( s'_{Py} + \theta_x + x \theta'_z ) - y ( s'_{Px} - \theta_y - y \theta'_z ) \right) = \\
+  & = \hat{\mathbf{x}} \left( E S_x s'_{Pz} + E J_{x}  \theta'_x - E J_{xy} \theta'_y \right)
+    + \hat{\mathbf{y}} \left(-E S_y s'_{Pz} - E J_{xy} \theta'_x + E J_{y}  \theta'_y \right)
+    + \hat{\mathbf{z}} \left( G S_y ( s'_{Py} + \theta_x ) - G S_x ( s'_{Px} - \theta_y ) + GJ_z \theta'_z ) \right)
 \end{aligned}$$
 
+or introducing matrix notation,
+
+$$\begin{bmatrix}
+  F_x \\ F_y \\ F_z \\ M_x \\ M_y \\ M_z
+\end{bmatrix} & = 
+\begin{bmatrix}
+ \chi_x^{-1} GA &                &          &          &          & -GS_x  \\ 
+                & \chi_y^{-1} GA &          &          &          &  GS_y  \\ 
+                &                &  EA      &  ES_x    & -ES_y    &        \\ 
+                &                &  ES_x    &  EJ_x    & -EJ_{xy} &        \\ 
+                &                & -ES_y    & -EJ_{xy} &  EJ_y    &        \\ 
+ -GS_x          & GS_y           &          &          &          & GJ_z      
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}$$
+
+**Structural decoupling.** $S_i = 0$, $J_{xy} = 0$
+
+$$\begin{aligned}
+  \mathbf{F} 
+  & = \hat{\mathbf{x}} \chi_x GA ( s'_{Px} - \theta_y )
+    + \hat{\mathbf{y}} \chi_y GA ( s'_{Py} + \theta_x ) 
+    + \hat{\mathbf{z}} EA s'_{Pz} , \\
+  \mathbf{M} 
+  & = \hat{\mathbf{x}} E J_{x}  \theta'_x
+    + \hat{\mathbf{y}} E J_{y}  \theta'_y
+    + \hat{\mathbf{z}} G J_z \theta'_z
+\end{aligned}$$
 
 
 ## Balance equations
 
 Balance equations for a beam can be obtained integrating indefinite balance equations for a 3-dimensional solid on the sections $A(z)$ of the beam, with some further assumption on non-rigid contributions to displacement.
 
-Momentum equation 
+**Momentum equation +**
 
 $$\mathbf{\rho}_0 \ddot{\mathbf{s}} = \nabla \cdot \boldsymbol\sigma + \mathbf{f}$$
 
@@ -75,7 +113,7 @@ $$\begin{aligned}
 & = \Delta z \left[ - m \ddot{\mathbf{s}}_P - \mathbf{S}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{F}' + \mathbf{f} \right]
 \end{aligned}$$
 
-Angular momentum equation
+**Angular momentum equation**
 
 $$\mathbf{r}_P \times \mathbf{\rho}_0 \ddot{\mathbf{s}} = \mathbf{r}_P \times \left( \nabla \cdot \boldsymbol\sigma + \mathbf{f} \right)$$
 
@@ -115,5 +153,57 @@ $$\begin{aligned}
 
 ```
 
+Using matrix formalism, momentum and angular momentum equations read
+
+$$
+\begin{bmatrix}
+ m     &       &       &         &         &-S_y    \\
+       & m     &       &         &         & S_x    \\
+       &       & m     & S_y     & -S_x    &        \\
+       &       & S_y   & I_x     & I_{xy}  & I_{xz} \\
+       &       &-S_x   & I_{xy}  & I_y     & I_{yz} \\
+-S_y   & S_x   &       & I_{xz}  & I_{yz}  & I_z    \\
+\end{bmatrix}
+\begin{bmatrix}
+  \ddot{s}_{Px} \\ \ddot{s}_{Py} \\ \ddot{s}_{Pz} \\ \ddot\theta_x \\ \ddot\theta_y \\ \ddot\theta_z
+\end{bmatrix}
++ \left(
+\begin{bmatrix}
+ \chi_x^{-1} GA &                &          &          &          & -GS_x  \\ 
+                & \chi_y^{-1} GA &          &          &          &  GS_y  \\ 
+                &                &  EA      &  ES_x    & -ES_y    &        \\ 
+                &                &  ES_x    &  EJ_x    & -EJ_{xy} &        \\ 
+                &                & -ES_y    & -EJ_{xy} &  EJ_y    &        \\ 
+ -GS_x          & GS_y           &          &          &          & GJ_z      
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}
+\right)'
++ \begin{bmatrix}
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          &-\chi_y^{-1} GA & \cdot    & \cdot    & \cdot    & -GS_y  \\ 
+ \chi_x^{-1} GA & \cdot          & \cdot    & \cdot    & \cdot    & -GS_x  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}
++ \begin{bmatrix}
+  f_x \\ f_y \\ f_z \\ m_x \\ m_y \\ m_z
+\end{bmatrix}
+$$
 
 
