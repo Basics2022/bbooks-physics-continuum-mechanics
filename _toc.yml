@@ -36,6 +36,7 @@ parts:
     - file: ch/solids/beams/timoshenko
     - file: ch/solids/beams/bernoulli
     - file: ch/solids/beams/aeronautical
+    - file: ch/solids/beams/slender
     - file: ch/solids/beams/problems
 #     sections:
 #     - file: ch/solids/beams/problem-1

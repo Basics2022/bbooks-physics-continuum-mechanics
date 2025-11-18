@@ -30,20 +30,18 @@ $$\overline{\tau}_{zy}(z,y) = \dfrac{S^*(y)}{b^*(y) J_x} T_y \ .$$
 
 ...
 
-**Shear stiffness.** **todo** "decouple" shear and bending contributions to the transverse displacement...
-
-With $\gamma_{zy} = 2 \varepsilon_{zy} = \partial_y s_z + \partial_z s_y = \frac{\tau_{zy}}{G}$, and an equilibrated shar load $\widetilde{T}(y) = \widetilde{T}(y+dy) = 1$, it follows
+**Shear stiffness.** With $\gamma_{zy} = 2 \varepsilon_{zy} = \partial_y s_z + \partial_z s_y = \frac{\tau_{zy}}{G}$, and an equilibrated shaer load $\widetilde{T}(z) = \widetilde{T}(z+dz) = 1$, so that $\widetilde{M}(z+dz) = \widetilde{M}(z) + \widetilde{T}(z) d z$ with $\widetilde{M}(z) = 0$, and $\widetilde{\tau} = \frac{S^*}{b^* J} \widetilde{T}$, and $\widetilde{\sigma} = \frac{\widetilde{M}}{J} y$, it follows
 
 $$\begin{aligned}
   0 & = \int_V \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \widetilde{\sigma}_{ij} s_j = \dots \\
-    & = \int_V 2 \widetilde{\tau}(z) \frac{\tau(z)}{2 G} + \widetilde{T}_y(z) s_y(z) - \widetilde{T}_y(z+dz) s_y(z+dz) = \\
-    & = \int_{\ell} \int_A \dfrac{S^*}{b^* J} \widetilde{T} \dfrac{1}{G} \dfrac{S^*}{b^* J} T \, dA \, d\ell - s'_y(z) \, dz = \\
-    & = dz \left[ \dfrac{1}{GA} \ \underbrace{A \int_{A} \dfrac{S^{* 2}}{b^{* 2} J^2}}_{ \chi } \, T(z) - s'_y(z) \right]
+    & = \int_V 2 \widetilde{\tau}(z) \frac{\tau(z)}{2 G} + \widetilde{T}_y(z) s_y(z) - \widetilde{T}_y(z+dz) s_y(z+dz) - \widetilde{M}_x(z+dz) \theta_x (z + d z) = \\
+    & = \int_{\ell} \int_A \dfrac{S^*}{b^* J} \widetilde{T} \dfrac{1}{G} \dfrac{S^*}{b^* J} T \, dA \, d\ell - \widetilde{T}_y(z) s'_y(z) \, dz - \widetilde{T}(z) dz \, \left( \theta(z) + \theta'(z) d z \right) \simeq \\
+    & = dz \left[ \dfrac{1}{GA} \ \underbrace{A \int_{A} \dfrac{S^{* 2}}{b^{* 2} J^2}}_{ \chi } \, T(z) - \left( s'_y(z) + \theta_x(z) \right) \right]
 \end{aligned}$$
 
 and thus
 
-$$s'_y(z) = \dfrac{\chi}{GA} T(z) \ ,$$
+$$s'_y(z) + \theta_x(z) = \dfrac{\chi_y}{GA} T_y(z) \ ,$$
 
 having introduced the definition of the **shear factor** $\chi$ into the shear stiffness $\frac{GA}{\chi}$.
 

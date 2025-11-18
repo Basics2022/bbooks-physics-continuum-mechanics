@@ -153,10 +153,21 @@ $$\begin{aligned}
 
 ```
 
-Using matrix formalism, momentum and angular momentum equations read
+In components, for an inertially decoupled set of Cartesian coordinates,
+
+$$\begin{aligned}
+  0 & = - m   \ddot{s}_{Px}   + F'_x       + f_x \\ 
+  0 & = - m   \ddot{s}_{Py}   + F'_y       + f_y \\ 
+  0 & = - m   \ddot{s}_{Pz}   + F'_z       + f_z \\ 
+  0 & = - I_x \ddot{\theta}_x + M'_x - T_y + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + M'_y + T_x + m_y \\ 
+  0 & = - I_z \ddot{\theta}_z + M'_z       + m_z \\ 
+\end{aligned}$$
+
+Using matrix formalism, momentum and angular momentum equations for an isotropic elastic beam read
 
 $$
-\begin{bmatrix}
+\mathbf{0} = - \begin{bmatrix}
  m     &       &       &         &         &-S_y    \\
        & m     &       &         &         & S_x    \\
        &       & m     & S_y     & -S_x    &        \\
@@ -206,4 +217,14 @@ $$
 \end{bmatrix}
 $$
 
+**Structural and inertial simoultaneously decoupled isotropic elastic beam.**
+
+$$\begin{aligned}
+  0 & = - m   \ddot{s}_{Px}   + \left( \chi_x^{-1} GA ( s'_{Px} - \theta_y ) \right)'                                         + f_x \\ 
+  0 & = - m   \ddot{s}_{Py}   + \left( \chi_y^{-1} GA ( s'_{Py} + \theta_x ) \right)'                                         + f_y \\ 
+  0 & = - m   \ddot{s}_{Pz}   + \left( EA s'_{Pz}                            \right)'                                         + f_z \\ 
+  0 & = - I_x \ddot{\theta}_x + \left( EJ_x \theta'_x                        \right)' - \chi_y^{-1} GA ( s'_{Py} + \theta_x ) + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + \left( EJ_y \theta'_y                        \right)' + \chi_x^{-1} GA ( s'_{Px} - \theta_y ) + m_y \\ 
+  0 & = - I_z \ddot{\theta}_z + \left( GJ_z \theta'_z                        \right)'                                         + m_z \\ 
+\end{aligned}$$
 
