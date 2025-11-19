@@ -56,7 +56,7 @@ $$G = \frac{E}{2 (1 + \nu)} \ .$$
 
 While the value of the Poisson ratio i limited to $-1 \le \nu \le 0.5$, it's usually in the range $[0,0.5]$. If Poisson ratio belongs to the latter range, the ratio $\frac{G}{E}$ belongs to the range $\left[ \frac{1}{3} , \frac{1}{2} \right]$, and thus $G$ has the same order of magnitude as $E$.
 
-Section properties of a beam with square section with side $a$ are
+The properties of a square section are
 
 $$A = a^2 \quad , \quad J = \frac{1}{12} a^4 \quad , \quad \chi = \frac{6}{5} \ .$$
 

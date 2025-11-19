@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Governing Equations of Fluid Mechanics &#8212; continuum mechanics</title>
+    <title>9. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures &#8212; continuum mechanics</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/fluids/governing-equations';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-statics-beams-weak-form-general';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Non-dimensional Equations of Fluid Mechanics" href="dimensional-analysis.html" />
-    <link rel="prev" title="16. Constitutive Equations of Fluid Mechanics" href="constitutive-equations.html" />
+    <link rel="next" title="10. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="prev" title="8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,35 +190,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../solids/intro.html">5. Introduction to Solid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-statics-beams-weak-form-general.html">9. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-waves.html">10. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../solids/beams.html">11. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/de-saint-venant.html">11.1. de Saint Venant beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/thin-walled.html">11.2. Thin-walled beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/timoshenko.html">11.3. Timoshenko beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/bernoulli.html">11.4. Bernoulli beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/aeronautical.html">11.5. Aeronautical beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/slender.html">11.6. Slender beams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../solids/beams/problems.html">11.7. Problems</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">10. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">11. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">11.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">11.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">11.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">11.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">11.5. Aeronautical beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">11.6. Slender beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">11.7. Problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../solids/structural-damping.html">13. Structural damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">13. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">14. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statics.html">15. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constitutive-equations.html">16. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensional-analysis.html">18. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="incompressible.html">19. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compressible.html">20. Compressible Fluid Mechanics</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">14. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">15. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">16. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">17. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">18. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">19. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">20. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -290,7 +290,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/fluids/governing-equations.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-statics-beams-weak-form-general.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/fluids/governing-equations.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/small-displacements-statics-beams-weak-form-general.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +404,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Governing Equations of Fluid Mechanics</h1>
+    <h1>Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,8 +414,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtonian-fluid">17.1. Newtonian Fluid</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derived-quantities">17.2. Derived quantities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">9.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">9.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">9.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">9.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">9.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">9.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">9.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">9.2.6. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -427,120 +435,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="governing-equations-of-fluid-mechanics">
-<span id="fluid-mechanics-governing-equations"></span><h1><span class="section-number">17. </span>Governing Equations of Fluid Mechanics<a class="headerlink" href="#governing-equations-of-fluid-mechanics" title="Permalink to this heading">#</a></h1>
-<div class="section" id="newtonian-fluid">
-<h2><span class="section-number">17.1. </span>Newtonian Fluid<a class="headerlink" href="#newtonian-fluid" title="Permalink to this heading">#</a></h2>
-<p>The differential conservative form of the governing equations of a <a class="reference internal" href="constitutive-equations.html#fluid-mechanics-constutive-equations-newtonian"><span class="std std-ref">Newtonian fluid</span></a> directly follows from the expression <a class="reference internal" href="../continuum/balance-primary-differential.html#equation-eq-continuum-primary-differential-conservative">(2.1)</a> of <a class="reference internal" href="../continuum/balance-primary-integral.html#continuum-governing-equations-primary-integral"><span class="std std-ref">governing equations of a continuum medium in differential form</span></a>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \dfrac{\partial \rho }{\partial t} + \nabla \cdot \left( \rho \vec{v} \right) = 0 \\
-  \dfrac{\partial }{\partial t} \left( \rho \vec{v} \right) +  \nabla \cdot \left( \rho \vec{v} \otimes \vec{v} \right) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
-  \dfrac{\partial}{\partial t}  \left( \rho e^t \right) + \nabla \cdot \left( \rho e^t \vec{v} \right) = \rho \vec{g} \cdot \vec{v} + \nabla \cdot \left( \mathbb{T} \cdot \vec{v} \right) - \nabla \cdot \vec{q} + \rho r
-\end{cases}\end{split}\]</div>
-<p>using the expression <a class="reference internal" href="constitutive-equations.html#equation-eq-stress-newtonian">(16.2)</a> of the stress tensor of a Newtonian fluid,</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{T} = - p \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \vec{v}) \mathbb{I} \ ,\]</div>
-<p>a constitutive equation for conduction heat flux <span class="math notranslate nohighlight">\(\vec{q}\)</span>, as an example <strong>Fourier’s law</strong></p>
-<div class="math notranslate nohighlight">
-\[\vec{q} = - k \nabla T \ ,\]</div>
-<p>and the required state equations characterizing the behavior of the medium linking thermodynamic variables (assumption of <strong>local thermodynamic equilibrium</strong> <strong>todo</strong> <em>discuss this principle</em>), and required to get a well-defined mathematical problem, with the same number of equations and unknowns.</p>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 17.1 </span> (Equations of state)</p>
-<div class="example-content section" id="proof-content">
-<p>As an example, the required equations of states need to provide and expression of thermodynamic quantities as a function of the dynamical physical quantities. This could be quite a common choice in numerical methods using conservative form of the equations. Namely, defining momentum and total energy per unit volume</p>
-<div class="math notranslate nohighlight">
-\[\vec{m} := \rho \vec{v} \quad , \quad E^t := \rho e^t \ ,\]</div>
-<p>equations of state should provide the expression of pressure <span class="math notranslate nohighlight">\(p\)</span>, temperature <span class="math notranslate nohighlight">\(T\)</span>, viscosity coefficients <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span> and thermal conductivity <span class="math notranslate nohighlight">\(k\)</span> as functions of “dynamic quantities” <span class="math notranslate nohighlight">\(\rho, \, \vec{m}, \, E^t\)</span>,</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"></span><h1><span class="section-number">9. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures" title="Permalink to this heading">#</a></h1>
+<p>In this section, theorems for elastic structures are specialized for beam structures.</p>
+<p><strong>todo</strong> Beam model used here…</p>
+<div class="section" id="strong-formulation-of-the-problem">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong"></span><h2><span class="section-number">9.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<p><strong>Indefinite equilibrium.</strong> External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-        p &amp; (\rho, \vec{m}, E^t) \\
-        T &amp; (\rho, \vec{m}, E^t) \\
-      \mu &amp; (\rho, \vec{m}, E^t) \\
-  \lambda &amp; (\rho, \vec{m}, E^t) \\
-        k &amp; (\rho, \vec{m}, E^t) \\
+  \mathbf{0} &amp; = \mathbf{F}' + \mathbf{f} \\
+  \mathbf{0} &amp; = \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \\
 \end{aligned}\end{split}\]</div>
-<p>Usually, in thermodynamics pressure and temperature can be written as functions of other two thermodynamic variables, as an example density <span class="math notranslate nohighlight">\(\rho\)</span> and internal energy (per unit mass)</p>
+<p><strong>Kinematics.</strong> Displacement</p>
 <div class="math notranslate nohighlight">
-\[e = e^t - \frac{|\vec{v}|^2}{2} = \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2}\]</div>
-<p>so that - avoiding here notation abuses and using two different symbols for functions with different independent variables representing the same physical quantity -,</p>
+\[\mathbf{s}(x,y,z) = \mathbf{s}_P(z) - \mathbf{r}_P(x,y) \times \boldsymbol\theta(z) + \mathbf{w}(x,y,z)\]</div>
+<p>Strain</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \Pi   \left( \rho, e \right) &amp; = \Pi   \left( \rho, \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2} \right) = p(\rho, \vec{m}, E^t) \\
-  \Theta\left( \rho, e \right) &amp; = \Theta\left( \rho, \frac{E^t}{\rho} - \frac{1}{2}\frac{|\vec{m}|^2}{\rho^2} \right) = T(\rho, \vec{m}, E^t) \\
+    \varepsilon_{zz} &amp; = s'_{Pz} - x \theta'_{y} + y \theta'_{x} + w_{z/z} \\
+    \varepsilon_{xx} &amp; = w_{x/x} \\
+    \varepsilon_{yy} &amp; = w_{y/y} \\
+  2 \varepsilon_{zx} &amp; = s'_{Px} - \theta_y - y \theta'_z + w_{x/z} + w_{z/x} \\
+  2 \varepsilon_{zy} &amp; = s'_{Py} + \theta_x - x \theta'_z + w_{y/z} + w_{z/y} \\
+  2 \varepsilon_{xy} &amp; = w_{x/y} + w_{y/x} \\
 \end{aligned}\end{split}\]</div>
-</div>
-</div></div>
-<div class="section" id="derived-quantities">
-<h2><span class="section-number">17.2. </span>Derived quantities<a class="headerlink" href="#derived-quantities" title="Permalink to this heading">#</a></h2>
-<p>Balance equations of kinetic energy and internal energy readily follows from balance equations of continuum media in covective form.</p>
-<!--
-$$\begin{aligned}
- & \rho \frac{D k}{D t} = \rho \vec{g} \cdot \vec{v} + \vec{v} \cdot \nabla \cdot \mathbb{T} \\
- & \rho \frac{D e}{D t} = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r \\
- & \dots
-\end{aligned}$$
--->
-<p><strong>Kinetic energy.</strong></p>
-<p><strong>Internal energy.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- \rho \frac{D e}{D t}
-  &amp; = \mathbb{T} : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r  = \\
-  &amp; = \left( -p \mathbb{I} + 2 \mu \mathbb{D} + \lambda (\nabla \cdot \vec{v}) \mathbb{I} \right) : \nabla \vec{v} - \nabla \cdot \vec{q} + \rho r  = \\
-  &amp; = - p \nabla \cdot \vec{v} + 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r
+  \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
+  &amp; = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
+  \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
+  &amp; = \mathbf{v}_2(w_{i/j})
 \end{aligned}\end{split}\]</div>
+<p><strong>Constitutive equations.</strong> Under the assumptions … (kinematic assumptions, decoupling,…),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{F}(z) &amp; := \int_{A(z)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A(z)} \boldsymbol{\sigma}_z \\
+  \mathbf{M}(z) &amp; := \int_{A(z)} \mathbf{r}_P \times \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A(z)} \mathbf{r}_P \times \boldsymbol\sigma_z =
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \boldsymbol\sigma_z = \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
+  &amp; = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \boldsymbol{\beta} \Delta T = \\ 
+  &amp; = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \boldsymbol{\beta} \Delta T
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{F} &amp; = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' \\
+  \mathbf{M} &amp; = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta' \ ,
+\end{aligned}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{K}_{ms} = \mathbf{K}_{f\theta}\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
+Null contribution of warping and transverse strain to internal force and moment<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>todo</strong></p>
-</div>
-</details><p><strong>Entropy equation.</strong> The first principle of thermodynamics for non-reactive fluid, with no electric charge and other processes, provides the expression of the differential of entropy as a function of internal energy and density, <span class="math notranslate nohighlight">\(s(e, \rho)\)</span></p>
+<p class="sd-card-text">No contribution of warping to internal actions</p>
 <div class="math notranslate nohighlight">
-\[d e = T \, ds + \frac{P}{\rho^2} d \rho  \qquad , \qquad ds = \dfrac{1}{T} \, de - \frac{P}{T \rho^2} \, d \rho \ ,\]</div>
-<p>and thus the balance equation for entropy directly follows from the evaluation of the material derivative of entropy field, exploiting balance equations of mass and internal energy</p>
+\[\int_A \mathbf{D}_1 \mathbf{v}_1 = \dots = \mathbf{0} \ .\]</div>
+</div>
+</details><p><strong>Bernoulli beam.</strong> If Bernoulli kinematic assumption</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \left( \mathbb{I} - \hat{\mathbf{z}} \otimes \hat{\mathbf{z}} \right) \cdot \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) = \mathbf{0} \ ,
+\end{aligned}\]</div>
+<p>holds, …</p>
+</div>
+<div class="section" id="weak-formulations-of-the-problem">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak"></span><h2><span class="section-number">9.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<div class="section" id="weak-formulation-of-equilibrium-conditions">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"></span><h3><span class="section-number">9.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall \mathbf{u}(z), \ \mathbf{v}(z)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \rho \frac{D s}{D t}
-  &amp; = \frac{1}{T} \left[ \rho \frac{D e}{D t} - \frac{P}{\rho} \dfrac{D \rho}{D t} \right] = \\
-  &amp; = \frac{1}{T} \left[ - p \nabla \cdot \vec{v} + 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r - \frac{P}{\rho} \left( - \rho \nabla \cdot \vec{v} \right) \right] = \\
-  &amp; = \frac{1}{T} \left[ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2 - \nabla \cdot \vec{q} + \rho r \right] = \\
-  &amp; = \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} - \frac{\vec{q} \cdot \nabla T}{T^2} - \nabla \cdot \left( \frac{\vec{q}}{T} \right) + \frac{\rho r}{T} = \\
-  &amp; = \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} - \nabla \cdot \left( \frac{\vec{q}}{T} \right) + \frac{\rho r}{T} \ .
+  0 
+  &amp; = \int_{\ell} \left\{ \mathbf{u} \cdot \left( \mathbf{F}' + \mathbf{f} \right) + \mathbf{v} \cdot \left( \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \right) \right\} = \\
+  &amp; = - \int_{\ell} \left\{ ( \mathbf{u}' + \hat{\mathbf{z}} \times \mathbf{v} ) \cdot \mathbf{F} + \mathbf{v}' \cdot \mathbf{M} \right\} + \int_{\ell} \left\{  \mathbf{u} \cdot \mathbf{f} + \mathbf{v} \cdot \mathbf{m} \right\} + \left. \left[ \mathbf{u} \cdot \mathbf{F} + \mathbf{v} \cdot \mathbf{M} \right] \right|_{\partial \ell} \ ,
 \end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<p>having exploited the properties of the mixed vector product. If <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> repsectively represent a displacement and a rotation field <span class="math notranslate nohighlight">\(\mathbf{u} = \widetilde{\mathbf{s}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} = \widetilde{\boldsymbol\theta}\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\nabla \cdot \left( \frac{\vec{q}}{T} \right) = \frac{\nabla \cdot \vec{q}}{T} - \frac{\vec{q} \cdot \nabla T}{T^2}\]</div>
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = - \int_{\ell} \left\{ ( \widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \widetilde{\boldsymbol{\theta}} ) \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}}' \cdot \mathbf{M} \right\} + \int_{\ell} \left\{  \widetilde{\mathbf{s}} \cdot \mathbf{f} + \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \widetilde{\mathbf{s}} \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell} \\
+\end{aligned}\end{split}\]</div>
+<p>If the constitutive equation is introduced to use the kinematic variables as the independent variables the symmetry of this formulation of the elastic problem naturally arises</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = - \int_{\ell} \left\{ ( \widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \widetilde{\boldsymbol{\theta}} ) \cdot \left[ \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' \right] + \widetilde{\boldsymbol{\theta}}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'  \right] \right\} + \int_{\ell} \left\{  \widetilde{\mathbf{s}} \cdot \mathbf{f} + \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \widetilde{\mathbf{s}} \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell} \\
+\end{aligned}\end{split}\]</div>
 </div>
-</details><p><strong>Second principle of thermodyanamics and continuum mechanics.</strong> Second principle of thermodynamics implies some constraints on the behavior of continuous media, and thus on the contitutive equations. Namely, Clausis statement of the second principle reads</p>
-<div class="math notranslate nohighlight">
-\[d S \ge \frac{\delta Q}{T} \ ,\]</div>
-<p>i.e. the variation of entropy is greater or equal to the ratio of the heat flux added to the system and the temperature of the system itself. This can be written for a simple homogeneous system, or for a composite systems where physical quantities are not homogeneous in space <strong>todo</strong> ref</p>
-<p>Integral form of balance equation of entropy of a system reads</p>
-<div class="math notranslate nohighlight">
-\[\frac{d S}{dt} = \frac{d}{dt} \int_{V_t} \rho s = \int_{V_t} \left\{ \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} \right\} \underbrace{- \oint_{\partial V_t} \frac{\vec{q}}{T} \cdot \hat{n} + \int_{V_t} \frac{\rho r}{T}}_{&quot;\frac{\delta Q}{T}&quot;} \ ,\]</div>
-<p>and Clausius statement of the second principle implies</p>
-<div class="math notranslate nohighlight">
-\[0 \le \frac{d}{dt} \int_{V_t} \rho s - \left( - \oint_{\partial V_t} \frac{\vec{q}}{T} \cdot \hat{n} + \int_{V_t} \frac{\rho r}{T} \right) = \int_{V_t} \left\{ \frac{ 2 \mu \mathbb{D} : \mathbb{D} + \lambda (\nabla \cdot \vec{v})^2}{T} + \frac{k |\nabla T|^2}{T^2} \right\} \ ,\]</div>
-<p>and, since this must hold for any volume <span class="math notranslate nohighlight">\(V_t\)</span> and state of the system - namley every velocity and temperature field - and thermodynamic temperature is positive, it follows that</p>
-<div class="math notranslate nohighlight">
-\[\mu \ge 0 \quad , \quad \lambda \ge 0 \quad , \quad k \ge 0\]</div>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 17.2 </span> (Sign of physical quantity)</p>
-<div class="example-content section" id="proof-content">
-<p><strong>todo</strong> pay attention, that temperature, viscosity ccoefficients and thermal conductivity have physical dimensions…explain the meaning of positive physical quantities (scalar, w.r.t. a unit of measurement)…</p>
+<div class="section" id="weak-formulation-of-congruence-conditions">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence"></span><h3><span class="section-number">9.2.2. </span>Weak formulation of congruence conditions<a class="headerlink" href="#weak-formulation-of-congruence-conditions" title="Permalink to this heading">#</a></h3>
 </div>
-</div></div>
+<div class="section" id="principle-of-virtual-work">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">9.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-complementary-virtual-work">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"></span><h3><span class="section-number">9.2.4. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-potential-energy">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">9.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">9.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -556,7 +558,7 @@ Details<div class="sd-summary-down docutils">
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/fluids"
+            path: "./ch/solids"
         },
         predefinedOutput: true
     }
@@ -574,20 +576,20 @@ Details<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="constitutive-equations.html"
+       href="small-displacements-statics-beams-weak-form.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Constitutive Equations of Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
       </div>
     </a>
     <a class="right-next"
-       href="dimensional-analysis.html"
+       href="small-displacements-waves.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Non-dimensional Equations of Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Waves in linear elastic homogeneous isotropic media</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -606,8 +608,16 @@ Details<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtonian-fluid">17.1. Newtonian Fluid</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derived-quantities">17.2. Derived quantities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">9.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">9.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">9.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">9.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">9.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">9.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">9.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">9.2.6. Principle of stationariety of total complementary potential energy</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

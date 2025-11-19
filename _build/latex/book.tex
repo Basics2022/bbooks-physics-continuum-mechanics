@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Nov 17, 2025}
+\date{Nov 19, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,7 +102,7 @@
 
 
 \sphinxAtStartPar
-This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,myst}{.pdf document}.
 
 \sphinxAtStartPar
 \sphinxstylestrong{work\sphinxhyphen{}in\sphinxhyphen{}progress! Feel free to reach out on Github, leave a comment, a suggestion, a request or contribute}
@@ -1934,12 +1934,12 @@ In this section, theorems for elastic structures are specialized for beam struct
 \sphinxstylestrong{Indefinite equilibrium.} External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.
 \begin{equation*}
 \begin{split}\begin{aligned}
-  0 & = T_z'(z) + n(z)    && \text{(axial loads)} \\
-  0 & = T_x'(z) + f_x(z)  && \text{(shear loads)} \\
-  0 & = T_y'(z) + f_y(z)  &&                      \\
-  0 & = M_x'(z) - T_y(z)  && \text{(bending)}     \\
-  0 & = M_y'(z) + T_x(z)  &&                      \\
-  0 & = M_z'(z) + m_z(z)  && \text{(torsion)}     \\
+  0 & = F_z'(z) + n(z)             && \text{(axial loads)} \\
+  0 & = F_x'(z) + f_x(z)           && \text{(shear loads)} \\
+  0 & = F_y'(z) + f_y(z)           &&                      \\
+  0 & = M_x'(z) - F_y(z) + m_x(z)  && \text{(bending)}     \\
+  0 & = M_y'(z) + F_x(z) + m_y(z)  &&                      \\
+  0 & = M_z'(z) + m_z(z)           && \text{(torsion)}     \\
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
@@ -1949,9 +1949,9 @@ In this section, theorems for elastic structures are specialized for beam struct
 \sphinxstylestrong{Constitutive equations.} Under the assumptions … (kinematic assumptions, decoupling,…),
 \begin{equation*}
 \begin{split}\begin{aligned}
-  T_z(z) & = EA u'_z(z)  \\
-  T_x(z) & = \chi GA_x u'_x(z)  \\
-  T_y(z) & = \chi GA_y u'_y(z)  \\
+  F_z(z) & = EA s'_z(z)  \\
+  F_x(z) & = \chi^{-1}_x GA ( s'_x(z) -  \theta_y(z) )  \\
+  F_y(z) & = \chi^{-1}_y GA ( s'_y(z) +  \theta_x(z) )  \\
   M_x(z) & = EJ_x \theta'_x(z)  \\
   M_y(z) & = EJ_y \theta'_y(z)  \\
   M_z(z) & = GJ_y \theta'_z(z)  \\
@@ -1990,43 +1990,259 @@ holds, bending equilibrium equations read
 \subsection{Weak formulation of equilibrium conditions}
 \label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulation-of-equilibrium-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}}
 \sphinxAtStartPar
-Under the assumption of negligible contribution of shear stress and deformation, and Bernoulli kinematic assumption, the weak form of equilibrium equation is derived as follows: axial and bending indefinite equilibrium equations for each beam (or structural element in general) are multiplied by arbitrary test functions, these products are integrated over the beam length. Then, natural boundary conditions are applied. Namely, assuming here 2\sphinxhyphen{}dimensional problem (and thus only one component of the bending moment, no torsion)
+Under the assumption of negligible contribution of shear stress and deformation, and Bernoulli kinematic assumption, the weak form of equilibrium equation is derived as follows: axial and bending indefinite equilibrium equations for each beam (or structural element in general) are multiplied by arbitrary test functions, these products are integrated over the beam length. Then, natural boundary conditions are applied.
+\subsubsection*{Timoshenko beam }
+
+\sphinxAtStartPar
+The weak form of the equilibrium equations for a beam structure modelled with {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beams}}}} reads
 \begin{equation*}
 \begin{split}\begin{aligned}
-  0 & = \int_{\text{beams}} \left[ v \left( N'(s) + n(s) \right) + w \left( - M''(s) + f(s) \right) \right] \, ds = \\
-    & = \int_{\text{beams}} \left[ v \left( (EA u'_z(s))' + n(s) \right) + w \left( - (EJ u''_x(s))'' + f_x(s) \right) \right] \, ds = \\
-    & = - \int_{\text{beams}} v' EA u'_z + \int_{\text{beams}} v n + \left.\left[ v \, (EA u'_z) \right]\right|_{\partial \, \text{str.}} + \\
-    & \quad - \int_{\text{beams}} w'' \, EJ u''_x + \int_{\text{beams}} w f - \left. \left[ w ( EJ u''_x )' \right] \right|_{\partial \, \text{str.}} + \left. \left[ w' ( EJ u''_x ) \right] \right|_{\partial \, \text{str.}} = \\
-    & = ...
+  0 & = \int_{\text{beams}} \left\{ u_x ( F'_x + f_x ) + u_y ( F'_y + f_y ) + u_z ( F'_z + f_z ) + \right. \\
+    & \qquad \qquad + \left. \phi_x (M'_x - F_y + m_y) + \phi_y(M'_y + F_x + m_y) + \phi_z (M'_z + m_z) \right\} = \\
+    & = - \int_{\text{beams}} \left\{ F_x ( u'_x - \phi_y ) + F_y ( u'_y + \phi_x ) + F_z u'_z + M_x \phi'x + M_y \phi'_ y + M_z \phi'_z \right\} + \\
+    & \qquad + \left. \left[ F_x u_x + F_y u_y + F_z u_z + M_x \phi_x + M_y \phi_y + M_z \phi_z \right]\right|_{\partial \text{str}}
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-having used integration by parts and boundary conditions on Neumann boundaries where force and moments are prescribed.
+having used integration by parts. This relation holds \sphinxstylestrong{for every} \(u_i\), \(\phi_i\).
+\subsubsection*{Bernoulli beam for 2\sphinxhyphen{}dimensional problems}
+
+
 
 
 \subsection{Weak formulation of congruence conditions}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulation-of-congruence-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence}}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:weak-formulation-of-congruence-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence}}\subsubsection*{Timoshenko beam}
+
+\sphinxAtStartPar
+Neglecting transverse strain and warping contributions (their contribution is zero when multiplied by constant and linear functions and integrated), strain field in a Timoshenko beam reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+   \varepsilon_{zz} & = s'_{Pz} + y \theta'_x - x \theta'_y \\ 
+   \varepsilon_{xx} & = 0 \\
+   \varepsilon_{yy} & = 0 \\
+ 2 \varepsilon_{zx} & = s'_{Px} - \theta_y - y \theta'_z \\
+ 2 \varepsilon_{zy} & = s'_{Py} + \theta_x + x \theta'_z \\
+ 2 \varepsilon_{xy} & = 0 \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+A weak form of congruence conditions is obtained multiplying by test functions…(\sphinxstylestrong{todo} discuss the choice of test functions)
+\begin{equation*}
+\begin{split}\begin{aligned}
+ 0 
+ & = - \int_V \left\{ (\Sigma_z + y \Phi_{x} - x \Phi_{y}) (- \varepsilon_{zz} + s'_{Pz} + y \theta'_x - x \theta'_y ) + ( \Sigma_{x} - y \Phi_z ) ( - 2\varepsilon_{zx} + s'_{Px} - \theta_y - y \theta'_z ) + ( \Sigma_{y} - x \Phi_z ) ( - 2\varepsilon_{zy} + s'_{Py} + \theta_x - x \theta'_z ) \right \} = \\
+ & = \int_V \left\{ ( \Sigma_z + y \Phi_{x} - x \Phi_{y} ) \varepsilon_{zz} + ( 2 \Sigma_x ) \varepsilon_{zx} + ( 2 \Sigma_y ) \varepsilon_{zy} \right\} + \\
+ & \qquad + \int_V \left\{ ( \Sigma_z + y \Phi_{x} - x \Phi_{y} )' ( s_{Pz} + y \theta_x - x \theta_y ) + ( \Sigma_x' - y \Phi'_z ) ( s_{Px} - y \theta_z ) + ( \Sigma_x - y \Phi_z ) \theta_y + ( \Sigma_y' - x \Phi'_z ) ( s_{Py} - x \theta_z ) - ( \Sigma_y - x \Phi_z ) \theta_x \right\} + \\
+ & \qquad - \left[ \int_A \left\{ ( \Sigma_z + y \Phi_{x} - x \Phi_{y} ) ( s_{Pz} + y \theta_x - x \theta_y ) + ( \Sigma_x - y \Phi_z ) (s_{Px} - y \theta_z) + ( \Sigma_y - z \Phi_z ) ( s_{Py} - x \theta_z )   \right\}  \right]_{\partial l}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For simplicity, considering first a structurally decoupled system, so that static moments are zero and the inertia tensor is diagonal,
+\begin{equation*}
+\begin{split}\begin{aligned}
+ 0 
+ & = \int_V \left\{ ( \Sigma_z + y \Phi_{x} - x \Phi_{y} ) \varepsilon_{zz} + 2 ( \Sigma_x - y \Phi_z ) \varepsilon_{zx} + 2 ( \Sigma_y - x \Phi_z ) \varepsilon_{zy} \right\} + \\
+ & \qquad + \int_\ell \left\{ \Sigma'_x A s_{Px} + \Sigma'_y A s_{Py} + \Sigma'_z A s_{Pz} + \left( \Phi'_x J_x - \Sigma_y A \right) \theta_x + ( \Phi'_y J_y + \Sigma_x A ) \theta_y + \Phi'_z J_z \theta_z \right\} + \\
+ & \qquad - \left[ \Sigma_z A s_{Pz} + \Phi_x J_x \theta_x + \Phi_y J_y \theta_y + \Sigma_{x} s_{Px} + \Sigma_y s_{Py} + \Phi_z \theta_z \right]_{\partial l}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If the test functions are related to equilibrated internal actions,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \widetilde{F}_z'(z) + \widetilde{f}_z(z)                       && \text{(axial loads)} \\
+  0 & = \widetilde{F}_x'(z) + \widetilde{f}_x(z)                       && \text{(shear loads)} \\
+  0 & = \widetilde{F}_y'(z) + \widetilde{f}_y(z)                       &&                      \\
+  0 & = \widetilde{M}_x'(z) - \widetilde{F}_y(z) + \widetilde{m}_x(z)  && \text{(bending)}     \\
+  0 & = \widetilde{M}_y'(z) + \widetilde{F}_x(z) + \widetilde{m}_y(z)  &&                      \\
+  0 & = \widetilde{M}_z'(z) + \widetilde{m}_z(z)                       && \text{(torsion)}     \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and defined as \(\widetilde{F}_i = \Sigma_i A\), \(\widetilde{M}_i = \Phi_i J_i\), the weak form of the problem becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+ 0 
+ & = \int_V \left\{ \left( \frac{\widetilde{F}_z}{A} + y \frac{\widetilde{M}_x}{J_x} - x \frac{\widetilde{M}_y}{J_y} \right) \varepsilon_{zz} + 2 \left( \dfrac{\widetilde{F}_x}{A} - y \dfrac{\widetilde{M}_z}{J_z} \right) \varepsilon_{zx} + 2 \left( \dfrac{\widetilde{F}_y}{A} - x \dfrac{\widetilde{M}_z}{J_z} \right) \varepsilon_{zy} \right\} + \\
+ & \qquad - \int_\ell \left\{ \widetilde{f}_x s_{Px} + \widetilde{f}_y s_{Py} + \widetilde{f}_z s_{Pz} + \widetilde{m}_x \theta_x - \widetilde{m}_y \theta_y - \widetilde{m}_z \theta_z \right\} + \\
+ & \qquad - \left[ \widetilde{F}_x s_{Px} + \widetilde{F}_y s_{Py} + \widetilde{F}_z s_{Pz} + \widetilde{M}_x \theta_x + \widetilde{M}_y \theta_y + \widetilde{M}_z \theta_z \right]_{\partial l} \ .
+\end{aligned}\end{split}
+\end{equation*}
 
 \subsection{Principle of virtual work}
 \label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw}}
 \sphinxAtStartPar
-Starting from the {\hyperref[\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}]{\sphinxcrossref{\DUrole{std,std-ref}{weak form of equilibrium conditions}}}}, and choosing the test functions \(v = \delta u_z\), \(w = \delta u_x\) to be variations of congruent displacement fields (\(v\) congruent to the axial displacement, and \(w\) congruent to transverse displacement and rotation),
+Starting from the {\hyperref[\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}]{\sphinxcrossref{\DUrole{std,std-ref}{weak form of equilibrium conditions}}}}, and choosing the test functions \(u_i = \delta s_i\), \(\phi_i = \delta \theta_i\) to be variations of congruent displacement fields,
 \begin{equation*}
 \begin{split}\begin{aligned}
- & \delta u_z  = 0 && \text{where axial displacement is prescribed} \\
- & \delta u'_x = 0 && \text{where rotation is prescribed, e.g. clamp} \\
- & \delta u_x  = 0 && \text{where transverse displacement is prescribed, e.g. clamp, hinge} \\
+ & \delta s_x      = 0 && \text{where $x$-transverse displacement is prescribed} \\
+ & \delta s_y      = 0 && \text{where $y$-transverse displacement is prescribed} \\
+ & \delta s_z      = 0 && \text{where $z$-axial displacement is prescribed} \\
+ & \delta \theta_x = 0 && \text{where $x$-rotation is prescribed} \\
+ & \delta \theta_y = 0 && \text{where $y$-rotation is prescribed} \\
+ & \delta \theta_z = 0 && \text{where $z$-rotation is prescribed} \\
 \end{aligned}\end{split}
 \end{equation*}
 
 \subsection{Principle of complementary virtual work}
-\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-complementary-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw}}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-complementary-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw}}\subsubsection*{Timoshenko beam}
+
+\sphinxAtStartPar
+If the test functions are related to equilibrated internal actions,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \delta \widetilde{F}_z'(z)                              && \text{(axial loads)} \\
+  0 & = \delta \widetilde{F}_x'(z)                              && \text{(shear loads)} \\
+  0 & = \delta \widetilde{F}_y'(z)                              &&                      \\
+  0 & = \delta \widetilde{M}_x'(z) - \delta \widetilde{F}_y(z)  && \text{(bending)}     \\
+  0 & = \delta \widetilde{M}_y'(z) + \delta \widetilde{F}_x(z)  &&                      \\
+  0 & = \delta \widetilde{M}_z'(z)                              && \text{(torsion)}     \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and defined as \(\widetilde{F}_i = \Sigma_i A\), \(\widetilde{M}_i = \Phi_i J_i\), the weak form of the problem becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+ 0 
+ & = \int_V \left\{ \left( \frac{\delta \widetilde{F}_z}{A} + y \frac{\delta \widetilde{M}_x}{J_x} - x \frac{\delta \widetilde{M}_y}{J_y} \right) \varepsilon_{zz} + 2 \left( \dfrac{\delta \widetilde{F}_x}{A} - y \dfrac{\delta \widetilde{M}_z}{J_z} \right) \varepsilon_{zx} + 2 \left( \dfrac{\delta \widetilde{F}_y}{A} - x \dfrac{\delta \widetilde{M}_z}{J_z} \right) \varepsilon_{zy} \right\} + \\
+ & \qquad - \left[ \delta \widetilde{F}_x s_{Px} + \delta \widetilde{F}_y s_{Py} + \delta \widetilde{F}_z s_{Pz} + \delta \widetilde{M}_x \theta_x + \delta \widetilde{M}_y \theta_y + \delta \widetilde{M}_z \theta_z \right]_{\partial l / S_D} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Introducing the constitutive law for an isotropic elastic beam with structural decoupling, it’s possible to write strain as a function of the internal actions
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \varepsilon_{zz} & = \dfrac{F_z}{EA} + y \dfrac{M_x}{J_x} - x \dfrac{M_y}{J_y} \\
+  2 \varepsilon_{zx} & = \chi_x \dfrac{F_x}{GA} \\
+  2 \varepsilon_{zy} & = \chi_y \dfrac{F_y}{GA} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+s.t. the PCVW (remember structural decoupling) becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+ 0 
+ & = \int_{\ell} \left\{ \frac{\delta \widetilde{F}_z F_z}{E A} + \frac{\delta \widetilde{F}_x F_x}{\chi^{-1}_x G A} + \frac{\delta \widetilde{F}_y F_y}{\chi^{-1}_y G A} + \frac{\delta \widetilde{M}_x M_x}{EJ_x} + \frac{\delta \widetilde{M}_y M_y}{EJ_y} + \frac{\delta \widetilde{M}_z M_z}{GJ_z}  \right\} + \\
+ & \qquad - \left[ \delta \widetilde{F}_x s_{Px} + \delta \widetilde{F}_y s_{Py} + \delta \widetilde{F}_z s_{Pz} + \delta \widetilde{M}_x \theta_x + \delta \widetilde{M}_y \theta_y + \delta \widetilde{M}_z \theta_z \right]_{\partial l / S_D} \ .
+\end{aligned}\end{split}
+\end{equation*}
 
 \subsection{Principle of stationariety of total potential energy}
 \label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-stationariety-of-total-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential}}
 
 \subsection{Principle of stationariety of total complementary potential energy}
 \label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:principle-of-stationariety-of-total-complementary-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary}}
+\sphinxstepscope
+
+
+\chapter{Small displacement \sphinxhyphen{} Statics \sphinxhyphen{} Weak formulation and “Energy” theorems for generic beam structures}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-general}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general::doc}}
+\sphinxAtStartPar
+In this section, theorems for elastic structures are specialized for beam structures.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Beam model used here…
+
+
+\section{Strong formulation of the problem}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:strong-formulation-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong}}
+\sphinxAtStartPar
+\sphinxstylestrong{Indefinite equilibrium.} External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0} & = \mathbf{F}' + \mathbf{f} \\
+  \mathbf{0} & = \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Kinematics.} Displacement
+\begin{equation*}
+\begin{split}\mathbf{s}(x,y,z) = \mathbf{s}_P(z) - \mathbf{r}_P(x,y) \times \boldsymbol\theta(z) + \mathbf{w}(x,y,z)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Strain
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \varepsilon_{zz} & = s'_{Pz} - x \theta'_{y} + y \theta'_{x} + w_{z/z} \\
+    \varepsilon_{xx} & = w_{x/x} \\
+    \varepsilon_{yy} & = w_{y/y} \\
+  2 \varepsilon_{zx} & = s'_{Px} - \theta_y - y \theta'_z + w_{x/z} + w_{z/x} \\
+  2 \varepsilon_{zy} & = s'_{Py} + \theta_x - x \theta'_z + w_{y/z} + w_{z/y} \\
+  2 \varepsilon_{xy} & = w_{x/y} + w_{y/x} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
+  & = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
+  \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
+  & = \mathbf{v}_2(w_{i/j})
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Constitutive equations.} Under the assumptions … (kinematic assumptions, decoupling,…),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F}(z) & := \int_{A(z)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A(z)} \boldsymbol{\sigma}_z \\
+  \mathbf{M}(z) & := \int_{A(z)} \mathbf{r}_P \times \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A(z)} \mathbf{r}_P \times \boldsymbol\sigma_z =
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \boldsymbol\sigma_z = \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
+  & = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \boldsymbol{\beta} \Delta T = \\ 
+  & = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \boldsymbol{\beta} \Delta T
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F} & = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' \\
+  \mathbf{M} & = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta' \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{K}_{ms} = \mathbf{K}_{f\theta}\).
+\subsubsection*{Null contribution of warping and transverse strain to internal force and moment}
+
+\sphinxAtStartPar
+No contribution of warping to internal actions
+\begin{equation*}
+\begin{split}\int_A \mathbf{D}_1 \mathbf{v}_1 = \dots = \mathbf{0} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Bernoulli beam.} If Bernoulli kinematic assumption
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \left( \mathbb{I} - \hat{\mathbf{z}} \otimes \hat{\mathbf{z}} \right) \cdot \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) = \mathbf{0} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+holds, …
+
+
+\section{Weak formulations of the problem}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:weak-formulations-of-the-problem}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak}}
+
+\subsection{Weak formulation of equilibrium conditions}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:weak-formulation-of-equilibrium-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium}}\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = \int_{\ell} \left\{ \mathbf{u} \cdot \left( \mathbf{F}' + \mathbf{f} \right) + \mathbf{v} \cdot \left( \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \right) \right\} = \\
+  & = \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Weak formulation of congruence conditions}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:weak-formulation-of-congruence-conditions}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence}}
+
+\subsection{Principle of virtual work}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:principle-of-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw}}
+
+\subsection{Principle of complementary virtual work}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:principle-of-complementary-virtual-work}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw}}
+
+\subsection{Principle of stationariety of total potential energy}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:principle-of-stationariety-of-total-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential}}
+
+\subsection{Principle of stationariety of total complementary potential energy}
+\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:principle-of-stationariety-of-total-complementary-potential-energy}}\label{\detokenize{ch/solids/small-displacements-statics-beams-weak-form-general:solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary}}
 \sphinxstepscope
 
 
@@ -2154,11 +2370,113 @@ while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.
 
 \section{de Saint Venant beam}
 \label{\detokenize{ch/solids/beams/de-saint-venant:de-saint-venant-beam}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant}}\label{\detokenize{ch/solids/beams/de-saint-venant::doc}}
+
+\subsection{Assumptions}
+\label{\detokenize{ch/solids/beams/de-saint-venant:assumptions}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-assumptions}}
+
+\subsection{Internal actions}
+\label{\detokenize{ch/solids/beams/de-saint-venant:internal-actions}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions}}
+
+\subsubsection{Axial}
+\label{\detokenize{ch/solids/beams/de-saint-venant:axial}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-axial}}
+
+\subsubsection{Shear}
+\label{\detokenize{ch/solids/beams/de-saint-venant:shear}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-shear}}
+\sphinxAtStartPar
+…
+
+\sphinxAtStartPar
+The axial equilibrium of an infinitesimal section of the beam between \(z\) and \(z+dz\) and \(y = y^*\), under linear axial stress, \(\sigma_z = \sigma_{z/y} \, y = \frac{M_x}{J_x} \, y\), reads for beams with constant section (\sphinxstylestrong{todo} is this assumption really required?)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = - \int_{x \in b(y*)} \int_{dz} \tau_{zy} \, dz \, dx + \int_{A^*(z+dz)} \sigma_z \, dz \, dy - \int_{A^*(z)} \sigma_z \, dz \, dy = \\
+  & \simeq - dz \int_{x \in b(y*)} \tau_{zy} + M_x(z+dz) \int_{A^*(z+dz)} \dfrac{y}{J_x} - M_x(z) \int_{A^*(z)} \dfrac{y}{J_x} = \\
+  & \simeq dz \left[ - \int_{x \in b(y*)} \tau_{zy} + M'_x(z) \dfrac{S^*(z)}{J_x} \right] \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(S^*(z) = \int_{A^*(z)} y\). Expliting the rotational equilibrium, \(0 = M'_x(z) - T(z)\), and the definition of the average shear stress \(\overline{\tau}_{zy} = \frac{1}{b(y^*)} \int_{x \in b(y^*)} \tau_{zy}\), it follows that
+\begin{equation*}
+\begin{split}\overline{\tau}_{zy}(z,y) = \dfrac{S^*(y)}{b^*(y) J_x} T_y \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+…
+
+\sphinxAtStartPar
+\sphinxstylestrong{Shear stiffness.} With \(\gamma_{zy} = 2 \varepsilon_{zy} = \partial_y s_z + \partial_z s_y = \frac{\tau_{zy}}{G}\), and an equilibrated shaer load \(\widetilde{T}(z) = \widetilde{T}(z+dz) = 1\), so that \(\widetilde{M}(z+dz) = \widetilde{M}(z) + \widetilde{T}(z) d z\) with \(\widetilde{M}(z) = 0\), and \(\widetilde{\tau} = \frac{S^*}{b^* J} \widetilde{T}\), and \(\widetilde{\sigma} = \frac{\widetilde{M}}{J} y\), it follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \int_V \widetilde{\sigma}_{ij} \varepsilon_{ij} - \int_{S_D} n_i \widetilde{\sigma}_{ij} s_j = \dots \\
+    & = \int_V 2 \widetilde{\tau}(z) \frac{\tau(z)}{2 G} + \widetilde{T}_y(z) s_y(z) - \widetilde{T}_y(z+dz) s_y(z+dz) - \widetilde{M}_x(z+dz) \theta_x (z + d z) = \\
+    & = \int_{\ell} \int_A \dfrac{S^*}{b^* J} \widetilde{T} \dfrac{1}{G} \dfrac{S^*}{b^* J} T \, dA \, d\ell - \widetilde{T}_y(z) s'_y(z) \, dz - \widetilde{T}(z) dz \, \left( \theta(z) + \theta'(z) d z \right) \simeq \\
+    & = dz \left[ \dfrac{1}{GA} \ \underbrace{A \int_{A} \dfrac{S^{* 2}}{b^{* 2} J^2}}_{ \chi } \, T(z) - \left( s'_y(z) + \theta_x(z) \right) \right]
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}s'_y(z) + \theta_x(z) = \dfrac{\chi_y}{GA} T_y(z) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having introduced the definition of the \sphinxstylestrong{shear factor} \(\chi\) into the shear stiffness \(\frac{GA}{\chi}\).
+\label{ch/solids/beams/de-saint-venant:example-0}
+\begin{sphinxadmonition}{note}{Example 11.1.1 (Shear factor of a rectangular section)}
+
+
+
+\sphinxAtStartPar
+As the static moment \(S^*(y)\) of a rectangular section with base \(a\) and height \(b\) reads
+\begin{equation*}
+\begin{split}S^*(y) = a \left( \frac{b}{2} - y \right) \cdot \frac{1}{2} \left( \frac{b}{2} + y \right) = \frac{1}{2} \left( \frac{b^2}{4} - y^2 \right) a \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the shear factor \(\chi\) of a rectangular section is
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \chi 
+  & = ab \, \int_{x = -a/2}^{a/2} \int_{y = -b/2}^{b/2} \dfrac{ \frac{1}{4} \left( \frac{b^4}{16} - \frac{b^2 y^2}{2} + y^4 \right)}{ b^2 \left(\frac{1}{12} a b^3\right)^2 a^2 } = \\
+  & = \frac{36 \, ab}{b^8} a \left( \dfrac{1}{16} - \dfrac{1}{6}\dfrac{1}{4} + \frac{1}{5} \dfrac{1}{16} \right) b^5 = \\
+  & = \frac{ab}{b^8} a \left( \dfrac{9}{4} - \dfrac{3}{2} + \frac{9}{20} \right) b^5 = \\
+  & = \dfrac{6}{5} \dfrac{a^2}{b^2} \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsubsection{Bending}
+\label{\detokenize{ch/solids/beams/de-saint-venant:bending}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-bending}}
+
+\subsubsection{Torsion}
+\label{\detokenize{ch/solids/beams/de-saint-venant:torsion}}\label{\detokenize{ch/solids/beams/de-saint-venant:solid-mechanics-small-displacements-beams-de-saint-venant-internal-actions-torsion}}
 \sphinxstepscope
 
 
 \section{Thin\sphinxhyphen{}walled beam}
 \label{\detokenize{ch/solids/beams/thin-walled:thin-walled-beam}}\label{\detokenize{ch/solids/beams/thin-walled:solid-mechanics-small-displacements-beams-thin-walled}}\label{\detokenize{ch/solids/beams/thin-walled::doc}}
+\sphinxAtStartPar
+Shear and torsion approximation exists for thin\sphinxhyphen{}walled beams. Different approximations apply to open and closed section beams
+
+\sphinxAtStartPar
+…
+
+
+\subsection{Open section}
+\label{\detokenize{ch/solids/beams/thin-walled:open-section}}
+\sphinxAtStartPar
+…
+
+
+\subsection{Closed section}
+\label{\detokenize{ch/solids/beams/thin-walled:closed-section}}
+\sphinxAtStartPar
+…
+
+
+\subsection{Multiple\sphinxhyphen{}loop section}
+\label{\detokenize{ch/solids/beams/thin-walled:multiple-loop-section}}
+\sphinxAtStartPar
+…
+
 \sphinxstepscope
 
 
@@ -2168,13 +2486,104 @@ while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.
 \subsection{Kinematic assumptions}
 \label{\detokenize{ch/solids/beams/timoshenko:kinematic-assumptions}}
 \sphinxAtStartPar
-Let \(z\) coordinate the axial coordinate of a beam, and \(x\), \(y\) a pair of cartesian coordinates to represent the points on a beam section. Displacement of the points of a beam can written as
+Let \(z\) coordinate the axial coordinate of a beam, and \(x\), \(y\) a pair of cartesian coordinates to represent the points on a beam section.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Displacement.} Displacement of the points of a beam can written as
 \begin{equation*}
-\begin{split}\mathbf{s}(x,y,z,t) = \mathbf{s}_P(z,t) + \boldsymbol{\theta}(z,t) \times \mathbf{r}_P(x,y) + \mathbf{s}^{\nu + w}(x,y,z,t) \ ,\end{split}
+\begin{split}\begin{aligned}
+  \mathbf{s}(x,y,z,t)
+  & = \mathbf{s}_P(z,t) + \boldsymbol{\theta}(z,t) \times \mathbf{r}_P(x,y) + \mathbf{s}^{\nu + w}(x,y,z,t) = \\ 
+  & = \mathbf{s}_P(z,t) + \hat{\mathbf{x}} \left( - y \theta_z \right) + \hat{\mathbf{y}} \left( x \theta_z \right) + \hat{\mathbf{z}} \left( + y \theta_x - x \theta_y \right) + \mathbf{s}^{\nu + w} \ ,
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
 where the first two contributions represent a rigid motion of the section identified by the value \(z\) of the axial coordinate, and \(\mathbf{s}^{\nu + w}\) the contribution of strain (due to non\sphinxhyphen{}zero Poisson ration) and warping of the section. Here the vector \(\mathbf{r}_P\)(x,y) lies in the same section of referencce point \(P\), i.e. \(\mathbf{r}_P = (x-x_P) \hat{\mathbf{x}} + (y-y_P) \hat{\mathbf{y}}\), so that the motion of points on section \(A(z)\) only depends on the displacement of \(P(z)\) and the rotation of the section \(A(z)\).
 
+\sphinxAtStartPar
+\sphinxstylestrong{Strain.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+   \varepsilon_{zz} & = s'_{Pz} + y \theta'_x - x \theta'_y + s^{\nu+w}_{Pz/z} \\ 
+   \varepsilon_{xx} & = s^{\nu+w}_{Px/x} \\
+   \varepsilon_{yy} & = s^{\nu+w}_{Py/y} \\
+ 2 \varepsilon_{zx} & = s'_{Px} - \theta_y - y \theta'_z + s^{\nu+w}_{x/z} + s^{\nu+w}_{z/x} \\
+ 2 \varepsilon_{zy} & = s'_{Py} + \theta_x + x \theta'_z + s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
+ 2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Stress.} …todo… usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross\sphinxhyphen{}coupling terms. Here, using a simplified (or modified, so that no contribution of \(\varepsilon_{xx}\), \(\varepsilon_{yy}\) exists) version of the constitutive law for \sphinxstylestrong{elastic isotropic media},
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \sigma_{zz} & = E \varepsilon_{zz} \\
+  \tau_{zx}   & = 2 G \varepsilon_{zx} \\
+  \tau_{zy}   & = 2 G \varepsilon_{zy} \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Internal actions}
+\label{\detokenize{ch/solids/beams/timoshenko:internal-actions}}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F} & = \int_{A} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} \\
+  \mathbf{M} & = \int_{A} \mathbf{r} \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right)  \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Internal actions as function of displacement \sphinxhyphen{} elastic isotropic media.} Neglecting warping and strain due to non\sphinxhyphen{}zero Poisson ratio,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F} 
+  & = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} = \\
+  & = \int_{A} \hat{\mathbf{x}} G ( s'_{Px} - \theta_y - y \theta'_z ) + \hat{\mathbf{y}} G ( s'_{Py} + \theta_x + x \theta'_z) + \hat{\mathbf{z}} E ( s'_{Pz} + y \theta'_x - x \theta'_y) = \\
+  & = \hat{\mathbf{x}} \left( \chi_x GA ( s'_{Px} - \theta_y ) - G S_x \theta'_z \right)
+    + \hat{\mathbf{y}} \left( \chi_y GA ( s'_{Py} + \theta_x ) + G S_y \theta'_z \right)
+    + \hat{\mathbf{z}} \left( EA s'_{Pz} + E S_x \theta'_x - E S_y \theta'_y \right) \ , \\
+  \mathbf{M}
+  & = \int_{A} \hat{\mathbf{x}} \left( y \sigma_{zz} \right) + \hat{\mathbf{y}} \left( - x \sigma_{zz} \right) + \hat{\mathbf{z}} \left( x \tau_{zy} - y \tau_{zx} \right) = \\
+  & = \int_{A} \hat{\mathbf{x}} y E \left( s'_{Pz} + y \theta'_x - x \theta'_y \right) - \hat{\mathbf{y}} x E \left( s'_{Pz} + y \theta'_x - x \theta'_y \right) + \hat{\mathbf{z}} G \left( x ( s'_{Py} + \theta_x + x \theta'_z ) - y ( s'_{Px} - \theta_y - y \theta'_z ) \right) = \\
+  & = \hat{\mathbf{x}} \left( E S_x s'_{Pz} + E J_{x}  \theta'_x - E J_{xy} \theta'_y \right)
+    + \hat{\mathbf{y}} \left(-E S_y s'_{Pz} - E J_{xy} \theta'_x + E J_{y}  \theta'_y \right)
+    + \hat{\mathbf{z}} \left( G S_y ( s'_{Py} + \theta_x ) - G S_x ( s'_{Px} - \theta_y ) + GJ_z \theta'_z ) \right)
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or introducing matrix notation,
+\begin{equation*}
+\begin{split}\begin{bmatrix}
+  F_x \\ F_y \\ F_z \\ M_x \\ M_y \\ M_z
+\end{bmatrix} & = 
+\begin{bmatrix}
+ \chi_x^{-1} GA &                &          &          &          & -GS_x  \\ 
+                & \chi_y^{-1} GA &          &          &          &  GS_y  \\ 
+                &                &  EA      &  ES_x    & -ES_y    &        \\ 
+                &                &  ES_x    &  EJ_x    & -EJ_{xy} &        \\ 
+                &                & -ES_y    & -EJ_{xy} &  EJ_y    &        \\ 
+ -GS_x          & GS_y           &          &          &          & GJ_z      
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Structural decoupling.} \(S_i = 0\), \(J_{xy} = 0\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F} 
+  & = \hat{\mathbf{x}} \chi_x GA ( s'_{Px} - \theta_y )
+    + \hat{\mathbf{y}} \chi_y GA ( s'_{Py} + \theta_x ) 
+    + \hat{\mathbf{z}} EA s'_{Pz} , \\
+  \mathbf{M} 
+  & = \hat{\mathbf{x}} E J_{x}  \theta'_x
+    + \hat{\mathbf{y}} E J_{y}  \theta'_y
+    + \hat{\mathbf{z}} G J_z \theta'_z
+\end{aligned}\end{split}
+\end{equation*}
 
 \subsection{Balance equations}
 \label{\detokenize{ch/solids/beams/timoshenko:balance-equations}}
@@ -2182,23 +2591,138 @@ where the first two contributions represent a rigid motion of the section identi
 Balance equations for a beam can be obtained integrating indefinite balance equations for a 3\sphinxhyphen{}dimensional solid on the sections \(A(z)\) of the beam, with some further assumption on non\sphinxhyphen{}rigid contributions to displacement.
 
 \sphinxAtStartPar
-Momentum equation gives
+\sphinxstylestrong{Momentum equation +}
 \begin{equation*}
 \begin{split}\mathbf{\rho}_0 \ddot{\mathbf{s}} = \nabla \cdot \boldsymbol\sigma + \mathbf{f}\end{split}
-\end{equation*}\begin{equation*}
+\end{equation*}
+\sphinxAtStartPar
+gives
+\begin{equation*}
 \begin{split}\begin{aligned}
   \mathbf{0} 
-& = \int_{A} \rho_0 \ddot{\mathbf{s}} - \dots
+& = - \int_{\Delta V} \rho_0 \ddot{\mathbf{s}} + \int_{\Delta V} \nabla \cdot \boldsymbol\sigma + \int_{\Delta V} \rho_0 \mathbf{g} = \\
+& = - \Delta z \, \int_{A} \rho_0 \left( \ddot{\mathbf{s}}_P - \mathbf{r}_P \times \ddot{\boldsymbol{\theta}} \right)
+    + \int_{A(z)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \int_{A(z+\Delta z)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \int_{\Delta A_{lat}} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \Delta z \, \int_{A} \rho_0 \mathbf{g} = \\
+& = \Delta z \left[ - m \ddot{\mathbf{s}}_P - \mathbf{S}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{F}' + \mathbf{f} \right]
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Angular momentum equation gives
+\sphinxstylestrong{Angular momentum equation}
 \begin{equation*}
 \begin{split}\mathbf{r}_P \times \mathbf{\rho}_0 \ddot{\mathbf{s}} = \mathbf{r}_P \times \left( \nabla \cdot \boldsymbol\sigma + \mathbf{f} \right)\end{split}
-\end{equation*}\begin{equation*}
+\end{equation*}
+\sphinxAtStartPar
+gives
+\begin{equation*}
 \begin{split}\begin{aligned}
   \mathbf{0} 
-& = \int_{A} \mathbf{r}_P \times \rho_0 \ddot{\mathbf{s}} - \dots
+& = - \int_{\Delta V} \rho_0 \mathbf{r}_P \times \ddot{\mathbf{s}} + \int_{\Delta V} \mathbf{r}_P \times \nabla \cdot \boldsymbol\sigma + \int_{\Delta V} \rho_0 \mathbf{r}_P \times \mathbf{g} = \\
+& = - \Delta z \, \int_{A} \rho_0 \mathbf{r}_P \times \left( \ddot{\mathbf{s}}_P - \mathbf{r}_P \times \ddot{\boldsymbol{\theta}} \right)
+    + \dots \\
+& = \Delta z \left[ - \mathbf{S}_P^T \cdot \ddot{\mathbf{s}}_P - \mathbf{I}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \right] \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Contribution of stress to moment}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{V} \mathbf{r} \times \nabla \cdot \boldsymbol\sigma 
+  & = \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} r_j \sigma_{lk/l} = \\
+  & = \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \left[  \left( r_j \sigma_{lk} \right)_{/l} - r_{j/l} \sigma_{lk} \right] = \\
+  & = \hat{\mathbf{e}}_i \int_{\partial V} \varepsilon_{ijk} r_j n_l  \sigma_{lk} - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} r_{j/l} \sigma_{lk} = \\
+  & = \int_{\partial V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \delta^{(2)}_{jl} \sigma_{lk} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For an elementary beam element \(\Delta z\), the first contribution contains internal moments on two sections at \(z\) and \(z+\Delta z\) and the contribution of the lateral surface, that can be summed with the volume contribution to get load from linear density loads,
+\begin{equation*}
+\begin{split}\int_{\partial \Delta V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) 
+ = \Delta z \, \mathbf{M}'(z) + \Delta z \, \int_{\partial A} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma )  \end{split}
+\end{equation*}
+\sphinxAtStartPar
+The second contribution becomes (as \(\delta^{(2)}_{xx} = \delta^{(2)}_{yy} = 1\), but \(\delta^{(2)}_{zz} = 0\)),
+\begin{equation*}
+\begin{split}\begin{aligned}
+ - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \delta^{(2)}_{jl} \sigma_{lk} 
+  & = - \int_{\Delta V} \left\{ \hat{\mathbf{z}} ( \sigma_{xy} - \sigma_{yx} ) + \hat{\mathbf{x}} ( \sigma_{yz} ) + \hat{\mathbf{y}} ( - \sigma_{xz} ) \right\} = \\
+  & = \Delta z \left[ - \hat{\mathbf{x}} \, T_y + \hat{\mathbf{y}} \, T_x \right] = \\
+  & = \Delta z \, \hat{\mathbf{z}} \times \mathbf{F} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In components, for an inertially decoupled set of Cartesian coordinates,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = - m   \ddot{s}_{Px}   + F'_x       + f_x \\ 
+  0 & = - m   \ddot{s}_{Py}   + F'_y       + f_y \\ 
+  0 & = - m   \ddot{s}_{Pz}   + F'_z       + f_z \\ 
+  0 & = - I_x \ddot{\theta}_x + M'_x - T_y + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + M'_y + T_x + m_y \\ 
+  0 & = - I_z \ddot{\theta}_z + M'_z       + m_z \\ 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using matrix formalism, momentum and angular momentum equations for an isotropic elastic beam read
+\begin{equation*}
+\begin{split}
+\mathbf{0} = - \begin{bmatrix}
+ m     &       &       &         &         &-S_y    \\
+       & m     &       &         &         & S_x    \\
+       &       & m     & S_y     & -S_x    &        \\
+       &       & S_y   & I_x     & I_{xy}  & I_{xz} \\
+       &       &-S_x   & I_{xy}  & I_y     & I_{yz} \\
+-S_y   & S_x   &       & I_{xz}  & I_{yz}  & I_z    \\
+\end{bmatrix}
+\begin{bmatrix}
+  \ddot{s}_{Px} \\ \ddot{s}_{Py} \\ \ddot{s}_{Pz} \\ \ddot\theta_x \\ \ddot\theta_y \\ \ddot\theta_z
+\end{bmatrix}
++ \left(
+\begin{bmatrix}
+ \chi_x^{-1} GA &                &          &          &          & -GS_x  \\ 
+                & \chi_y^{-1} GA &          &          &          &  GS_y  \\ 
+                &                &  EA      &  ES_x    & -ES_y    &        \\ 
+                &                &  ES_x    &  EJ_x    & -EJ_{xy} &        \\ 
+                &                & -ES_y    & -EJ_{xy} &  EJ_y    &        \\ 
+ -GS_x          & GS_y           &          &          &          & GJ_z      
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}
+\right)'
++ \begin{bmatrix}
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+ \cdot          &-\chi_y^{-1} GA & \cdot    & \cdot    & \cdot    & -GS_y  \\ 
+ \chi_x^{-1} GA & \cdot          & \cdot    & \cdot    & \cdot    & -GS_x  \\ 
+ \cdot          & \cdot          & \cdot    & \cdot    & \cdot    & \cdot  \\ 
+\end{bmatrix}
+\begin{bmatrix}
+  s'_{Px} - \theta_y \\
+  s'_{Py} + \theta_x \\
+  s'_{Pz}            \\
+  \theta'_{x}        \\
+  \theta'_{y}        \\
+  \theta'_{z}          
+\end{bmatrix}
++ \begin{bmatrix}
+  f_x \\ f_y \\ f_z \\ m_x \\ m_y \\ m_z
+\end{bmatrix}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Structural and inertial simoultaneously decoupled isotropic elastic beam.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = - m   \ddot{s}_{Px}   + \left( \chi_x^{-1} GA ( s'_{Px} - \theta_y ) \right)'                                         + f_x \\ 
+  0 & = - m   \ddot{s}_{Py}   + \left( \chi_y^{-1} GA ( s'_{Py} + \theta_x ) \right)'                                         + f_y \\ 
+  0 & = - m   \ddot{s}_{Pz}   + \left( EA s'_{Pz}                            \right)'                                         + f_z \\ 
+  0 & = - I_x \ddot{\theta}_x + \left( EJ_x \theta'_x                        \right)' - \chi_y^{-1} GA ( s'_{Py} + \theta_x ) + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + \left( EJ_y \theta'_y                        \right)' + \chi_x^{-1} GA ( s'_{Px} - \theta_y ) + m_y \\ 
+  0 & = - I_z \ddot{\theta}_z + \left( GJ_z \theta'_z                        \right)'                                         + m_z \\ 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxstepscope
@@ -2211,6 +2735,99 @@ Angular momentum equation gives
 
 \section{Aeronautical beam}
 \label{\detokenize{ch/solids/beams/aeronautical:aeronautical-beam}}\label{\detokenize{ch/solids/beams/aeronautical:solid-mechanics-small-displacements-beams-aeronautical}}\label{\detokenize{ch/solids/beams/aeronautical::doc}}
+\sphinxstepscope
+
+
+\section{Slender beams}
+\label{\detokenize{ch/solids/beams/slender:slender-beams}}\label{\detokenize{ch/solids/beams/slender:solid-mechanics-small-displacements-beams-slender}}\label{\detokenize{ch/solids/beams/slender::doc}}\label{ch/solids/beams/slender:example-0}
+\begin{sphinxadmonition}{note}{Example 11.6.1 (Clamped beam)}
+
+
+
+\sphinxAtStartPar
+Internal equilibrium equations read
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = F_z' + f_z       && \text{(axial)}   \\
+  0 & = F'_y + f_y       && \text{(shear)}   \\
+  0 & = M'_x - T_y + m_x && \text{(bending)} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with axial force \(F_z = EA s'_{Pz}\), shear force \(F_y = \chi^{-1} GA ( s'_{Py} + \theta_x )\), and bending moment \(M_x = EJ \theta'_x\). The beam has length \(b\), it’s clamped in \(A: z=0\), s.t. essential boundary conditions in \(A\) read
+\begin{equation*}
+\begin{split}s_{Pz}(z=0) = 0 \quad , \quad s_{Py}(z=0) = 0 \quad , \quad \theta_{x}(z=0) = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and loaded lumped force and moment in \(B: z=b\), s.t. natural boundary conditions in \(B\) read
+\begin{equation*}
+\begin{split}F_z(z=b) = Z \quad , \quad F_y(z=b) = Y \quad , \quad M_x(z=b) = M\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and no distributed actions \(f_y = f_z = 0\), \(m_z = 0\), s.t. equilibrium equation becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = F_z'             && \text{(axial)}   \\
+  0 & = F'_y             && \text{(shear)}   \\
+  0 & = M'_x - F_y       && \text{(bending)} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From the equilibrium equations and the boundary conditions in \(z=b\), it immediately follows the distribution of the internal actions along the beam
+\begin{equation*}
+\begin{split}F_z(z) = Z \quad , \quad F_y(z) = Y \quad , \quad M_x(z) = M + Y ( z - b ) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using the constitutive laws and the essential boundary conditions in \(z=0\), it immediately follows the displacement field along the beam,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_{Pz}(z)   & = \frac{Z}{EA} z \\
+  s_{Py}(z)   & = - \frac{1}{EJ} \left( Y \frac{z^3}{6} + (M-Yb) \frac{z^2}{2} \right) + \frac{Y}{\chi^{-1} GA} z \\
+  \theta_x(z) & = \frac{1}{EJ} \left( Y \frac{z^2}{2} + (M-Yb) z \right)
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The displacement of the extreme point \(B\) thus reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_{Bz}      & = s_{Pz}(z=b)   && = \frac{Z b}{EA} \\
+  s_{By}      & = s_{Py}(z=b)   && = -\frac{M b^2}{2 EJ} + \frac{Y b^3}{3EJ} + \frac{Y b}{\chi^{-1} GA} \\
+  \theta_{Bx} & = \theta_x(z=b) && = \frac{M b}{EJ} - \frac{Y b^2}{2 EJ}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let’s discuss the order of magnitude of the two terms in \(s_{By}\) due to \(Y\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Transverse displacement: bending and shear contributions.} For an elastic medium, the shear modulus \(G\) can be written as a function of the elastic modulus \(E\) and the Poisson ration \(\nu\),
+\begin{equation*}
+\begin{split}G = \frac{E}{2 (1 + \nu)} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+While the value of the Poisson ratio i limited to \(-1 \le \nu \le 0.5\), it’s usually in the range \([0,0.5]\). If Poisson ratio belongs to the latter range, the ratio \(\frac{G}{E}\) belongs to the range \(\left[ \frac{1}{3} , \frac{1}{2} \right]\), and thus \(G\) has the same order of magnitude as \(E\).
+
+\sphinxAtStartPar
+The properties of a square section are
+\begin{equation*}
+\begin{split}A = a^2 \quad , \quad J = \frac{1}{12} a^4 \quad , \quad \chi = \frac{6}{5} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus the ratio of the two contributions to transverse displacement has order of magnitude
+\begin{equation*}
+\begin{split}\dfrac{\frac{Y b^3}{3 EJ}}{\frac{Yb}{ \chi^{-1} G A}} = \dfrac{G}{E} \chi \dfrac{ b^2 A }{ J } = \dfrac{G}{E} \frac{6}{5} 12 \dfrac{b^2}{a^2} = \dfrac{24}{5} \div \dfrac{36}{5} \dfrac{b^2}{a^2} = 4.8 \div 7.2 \left( \dfrac{b}{a} \right)^2 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It immediately follows that the displacement of \(B\) due to shear deformation for a beam with square section with side \(a\) and length \(b = 10 a\) is \(480 \div 720\) times larger than the contribution due to bending (and the following transverse displacement of the axis of the beam associated with the rotation of tits sections).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Transverse and axial displacement.} The comparison of the transverse displacement and the axial displacement gives the ratio
+\begin{equation*}
+\begin{split}\dfrac{\frac{Y b^3}{3 EJ}}{\frac{Z b}{E A}} = \dfrac{Y}{Z} \dfrac{ b^2 A }{ J } = \dfrac{Y}{Z} 12 \left(\dfrac{b}{a}\right)^2 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and if the components of the force have similar magnitude \(Y \sim Z\), the order of magnitude of the ratio becomes \(12 \left( \frac{b}{a} \right)^2\), so that axial displacement of slender beams \(\frac{b}{a} \gg 1\) becomes negligible if compared with transverse displacement.
+\end{sphinxadmonition}
+
 \sphinxstepscope
 
 
@@ -2719,7 +3336,7 @@ Inviscid
 \sphinxAtStartPar
 The behavior of continuous medium in static conditions can be used to define a fluid.
 \label{ch/fluids/statics:definition-0}
-\begin{sphinxadmonition}{note}{Definition 14.1 (Fluid)}
+\begin{sphinxadmonition}{note}{Definition 15.1 (Fluid)}
 
 
 
@@ -2753,7 +3370,7 @@ and the viscous stress tensor is isotropic and \sphinxstylestrong{linear} in the
 \sphinxAtStartPar
 being \(\mu, \lambda\) the viscosity coefficients, and \(\mathbb{D}\) the strain velocity tensor \eqref{equation:ch/continuum/kinematics:eq:strain-vel-tensor}. Thus, the definition
 \label{ch/fluids/constitutive-equations:definition-0}
-\begin{sphinxadmonition}{note}{Definition 15.1.1 (Newtonian fluid)}
+\begin{sphinxadmonition}{note}{Definition 16.1.1 (Newtonian fluid)}
 
 
 
@@ -2798,7 +3415,7 @@ a constitutive equation for conduction heat flux \(\vec{q}\), as an example \sph
 \sphinxAtStartPar
 and the required state equations characterizing the behavior of the medium linking thermodynamic variables (assumption of \sphinxstylestrong{local thermodynamic equilibrium} \sphinxstylestrong{todo} \sphinxstyleemphasis{discuss this principle}), and required to get a well\sphinxhyphen{}defined mathematical problem, with the same number of equations and unknowns.
 \label{ch/fluids/governing-equations:example-0}
-\begin{sphinxadmonition}{note}{Example 16.1.1 (Equations of state)}
+\begin{sphinxadmonition}{note}{Example 17.1.1 (Equations of state)}
 
 
 
@@ -2900,7 +3517,7 @@ and, since this must hold for any volume \(V_t\) and state of the system \sphinx
 \begin{equation*}
 \begin{split}\mu \ge 0 \quad , \quad \lambda \ge 0 \quad , \quad k \ge 0\end{split}
 \end{equation*}\label{ch/fluids/governing-equations:example-1}
-\begin{sphinxadmonition}{note}{Example 16.2.1 (Sign of physical quantity)}
+\begin{sphinxadmonition}{note}{Example 17.2.1 (Sign of physical quantity)}
 
 
 
@@ -3049,7 +3666,7 @@ so that the momentum equation in Navier\sphinxhyphen{}Stokes equations \eqref{eq
 \sphinxAtStartPar
 Starting from the form \eqref{equation:ch/fluids/incompressible:eq:ns-mom-bernoulli}, different forms of Bernoulli theorems are readilty derived with the proper assumptions.
 \label{ch/fluids/incompressible:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 18.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 19.3.1 (Bernoulli theorem along path and vortex lines in steady flows)}
 
 
 
@@ -3062,7 +3679,7 @@ In a steady incompressible inviscid flow with conservative volume forces, \(\vec
 \sphinxAtStartPar
 The proof readily follows taking the scalar product with a unit\sphinxhyphen{}norm vector \(\hat{t}\) parallel to the local velocity or vorticity, and noting that \(\hat{t} \cdot \vec{u} \times \vec{\omega}\) is zero if either \(\hat{t} \parallel \vec{v}\) or \(\hat{t} \parallel \vec{\omega}\).
 \label{ch/fluids/incompressible:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 18.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
+\begin{sphinxadmonition}{note}{Theorem 19.3.2 (Bernoulli theorem in irrotational inviscid steady flows)}
 
 
 
@@ -3073,7 +3690,7 @@ In a steady incompressible inviscid irrotational flow with conservative volume f
 \qquad \rightarrow \qquad \frac{|\vec{u}|^2}{2} + \frac{P}{\rho} + \chi = 0 \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/fluids/incompressible:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 18.3.3 (Bernoulli theorem in irrotational inviscid flows)}
+\begin{sphinxadmonition}{note}{Theorem 19.3.3 (Bernoulli theorem in irrotational inviscid flows)}
 
 
 
@@ -3203,7 +3820,7 @@ for supersonic flows \(M>1\), if section of the stream tube increases, \(dA > 0\
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/fluids/statics}\sphinxstyleindexpageref{ch/fluids/statics:\detokenize{definition-0}}
 \indexspace
 \bigletter{example\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/fluids/governing\sphinxhyphen{}equations}\sphinxstyleindexpageref{ch/fluids/governing-equations:\detokenize{example-0}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/solids/beams/slender}\sphinxstyleindexpageref{ch/solids/beams/slender:\detokenize{example-0}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/fluids/governing\sphinxhyphen{}equations}\sphinxstyleindexpageref{ch/fluids/governing-equations:\detokenize{example-1}}

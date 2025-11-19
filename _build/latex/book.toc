@@ -55,46 +55,66 @@
 \contentsline {section}{\numberline {8.2}Weak formulations of the problem}{46}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1}Weak formulation of equilibrium conditions}{46}{subsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.2.2}Weak formulation of congruence conditions}{46}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Principle of virtual work}{46}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Principle of complementary virtual work}{47}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}Principle of stationariety of total potential energy}{47}{subsection.8.2.5}%
-\contentsline {subsection}{\numberline {8.2.6}Principle of stationariety of total complementary potential energy}{47}{subsection.8.2.6}%
-\contentsline {chapter}{\numberline {9}Waves in linear elastic homogeneous isotropic media}{49}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Navier\sphinxhyphen {}Cauchy equation: displacement formulation of the momentum equation}{49}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Helmholtz decomposition and sum of waves equation for \(p\) and \(s\) waves}{49}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Fourier decomposition: \(p\) is longitudinal, \(s\) is transverse}{50}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Beams}{51}{chapter.10}%
-\contentsline {section}{\numberline {10.1}de Saint Venant beam}{51}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Thin\sphinxhyphen {}walled beam}{51}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Timoshenko beam}{51}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Kinematic assumptions}{51}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Balance equations}{51}{subsection.10.3.2}%
-\contentsline {section}{\numberline {10.4}Bernoulli beam}{52}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Aeronautical beam}{52}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Problems}{52}{section.10.6}%
-\contentsline {chapter}{\numberline {11}Modal methods for structural problems}{53}{chapter.11}%
-\contentsline {section}{\numberline {11.1}No free rigid motion}{53}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Dimension reduction}{54}{subsection.11.1.1}%
-\contentsline {subsubsection}{Truncation and direct recovery of loads}{54}{subsubsection*.6}%
-\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{54}{subsubsection*.7}%
-\contentsline {section}{\numberline {11.2}With free rigid motion}{56}{section.11.2}%
-\contentsline {chapter}{\numberline {12}Structural damping}{59}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Small damping}{59}{section.12.1}%
-\contentsline {part}{III\hspace {1em}Fluid Mechanics}{63}{part.3}%
-\contentsline {chapter}{\numberline {13}Introduction to Fluid Mechanics}{65}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Statics}{67}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Constitutive Equations of Fluid Mechanics}{69}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Newtonian Fluids}{69}{section.15.1}%
-\contentsline {chapter}{\numberline {16}Governing Equations of Fluid Mechanics}{71}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Newtonian Fluid}{71}{section.16.1}%
-\contentsline {section}{\numberline {16.2}Derived quantities}{72}{section.16.2}%
-\contentsline {chapter}{\numberline {17}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{75}{chapter.17}%
-\contentsline {chapter}{\numberline {18}Incompressible Fluid Mechanics}{77}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Navier\sphinxhyphen {}Stokes Equations}{77}{section.18.1}%
-\contentsline {section}{\numberline {18.2}Vorticity}{78}{section.18.2}%
-\contentsline {section}{\numberline {18.3}Bernoulli theorems}{78}{section.18.3}%
-\contentsline {chapter}{\numberline {19}Compressible Fluid Mechanics}{81}{chapter.19}%
-\contentsline {section}{\numberline {19.1}Compressible Inviscid Fluid Mechanics}{81}{section.19.1}%
-\contentsline {subsection}{\numberline {19.1.1}Shocks}{81}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}Quasi\sphinxhyphen {}1d flows}{81}{subsection.19.1.2}%
-\contentsline {chapter}{Proof Index}{83}{section*.9}%
+\contentsline {subsection}{\numberline {8.2.3}Principle of virtual work}{47}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Principle of complementary virtual work}{48}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Principle of stationariety of total potential energy}{48}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Principle of stationariety of total complementary potential energy}{48}{subsection.8.2.6}%
+\contentsline {chapter}{\numberline {9}Small displacement \sphinxhyphen {} Statics \sphinxhyphen {} Weak formulation and “Energy” theorems for generic beam structures}{49}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Strong formulation of the problem}{49}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Weak formulations of the problem}{50}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Weak formulation of equilibrium conditions}{50}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Weak formulation of congruence conditions}{50}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Principle of virtual work}{50}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Principle of complementary virtual work}{50}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}Principle of stationariety of total potential energy}{50}{subsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.2.6}Principle of stationariety of total complementary potential energy}{50}{subsection.9.2.6}%
+\contentsline {chapter}{\numberline {10}Waves in linear elastic homogeneous isotropic media}{51}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Navier\sphinxhyphen {}Cauchy equation: displacement formulation of the momentum equation}{51}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Helmholtz decomposition and sum of waves equation for \(p\) and \(s\) waves}{51}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Fourier decomposition: \(p\) is longitudinal, \(s\) is transverse}{52}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Beams}{53}{chapter.11}%
+\contentsline {section}{\numberline {11.1}de Saint Venant beam}{53}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Assumptions}{53}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Internal actions}{53}{subsection.11.1.2}%
+\contentsline {subsubsection}{Axial}{53}{subsubsection*.6}%
+\contentsline {subsubsection}{Shear}{53}{subsubsection*.7}%
+\contentsline {subsubsection}{Bending}{54}{subsubsection*.8}%
+\contentsline {subsubsection}{Torsion}{54}{subsubsection*.9}%
+\contentsline {section}{\numberline {11.2}Thin\sphinxhyphen {}walled beam}{54}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Open section}{55}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Closed section}{55}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Multiple\sphinxhyphen {}loop section}{55}{subsection.11.2.3}%
+\contentsline {section}{\numberline {11.3}Timoshenko beam}{55}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Kinematic assumptions}{55}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Internal actions}{56}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Balance equations}{56}{subsection.11.3.3}%
+\contentsline {section}{\numberline {11.4}Bernoulli beam}{58}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Aeronautical beam}{58}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Slender beams}{58}{section.11.6}%
+\contentsline {section}{\numberline {11.7}Problems}{59}{section.11.7}%
+\contentsline {chapter}{\numberline {12}Modal methods for structural problems}{61}{chapter.12}%
+\contentsline {section}{\numberline {12.1}No free rigid motion}{61}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Dimension reduction}{62}{subsection.12.1.1}%
+\contentsline {subsubsection}{Truncation and direct recovery of loads}{62}{subsubsection*.10}%
+\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{62}{subsubsection*.11}%
+\contentsline {section}{\numberline {12.2}With free rigid motion}{64}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Structural damping}{67}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Small damping}{67}{section.13.1}%
+\contentsline {part}{III\hspace {1em}Fluid Mechanics}{71}{part.3}%
+\contentsline {chapter}{\numberline {14}Introduction to Fluid Mechanics}{73}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Statics}{75}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Constitutive Equations of Fluid Mechanics}{77}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Newtonian Fluids}{77}{section.16.1}%
+\contentsline {chapter}{\numberline {17}Governing Equations of Fluid Mechanics}{79}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Newtonian Fluid}{79}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Derived quantities}{80}{section.17.2}%
+\contentsline {chapter}{\numberline {18}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{83}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Incompressible Fluid Mechanics}{85}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Navier\sphinxhyphen {}Stokes Equations}{85}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Vorticity}{86}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Bernoulli theorems}{86}{section.19.3}%
+\contentsline {chapter}{\numberline {20}Compressible Fluid Mechanics}{89}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Compressible Inviscid Fluid Mechanics}{89}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Shocks}{89}{subsection.20.1.1}%
+\contentsline {subsection}{\numberline {20.1.2}Quasi\sphinxhyphen {}1d flows}{89}{subsection.20.1.2}%
+\contentsline {chapter}{Proof Index}{91}{section*.13}%
