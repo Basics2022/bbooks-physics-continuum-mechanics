@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures &#8212; continuum mechanics</title>
+    <title>7.2. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures &#8212; continuum mechanics</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
-    <link rel="prev" title="8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
+    <link rel="next" title="7.3. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures" href="small-displacements-statics-beams-weak-form.html" />
+    <link rel="prev" title="7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid" href="small-displacements-statics-weak-form-3d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,32 +193,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">10. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">11. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">11.1. de Saint Venant beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">11.2. Thin-walled beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">11.3. Timoshenko beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">11.4. Bernoulli beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">11.5. Aeronautical beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">11.6. Slender beams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">11.7. Problems</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.2. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">7.3. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">13. Structural damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">9. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">9.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">9.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">9.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">9.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">9.5. Aeronautical beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">9.6. Slender beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">9.7. Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">10. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">11. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">14. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">15. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">16. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">17. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">18. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">19. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">20. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">12. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">13. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">14. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">15. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">16. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">17. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">18. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -414,14 +417,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">9.1. Strong formulation of the problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">9.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">9.2.1. Weak formulation of equilibrium conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">9.2.2. Weak formulation of congruence conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">9.2.3. Principle of virtual work</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">9.2.4. Principle of complementary virtual work</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">9.2.5. Principle of stationariety of total potential energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">9.2.6. Principle of stationariety of total complementary potential energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.2.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">7.2.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.2.6. Principle of stationariety of total complementary potential energy</a></li>
 </ul>
 </li>
 </ul>
@@ -436,11 +439,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"></span><h1><span class="section-number">9. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures" title="Permalink to this heading">#</a></h1>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"></span><h1><span class="section-number">7.2. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems-for-generic-beam-structures" title="Permalink to this heading">#</a></h1>
 <p>In this section, theorems for elastic structures are specialized for beam structures.</p>
 <p><strong>todo</strong> Beam model used here…</p>
 <div class="section" id="strong-formulation-of-the-problem">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong"></span><h2><span class="section-number">9.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-strong"></span><h2><span class="section-number">7.2.1. </span>Strong formulation of the problem<a class="headerlink" href="#strong-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
 <p><strong>Indefinite equilibrium.</strong> External distributed loads are equilibrated by internal actions, resultant of stress field on beam sections.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -462,10 +465,10 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
-  &amp; = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
-  \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
-  &amp; = \mathbf{v}_2(w_{i/j})
+  \boldsymbol{\varepsilon}_z &amp; := \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
+  = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
+  \boldsymbol{\varepsilon}_2 &amp; := \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
+  = \mathbf{v}_2(w_{i/j})
 \end{aligned}\end{split}\]</div>
 <p><strong>Constitutive equations.</strong> Under the assumptions … (kinematic assumptions, decoupling,…),</p>
 <div class="math notranslate nohighlight">
@@ -475,9 +478,10 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \boldsymbol\sigma_z = \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
-  &amp; = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
-  &amp; = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
+  \boldsymbol\sigma_z := \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
+  &amp; = \mathbf{D}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{D}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
+  &amp; = \mathbf{D}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
+  &amp; = \mathbf{D}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -504,9 +508,9 @@ Null contribution of warping and transverse strain to internal force and moment<
 <p>holds, …</p>
 </div>
 <div class="section" id="weak-formulations-of-the-problem">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak"></span><h2><span class="section-number">9.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak"></span><h2><span class="section-number">7.2.2. </span>Weak formulations of the problem<a class="headerlink" href="#weak-formulations-of-the-problem" title="Permalink to this heading">#</a></h2>
 <div class="section" id="weak-formulation-of-equilibrium-conditions">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"></span><h3><span class="section-number">9.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"></span><h3><span class="section-number">7.2.2.1. </span>Weak formulation of equilibrium conditions<a class="headerlink" href="#weak-formulation-of-equilibrium-conditions" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\forall \mathbf{u}(z), \ \mathbf{v}(z)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -531,10 +535,39 @@ Null contribution of warping and transverse strain to internal force and moment<
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="weak-formulation-of-congruence-conditions">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence"></span><h3><span class="section-number">9.2.2. </span>Weak formulation of congruence conditions<a class="headerlink" href="#weak-formulation-of-congruence-conditions" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-congruence"></span><h3><span class="section-number">7.2.2.2. </span>Weak formulation of congruence conditions<a class="headerlink" href="#weak-formulation-of-congruence-conditions" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall \boldsymbol\Sigma_z\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{V} \boldsymbol\Sigma_z \cdot \left( \boldsymbol\varepsilon_z - \mathbf{s}'_{P} + \mathbf{r}_P \times \boldsymbol\theta' - \hat{\mathbf{z}} \times \boldsymbol\theta - \mathbf{v}_1(w_{i/j})\right) = \\
+  &amp; = \int_{V} \boldsymbol\Sigma_z \cdot \boldsymbol\varepsilon_z + \int_{V} \left\{ \boldsymbol{\Sigma}'_z \cdot \mathbf{s}_P + ( \mathbf{r}_P \times \boldsymbol\Sigma'_z + \hat{\mathbf{z}} \times \boldsymbol\Sigma_z ) \cdot \boldsymbol\theta \right\} - \int_{A} \left.\left[ \boldsymbol\Sigma_z \cdot \mathbf{s}_P + ( \mathbf{r}_P \times \boldsymbol\Sigma_z ) \cdot \boldsymbol\theta \right]\right|_{\partial \ell}
+\end{aligned}\end{split}\]</div>
+<p>If the test function is an equilibrated stress field <span class="math notranslate nohighlight">\(\boldsymbol\Sigma_z = \widetilde{\boldsymbol{\sigma}}_z\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \int_{A} \boldsymbol\Sigma_z                     &amp; =: \widetilde{\mathbf{F}} \\
+ \int_{A} \mathbf{r}_P \times \boldsymbol\Sigma_z &amp; =: \widetilde{\mathbf{M}} \\
+\end{aligned}\end{split}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} &amp; = \widetilde{\mathbf{F}}' + \widetilde{\mathbf{f}} \\
+ \mathbf{0} &amp; = \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \widetilde{\mathbf{F}} + \widetilde{\mathbf{m}} \\
+\end{aligned}\end{split}\]</div>
+<p>thus the weak form of congruence conditions becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \int_{V} \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z + \int_{\ell} \left\{ \widetilde{\mathbf{F}}' \cdot \mathbf{s}_P + \left( \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \widetilde{\mathbf{F}} \right) \cdot \boldsymbol\theta \right\} - \left[ \widetilde{\mathbf{F}} \cdot \mathbf{s}_P + \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell} = \\
+  &amp; = \int_{V} \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \int_{\ell} \left\{ \widetilde{\mathbf{f}} \cdot \mathbf{s}_P + \widetilde{\mathbf{m}} \cdot \boldsymbol\theta \right\} - \left[ \widetilde{\mathbf{F}} \cdot \mathbf{s}_P + \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell} = \\
+  &amp; = \dots
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> <em>discuss useful choices of boundary conditions (along with no distributed loads to set the second integral identically zero), e.g. for the evaluation of hyperstatics</em></p>
+<p><strong>todo</strong> <em>evaluate the first integral in terms of internal actions.</em></p>
 </div>
 <div class="section" id="principle-of-virtual-work">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">9.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">7.2.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
 <p><em>…test functions: variations…the problem can be recast as the principle of stationariety of total potential energy</em></p>
 <p>If test function <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> in the weak form of the equilibrium conditions respectively represent the variation of a congruent displacement and a rotation field <span class="math notranslate nohighlight">\(\mathbf{u} = \delta \widetilde{\mathbf{s}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} = \delta \widetilde{\boldsymbol\theta}\)</span>, with <span class="math notranslate nohighlight">\(\delta \widetilde{\mathbf{s}}|_{S_D} = \mathbf{0}\)</span> and <span class="math notranslate nohighlight">\(\delta \widetilde{\boldsymbol\theta}|_{S_D} = \mathbf{0}\)</span> (<strong>these relations may hold just for the constrained components</strong>)</p>
 <div class="math notranslate nohighlight">
@@ -546,10 +579,32 @@ Null contribution of warping and transverse strain to internal force and moment<
 <p>If the constitutive equation is introduced to use the kinematic variables as the independent variables the symmetry of this formulation of the elastic problem naturally arises, as already shown in the weak form of the equilibrium equations.</p>
 </div>
 <div class="section" id="principle-of-complementary-virtual-work">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"></span><h3><span class="section-number">9.2.4. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"></span><h3><span class="section-number">7.2.2.4. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
+<p>If the test function of the weak form of the congruence conditions is chosen to be the variation of an equilibrated stress field, <span class="math notranslate nohighlight">\(\boldsymbol\Sigma_z = \delta \boldsymbol\sigma_z\)</span>, s.t.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0} &amp; = \delta \widetilde{\mathbf{F}}' \\
+  \mathbf{0} &amp; = \delta \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \delta \widetilde{\mathbf{F}} \\
+\end{aligned}\end{split}\]</div>
+<p>and <span class="math notranslate nohighlight">\(\left.\delta \widetilde{\mathbf{F}}\right|_{S_D} = \mathbf{0}\)</span>, <span class="math notranslate nohighlight">\(\left.\delta \widetilde{\mathbf{M}}\right|_{S_D} = \mathbf{0}\)</span>, where essential boundary conditions are prescribed (some constraints prescribe only some components),</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0 
+  &amp; = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_D}  \ .
+\end{aligned}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Evaluation of volume work<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Inserting the expression of the strain as a function of stress and temperature difference, <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon_z \simeq \mathbf{C}_1 \cdot \boldsymbol\sigma_z + \mathbf{a} \Delta T\)</span> (<strong>todo</strong> *discuss the role and the - null by definition? - contributions of warping and transverse strain)</p>
+<p class="sd-card-text">…</p>
 </div>
+</details></div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">9.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">7.2.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
 <p>Principle of virtual work can be recast as a principle of stationariety of total potential energy, being <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol\theta} = \boldsymbol\theta\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -558,12 +613,12 @@ Null contribution of warping and transverse strain to internal force and moment<
     &amp; - \int_{\ell} \delta \boldsymbol{\theta}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \right) + \mathbf{K}_{m\theta} \boldsymbol{\theta}' - \mathbf{b}_m \Delta T \right] + \\
     &amp; + \int_{\ell} \left\{ \delta \mathbf{s} \cdot \mathbf{f} + \delta \boldsymbol{\theta} \cdot \mathbf{m} \right\} + \left. \left[ \delta \mathbf{s} \cdot \mathbf{F} + \delta \boldsymbol{\theta} \cdot \mathbf{M} \right] \right|_{\partial \ell / \partial S_D} = \\ 
   = &amp; \delta \left\{ - \dfrac{1}{2} \int_{\ell} \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}'  \end{bmatrix} \cdot \begin{bmatrix} \mathbf{K}_{fs} &amp; \mathbf{K}_{f\theta} \\ \mathbf{K}_{ms} &amp; \mathbf{K}_{m \theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}' \end{bmatrix} \, d \ell - \dfrac{1}{2} \left.\begin{bmatrix} \mathbf{s} \\ \boldsymbol{\theta} \end{bmatrix} \cdot \mathbf{K}_{R} \cdot \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix}\right|_{S_R} \right. + \\
-   &amp; + \left. \int_{\ell} \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{f} \\ \mathbf{m} \end{bmatrix} \, d \ell + \left. \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{F} \\ \mathbf{F} \end{bmatrix} \right|_{S_N}  \right\} \ ,
+   &amp; + \left. \int_{\ell} \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{f} \\ \mathbf{m} \end{bmatrix} \, d \ell + \left. \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} \right|_{S_N}  \right\} \ ,
 \end{aligned}\end{split}\]</div>
 <p>with some notation abuse, and prescribed temperature <span class="math notranslate nohighlight">\(\Delta T\)</span>, s.t. <span class="math notranslate nohighlight">\(\delta \Delta T = 0\)</span>, and loads.</p>
 </div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
-<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">9.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">7.2.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -599,20 +654,20 @@ Null contribution of warping and transverse strain to internal force and moment<
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="small-displacements-statics-beams-weak-form.html"
+       href="small-displacements-statics-weak-form-3d.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
+        <p class="prev-next-title"><span class="section-number">7.1. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</p>
       </div>
     </a>
     <a class="right-next"
-       href="small-displacements-waves.html"
+       href="small-displacements-statics-beams-weak-form.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Waves in linear elastic homogeneous isotropic media</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -631,14 +686,14 @@ Null contribution of warping and transverse strain to internal force and moment<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">9.1. Strong formulation of the problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">9.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">9.2.1. Weak formulation of equilibrium conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">9.2.2. Weak formulation of congruence conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">9.2.3. Principle of virtual work</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">9.2.4. Principle of complementary virtual work</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">9.2.5. Principle of stationariety of total potential energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">9.2.6. Principle of stationariety of total complementary potential energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-formulation-of-the-problem">7.2.1. Strong formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulations-of-the-problem">7.2.2. Weak formulations of the problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-equilibrium-conditions">7.2.2.1. Weak formulation of equilibrium conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-congruence-conditions">7.2.2.2. Weak formulation of congruence conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-virtual-work">7.2.2.3. Principle of virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-complementary-virtual-work">7.2.2.4. Principle of complementary virtual work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-potential-energy">7.2.2.5. Principle of stationariety of total potential energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-stationariety-of-total-complementary-potential-energy">7.2.2.6. Principle of stationariety of total complementary potential energy</a></li>
 </ul>
 </li>
 </ul>

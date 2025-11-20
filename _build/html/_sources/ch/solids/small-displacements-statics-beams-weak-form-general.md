@@ -31,10 +31,10 @@ $$\begin{aligned}
 \end{aligned}$$
 
 $$\begin{aligned}
-  \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
-  & = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
-  \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
-  & = \mathbf{v}_2(w_{i/j})
+  \boldsymbol{\varepsilon}_z & := \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{z} \end{bmatrix}
+  = \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \\
+  \boldsymbol{\varepsilon}_2 & := \begin{bmatrix} \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix}
+  = \mathbf{v}_2(w_{i/j})
 \end{aligned}$$
 
 **Constitutive equations.** Under the assumptions ... (kinematic assumptions, decoupling,...), 
@@ -45,9 +45,10 @@ $$\begin{aligned}
 \end{aligned}$$
 
 $$\begin{aligned}
-  \boldsymbol\sigma_z = \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
-  & = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
-  & = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
+  \boldsymbol\sigma_z := \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
+  & = \mathbf{D}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{D}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
+  & = \mathbf{D}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
+  & = \mathbf{D}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -109,6 +110,41 @@ $$\begin{aligned}
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:congruence)=
 ### Weak formulation of congruence conditions
 
+$\forall \boldsymbol\Sigma_z$,
+
+$$\begin{aligned}
+  0
+  & = \int_{V} \boldsymbol\Sigma_z \cdot \left( \boldsymbol\varepsilon_z - \mathbf{s}'_{P} + \mathbf{r}_P \times \boldsymbol\theta' - \hat{\mathbf{z}} \times \boldsymbol\theta - \mathbf{v}_1(w_{i/j})\right) = \\
+  & = \int_{V} \boldsymbol\Sigma_z \cdot \boldsymbol\varepsilon_z + \int_{V} \left\{ \boldsymbol{\Sigma}'_z \cdot \mathbf{s}_P + ( \mathbf{r}_P \times \boldsymbol\Sigma'_z + \hat{\mathbf{z}} \times \boldsymbol\Sigma_z ) \cdot \boldsymbol\theta \right\} - \int_{A} \left.\left[ \boldsymbol\Sigma_z \cdot \mathbf{s}_P + ( \mathbf{r}_P \times \boldsymbol\Sigma_z ) \cdot \boldsymbol\theta \right]\right|_{\partial \ell}
+\end{aligned}$$
+
+If the test function is an equilibrated stress field $\boldsymbol\Sigma_z = \widetilde{\boldsymbol{\sigma}}_z$,
+
+$$\begin{aligned}
+ \int_{A} \boldsymbol\Sigma_z                     & =: \widetilde{\mathbf{F}} \\
+ \int_{A} \mathbf{r}_P \times \boldsymbol\Sigma_z & =: \widetilde{\mathbf{M}} \\
+\end{aligned}$$
+
+with
+
+$$\begin{aligned}
+ \mathbf{0} & = \widetilde{\mathbf{F}}' + \widetilde{\mathbf{f}} \\
+ \mathbf{0} & = \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \widetilde{\mathbf{F}} + \widetilde{\mathbf{m}} \\
+\end{aligned}$$
+
+thus the weak form of congruence conditions becomes
+
+$$\begin{aligned}
+  0 
+  & = \int_{V} \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z + \int_{\ell} \left\{ \widetilde{\mathbf{F}}' \cdot \mathbf{s}_P + \left( \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \widetilde{\mathbf{F}} \right) \cdot \boldsymbol\theta \right\} - \left[ \widetilde{\mathbf{F}} \cdot \mathbf{s}_P + \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell} = \\
+  & = \int_{V} \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \int_{\ell} \left\{ \widetilde{\mathbf{f}} \cdot \mathbf{s}_P + \widetilde{\mathbf{m}} \cdot \boldsymbol\theta \right\} - \left[ \widetilde{\mathbf{F}} \cdot \mathbf{s}_P + \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell} = \\
+  & = \dots
+\end{aligned}$$
+
+**todo** *discuss useful choices of boundary conditions (along with no distributed loads to set the second integral identically zero), e.g. for the evaluation of hyperstatics*
+
+**todo** *evaluate the first integral in terms of internal actions.*
+
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:pvw)=
 ### Principle of virtual work
 
@@ -128,6 +164,29 @@ If the constitutive equation is introduced to use the kinematic variables as the
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:pcvw)=
 ### Principle of complementary virtual work
 
+If the test function of the weak form of the congruence conditions is chosen to be the variation of an equilibrated stress field, $\boldsymbol\Sigma_z = \delta \boldsymbol\sigma_z$, s.t.
+
+$$\begin{aligned}
+  \mathbf{0} & = \delta \widetilde{\mathbf{F}}' \\
+  \mathbf{0} & = \delta \widetilde{\mathbf{M}}' + \hat{\mathbf{z}} \times \delta \widetilde{\mathbf{F}} \\
+\end{aligned}$$
+
+and $\left.\delta \widetilde{\mathbf{F}}\right|_{S_D} = \mathbf{0}$, $\left.\delta \widetilde{\mathbf{M}}\right|_{S_D} = \mathbf{0}$, where essential boundary conditions are prescribed (some constraints prescribe only some components),
+
+$$\begin{aligned}
+  0 
+  & = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_D}  \ .
+\end{aligned}$$
+
+```{dropdown} Evaluation of volume work
+:open:
+
+Inserting the expression of the strain as a function of stress and temperature difference, $\boldsymbol\varepsilon_z \simeq \mathbf{C}_1 \cdot \boldsymbol\sigma_z + \mathbf{a} \Delta T$ (**todo** *discuss the role and the - null by definition? - contributions of warping and transverse strain)
+
+...
+
+```
+
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:stationariety-potential)=
 ### Principle of stationariety of total potential energy
 
@@ -139,7 +198,7 @@ $$\begin{aligned}
     & - \int_{\ell} \delta \boldsymbol{\theta}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \right) + \mathbf{K}_{m\theta} \boldsymbol{\theta}' - \mathbf{b}_m \Delta T \right] + \\
     & + \int_{\ell} \left\{ \delta \mathbf{s} \cdot \mathbf{f} + \delta \boldsymbol{\theta} \cdot \mathbf{m} \right\} + \left. \left[ \delta \mathbf{s} \cdot \mathbf{F} + \delta \boldsymbol{\theta} \cdot \mathbf{M} \right] \right|_{\partial \ell / \partial S_D} = \\ 
   = & \delta \left\{ - \dfrac{1}{2} \int_{\ell} \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}'  \end{bmatrix} \cdot \begin{bmatrix} \mathbf{K}_{fs} & \mathbf{K}_{f\theta} \\ \mathbf{K}_{ms} & \mathbf{K}_{m \theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}' \end{bmatrix} \, d \ell - \dfrac{1}{2} \left.\begin{bmatrix} \mathbf{s} \\ \boldsymbol{\theta} \end{bmatrix} \cdot \mathbf{K}_{R} \cdot \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix}\right|_{S_R} \right. + \\
-   & + \left. \int_{\ell} \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{f} \\ \mathbf{m} \end{bmatrix} \, d \ell + \left. \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{F} \\ \mathbf{F} \end{bmatrix} \right|_{S_N}  \right\} \ ,
+   & + \left. \int_{\ell} \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{f} \\ \mathbf{m} \end{bmatrix} \, d \ell + \left. \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} \right|_{S_N}  \right\} \ ,
 \end{aligned}$$
 
 with some notation abuse, and prescribed temperature $\Delta T$, s.t. $\delta \Delta T = 0$, and loads.

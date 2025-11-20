@@ -27,8 +27,10 @@ parts:
   - file: ch/solids/intro
   - file: ch/solids/small-displacements-statics
   - file: ch/solids/small-displacements-statics-weak-form
-  - file: ch/solids/small-displacements-statics-beams-weak-form
-  - file: ch/solids/small-displacements-statics-beams-weak-form-general
+    sections:
+    - file: ch/solids/small-displacements-statics-weak-form-3d
+    - file: ch/solids/small-displacements-statics-beams-weak-form-general
+    - file: ch/solids/small-displacements-statics-beams-weak-form
   - file: ch/solids/small-displacements-waves
   - file: ch/solids/beams
     sections:

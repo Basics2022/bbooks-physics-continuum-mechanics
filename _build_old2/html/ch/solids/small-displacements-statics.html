@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Small displacement - statics &#8212; continuum mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-statics';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
+    <link rel="prev" title="5. Introduction to Solid Mechanics" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="continuum mechanics - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="continuum mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Continuum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../continuum/kinematics.html">1. Kinematics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../continuum/governing-equations.html">2. Governing Equations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-integral.html">2.1. Integral Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-primary-differential.html">2.2. Differential Balance Equations of aaa physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-differential.html">2.3. Differential Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-derived-integral.html">2.4. Integral Balance Equations of ddd physical quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-jump.html">2.5. Jump conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../continuum/balance-reference-integral.html">2.6. Integral Balance Equations in reference space</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/constitutive-equations.html">3. Equazioni di stato ed equazioni costitutive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Small displacement - statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">7. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">8. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">8.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">8.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">8.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">8.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">8.5. Aeronautical beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">8.6. Slender beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">8.7. Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">9. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">10. Structural damping</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">11. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">12. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">13. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">14. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">15. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">16. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">17. Compressible Fluid Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-statics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/solids/small-displacements-statics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Small displacement - statics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texttt-todo">6.1. \texttt{todo}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-isotropic-elastic-medium">6.2. Linear isotropic elastic medium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constitutive-equation">6.2.1. Constitutive equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-models">6.3. Beam models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-structures">6.4. Beam structures</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics">
+<span id="solid-mechanics-intro-small-displacements-statics"></span><h1><span class="section-number">6. </span>Small displacement - statics<a class="headerlink" href="#small-displacement-statics" title="Permalink to this heading">#</a></h1>
+<div class="section" id="texttt-todo">
+<h2><span class="section-number">6.1. </span>\texttt{todo}<a class="headerlink" href="#texttt-todo" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+todo list<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">“Kinematics”: labile, isostatic, hyperstatics</p></li>
+<li><p class="sd-card-text">Stress tensor: Cauchy relation, proof of symmetry (under non-polar assumption)</p></li>
+<li><p class="sd-card-text">Small strain tensor: definition and compatibility conditions</p></li>
+<li><p class="sd-card-text">…</p></li>
+</ul>
+</div>
+</details><ul class="simple">
+<li><p><strong>Labile - Undetermined.</strong></p></li>
+<li><p><strong>Isostatic - “determined”.</strong></p></li>
+<li><p><strong>Hyperstatic - “overdetermined”.</strong></p></li>
+</ul>
+</div>
+<div class="section" id="linear-isotropic-elastic-medium">
+<span id="solid-mechanics-intro-small-displacements-statics-elastic-medium"></span><h2><span class="section-number">6.2. </span>Linear isotropic elastic medium<a class="headerlink" href="#linear-isotropic-elastic-medium" title="Permalink to this heading">#</a></h2>
+<div class="section" id="constitutive-equation">
+<span id="solid-mechanics-intro-small-displacements-statics-elastic-medium-constitutive-equation"></span><h3><span class="section-number">6.2.1. </span>Constitutive equation<a class="headerlink" href="#constitutive-equation" title="Permalink to this heading">#</a></h3>
+<p>An isotropic elastic medium has no prefereed orientation. The most general linear relation between stress tensor <span class="math notranslate nohighlight">\(\symbf{\sigma}\)</span> and strain tensor <span class="math notranslate nohighlight">\(\symbf{\varepsilon}\)</span>, and temperature difference <span class="math notranslate nohighlight">\(\Delta T\)</span> w.r.t. a reference temperature, <span class="math notranslate nohighlight">\(\Delta T := T - T_0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\symbf{\sigma} = \mathbf{D} : \symbf{\varepsilon} - \symbf{\beta} \Delta T \ ,\]</div>
+<p>for isotropic media involves the rank-<span class="math notranslate nohighlight">\(2\)</span> and rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensors, see <span class="xref std std-ref">rank-2-iso</span>, and <span class="xref std std-ref">rank-4-iso</span>. Since stress tensor <span class="math notranslate nohighlight">\(\symbf{\sigma}\)</span> and strain tensor <span class="math notranslate nohighlight">\(\symbf{\varepsilon}\)</span> are symmetric the constitutive law for isotropic elastic media reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-linear-isotropic-elastic">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-linear-isotropic-elastic" title="Permalink to this equation">#</a></span>\[\symbf{\sigma} = 2 \mu \symbf{\varepsilon} + \lambda \, \text{tr}(\symbf{\varepsilon}) \mathbb{I} - \beta \Delta T \mathbb{I} \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> the Lamé coefficients.</p>
+<p>Decomposition of tensor in hydrostatic (proportional to <span class="math notranslate nohighlight">\(\mathbb{I}\)</span>) and deviatoric (traceless) parts reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-linear-isotropic-elastic-iso-dev">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq-linear-isotropic-elastic-iso-dev" title="Permalink to this equation">#</a></span>\[\symbf{\sigma} = \left( 2 \mu \symbf{\varepsilon} - \frac{2}{3} \mu \, \text{tr}(\varepsilon) \mathbb{I} \right) + \left( \lambda + \frac{2}{3} \mu \right)\text{tr}(\varepsilon) \mathbb{I} - \beta \Delta T \mathbb{I} \]</div>
+<p>The expression of strain tensor <span class="math notranslate nohighlight">\(\symbf{\varepsilon}\)</span> as a function of stress tensor and temperature difference</p>
+<div class="math notranslate nohighlight">
+\[\symbf{\varepsilon} = \]</div>
+<p>can be easily evaluated, using the relation between the traces of the tensors</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Different expression of constitutive laws, and sets of parameters.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Remembering that <span class="math notranslate nohighlight">\(\text{tr}(\mathbb{I}) = 3\)</span> in the 3-dimensional space, evaluating the trace of the relation <a class="reference internal" href="#equation-eq-linear-isotropic-elastic">(6.1)</a> provides the relation between the traces of strain and stress tensors and the temeprature difference</p>
+<div class="math notranslate nohighlight">
+\[\text{tr} (\symbf{\sigma}) = \left( 2 \mu + 3 \lambda \right) \text{tr} (\symbf{\varepsilon}) - 3 \beta \Delta T \ , \]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\text{tr} (\symbf{\varepsilon}) = \frac{1}{ 2 \mu + 3 \lambda} \text{tr} (\symbf{\sigma}) + \frac{3 \beta}{ 2 \mu + 3 \lambda} \Delta T \ . \]</div>
+<p class="sd-card-text">Using the relation between traces, it’s possible to find <span class="math notranslate nohighlight">\(\symbf{\varepsilon}\left(\symbf{\sigma}, \Delta T \right)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \symbf{\varepsilon}
+  &amp; = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu} \text{tr}(\symbf{\varepsilon}) \mathbb{I} + \frac{\beta}{2 \mu} \Delta T \mathbb{I} = \\
+  &amp; = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu} \left[ \frac{1}{2 \mu + 3 \lambda} \text{tr}(\symbf{\sigma}) + \frac{3 \beta}{2 \mu + 3 \lambda} \Delta T \right] \mathbb{I} + \frac{\beta}{2 \mu} \Delta T \mathbb{I} = \\
+  &amp; = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu ( 2 \mu + 3 \lambda)} \text{tr}(\symbf{\sigma}) \mathbb{I} + \frac{1}{2 \mu}\left[ 1 - \frac{3 \lambda}{2 \mu + 3 \lambda} \right] \beta \Delta T \mathbb{I} = \\
+  &amp; = \frac{1}{2 \mu} \symbf{\sigma} - \frac{\lambda}{2\mu ( 2 \mu + 3 \lambda)} \text{tr}(\symbf{\sigma}) \mathbb{I} + \frac{1}{2 \mu + 3 \lambda}  \beta \Delta T \mathbb{I} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Modulo elastico.</strong> Il modulo elastico <span class="math notranslate nohighlight">\(E\)</span> è definito dalla relazione</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{1}{E} 
+  &amp; = \frac{1}{2 \mu} - \frac{\lambda}{2 \mu (2 \mu + 3 \lambda)} = \\
+  &amp; = \frac{1}{2 \mu} \frac{2 (\mu + \lambda)}{2 \mu + 3 \lambda} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">e quindi</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda}\]</div>
+<p class="sd-card-text"><strong>Modulo di Poisson.</strong> Il modulo di Poisson <span class="math notranslate nohighlight">\(\nu\)</span> è definito dalla relazione</p>
+<div class="math notranslate nohighlight">
+\[\frac{\nu}{E} = \frac{\lambda}{2\mu (2 \mu + 3 \lambda)} \ ,\]</div>
+<p class="sd-card-text">e quindi</p>
+<div class="math notranslate nohighlight">
+\[\nu = \frac{\lambda}{2 (\mu + \lambda)}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Thermodynamics<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Helmholtz’s free energy is the thermodynamic potential <span class="math notranslate nohighlight">\(F\)</span> defined w.r.t. temperature <span class="math notranslate nohighlight">\(T\)</span> and generalized displacements <span class="math notranslate nohighlight">\(\mathbf{X}_i\)</span> as independet variables. Here <strong>unit-volume</strong> relation (<span style="color:red">Explain why! Link to general continuum mechanics, and equations in reference coordinates</span>). Using difference of temperature <span class="math notranslate nohighlight">\(\Delta T = T - T_0\)</span> w.r.t. a reference temperature <span class="math notranslate nohighlight">\(T_0\)</span> instead of temperature <span class="math notranslate nohighlight">\(T\)</span>, differential of Helmhtoltz’s free energy per unit volume for a linear elastic medium reads</p>
+<div class="math notranslate nohighlight">
+\[d\mathcal{F}(\varepsilon_{ij}, \Delta T) = - \mathcal{S} d \Delta T + \sigma_{ij} d \varepsilon_{ij} \ ,\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{ij} = \left( \frac{\partial \mathcal{F}}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}}
+\qquad , \qquad
+\mathcal{S} = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}} \ .
+\]</div>
+<p class="sd-card-text">Using the constitutive law <a class="reference internal" href="#equation-eq-linear-isotropic-elastic">(6.1)</a> for a linear isotropic elastic medium, here written in Cartesian coordinates as</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{ij} = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} - \beta \Delta T \delta_{ij} \ ,\]</div>
+<p class="sd-card-text">integration w.r.t. <span class="math notranslate nohighlight">\(\varepsilon_{ij}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathcal{F}(\varepsilon_{ij}, \Delta T) 
+  &amp; = \frac{1}{2} \left( 2  \mu \varepsilon_{ij} \varepsilon_{ij} + \lambda \varepsilon_{kk} \varepsilon_{ll} \right) - \beta \Delta T \varepsilon_{ll} + \mathcal{F}(0, \Delta T) = \\
+  &amp; = \frac{1}{2} \left( 2 \mu \symbf{\varepsilon} : \symbf{\varepsilon} + \lambda \left( \text{tr}(\symbf{\varepsilon}) \right)^2 \right) - \beta \Delta T \text{tr}(\symbf{\varepsilon}) + \mathcal{F}(0, \Delta T) \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being <span class="math notranslate nohighlight">\(\mathcal{F}(0, \Delta T) = F(\Delta T)\)</span> a function of <span class="math notranslate nohighlight">\(\Delta T\)</span> appearing from integration in <span class="math notranslate nohighlight">\(\varepsilon_{ij}\)</span>. If you don’t trust this, try do evaluate the partial derivative w.r.t. the components of the strain tensor of the last relation.</p>
+<p class="sd-card-text"><strong>Entropy.</strong> Entropy is the parital derivative w.r.t. <span class="math notranslate nohighlight">\(T\)</span> of Helmholtz’s free energy and, assuming constant parameters, its expression reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \mathcal{S}(\varepsilon_{ij}, \Delta T) 
+  = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}} 
+  = \beta \varepsilon_{ll} - F'(\Delta T) \ .
+\end{aligned}\]</div>
+<p class="sd-card-text"><strong>Heat coefficients.</strong> Heat coefficient at constant strain per unit-volume reads</p>
+<div class="math notranslate nohighlight">
+\[C_{\varepsilon_{ij}} := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\varepsilon_{ij}} = - (T_0 + \Delta T) F''(\Delta T) \ .\]</div>
+<p class="sd-card-text">Assuming that heat coefficient <span class="math notranslate nohighlight">\(C_{\varepsilon_{ij}}\)</span> is independent from <span class="math notranslate nohighlight">\(T\)</span>, integration in <span class="math notranslate nohighlight">\(\Delta T\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) = - F'(\Delta T) + F'(0) \ ,\]</div>
+<p class="sd-card-text">and thus an expression for <span class="math notranslate nohighlight">\(F'(\Delta T)\)</span></p>
+<div class="math notranslate nohighlight">
+\[F'(\Delta T) = - C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) + F'(0) \ ,\]</div>
+<p class="sd-card-text">to be inserted in the expression of entropy</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{S}(\varepsilon_{ij}, \Delta T) = \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) - F'(0) \ ,\]</div>
+<p class="sd-card-text">and <span class="math notranslate nohighlight">\(-F'(0) = \mathcal{S}_0\)</span> can be recognized as the entropy per unit volume in the reference condition with <span class="math notranslate nohighlight">\(\varepsilon_{ij} = 0\)</span>, <span class="math notranslate nohighlight">\(\Delta T = 0\)</span>. The differential of the last expression reads</p>
+<div class="math notranslate nohighlight">
+\[d \mathcal{S}
+ = \beta d \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T_0} \frac{1}{1 + \frac{\Delta T}{T_0}} \, d T  
+ = \beta d \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T}\, d T  
+\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[dT = \frac{T}{C_{\varepsilon_{ij}}} d \mathcal{S} - \frac{\beta T}{C_{\varepsilon_{ij}}} \, d \varepsilon_{ll}\]</div>
+<p class="sd-card-text">Furhter integration in <span class="math notranslate nohighlight">\(\Delta T\)</span> of</p>
+<div class="math notranslate nohighlight">
+\[F'(\Delta T) = - C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \mathcal{S}_0 \ ,\]</div>
+<p class="sd-card-text">gives and expression of funtion <span class="math notranslate nohighlight">\(F(\Delta T)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[F(\Delta T) - F(0) = -C_{\varepsilon_{ij}} \left[ (T_0 + \Delta T) \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \Delta T \right] - \mathcal{S}_0 \Delta T \ ,\]</div>
+<p class="sd-card-text">that can be used int he expression of Helmholtz free energy, as an example, as show later.</p>
+<p class="sd-card-text"><strong>Internal energy.</strong> The relation between the internal energy and Hemlholtz free energy <span class="math notranslate nohighlight">\(\mathcal{F} = \mathcal{E} - T \mathcal{S}\)</span> allows to find the expression of the internal energy per unit volume of an elastic linear isotropic media,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathcal{E} 
+&amp; = \mathcal{F} + T \mathcal{S} = \\
+&amp; = \mu \varepsilon_{ij} \varepsilon_{ij} + \frac{\lambda}{2} \left(  \varepsilon_{kk} \right)^2 - \beta \Delta T \varepsilon_{kk} + F(0) -C_{\varepsilon_{ij}} \left[ (T_0 + \Delta T) \ln \left( 1 + \frac{\Delta T}{T_0} \right) - \Delta T \right] \\
+&amp; \quad  - \mathcal{S}_0 \Delta T + (T_0 + \Delta T) \left( \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) + \mathcal{S}_0 \right) = \\
+&amp; = \mu \varepsilon_{ij} \varepsilon_{ij} + \frac{\lambda}{2} \left(  \varepsilon_{kk} \right)^2 + \beta T_0 \varepsilon_{kk} + C_{\varepsilon_{ij}} \Delta T + F(0) + T_0 \mathcal{S}_0  \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that the reference internal energy and reference Helmholtz free energy can be recognized as</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}_0 = F(0) \qquad , \qquad \mathcal{E}_0 = \mathcal{F}_0 + T_0 \mathcal{S}_0 \ ,\]</div>
+<p class="sd-card-text">In order to write the differential of the internal energy w.r.t. its natural independent variables <span class="math notranslate nohighlight">\(\mathcal{E}(\varepsilon_{ij}, \mathcal{S})\)</span>, the temperature difference must be written as a function of strain and entropy. Using relation <strong>todo</strong>, and performing derivatives of the composite funciton <span class="math notranslate nohighlight">\(\mathcal{E}(\varepsilon_{ij}, \Delta T(\varepsilon_{ij}, \mathcal{S}))\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  d \mathcal{E} 
+  &amp; = \left( \frac{\partial \mathcal{E}}{\partial \varepsilon_{ij}} \right)_{\Delta T} d \varepsilon_{ij} + \left( \frac{\partial \mathcal{E}}{\partial \Delta T} \right)_{\varepsilon_{ij}} \left[ \left( \frac{\partial \Delta T}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}} d \varepsilon_{ij} + \left( \frac{\partial \Delta T}{\partial \mathcal{S}} \right)_{\varepsilon_{ij}} d \mathcal{S} \right] = \\
+  &amp; = \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} + \beta T_0 \delta_{ij} \right) d \varepsilon_{ij} + 
+   C_{\varepsilon_{ij}} \left[ -\frac{\beta T}{C_{\varepsilon_{ij}}} \delta_{ij} \, d \varepsilon_{ij} + \frac{T}{C_{\varepsilon_{ij}}} \, d \mathcal{S} \right] = \\
+  &amp; = \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{kk} \delta_{ij} - \beta \Delta T \delta_{ij} \right) d \varepsilon_{ij} + T \, d \mathcal{S} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e. we found what we should have expected, i.e.</p>
+<div class="math notranslate nohighlight">
+\[d \mathcal{E} = \sigma_{ij} \, d \varepsilon_{ij} + T \, d\mathcal{S} \ , \]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\sigma_{ij}
+ &amp; = \left( \frac{\partial \mathcal{F}}{\partial \varepsilon_{ij}} \right)_{T}
+   = \left( \frac{\partial \mathcal{E}}{\partial \varepsilon_{ij}} \right)_{\mathcal{S}} \\
+ T &amp; = \left( \frac{\partial \mathcal{E}}{\partial \mathcal{S}} \right)_{\varepsilon_{ij}}\\
+ \mathcal{S} &amp; = - \left( \frac{\partial \mathcal{F}}{\partial T} \right)_{\varepsilon_{ij}}\\
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Isothermal and isentropic elastic coefficients<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Assuming small enough <span class="math notranslate nohighlight">\(\Delta T = T - T_0\)</span> so that linear approximation of the relation between entropy, temperature and strain holds,</p>
+<div class="math notranslate nohighlight">
+\[\Delta \mathcal{S} = \beta \, \varepsilon_{ll} + \frac{C_{\varepsilon_{ij}}}{T_0} \Delta T \ ,\]</div>
+<p class="sd-card-text">it’s possible to write the stress tensor as a function of strain and entropy</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \sigma_{ij} 
+  &amp; = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \Delta T \delta_{ij} = \\
+  &amp; = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij} - \beta \left[ \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} - \frac{T_0}{C_{\varepsilon_{ij}}} \beta \, \varepsilon_{ll}  \right] \delta_{ij} = \\
+  &amp; = 2 \mu \varepsilon_{ij} + \left( \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \right) \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} = \\
+  &amp; = 2 \mu_s \varepsilon_{ij} + \lambda_s \varepsilon_{ll} \delta_{ij} - \beta \frac{T_0}{C_{\varepsilon_{ij}}} \Delta \mathcal{S} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having defined Lamé coefficients in isentropic conditions as functions of the cofficients in isothermal conditions,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lambda_s &amp; = \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} \\
+      \mu_s &amp; = \mu
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Elastic modulus and Poisson ratio.</strong> Starting from the relations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E &amp; = \frac{\mu (2 \mu + 3 \lambda)}{\mu + \lambda} \\
+  \frac{E}{\nu} &amp; = \frac{2 \mu (2 \mu + 3 \lambda)}{\lambda} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[G E + \lambda E = 2 G^2 + 3 G \lambda\]</div>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{G (E - 2 G)}{ 3G - E }\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nu
+  &amp; = \frac{E \lambda}{2G(2G+3 \lambda)} = \\
+  &amp; = \frac{\lambda}{2G(2G+3 \lambda)} \frac{G (2G + 3\lambda)}{G + \lambda} = \\
+  &amp; = \frac{\lambda}{2(G + \lambda)} = \\ 
+  &amp; = \frac{G(E-2G)}{3G - E} \frac{1}{2 \left( G + \frac{G(E-2G)}{3G-E} \right)} = \\
+  &amp; = \frac{G}{2G} \frac{E-2G}{3G - E} \frac{3G - E}{3G - E + E - 2G } = \\
+  &amp; = \frac{1}{2} \frac{E - 2G}{G} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\nu = \frac{E - 2G}{2G} \qquad , \qquad G = \frac{E}{2(1+\nu)}\]</div>
+<!--
+$$\begin{aligned}
+  K   & = \frac{2}{3} \mu + \lambda \\
+  K_s & = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T_0}{C_{\varepsilon_{ij}}}
+\end{aligned}$$
+
+$$\begin{aligned}
+  E_s 
+  & = \frac{G_s (2 G_s + 3 \lambda_s)}{G_s + \lambda_s} = \\
+  & = \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda + A} = \\
+  & = \frac{G+\lambda}{G+\lambda+A} \left[ \frac{G   (2 G   + 3 \left( \lambda + A \right) )}{G + \lambda}  \right] = \\
+\end{aligned}$$
+-->
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Heat capacity, thermal expansion coefficients, compressibility coefficients<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Thermal expansion coefficient</strong> reads</p>
+<div class="math notranslate nohighlight">
+\[\alpha_x := \frac{1}{V} \left( \frac{\partial V}{\partial T}\right)_x\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\dfrac{dV}{V} = d \text{tr}(\symbf{\varepsilon})\)</span> for small displacement and strain regime. At constant strain, <span class="math notranslate nohighlight">\(d \sigma_{ij} = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+  \alpha_{\sigma} = \left( \dfrac{\partial \varepsilon_{ll}}{\partial T} \right)_{\sigma}
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; = \frac{3 \beta}{2 \mu + 3 \lambda} = \\
+  &amp; = 3 \beta \frac{2 G \nu }{E \lambda} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu) \lambda} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3G-E}{G(E-2G)} = \\
+  &amp; = 3 \beta \frac{\nu }{(1+ \nu)} \frac{3-2(1+\nu)}{G\left(2(1+\nu)  -2 \right)} = \\
+  &amp; = 3 \frac{\beta}{2G} \frac{\nu }{(1+ \nu)} \frac{1-2\nu}{\nu} = \\
+  &amp; = 3 \frac{\beta}{E} (1 - 2 \nu)  \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\beta = K \alpha_{\sigma} = \left( \frac{2}{3} \mu +  \lambda \right) \, \alpha_{\sigma} = \frac{E}{3(1-2\nu)} \, \alpha_{\sigma} \]</div>
+<p class="sd-card-text"><strong>Heat capacity.</strong> The heat capacity at constant strain <span class="math notranslate nohighlight">\(C_{\varepsilon_{ij}}\)</span> has been assumed to be constant (or just independent from temperature). Entropy can be written as functions of strain and temperature or - exploiting the relation between traces of tensors - stress and temperature</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathcal{S} - \mathcal{S}_0
+  &amp; = \beta \varepsilon_{ll} + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  &amp; = \beta \left( \frac{1}{2\mu+3\lambda} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+  &amp; = \beta \left( \frac{1}{3 \, K} \sigma_{ll} + \alpha_{\sigma} \Delta T \right) + C_{\varepsilon_{ij}} \ln \left( 1 + \frac{\Delta T}{T_0} \right) \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, constaint strain heat capacity per unit volume reads</p>
+<div class="math notranslate nohighlight">
+\[C_{\varepsilon_{ij}} := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\varepsilon} = C_{\varepsilon_{ij}} \ ,\]</div>
+<p class="sd-card-text">as defined above, whilte constant stress heat capacity per unit volume reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  C_{\sigma_{ij}}
+  &amp; := T \left( \frac{\partial \mathcal{S}}{\partial T} \right)_{\sigma} = \\
+  &amp;  = T \left( \beta \alpha_{\sigma} + C_{\varepsilon_{ij}} \frac{1}{T_0} \frac{1}{1 + \frac{\Delta T}{T_0}} \right) \\
+  &amp;  = T K \alpha^2_{\sigma} + C_{\varepsilon_{ij}} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Compressibility coefficients.</strong> <strong>todo</strong> <em>check: Below, <span class="math notranslate nohighlight">\(T\)</span> or <span class="math notranslate nohighlight">\(T_0\)</span>? It should be a minor change, since we’re assuming small <span class="math notranslate nohighlight">\(\Delta T\)</span> so that linearized constitutive equation holds?</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  K   &amp; = \frac{2}{3} \mu + \lambda \\
+  K_s &amp; = \frac{2}{3} \mu_s + \lambda_s = \frac{2}{3} \mu + \lambda + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{\beta^2 T}{C_{\varepsilon_{ij}}} = K + \frac{K^2 \alpha^2_{\sigma} T}{C_{\varepsilon}}
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  K_s 
+  &amp; = K \left( 1 + \frac{\alpha^2 K T}{C_{\varepsilon}} \right) \\
+ \rightarrow \quad  &amp; \frac{1}{K_s} = \frac{1}{K} \frac{C_{\varepsilon}}{C_{\sigma}} \\
+ \rightarrow \quad  &amp; \frac{1}{K_s} = \frac{1}{K} \frac{C_{\sigma} - \alpha_{\sigma}^2 K T}{C_{\sigma}} \\
+ \rightarrow \quad  &amp; \frac{1}{K_s} = \frac{1}{K} - \frac{\alpha_{\sigma}^2 T}{C_{\sigma}} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Elastic modulus and Poisson ratio.</strong></p>
+<div class="math notranslate nohighlight">
+\[
+ E_s = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+ \qquad , \qquad
+ \nu_s = \frac{\nu + E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}}
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  K 
+  &amp; = \lambda + \frac{2}{3} G = \\
+  &amp; = \frac{GE - 2G^2}{3G-E} + \frac{2}{3} G = \\
+  &amp; = G \frac{3 E - 6 G + 6 G - 2 E}{3(3 G -  E)} = \frac{E G}{3 (3 G - E)}
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[E = \frac{9 G K}{ 3 K + G } = \frac{1}{ \frac{1}{3 G} + \frac{1}{9 K}} \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E_s 
+  &amp; = \frac{1}{ \dfrac{1}{3 G_s} + \dfrac{1}{9 K_s}} = \\
+  &amp; = \frac{1}{\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+  &amp; = \frac{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}}{\left(\dfrac{1}{3 G} + \dfrac{1}{9 K} - \dfrac{\alpha^2_\sigma T}{9 C_\sigma}\right)\left(\dfrac{1}{3 G} + \dfrac{1}{9 K}\right)^{-1}} = \\
+  &amp; = \frac{E}{1 - E \, \dfrac{\alpha^2_\sigma T}{9 C_\sigma}} = \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
+</details><p><span style="color:red">Fix admonition reference</span></p>
+<div class="dropdown admonition" id="isotropic-tensor">
+<p class="admonition-title">Isotropic tensor</p>
+<p>An isotropic tensor is a tensor whose components do not change after a rotation of the vector basis. <strong>todo</strong> <em>Examples,…</em></p>
+</div>
+<div class="dropdown admonition" id="rank-2-iso">
+<p class="admonition-title">Rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensor</p>
+<p>The most general expression of a rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensor is proportional to the rank-<span class="math notranslate nohighlight">\(2\)</span> identity tensor, and can be written in a Cartesina basis using the Kroeneker delta,</p>
+<div class="math notranslate nohighlight">
+\[a \mathbf{I} = a \delta_{ij} \hat{e}_i \otimes \hat{e}_j \ .\]</div>
+<p><strong>todo</strong> <em>Proof</em></p>
+</div>
+<div class="dropdown admonition" id="rank-4-iso">
+<p class="admonition-title">Rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensor</p>
+<p>The most general expression of a rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensor can be written using a Cartesian basis as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{D} = D_{ijkl} \hat{e}_i \otimes \hat{e}_j \otimes \hat{e}_k \otimes \hat{e}_l \ ,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[D_{ijkl} = a \delta_{ij} \delta_{kl} + b \delta_{ik} \delta_{jl} + c \delta_{il}\delta_{jk} \ ,\]</div>
+<p>i.e. depends on three possible combinations of rank-2 identity tensor, with 3 scalar parameters, <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>. In isotropic relation between symmetric tensors, <span class="math notranslate nohighlight">\(A_{ij} = A_{ji}\)</span>, <span class="math notranslate nohighlight">\(B_{kl} = B_{lk}\)</span> only two parameters are enough since</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  A_{ij} 
+  &amp; = D_{ijkl} B_{kl} = \\
+  &amp; = \left( a \delta_{ij} \delta_{kl} + b \delta_{ik} \delta_{jl} + c \delta_{il}\delta_{jk} \right) B_{kl} = \\
+  &amp; = a \delta_{ij} B_{ll} + b B_{ij} + c  B_{ji} =  &amp; (1) \\
+  &amp; = a \delta_{ij} B_{ll} + (b+c) B_{ij} \ ,
+\end{aligned}\end{split}\]</div>
+<p>having used (1) the symmetry of tensor <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, <span class="math notranslate nohighlight">\(B_{ji} = B_{ij}\)</span>.</p>
+<p><strong>References.</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://farside.ph.utexas.edu/teaching/336L/Fluid/node252.html">Fluid Mechanics, R. Fitzpatrick, University of Texas, Austin</a></p></li>
+<li><p>P.G. Hodge, <em>On Isotropic Cartesian Tensors</em>, 1961, The American Mathematical Monthly</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="beam-models">
+<span id="solid-mechanics-intro-small-displacements-statics-beam"></span><h2><span class="section-number">6.3. </span>Beam models<a class="headerlink" href="#beam-models" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="beam-structures">
+<span id="solid-mechanics-intro-small-displacements-statics-beam-structures"></span><h2><span class="section-number">6.4. </span>Beam structures<a class="headerlink" href="#beam-structures" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/solids"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Introduction to Solid Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="small-displacements-waves.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Waves in linear elastic homogeneous isotropic media</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texttt-todo">6.1. \texttt{todo}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-isotropic-elastic-medium">6.2. Linear isotropic elastic medium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constitutive-equation">6.2.1. Constitutive equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-models">6.3. Beam models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-structures">6.4. Beam structures</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
