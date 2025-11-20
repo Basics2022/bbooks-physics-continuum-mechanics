@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Beams &#8212; continuum mechanics</title>
+    <title>Small displacement - Statics - Weak formulation and “Energy” theorems &#8212; continuum mechanics</title>
   
   
   
@@ -64,12 +64,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/beams';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-weak-form';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.1. de Saint Venant beam" href="beams/de-saint-venant.html" />
-    <link rel="prev" title="8. Waves in linear elastic homogeneous isotropic media" href="small-displacements-waves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,38 +186,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../continuum/derived-balances.html">4. Equazioni di bilancio di altre grandezze fisiche</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solid Mechanics</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">7.2. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">7.3. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">8. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">9. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">10. Waves in linear elastic homogeneous isotropic media</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">11. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">11.1. de Saint Venant beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">11.2. Thin-walled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">11.3. Timoshenko beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">11.4. Bernoulli beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">11.5. Aeronautical beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">11.6. Slender beams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">11.7. Problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Beams</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">9.1. de Saint Venant beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">9.2. Thin-walled beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">9.3. Timoshenko beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/bernoulli.html">9.4. Bernoulli beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/aeronautical.html">9.5. Aeronautical beam</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/slender.html">9.6. Slender beams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="beams/problems.html">9.7. Problems</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">10. Modal methods for structural problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">11. Structural damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural-damping.html">13. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">12. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">13. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">14. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">15. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">16. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">17. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">18. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">14. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">15. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">16. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">17. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">18. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">19. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">20. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -291,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/beams.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-physics-continuum-mechanics/issues/new?title=Issue%20on%20page%20%2Fch/solids/small-displacements-weak-form.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/solids/beams.md" target="_blank"
+      <li><a href="../../_sources/ch/solids/small-displacements-weak-form.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beams</h1>
+    <h1>Small displacement - Statics - Weak formulation and “Energy” theorems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -417,17 +412,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="beams">
-<span id="solid-mechanics-small-displacements-beams"></span><h1><span class="section-number">9. </span>Beams<a class="headerlink" href="#beams" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="beams/de-saint-venant.html#solid-mechanics-small-displacements-beams-de-saint-venant"><span class="std std-ref">de Saint Venant</span></a></p></li>
-<li><p><a class="reference internal" href="beams/thin-walled.html#solid-mechanics-small-displacements-beams-thin-walled"><span class="std std-ref">Thin-walled    </span></a></p></li>
-<li><p><a class="reference internal" href="beams/timoshenko.html#solid-mechanics-small-displacements-beams-timoshenko"><span class="std std-ref">Timoshenko     </span></a></p></li>
-<li><p><a class="reference internal" href="beams/bernoulli.html#solid-mechanics-small-displacements-beams-bernoulli"><span class="std std-ref">Bernoulli      </span></a></p></li>
-<li><p><a class="reference internal" href="beams/aeronautical.html#solid-mechanics-small-displacements-beams-aeronautical"><span class="std std-ref">Aeronautical   </span></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems">
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1>Small displacement - Statics - Weak formulation and “Energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
+<p>…</p>
+<!--
+[3-dimensional solid](solid-mechanics:intro:small-displacements-statics-weak-form-3d)
+
+[General beam model](solid-mechanics:intro:small-displacements-statics-beam-weak-form-general)
+
+[Simplified beam models](solid-mechanics:intro:small-displacements-statics-beam-weak-form)
+-->
 </div>
 
     <script type="text/x-thebe-config">
@@ -460,24 +454,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="small-displacements-waves.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Waves in linear elastic homogeneous isotropic media</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="beams/de-saint-venant.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.1. </span>de Saint Venant beam</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
