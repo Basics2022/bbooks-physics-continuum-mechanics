@@ -476,13 +476,13 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \boldsymbol\sigma_z = \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
-  &amp; = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \boldsymbol{\beta} \Delta T = \\ 
-  &amp; = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \boldsymbol{\beta} \Delta T
+  &amp; = \mathbf{D}_1 \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
+  &amp; = \mathbf{D}_1 \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{F} &amp; = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' \\
-  \mathbf{M} &amp; = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta' \ ,
+  \mathbf{F} &amp; = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta'-\mathbf{b}_f \Delta T \\
+  \mathbf{M} &amp; = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'- \mathbf{b}_m \Delta T \ ,
 \end{aligned}\end{split}\]</div>
 <p>with <span class="math notranslate nohighlight">\(\mathbf{K}_{ms} = \mathbf{K}_{f\theta}\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -514,17 +514,20 @@ Null contribution of warping and transverse strain to internal force and moment<
   &amp; = \int_{\ell} \left\{ \mathbf{u} \cdot \left( \mathbf{F}' + \mathbf{f} \right) + \mathbf{v} \cdot \left( \mathbf{M}' + \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} \right) \right\} = \\
   &amp; = - \int_{\ell} \left\{ ( \mathbf{u}' + \hat{\mathbf{z}} \times \mathbf{v} ) \cdot \mathbf{F} + \mathbf{v}' \cdot \mathbf{M} \right\} + \int_{\ell} \left\{  \mathbf{u} \cdot \mathbf{f} + \mathbf{v} \cdot \mathbf{m} \right\} + \left. \left[ \mathbf{u} \cdot \mathbf{F} + \mathbf{v} \cdot \mathbf{M} \right] \right|_{\partial \ell} \ ,
 \end{aligned}\end{split}\]</div>
-<p>having exploited the properties of the mixed vector product. If <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> repsectively represent a displacement and a rotation field <span class="math notranslate nohighlight">\(\mathbf{u} = \widetilde{\mathbf{s}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} = \widetilde{\boldsymbol\theta}\)</span>,</p>
+<p>having exploited the properties of the mixed vector product.</p>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> respectively represent a displacement and a rotation field <span class="math notranslate nohighlight">\(\mathbf{u} = \widetilde{\mathbf{s}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} = \widetilde{\boldsymbol\theta}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   0 
   &amp; = - \int_{\ell} \left\{ ( \widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \widetilde{\boldsymbol{\theta}} ) \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}}' \cdot \mathbf{M} \right\} + \int_{\ell} \left\{  \widetilde{\mathbf{s}} \cdot \mathbf{f} + \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \widetilde{\mathbf{s}} \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell} \\
 \end{aligned}\end{split}\]</div>
-<p>If the constitutive equation is introduced to use the kinematic variables as the independent variables the symmetry of this formulation of the elastic problem naturally arises</p>
+<p>If the constitutive equation is introduced to use the kinematic variables as the independent variables the <strong>symmetry</strong> of this formulation of the elastic problem naturally arises</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   0 
-  &amp; = - \int_{\ell} \left\{ ( \widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \widetilde{\boldsymbol{\theta}} ) \cdot \left[ \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' \right] + \widetilde{\boldsymbol{\theta}}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'  \right] \right\} + \int_{\ell} \left\{  \widetilde{\mathbf{s}} \cdot \mathbf{f} + \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \widetilde{\mathbf{s}} \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell} \\
+  = &amp; - \int_{\ell} ( \widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \widetilde{\boldsymbol{\theta}} ) \cdot \left[ \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' - \mathbf{b}_f \Delta T \right] + \\
+    &amp; - \int_{\ell} \widetilde{\boldsymbol{\theta}}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta' - \mathbf{b}_m \Delta T \right] + \\
+    &amp; + \int_{\ell} \left\{  \widetilde{\mathbf{s}} \cdot \mathbf{f} + \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \widetilde{\mathbf{s}} \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell} \ .
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="weak-formulation-of-congruence-conditions">
@@ -532,12 +535,32 @@ Null contribution of warping and transverse strain to internal force and moment<
 </div>
 <div class="section" id="principle-of-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">9.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
+<p><em>…test functions: variations…the problem can be recast as the principle of stationariety of total potential energy</em></p>
+<p>If test function <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> in the weak form of the equilibrium conditions respectively represent the variation of a congruent displacement and a rotation field <span class="math notranslate nohighlight">\(\mathbf{u} = \delta \widetilde{\mathbf{s}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} = \delta \widetilde{\boldsymbol\theta}\)</span>, with <span class="math notranslate nohighlight">\(\delta \widetilde{\mathbf{s}}|_{S_D} = \mathbf{0}\)</span> and <span class="math notranslate nohighlight">\(\delta \widetilde{\boldsymbol\theta}|_{S_D} = \mathbf{0}\)</span> (<strong>these relations may hold just for the constrained components</strong>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = - \int_{\ell} \left\{ ( \delta\widetilde{\mathbf{s}}' + \hat{\mathbf{z}} \times \delta\widetilde{\boldsymbol{\theta}} ) \cdot \mathbf{F} + \widetilde{\boldsymbol{\theta}}' \cdot \mathbf{M} \right\} + \int_{\ell} \left\{ \delta \widetilde{\mathbf{s}} \cdot \mathbf{f} + \delta \widetilde{\boldsymbol\theta} \cdot \mathbf{m} \right\} + \left. \left[ \delta \widetilde{\mathbf{s}} \cdot \mathbf{F} + \delta \widetilde{\boldsymbol{\theta}} \cdot \mathbf{M} \right] \right|_{\partial \ell / S_D} \\
+\end{aligned}\end{split}\]</div>
+<p><em>It looks like that this relation doesn’t add too much info beyond the weak form of the problem! Is that true?</em> <strong>Spaces of test and basis functions and the prescription of essential boundary conditions need some words!</strong></p>
+<p>If the constitutive equation is introduced to use the kinematic variables as the independent variables the symmetry of this formulation of the elastic problem naturally arises, as already shown in the weak form of the equilibrium equations.</p>
 </div>
 <div class="section" id="principle-of-complementary-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pcvw"></span><h3><span class="section-number">9.2.4. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">9.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>Principle of virtual work can be recast as a principle of stationariety of total potential energy, being <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol\theta} = \boldsymbol\theta\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  = &amp; - \int_{\ell} ( \delta \mathbf{s}' + \hat{\mathbf{z}} \times \delta \boldsymbol{\theta} ) \cdot \left[ \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta' - \mathbf{b}_f \Delta T \right] + \\
+    &amp; - \int_{\ell} \delta \boldsymbol{\theta}' \cdot \left[ \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \right) + \mathbf{K}_{m\theta} \boldsymbol{\theta}' - \mathbf{b}_m \Delta T \right] + \\
+    &amp; + \int_{\ell} \left\{ \delta \mathbf{s} \cdot \mathbf{f} + \delta \boldsymbol{\theta} \cdot \mathbf{m} \right\} + \left. \left[ \delta \mathbf{s} \cdot \mathbf{F} + \delta \boldsymbol{\theta} \cdot \mathbf{M} \right] \right|_{\partial \ell / \partial S_D} = \\ 
+  = &amp; \delta \left\{ - \dfrac{1}{2} \int_{\ell} \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}'  \end{bmatrix} \cdot \begin{bmatrix} \mathbf{K}_{fs} &amp; \mathbf{K}_{f\theta} \\ \mathbf{K}_{ms} &amp; \mathbf{K}_{m \theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol{\theta} \\ \boldsymbol{\theta}' \end{bmatrix} \, d \ell - \dfrac{1}{2} \left.\begin{bmatrix} \mathbf{s} \\ \boldsymbol{\theta} \end{bmatrix} \cdot \mathbf{K}_{R} \cdot \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix}\right|_{S_R} \right. + \\
+   &amp; + \left. \int_{\ell} \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{f} \\ \mathbf{m} \end{bmatrix} \, d \ell + \left. \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \cdot \begin{bmatrix} \mathbf{F} \\ \mathbf{F} \end{bmatrix} \right|_{S_N}  \right\} \ ,
+\end{aligned}\end{split}\]</div>
+<p>with some notation abuse, and prescribed temperature <span class="math notranslate nohighlight">\(\Delta T\)</span>, s.t. <span class="math notranslate nohighlight">\(\delta \Delta T = 0\)</span>, and loads.</p>
 </div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">9.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
