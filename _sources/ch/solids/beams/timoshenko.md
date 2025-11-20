@@ -24,8 +24,9 @@ $$\begin{aligned}
    \varepsilon_{yy} & = s^{\nu+w}_{Py/y} \\
  2 \varepsilon_{zx} & = s'_{Px} - \theta_y - y \theta'_z + s^{\nu+w}_{x/z} + s^{\nu+w}_{z/x} \\
  2 \varepsilon_{zy} & = s'_{Py} + \theta_x + x \theta'_z + s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
- 2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
+ 2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \ .
 \end{aligned}$$
+
 
 **Stress.** ...todo... usually stiffness matrix is defined providing axial, bending, shear and torsion stiffness, and cross-coupling terms. Here, using a simplified (or modified, so that no contribution of $\varepsilon_{xx}$, $\varepsilon_{yy}$ exists) version of the constitutive law for **elastic isotropic media**,
 
