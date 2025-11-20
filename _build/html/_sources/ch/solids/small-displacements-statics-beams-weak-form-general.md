@@ -46,17 +46,82 @@ $$\begin{aligned}
 
 $$\begin{aligned}
   \boldsymbol\sigma_z := \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
-  & = \mathbf{D}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{D}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
-  & = \mathbf{D}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
-  & = \mathbf{D}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
+  & = \mathbf{C}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{C}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
+  & = \mathbf{C}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{C}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
+  & = \mathbf{C}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
 \end{aligned}$$
+
+Neglecting (*or evaluating and finding that their contribution is zero*) the contribution of $\boldsymbol{\varepsilon}_2$,
 
 $$\begin{aligned}
-  \mathbf{F} & = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta'-\mathbf{b}_f \Delta T \\
-  \mathbf{M} & = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'- \mathbf{b}_m \Delta T \ ,
+  \mathbf{F}
+  & = \int_{A} \left\{ \mathbf{C}_1 \boldsymbol\varepsilon_z - \mathbf{b} \Delta T \right\} = \\
+  & = \int_{A} \mathbf{C}_1 ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) - \int_A \mathbf{C}_1 \mathbf{r}_{\times} \boldsymbol\theta' - \int_A \mathbf{b} \Delta T = \\
+  & = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta'-\mathbf{b}_f \Delta T \\
+  \mathbf{M}
+  & = \int_{A} \mathbf{r}_{\times} \left\{ \mathbf{C}_1 \boldsymbol\varepsilon_z - \mathbf{b} \Delta T \right\} = \\
+  & = \int_{A} \mathbf{r}_{\times} \mathbf{C}_1 ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) - \int_A \mathbf{r}_{\times} \mathbf{C}_1 \mathbf{r}_{\times} \boldsymbol\theta' - \int_A \mathbf{r}_{\times} \mathbf{b} \Delta T = \\
+  & = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'- \mathbf{b}_m \Delta T \ ,
 \end{aligned}$$
 
-with $\mathbf{K}_{ms} = \mathbf{K}_{f\theta}$.
+with $\mathbf{K}_{ms} = \mathbf{K}_{f\theta}$, as $\mathbf{C}_1 = \mathbf{C}_1^T$ and $\mathbf{r}_{\times} = - \mathbf{r}_{\times}^{\ T}$.
+
+$$\begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} = \begin{bmatrix} \mathbf{K}_{11} & \mathbf{K}_{12} \\ \mathbf{K}_{21} & \mathbf{K}_{22}  \end{bmatrix} \begin{bmatrix} \mathbf{s}'+\hat{\mathbf{z}} \times \boldsymbol\theta \\ \boldsymbol\theta' \end{bmatrix} - \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix} \Delta T$$
+
+$$\begin{bmatrix} \mathbf{s}'+\hat{\mathbf{z}} \times \boldsymbol\theta \\ \boldsymbol\theta' \end{bmatrix} = \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{a}_1 \\ \mathbf{a}_2 \end{bmatrix} \Delta T \ ,$$
+
+with
+
+$$\mathbf{I} = \mathbf{K} \mathbf{S} = \mathbf{S} \mathbf{K} \quad , \quad \mathbf{a} = \mathbf{S} \mathbf{b}$$
+
+$$
+  \begin{bmatrix} \mathbf{I}      & \mathbf{0}      \\ \mathbf{0}      & \mathbf{I}      \end{bmatrix} 
+= \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix}
+  \begin{bmatrix} \mathbf{K}_{11} & \mathbf{K}_{12} \\ \mathbf{K}_{21} & \mathbf{K}_{22} \end{bmatrix}
+= \begin{bmatrix} \mathbf{S}_{11}\mathbf{K}_{11} + \mathbf{S}_{12} \mathbf{K}_{21} &
+                  \mathbf{S}_{11}\mathbf{K}_{12} + \mathbf{S}_{12} \mathbf{K}_{22} \\
+                  \mathbf{S}_{21}\mathbf{K}_{11} + \mathbf{S}_{22} \mathbf{K}_{21} &
+                  \mathbf{S}_{21}\mathbf{K}_{12} + \mathbf{S}_{22} \mathbf{K}_{22} \end{bmatrix}
+$$
+
+Thus, stress as a function of internal actions reads
+
+$$\begin{aligned}
+  \boldsymbol\sigma_z
+  & = \mathbf{C}_1 \begin{bmatrix} \mathbf{I} & - \mathbf{r}_{\times} \end{bmatrix} \begin{bmatrix} ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) \\ \boldsymbol\theta' \end{bmatrix} - \mathbf{b} \Delta T = \\
+  & = \mathbf{C}_1 \begin{bmatrix} \mathbf{I} & - \mathbf{r}_{\times} \end{bmatrix} \left( \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{a}_1 \\ \mathbf{a}_2 \end{bmatrix} \Delta T \right) - \mathbf{b} \Delta T  \ .
+\end{aligned}$$
+
+Evaluation of the term $\int_{V} \widetilde{\boldsymbol\sigma}_z^T \boldsymbol\varepsilon_z$, with $\widetilde{\Delta T} = 0$
+
+$$\begin{aligned}
+  \int_V \widetilde{\boldsymbol\sigma}_z^T \boldsymbol\varepsilon_z 
+  & = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T & \widetilde{\mathbf{M}}^T \end{bmatrix} \mathbf{S} \int_{A} \begin{bmatrix} \mathbf{I} \\ \mathbf{r}_{\times} \end{bmatrix} \mathbf{C}_1 \begin{bmatrix} \mathbf{I} & - \mathbf{r}_{\times} \end{bmatrix} \, dA \, \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+  & = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T & \widetilde{\mathbf{M}}^T \end{bmatrix} \underbrace{\mathbf{S} \mathbf{K}}_{= \mathbf{I}}  \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+  & = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T & \widetilde{\mathbf{M}}^T \end{bmatrix} \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+\end{aligned}$$
+
+For an elastic isotropic medium with structural decoupling,
+
+$$\mathbf{S} = \begin{bmatrix}
+ \frac{\chi_x}{GA} & \cdot             & \cdot         & \cdot          & \cdot          & \cdot          \\
+ \cdot             & \frac{\chi_y}{GA} & \cdot         & \cdot          & \cdot          & \cdot          \\
+ \cdot             & \cdot             & \frac{1}{EA}  & \cdot          & \cdot          & \cdot          \\
+ \cdot             & \cdot             & \cdot         & \frac{1}{EJ_x} & \cdot          & \cdot          \\
+ \cdot             & \cdot             & \cdot         & \cdot          & \frac{1}{EJ_y} & \cdot          \\
+ \cdot             & \cdot             & \cdot         & \cdot          & \cdot          & \frac{1}{GJ_z} \\
+\end{bmatrix} \ ,$$
+
+s.t.
+
+$$\begin{aligned}
+  s'_x - \theta_y & = \frac{\chi_x}{GA  } F_x  \\
+  s'_y + \theta_x & = \frac{\chi_y}{GA  } F_y  \\
+  s'_z            & = \frac{1     }{EA  } F_z  \\
+  \theta'_x       & = \frac{1     }{EJ_x} M_x  \\
+  \theta'_y       & = \frac{1     }{EJ_y} M_y  \\
+  \theta'_z       & = \frac{1     }{GJ_z} M_z  \\
+\end{aligned}$$
 
 ```{dropdown} Null contribution of warping and transverse strain to internal force and moment
 
@@ -143,7 +208,9 @@ $$\begin{aligned}
 
 **todo** *discuss useful choices of boundary conditions (along with no distributed loads to set the second integral identically zero), e.g. for the evaluation of hyperstatics*
 
-**todo** *evaluate the first integral in terms of internal actions.*
+**todo** *evaluate the first integral in terms of internal actions. See above*
+
+$$\int_V \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}} \\ \widetilde{\mathbf{M}} \end{bmatrix}^T \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right)$$
 
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:pvw)=
 ### Principle of virtual work
@@ -175,17 +242,11 @@ and $\left.\delta \widetilde{\mathbf{F}}\right|_{S_D} = \mathbf{0}$, $\left.\del
 
 $$\begin{aligned}
   0 
-  & = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_D}  \ .
+  & = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_N}  = \\
+  & = \int_V \begin{bmatrix} \delta \widetilde{\mathbf{F}} \\ \delta \widetilde{\mathbf{M}} \end{bmatrix}^T \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_N}  = \\
 \end{aligned}$$
 
-```{dropdown} Evaluation of volume work
-:open:
 
-Inserting the expression of the strain as a function of stress and temperature difference, $\boldsymbol\varepsilon_z \simeq \mathbf{C}_1 \cdot \boldsymbol\sigma_z + \mathbf{a} \Delta T$ (**todo** *discuss the role and the - null by definition? - contributions of warping and transverse strain)
-
-...
-
-```
 
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:stationariety-potential)=
 ### Principle of stationariety of total potential energy
@@ -205,4 +266,14 @@ with some notation abuse, and prescribed temperature $\Delta T$, s.t. $\delta \D
 
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:stationariety-potential-complementary)=
 ### Principle of stationariety of total complementary potential energy
+
+If test functions of the congruence conditions are internal actions of an equilibrated and congruent solution (and thus the only solution of the elastic problem, if well-posed), and thus $\delta \widetilde{\mathbf{F}} = \delta \mathbf{F}$ and $\delta \widetilde{\mathbf{M}} = \delta \mathbf{M}$, the principle of complementary virtual work can be recast as the principle of stationariety of the total complementary potential energy, for given $\mathbf{s}_P$, $\boldsymbol\theta$ on $S_N$,
+
+$$\begin{aligned}
+  0 
+  & = \delta \left\{ \int_{\ell} \left( \dfrac{1}{2} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{a} \Delta T \right) \, d \ell - \left. \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \right|_{S_N} + \left.\dfrac{1}{2} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{S}_R \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}\right|_{S_R} \right\} = \\
+  & = \delta \Pi^* \ ,
+\end{aligned}$$
+
+if the b.c. on Robin boundaries reads...
 

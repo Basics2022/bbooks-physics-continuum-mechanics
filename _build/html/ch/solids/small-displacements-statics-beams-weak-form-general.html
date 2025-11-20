@@ -479,16 +479,75 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \boldsymbol\sigma_z := \begin{bmatrix} \sigma_{zx} \\ \sigma_{zy} \\ \sigma_{zz} \end{bmatrix} 
-  &amp; = \mathbf{D}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{D}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
-  &amp; = \mathbf{D}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{D}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
-  &amp; = \mathbf{D}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
+  &amp; = \mathbf{C}_1 \cdot \boldsymbol{\varepsilon}_z + \mathbf{C}_2 \cdot \boldsymbol{\varepsilon}_2 - \mathbf{b} \Delta T = \\
+  &amp; = \mathbf{C}_1 \cdot \begin{bmatrix} \gamma_{zx} \\ \gamma_{zy} \\ \varepsilon_{zz} \end{bmatrix} + \mathbf{C}_2 \cdot  \begin{bmatrix}  \gamma_{xy} \\ \varepsilon_{xx} \\ \varepsilon_{yy} \end{bmatrix} - \mathbf{b} \Delta T = \\ 
+  &amp; = \mathbf{C}_1 \cdot \left( \mathbf{s}'_{P} - \mathbf{r}_P \times \boldsymbol\theta' + \hat{\mathbf{z}} \times \boldsymbol\theta + \mathbf{v}_1(w_{i/j}) \right) + \mathbf{D}_2 \cdot \mathbf{v}_2(w_{i/j}) - \mathbf{b} \Delta T
 \end{aligned}\end{split}\]</div>
+<p>Neglecting (<em>or evaluating and finding that their contribution is zero</em>) the contribution of <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_2\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{F} &amp; = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta'-\mathbf{b}_f \Delta T \\
-  \mathbf{M} &amp; = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'- \mathbf{b}_m \Delta T \ ,
+  \mathbf{F}
+  &amp; = \int_{A} \left\{ \mathbf{C}_1 \boldsymbol\varepsilon_z - \mathbf{b} \Delta T \right\} = \\
+  &amp; = \int_{A} \mathbf{C}_1 ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) - \int_A \mathbf{C}_1 \mathbf{r}_{\times} \boldsymbol\theta' - \int_A \mathbf{b} \Delta T = \\
+  &amp; = \mathbf{K}_{fs} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{f\theta} \boldsymbol\theta'-\mathbf{b}_f \Delta T \\
+  \mathbf{M}
+  &amp; = \int_{A} \mathbf{r}_{\times} \left\{ \mathbf{C}_1 \boldsymbol\varepsilon_z - \mathbf{b} \Delta T \right\} = \\
+  &amp; = \int_{A} \mathbf{r}_{\times} \mathbf{C}_1 ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) - \int_A \mathbf{r}_{\times} \mathbf{C}_1 \mathbf{r}_{\times} \boldsymbol\theta' - \int_A \mathbf{r}_{\times} \mathbf{b} \Delta T = \\
+  &amp; = \mathbf{K}_{ms} \left( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta \right) + \mathbf{K}_{m\theta} \boldsymbol\theta'- \mathbf{b}_m \Delta T \ ,
 \end{aligned}\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{K}_{ms} = \mathbf{K}_{f\theta}\)</span>.</p>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{K}_{ms} = \mathbf{K}_{f\theta}\)</span>, as <span class="math notranslate nohighlight">\(\mathbf{C}_1 = \mathbf{C}_1^T\)</span> and <span class="math notranslate nohighlight">\(\mathbf{r}_{\times} = - \mathbf{r}_{\times}^{\ T}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} = \begin{bmatrix} \mathbf{K}_{11} &amp; \mathbf{K}_{12} \\ \mathbf{K}_{21} &amp; \mathbf{K}_{22}  \end{bmatrix} \begin{bmatrix} \mathbf{s}'+\hat{\mathbf{z}} \times \boldsymbol\theta \\ \boldsymbol\theta' \end{bmatrix} - \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix} \Delta T\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{s}'+\hat{\mathbf{z}} \times \boldsymbol\theta \\ \boldsymbol\theta' \end{bmatrix} = \begin{bmatrix} \mathbf{S}_{11} &amp; \mathbf{S}_{12} \\ \mathbf{S}_{21} &amp; \mathbf{S}_{22} \end{bmatrix} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{a}_1 \\ \mathbf{a}_2 \end{bmatrix} \Delta T \ ,\end{split}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{I} = \mathbf{K} \mathbf{S} = \mathbf{S} \mathbf{K} \quad , \quad \mathbf{a} = \mathbf{S} \mathbf{b}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{bmatrix} \mathbf{I}      &amp; \mathbf{0}      \\ \mathbf{0}      &amp; \mathbf{I}      \end{bmatrix} 
+= \begin{bmatrix} \mathbf{S}_{11} &amp; \mathbf{S}_{12} \\ \mathbf{S}_{21} &amp; \mathbf{S}_{22} \end{bmatrix}
+  \begin{bmatrix} \mathbf{K}_{11} &amp; \mathbf{K}_{12} \\ \mathbf{K}_{21} &amp; \mathbf{K}_{22} \end{bmatrix}
+= \begin{bmatrix} \mathbf{S}_{11}\mathbf{K}_{11} + \mathbf{S}_{12} \mathbf{K}_{21} &amp;
+                  \mathbf{S}_{11}\mathbf{K}_{12} + \mathbf{S}_{12} \mathbf{K}_{22} \\
+                  \mathbf{S}_{21}\mathbf{K}_{11} + \mathbf{S}_{22} \mathbf{K}_{21} &amp;
+                  \mathbf{S}_{21}\mathbf{K}_{12} + \mathbf{S}_{22} \mathbf{K}_{22} \end{bmatrix}
+\end{split}\]</div>
+<p>Thus, stress as a function of internal actions reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \boldsymbol\sigma_z
+  &amp; = \mathbf{C}_1 \begin{bmatrix} \mathbf{I} &amp; - \mathbf{r}_{\times} \end{bmatrix} \begin{bmatrix} ( \mathbf{s}'_P + \hat{\mathbf{z}} \times \boldsymbol\theta ) \\ \boldsymbol\theta' \end{bmatrix} - \mathbf{b} \Delta T = \\
+  &amp; = \mathbf{C}_1 \begin{bmatrix} \mathbf{I} &amp; - \mathbf{r}_{\times} \end{bmatrix} \left( \begin{bmatrix} \mathbf{S}_{11} &amp; \mathbf{S}_{12} \\ \mathbf{S}_{21} &amp; \mathbf{S}_{22} \end{bmatrix} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{a}_1 \\ \mathbf{a}_2 \end{bmatrix} \Delta T \right) - \mathbf{b} \Delta T  \ .
+\end{aligned}\end{split}\]</div>
+<p>Evaluation of the term <span class="math notranslate nohighlight">\(\int_{V} \widetilde{\boldsymbol\sigma}_z^T \boldsymbol\varepsilon_z\)</span>, with <span class="math notranslate nohighlight">\(\widetilde{\Delta T} = 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_V \widetilde{\boldsymbol\sigma}_z^T \boldsymbol\varepsilon_z 
+  &amp; = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T &amp; \widetilde{\mathbf{M}}^T \end{bmatrix} \mathbf{S} \int_{A} \begin{bmatrix} \mathbf{I} \\ \mathbf{r}_{\times} \end{bmatrix} \mathbf{C}_1 \begin{bmatrix} \mathbf{I} &amp; - \mathbf{r}_{\times} \end{bmatrix} \, dA \, \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+  &amp; = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T &amp; \widetilde{\mathbf{M}}^T \end{bmatrix} \underbrace{\mathbf{S} \mathbf{K}}_{= \mathbf{I}}  \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+  &amp; = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}}^T &amp; \widetilde{\mathbf{M}}^T \end{bmatrix} \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) \, d \ell = \\
+\end{aligned}\end{split}\]</div>
+<p>For an elastic isotropic medium with structural decoupling,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{S} = \begin{bmatrix}
+ \frac{\chi_x}{GA} &amp; \cdot             &amp; \cdot         &amp; \cdot          &amp; \cdot          &amp; \cdot          \\
+ \cdot             &amp; \frac{\chi_y}{GA} &amp; \cdot         &amp; \cdot          &amp; \cdot          &amp; \cdot          \\
+ \cdot             &amp; \cdot             &amp; \frac{1}{EA}  &amp; \cdot          &amp; \cdot          &amp; \cdot          \\
+ \cdot             &amp; \cdot             &amp; \cdot         &amp; \frac{1}{EJ_x} &amp; \cdot          &amp; \cdot          \\
+ \cdot             &amp; \cdot             &amp; \cdot         &amp; \cdot          &amp; \frac{1}{EJ_y} &amp; \cdot          \\
+ \cdot             &amp; \cdot             &amp; \cdot         &amp; \cdot          &amp; \cdot          &amp; \frac{1}{GJ_z} \\
+\end{bmatrix} \ ,\end{split}\]</div>
+<p>s.t.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s'_x - \theta_y &amp; = \frac{\chi_x}{GA  } F_x  \\
+  s'_y + \theta_x &amp; = \frac{\chi_y}{GA  } F_y  \\
+  s'_z            &amp; = \frac{1     }{EA  } F_z  \\
+  \theta'_x       &amp; = \frac{1     }{EJ_x} M_x  \\
+  \theta'_y       &amp; = \frac{1     }{EJ_y} M_y  \\
+  \theta'_z       &amp; = \frac{1     }{GJ_z} M_z  \\
+\end{aligned}\end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Null contribution of warping and transverse strain to internal force and moment<div class="sd-summary-down docutils">
@@ -564,7 +623,9 @@ Null contribution of warping and transverse strain to internal force and moment<
   &amp; = \dots
 \end{aligned}\end{split}\]</div>
 <p><strong>todo</strong> <em>discuss useful choices of boundary conditions (along with no distributed loads to set the second integral identically zero), e.g. for the evaluation of hyperstatics</em></p>
-<p><strong>todo</strong> <em>evaluate the first integral in terms of internal actions.</em></p>
+<p><strong>todo</strong> <em>evaluate the first integral in terms of internal actions. See above</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\int_V \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z = \int_{\ell} \begin{bmatrix} \widetilde{\mathbf{F}} \\ \widetilde{\mathbf{M}} \end{bmatrix}^T \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right)\end{split}\]</div>
 </div>
 <div class="section" id="principle-of-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">7.2.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
@@ -588,21 +649,12 @@ Null contribution of warping and transverse strain to internal force and moment<
 \end{aligned}\end{split}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\left.\delta \widetilde{\mathbf{F}}\right|_{S_D} = \mathbf{0}\)</span>, <span class="math notranslate nohighlight">\(\left.\delta \widetilde{\mathbf{M}}\right|_{S_D} = \mathbf{0}\)</span>, where essential boundary conditions are prescribed (some constraints prescribe only some components),</p>
 <div class="math notranslate nohighlight">
-\[\begin{aligned}
+\[\begin{split}\begin{aligned}
   0 
-  &amp; = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_D}  \ .
-\end{aligned}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Evaluation of volume work<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Inserting the expression of the strain as a function of stress and temperature difference, <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon_z \simeq \mathbf{C}_1 \cdot \boldsymbol\sigma_z + \mathbf{a} \Delta T\)</span> (<strong>todo</strong> *discuss the role and the - null by definition? - contributions of warping and transverse strain)</p>
-<p class="sd-card-text">…</p>
+  &amp; = \int_{V} \delta \widetilde{\boldsymbol{\sigma}}_z \cdot \boldsymbol\varepsilon_z - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_N}  = \\
+  &amp; = \int_V \begin{bmatrix} \delta \widetilde{\mathbf{F}} \\ \delta \widetilde{\mathbf{M}} \end{bmatrix}^T \left( \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \mathbf{a} \Delta T \right) - \left[ \widetilde{\delta \mathbf{F}} \cdot \mathbf{s}_P + \delta \widetilde{\mathbf{M}} \cdot \boldsymbol\theta \right]_{\partial \ell / S_N}  = \\
+\end{aligned}\end{split}\]</div>
 </div>
-</details></div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">7.2.2.5. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
 <p>Principle of virtual work can be recast as a principle of stationariety of total potential energy, being <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol\theta} = \boldsymbol\theta\)</span>,</p>
@@ -619,6 +671,14 @@ Evaluation of volume work<div class="sd-summary-down docutils">
 </div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">7.2.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<p>If test functions of the congruence conditions are internal actions of an equilibrated and congruent solution (and thus the only solution of the elastic problem, if well-posed), and thus <span class="math notranslate nohighlight">\(\delta \widetilde{\mathbf{F}} = \delta \mathbf{F}\)</span> and <span class="math notranslate nohighlight">\(\delta \widetilde{\mathbf{M}} = \delta \mathbf{M}\)</span>, the principle of complementary virtual work can be recast as the principle of stationariety of the total complementary potential energy, for given <span class="math notranslate nohighlight">\(\mathbf{s}_P\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \delta \left\{ \int_{\ell} \left( \dfrac{1}{2} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{S} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix} + \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{a} \Delta T \right) \, d \ell - \left. \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \begin{bmatrix} \mathbf{s}_P \\ \boldsymbol{\theta} \end{bmatrix} \right|_{S_N} + \left.\dfrac{1}{2} \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}^T \mathbf{S}_R \begin{bmatrix} \mathbf{F} \\ \mathbf{M} \end{bmatrix}\right|_{S_R} \right\} = \\
+  &amp; = \delta \Pi^* \ ,
+\end{aligned}\end{split}\]</div>
+<p>if the b.c. on Robin boundaries reads…</p>
 </div>
 </div>
 </div>
