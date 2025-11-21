@@ -1,5 +1,5 @@
 (solid-mechanics:intro:small-displacements-statics-weak-form-3d)=
-# Small displacement - Statics - Weak formulation and "Energy" theorems for 3-dimensional solid
+# 3-dimensional solid
 
 Starting from strong form of equilibrium equations, inner compatibility and congruence with essential boundary conditions, it's possible to:
 - derive a weak formulation of the problem
@@ -229,8 +229,11 @@ Among all the congruent solutions, the equilibrated solution (and thus the uniqu
 
 ## Classical theorems
 
+*Uncomment (and move to beam structures?)*
+
 ### Maxwell-Betti
 
+<!--
 Let $1$ and $2$ label two sets of loads acting on a structure. Now, using displacement $s^2$ as the test function in the weak formulation of equilibrium conditions for $1$, and displacement $s^1$ for equilibrium conditions for $2$
 
 $$\begin{aligned}
@@ -266,6 +269,7 @@ $$
    with $\mathbf{s}^l_m = \mathbf{s}^l(\mathbf{r}_m)$. Moreover, if only one load exists
 
    $$\mathbf{F}^1_a \cdot \mathbf{s}^2(\mathbf{r}_a) = \mathbf{F}^2_b \cdot \mathbf{s}^1(\mathbf{r}_b) \ .$$
+-->
 
 ### Menabrea-Castigliano
 

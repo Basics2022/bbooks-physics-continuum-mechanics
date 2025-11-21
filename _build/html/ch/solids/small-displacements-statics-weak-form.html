@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Small displacement - Statics - Weak formulation and “Energy” theorems &#8212; continuum mechanics</title>
+    <title>7. Small displacement - Statics - Weak formulation and “energy” theorems &#8212; continuum mechanics</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid" href="small-displacements-statics-weak-form-3d.html" />
+    <link rel="next" title="7.1. 3-dimensional solid" href="small-displacements-statics-weak-form-3d.html" />
     <link rel="prev" title="6. Small displacement - statics" href="small-displacements-statics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -191,10 +191,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">7.2. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">7.3. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Small displacement - Statics - Weak formulation and “energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7.1. 3-dimensional solid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">7.2. General elastic beam structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">7.3. Isotropic elastic beam structures</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
@@ -403,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Small displacement - Statics - Weak formulation and “Energy” theorems</h1>
+    <h1>Small displacement - Statics - Weak formulation and “energy” theorems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,10 +418,24 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems">
-<span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “Energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
-<p><a class="reference internal" href="small-displacements-statics-weak-form-3d.html#solid-mechanics-intro-small-displacements-statics-weak-form-3d"><span class="std std-ref">3-dimensional solid</span></a></p>
-<p><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"><span class="std std-ref">General beam model</span></a></p>
-<p><a class="reference internal" href="small-displacements-statics-beams-weak-form.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form"><span class="std std-ref">Simplified beam models</span></a></p>
+<span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
+<p>This section presents different weak formulations of the elastic problem, for different models of elastic structures</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="small-displacements-statics-weak-form-3d.html#solid-mechanics-intro-small-displacements-statics-weak-form-3d"><span class="std std-ref">3-dimensional solid</span></a></p></li>
+<li><p><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"><span class="std std-ref">General beam model</span></a></p></li>
+<li><p><a class="reference internal" href="small-displacements-statics-beams-weak-form.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form"><span class="std std-ref">Simplified beam models</span></a></p></li>
+</ul>
+<p>The results shown here can be classified into two different approaches:</p>
+<ul class="simple">
+<li><p><strong>displacement approach</strong>: weak form of the equilibrium equations, principle of virtual work, and stationariety of the total potential energy</p></li>
+<li><p><strong>force approach</strong>: weak form of the congruence conditionss, principle of complementary virtual work, and stationariety of the total complementary potential energy.</p></li>
+</ul>
+<p>Some <a class="reference internal" href="beams/problems.html#solid-mechanics-small-displacements-beams-problems"><span class="std std-ref">problems about beam structures</span></a> can be conveniently approached with the contents of this  section.</p>
+<!-- :class: tip dropdown -->
+<div class="tip dropdown admonition">
+<p class="admonition-title">Reading guidance</p>
+<p>There is no mandatory or recommended order for addressing these paragraphs. The treatment of the <strong>elastic solid</strong> requires some familiarity with <em>tensors</em>. Beam models can be treated as simplified models of the 3-dimensional solid, under assumptions on stress (or strain) fields. The formulation of the <strong>general elastic beam</strong> introduces a vector-based framework applicable to any elastic beam: it may appear obscure or cryptic at first, but it offers a level of generality that greatly simplifies the <em>numerical implementation</em> of arbitrary beam models. The <strong>structurally decoupled elastic beam</strong> is a very specific case of this general treatment, yet it enables the construction of <em>simple models</em> suitable for solving structural problems by hand, using only paper, pencil, and manageable amounts of algebra. Simple models become even simpler for <a class="reference internal" href="beams/slender.html#solid-mechanics-small-displacements-beams-slender"><span class="std std-ref">slender beams</span></a> with Bernoulli’s kinematic assumption - i.e. if displacement due to axial and shear actions are negligible if compared with bending. This approach helps internalize the core principles by allowing practice on simpler problems without unnecessary algebraic complexity — after all, computers exist for the heavy calculations.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -470,7 +484,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</p>
+        <p class="prev-next-title"><span class="section-number">7.1. </span>3-dimensional solid</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

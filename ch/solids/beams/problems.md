@@ -11,7 +11,7 @@
 :::{grid-item-card} Problem 1.
 :columns: 6
 
-Solve the structure and evaluate the displacement in B.
+Solve the structure and evaluate the displacement in B, using [slender beam model](solid-mechanics:small-displacements:beams:slender).
 
 :::
 
@@ -25,18 +25,16 @@ Solve the structure and evaluate the displacement in B.
 ::::
 
 ```{dropdown} Solution.
-:open:
 
-**Method 1. Elastic line.**
+**Method 1 - Elastic line.** Using slender beam model, the second derivative of the transverse displacement reads
 
-$$w''(z) = w^{mech \ ''} + w^{th \, ''} = \frac{M(z)}{EJ} + \dfrac{\alpha \, \Delta T}{h}$$
+$$w''(z) = w^{mech \ ''} + w^{th \, ''} = \frac{M(z)}{EJ} + \dfrac{\alpha \, \Delta T}{h} \ .$$
 
 From equilibrium, bending internal action as a function of coordinate $z$, from $A: \, z = 0$ to $B: \, z = b$ reads
 
-$$M(z) = - \dfrac{q b^2}{2} + q b z - \dfrac{q z^2}{2} = - \dfrac{q \widetilde{z}^2}{2} \ ,$$
+$$M(z) = - \dfrac{q b^2}{2} + q b z - \dfrac{q z^2}{2} = - \dfrac{q x^2}{2} \ ,$$
 
-with $\widetilde{z} = b - z$ the coordinates pointing from $B$ to $A$.
-
+with $x = b - z$ the coordinates pointing from $B$ to $A$.
 Integrating twice with boundary conditions at clamp $w(z=0)$, $w'(z) = 0$
 
 $$\begin{aligned}
@@ -48,9 +46,24 @@ The displacement in B reads
 
 $$w_B = w(z=b) = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{2} \dfrac{\alpha \, \Delta T b^2}{h} \ . $$
 
-**Method 2.**
+**Method 2 - PCVW.** Using the weak fomr of congruence conditions,
 
-...
+$$0 = \int_{z=0}^{b} \widetilde{M}(z) \left( \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz - \widetilde{F} w_B \ , $$
+
+with *virtual load* $\widetilde{F} = 1$ s.t. $\widetilde{M}(z) = 1 - z$, or $\widetilde{M}(x) = x$, the equation becomes
+
+$$\begin{aligned}
+  0
+  & = \int_{x=0}^{b} x \left( -\dfrac{q x^2}{2 EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dx - 1 \cdot w_B = \\
+  & = - \dfrac{q b^4}{8 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} - w_B \ ,
+\end{aligned}$$
+
+and thus the result (the same as the one computed with the elastic line method, hopefully) reads
+
+$$w_B = - \dfrac{q b^4}{8 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} \ .$$
+
+
+
 
 ```
 
@@ -74,7 +87,6 @@ $$w_B = w(z=b) = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{2} \dfrac{\alpha \
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 **Method 1. Elastic line.**
 
@@ -123,7 +135,6 @@ $$w_B = w(z=b) = - \dfrac{1}{3} \dfrac{q b^4}{EJ} + \dfrac{1}{2} \dfrac{\alpha \
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 The structure is hyper-static once. Let's use the verical reaction $V_B$ introduced by the cart in $B$ as the (independent) unknown hyper-static action. Exploiting the results of the previous problems (1, 2) and the principle of superposition of causes and effects, bending momentum reads
 
@@ -191,7 +202,6 @@ $$V_B = \dfrac{3}{8} qb - \dfrac{3}{2} \dfrac{\alpha \Delta T}{h b} \ .$$
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 The structure is three times hyper-static. One hyperstatic acting in the axial direction is identically zero. Other two hyper-static actions are choosen here to be the vertical reaction $V_B$ and moment $M_B$ at the clamp in $B$. Bending moment as a function of the hyperstatics reads
 
@@ -199,7 +209,7 @@ $$M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z 
 
 **Method 1 - Elastic line.**
 
-...
+**todo**
 
 **Method 2 - PCVW.**
 
@@ -258,7 +268,6 @@ $$
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 Rotational spring in $B$ links the rotation with the moment as $M_B = - k \theta_B = - k w'_B$. Mathematically, this is a Robin boundary condition, i.e. a linear combination of a kinematic variable and an action, here an angle and a moment.
 
@@ -267,6 +276,8 @@ As the elastic constraint introduce the unknown moment $M_B$, or equivalenly the
 $$M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,$$
 
 **Method 1 - Elastic line.**
+
+**todo**
 
 **Method 2 - PCVW.** Differently from previous problems, the real displacements are not identically zero as the rotation $\theta_B$ is not rigidly constrained to be zero, but this rotation is contrasted by an elastic spring introducing a real benging moment $M_B = - k \theta_B$ into the beam. The principle of complementary virtual work reads
 
@@ -331,7 +342,6 @@ $$\begin{aligned}
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 The structure is hyper-static once. Let the vertical component $V_C$ of the reaction in $B$ be the (independent unknown) hyperstatic action.
 From equilibrium conditions, the reactions in $A$ and $B$ read
@@ -364,7 +374,7 @@ $$\begin{aligned}
 
 **Method 1 - Elastic line.**
 
-...
+**todo**
 
 **Method 2 - PCVW.**
 
@@ -419,7 +429,6 @@ $$\begin{aligned}
 ::::
 
 ```{dropdown} Solution.
-:open:
 
 Solve with $F = qb$.
 
@@ -471,7 +480,9 @@ $$\begin{aligned}
             & = M_H \left( 1 - \dfrac{z}{b} \right) \ .
 \end{aligned}$$
 
-**Method 1 - Elastic line.**
+**Method 1 - Elastic line.** 
+
+**todo** *Too much time-consuming, IMHO* 
 
 **Method 2 - PCVW.**
 
@@ -517,6 +528,8 @@ $$\begin{bmatrix}
 \begin{bmatrix} -\frac{5\sqrt{2}}{48} \\ -\frac{7}{12} \\ \frac{1}{4}  \end{bmatrix} F +
 \begin{bmatrix} 0 \\ -\frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
 
+**Symmetry of the problem.** PCVW provides a symmetric form of the problem, i.e. the matrix of the linear system to be solved to evaluate the hyperstatics is symmetric.
+
 **Checking physical dimensions.** In the equation above, numerical coefficients are well separated from groups of physical quantities, that (should) have the physical dimension of a force. Both the unknown and the first term on the RHS are readily checked. Physical dimensions of the last contribution reads
 
 $$\left[ \dfrac{\alpha \Delta T EJ}{hb} \right] = \dfrac{[\alpha \Delta T][E][J]}{[h b]} = \dfrac{1 \cdot \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4}{\text{length}^2} = \text{force} \ .$$
@@ -530,7 +543,6 @@ being $\text{moment} = \text{force} \cdot \text{length}$.
 ```
 
 ```{dropdown} Evaluation of the integrals of the inverse of the stiffness matrix
-:open:
 
 Line integrals of the first equation read
 
