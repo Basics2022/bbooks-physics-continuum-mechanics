@@ -457,8 +457,8 @@ $$\begin{aligned}
   M_{AD}(z) & = -M_A + \left( H_A + V_A \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} = \\
             & = -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \\
   M_{DF}(z) & = -M_A + H_A ( b + z ) + V_A b - \dfrac{q b^2}{2} - H_D z = \\
-            & = -M_A + Fb + \dfrac{3}{2} M_A + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) = \\
-            & = \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \\
+            & = -M_A + \dfrac{1}{2} Fb + \dfrac{1}{2} M_A + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) = \\
+            & = -\dfrac{1}{2} M_A + \dfrac{1}{2}Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \\
   M_{FG}(z) & = -M_A + 2 H_A b  + V_A ( b + z ) - qb \left( \dfrac{b}{2} + z \right) - H_D b - V_D z \\
             & = -M_A - M_H + M_A - \frac{qb^2}{2} - \frac{Fb}{2} + V_D b + z \left( 2 F + \dfrac{M_H}{b} - V_D - qb \right) = \\
             & = \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) \\
@@ -489,19 +489,19 @@ Three sets of *virtual loads* are used to get the linear system required to eval
 $$\begin{aligned}
 0 & = 
     \int_{z=0}^{\sqrt{2}b} \left( \dfrac{z}{2 \sqrt{2} b} - 1 \right) \dfrac{1}{EJ} \left[ -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \right] \, dz 
-  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz + \dfrac{M_A}{k} 
+  + \int_{z=0}^{b} \left( -\dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ -\dfrac{1}{2} M_A + \dfrac{1}{2} Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz + \dfrac{M_A}{k} 
 \end{aligned}$$
 
 $$\begin{aligned}
 0 & =
-    \int_{z=0}^{b} - \dfrac{z}{b} \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz 
+    \int_{z=0}^{b} - \dfrac{z}{b} \dfrac{1}{EJ} \left[ -\dfrac{1}{2} M_A + \dfrac{1}{2}Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz 
   + \int_{z=0}^{b} \left( \dfrac{z}{b} - 1  \right) \left[ \dfrac{1}{EJ} \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz
   + \int_{z=0}^{b} \left( 1 - \dfrac{z}{b} \right) \dfrac{1}{EJ} M_H \left( 1 - \dfrac{z}{b} \right) \, dz + \dfrac{M_H}{k}
 \end{aligned}$$
 
 $$\begin{aligned}
 0 & = 
-    \int_{z=0}^{b} z \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz
+    \int_{z=0}^{b} z \dfrac{1}{EJ} \left[ -\dfrac{1}{2} M_A + \dfrac{1}{2} Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz
   + \int_{z=0}^{b} - b\left( \dfrac{z}{b} - 1  \right) \left[ \dfrac{1}{EJ} \left( F b + M_H - V_D b \right) \left( \dfrac{z}{b} - 1 \right) + \dfrac{\alpha \Delta T}{h} \right] \, dz
   + \int_{z=0}^{b} z \, \dfrac{1}{EJ} V_D z \, dz
   + \int_{z=0}^{b} - (z-b) \dfrac{1}{EJ} \left( \dfrac{F}{2} - V_D \right) (z-b) \, dz
@@ -509,13 +509,13 @@ $$\begin{aligned}
 
 
 $$\begin{bmatrix}
-  \frac{7 \sqrt{2}}{12} + \frac{7}{12} + \frac{EJ}{kb} & -\frac{5}{12} & \frac{5}{12} \\
- -\frac{5}{12}                                         & 1             & -\frac{2}{3} \\
-  \frac{5}{12}                                         & -\frac{2}{3}  &  \frac{4}{3} + \frac{EJ}{kb} 
+  \frac{7 \sqrt{2}}{12} + \frac{7}{12} + \frac{EJ}{kb} &  \frac{1}{12}       & -\frac{1}{12} \\
+  \frac{1}{12}                                         &  1 + \frac{EJ}{kb}  & -\frac{2}{3} \\
+ -\frac{1}{12}                                         & -\frac{2}{3}        &  \frac{4}{3}
 \end{bmatrix} 
 \begin{bmatrix} \frac{M_A}{b} \\ \frac{M_H}{b} \\ V_D \end{bmatrix} = 
-\begin{bmatrix} -\frac{5\sqrt{2}}{48} - \frac{1}{8} \\ -\frac{1}{2} \\ \frac{1}{2}  \end{bmatrix} F +
-\begin{bmatrix} 0 \\ \frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
+\begin{bmatrix} -\frac{5\sqrt{2}}{48} \\ -\frac{7}{12} \\ \frac{1}{4}  \end{bmatrix} F +
+\begin{bmatrix} 0 \\ -\frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
 
 **Checking physical dimensions.** In the equation above, numerical coefficients are well separated from groups of physical quantities, that (should) have the physical dimension of a force. Both the unknown and the first term on the RHS are readily checked. Physical dimensions of the last contribution reads
 
@@ -536,9 +536,9 @@ Line integrals of the first equation read
 
 $$\begin{aligned}
   EJ I_{1} 
-  & = F b^2 \left( \dfrac{\sqrt{2}}{6} + \underbrace{\left(\dfrac{1}{2}\dfrac{3}{2}-\dfrac{3}{4}\dfrac{5}{6}\right)}_{=\frac{1}{8}} \right) + q \left( - \dfrac{\sqrt{2}}{16} + 0 \right) + M_A \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{3}{2} + \dfrac{1}{4}\dfrac{5}{6}   \right)}_{=\frac{7}{12}} \right) + M_H \left( 0 - \dfrac{1}{2} \dfrac{5}{6} \right) + V_D \left( 0 + \dfrac{1}{2}\dfrac{5}{6} \right) = \\
+  & = F b^2 \left( \dfrac{\sqrt{2}}{6} + \underbrace{\left( -\dfrac{1}{4}\dfrac{1}{2}+\dfrac{3}{4}\dfrac{1}{6}\right)}_{= 0 } \right) + q \left( - \dfrac{\sqrt{2}}{16} + 0 \right) + M_A \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{1}{2} - \dfrac{1}{4}\dfrac{1}{6}   \right)}_{=\frac{1}{12}} \right) + M_H \left( 0 + \dfrac{1}{2} \dfrac{1}{6} \right) + V_D \left( 0 - \dfrac{1}{2}\dfrac{1}{6} \right) = \\
   & = ... \\
-  & = \left( \dfrac{5\sqrt{2}}{48} + \dfrac{1}{8} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{7}{12} \right) - \dfrac{5}{12} M_H + \dfrac{5}{12} V_D \ ,
+  & = \left( \dfrac{5\sqrt{2}}{48} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{1}{12} \right) M_A + \dfrac{1}{12} M_H - \dfrac{1}{12} V_D \ ,
 \end{aligned}$$
 
 being the first integral
@@ -556,8 +556,8 @@ Line integrals of the second equation read
 
 $$\begin{aligned}
   EJ I_{2} 
-  & = F b^2 \left( 0 + \dfrac{1}{3} + 0 \right) + M_A b \left( -\dfrac{1}{2}\dfrac{5}{6} + 0 + 0 \right) + M_H b \left( +\dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + V_D b^2 \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 \right) + \dfrac{\alpha \Delta T EJ b}{h} \left( 0 - \dfrac{1}{2} + 0 \right) = \\
-  & = \dfrac{1}{2} F b^2 - \dfrac{5}{12} M_A b + 1 \cdot M_H b - \dfrac{2}{3} V_D b^2 - \dfrac{1}{2} \dfrac{\alpha \Delta T EJ b}{h} \ .
+  & = F b^2 \left( \dfrac{1}{4} + \dfrac{1}{3} + 0 \right) + M_A b \left( \dfrac{1}{2}\dfrac{1}{6} + 0 + 0 \right) + M_H b \left( +\dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + V_D b^2 \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 \right) + \dfrac{\alpha \Delta T EJ b}{h} \left( 0 - \dfrac{1}{2} + 0 \right) = \\
+  & = \dfrac{7}{12} F b^2 + \dfrac{1}{12} M_A b + 1 \cdot M_H b - \dfrac{2}{3} V_D b^2 - \dfrac{1}{2} \dfrac{\alpha \Delta T EJ b}{h} \ .
 \end{aligned}
 $$
 
@@ -567,8 +567,8 @@ Line integrals of the third equation read
 
 $$\begin{aligned}
   EJ I_{3} 
-  & = F b \left( 0 - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right) + M_A \left( \dfrac{1}{2} \left( \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
-  & = - \dfrac{1}{2} F b + \dfrac{5}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
+  & = F b \left( \dfrac{1}{4} - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right) + M_A \left(\dfrac{1}{2} \left( - \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
+  & = - \dfrac{1}{4} F b - \dfrac{1}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
 \end{aligned}
 $$
 
