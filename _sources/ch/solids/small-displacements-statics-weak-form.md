@@ -8,8 +8,10 @@ This section presents different weak formulations of the elastic problem, for di
 - [Simplified beam models](solid-mechanics:intro:small-displacements-statics-beam-weak-form)
 
 The results shown here can be classified into two different approaches:
-- **displacement approach**: weak form of the equilibrium equations, principle of virtual work, and stationariety of the total potential energy
-- **force approach**: weak form of the congruence conditionss, principle of complementary virtual work, and stationariety of the total complementary potential energy.
+- **displacement approach**: 1) weak form of the equilibrium equations, 2) principle of virtual work, and 3) stationariety of the total potential energy
+- **force approach**: 1) weak form of the congruence conditionss, 2) principle of complementary virtual work, and 3) stationariety of the total complementary potential energy.
+
+**Finite element method** naturally arises from the weak form of the equilibrium equations.
 
 Some [problems about beam structures](solid-mechanics:small-displacements:beams:problems) can be conveniently approached with the contents of this  section.
 

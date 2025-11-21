@@ -101,13 +101,13 @@ with $\widetilde{z} = b - z$ the coordinates pointing from $B$ to $A$.
 Integrating twice with boundary conditions at clamp $w(z=0)$, $w'(z) = 0$
 
 $$\begin{aligned}
-  w'(z) & = \frac{1}{EJ} \left( \frac{F z^2}{2} - F z \right) + \frac{\alpha \, \Delta T}{h} z + \underbrace{a}_{=0} \\
-  w (z) & = \frac{1}{EJ} \left( \frac{F z^3}{6} - \dfrac{F z^2}{2} \right) + \frac{\alpha \, \Delta T}{2 \, h} z + \underbrace{a z }_{=0} + \underbrace{b}_{=0} \\
+  w'(z) & = \frac{1}{EJ} \left( \frac{F z^2}{2} - F b z \right) + \frac{\alpha \, \Delta T}{h} z + \underbrace{a}_{=0} \\
+  w (z) & = \frac{1}{EJ} \left( \frac{F z^3}{6} - \dfrac{F b z^2}{2} \right) + \frac{\alpha \, \Delta T}{2 \, h} z + \underbrace{a z }_{=0} + \underbrace{b}_{=0} \\
 \end{aligned}$$
 
 The displacement in B reads
 
-$$w_B = w(z=b) = - \dfrac{1}{3} \dfrac{q b^4}{EJ} + \dfrac{1}{2} \dfrac{\alpha \, \Delta T b^2}{h} \ . $$
+$$w_B = w(z=b) = - \dfrac{1}{3} \dfrac{F b^3}{EJ} + \dfrac{1}{2} \dfrac{\alpha \, \Delta T b^2}{h} \ . $$
 
 **Method 2.**
 
@@ -525,8 +525,8 @@ $$\begin{bmatrix}
  -\frac{1}{12}                                         & -\frac{2}{3}        &  \frac{4}{3}
 \end{bmatrix} 
 \begin{bmatrix} \frac{M_A}{b} \\ \frac{M_H}{b} \\ V_D \end{bmatrix} = 
-\begin{bmatrix} -\frac{5\sqrt{2}}{48} \\ -\frac{7}{12} \\ \frac{1}{4}  \end{bmatrix} F +
-\begin{bmatrix} 0 \\ -\frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
+\begin{bmatrix} \frac{11\sqrt{2}}{48} \\ -\frac{7}{12} \\ \frac{3}{4}  \end{bmatrix} F +
+\begin{bmatrix} 0 \\  \frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
 
 **Symmetry of the problem.** PCVW provides a symmetric form of the problem, i.e. the matrix of the linear system to be solved to evaluate the hyperstatics is symmetric.
 
@@ -548,18 +548,18 @@ Line integrals of the first equation read
 
 $$\begin{aligned}
   EJ I_{1} 
-  & = F b^2 \left( \dfrac{\sqrt{2}}{6} + \underbrace{\left( -\dfrac{1}{4}\dfrac{1}{2}+\dfrac{3}{4}\dfrac{1}{6}\right)}_{= 0 } \right) + q \left( - \dfrac{\sqrt{2}}{16} + 0 \right) + M_A \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{1}{2} - \dfrac{1}{4}\dfrac{1}{6}   \right)}_{=\frac{1}{12}} \right) + M_H \left( 0 + \dfrac{1}{2} \dfrac{1}{6} \right) + V_D \left( 0 - \dfrac{1}{2}\dfrac{1}{6} \right) = \\
+  & = F b^2 \left( \underbrace{\left(\dfrac{1}{4}\dfrac{2\sqrt{2}}{3} - \dfrac{\sqrt{2}}{2}\dfrac{\left(\sqrt{2}\right)^2}{2} \right)}_{ = -\frac{\sqrt{2}}{3}} + \underbrace{\left( -\dfrac{1}{4}\dfrac{1}{2}+\dfrac{3}{4}\dfrac{1}{6}\right)}_{= 0 } \right) + q b^3 \left( \underbrace{\left(- \dfrac{\sqrt{2}}{16} + \frac{\sqrt{2}}{6} \right)}_{= \frac{5\sqrt{2}}{48}} + 0 \right) + M_A b \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{1}{2} - \dfrac{1}{4}\dfrac{1}{6}   \right)}_{=\frac{1}{12}} \right) + M_H b \left( 0 + \dfrac{1}{2} \dfrac{1}{6} \right) + V_D b^2 \left( 0 - \dfrac{1}{2}\dfrac{1}{6} \right) = \\
   & = ... \\
-  & = \left( \dfrac{5\sqrt{2}}{48} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{1}{12} \right) M_A + \dfrac{1}{12} M_H - \dfrac{1}{12} V_D \ ,
+  & = \left( -\dfrac{11\sqrt{2}}{48} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{1}{12} \right) M_A b + \dfrac{1}{12} M_H b - \dfrac{1}{12} V_D b^2 \ ,
 \end{aligned}$$
 
 being the first integral
 
 $$\begin{aligned}
   EJ I_{11} 
-  & = q b^3 \left( - \dfrac{\left( \sqrt{2} b \right)^4 }{4}\dfrac{1}{8 \sqrt{2}} \right) + F b^2 \left( \dfrac{\left( \sqrt{2} b \right)^3}{3}\dfrac{1}{4}  \right) + M_A b \underbrace{\left( \left( \sqrt{2} \right) - 2 \dfrac{\left( \sqrt{2} \right)^2}{2} \dfrac{1}{2 \sqrt{2}} + \dfrac{\left( \sqrt{2} \right)^3}{3} \dfrac{1}{8} \right)}_{ = \sqrt{2} \left( 1 - \dfrac{1}{2} + \dfrac{1}{12} \right) = \frac{7 \sqrt{2}}{12}} = \\
-  & = - \dfrac{\sqrt{2}}{16} q b^3 + \dfrac{\sqrt{2}}{6} Fb^2 + \dfrac{7 \sqrt{2}}{12} M_A b = \\
-  & = \dfrac{5 \sqrt{2}}{48} Fb + \dfrac{7 \sqrt{2}}{12} M_A b 
+  & = q b^3 \underbrace{\left( - \dfrac{\left( \sqrt{2} \right)^4 }{4}\dfrac{1}{8 \sqrt{2}} + \frac{\left( \sqrt{2} \right)^3}{4 \cdot 3} \right)}_{ = -\frac{\sqrt{2}}{16} + \frac{\sqrt{2}}{6} = \frac{5 \sqrt{2}}{48} } + F b^2 \left( \dfrac{\left( \sqrt{2} b \right)^3}{3}\dfrac{1}{4} - \frac{\sqrt{2}}{2}  \right) + M_A b \underbrace{\left( \left( \sqrt{2} \right) - 2 \dfrac{\left( \sqrt{2} \right)^2}{2} \dfrac{1}{2 \sqrt{2}} + \dfrac{\left( \sqrt{2} \right)^3}{3} \dfrac{1}{8} \right)}_{ = \sqrt{2} \left( 1 - \dfrac{1}{2} + \dfrac{1}{12} \right) = \frac{7 \sqrt{2}}{12}} = \\
+  & = \dfrac{5 \sqrt{2}}{48} q b^3 - \dfrac{\sqrt{2}}{3} Fb^2 + \dfrac{7 \sqrt{2}}{12} M_A b = \\
+  & = - \dfrac{11 \sqrt{2}}{48} Fb + \dfrac{7 \sqrt{2}}{12} M_A b 
 \end{aligned}$$
 
 ---
@@ -579,8 +579,8 @@ Line integrals of the third equation read
 
 $$\begin{aligned}
   EJ I_{3} 
-  & = F b \left( \dfrac{1}{4} - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right) + M_A \left(\dfrac{1}{2} \left( - \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
-  & = - \dfrac{1}{4} F b - \dfrac{1}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
+  & = F b \underbrace{\left( - \dfrac{1}{4} - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right)}_{ = -\frac{3+4+2}{12}} + M_A \left(\dfrac{1}{2} \left( - \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
+  & = - \dfrac{3}{4} F b - \dfrac{1}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
 \end{aligned}
 $$
 
