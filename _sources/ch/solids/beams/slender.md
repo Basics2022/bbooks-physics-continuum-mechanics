@@ -1,6 +1,19 @@
 (solid-mechanics:small-displacements:beams:slender)=
 # Slender beams
 
+**Bernoulli kinematic assumption.**
+
+$$\begin{aligned}
+  0 & = s'_{Px} - \theta_y \quad && \rightarrow \qquad \theta_y = s'_{Px}  \\
+  0 & = s'_{Py} + \theta_x \quad && \rightarrow \qquad \theta_x =-s'_{Py}  \\
+\end{aligned}$$
+
+As an example, the constitutive law for bending in a structurally decoupled elastic beam becomes
+
+$$\begin{aligned}
+  M_x & = EJ_x \theta'^{\ mech}_x = - EJ_x s''^{\ mech}_{Py} \\
+  M_y & = EJ_y \theta'^{\ mech}_y =   EJ_y s''^{\ mech}_{Px} \\
+\end{aligned}$$
 
 ```{prf:example} Clamped beam
 

@@ -193,10 +193,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-weak-form-3d.html">7.1. Small displacement - Statics - Weak formulation and “Energy” theorems for 3-dimensional solid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-beams-weak-form-general.html">7.2. Small displacement - Statics - Weak formulation and “Energy” theorems for generic beam structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-beams-weak-form.html">7.3. Small displacement - Statics - Weak formulation and “Energy” theorems for beam structures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “energy” theorems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-weak-form-3d.html">7.1. 3-dimensional solid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-beams-weak-form-general.html">7.2. General elastic beam structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../small-displacements-statics-beams-weak-form.html">7.3. Isotropic elastic beam structures</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
@@ -429,7 +429,7 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Problem 1.</div>
-<p class="sd-card-text">Solve the structure and evaluate the displacement in B.</p>
+<p class="sd-card-text">Solve the structure and evaluate the displacement in B, using <a class="reference internal" href="slender.html#solid-mechanics-small-displacements-beams-slender"><span class="std std-ref">slender beam model</span></a>.</p>
 </div>
 </div>
 </div>
@@ -443,21 +443,21 @@ Problem 1.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Method 1. Elastic line.</strong></p>
+<p class="sd-card-text"><strong>Method 1 - Elastic line.</strong> Using slender beam model, the second derivative of the transverse displacement reads</p>
 <div class="math notranslate nohighlight">
-\[w''(z) = w^{mech \ ''} + w^{th \, ''} = \frac{M(z)}{EJ} + \dfrac{\alpha \, \Delta T}{h}\]</div>
+\[w''(z) = w^{mech \ ''} + w^{th \, ''} = \frac{M(z)}{EJ} + \dfrac{\alpha \, \Delta T}{h} \ .\]</div>
 <p class="sd-card-text">From equilibrium, bending internal action as a function of coordinate <span class="math notranslate nohighlight">\(z\)</span>, from <span class="math notranslate nohighlight">\(A: \, z = 0\)</span> to <span class="math notranslate nohighlight">\(B: \, z = b\)</span> reads</p>
 <div class="math notranslate nohighlight">
-\[M(z) = - \dfrac{q b^2}{2} + q b z - \dfrac{q z^2}{2} = - \dfrac{q \widetilde{z}^2}{2} \ ,\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\widetilde{z} = b - z\)</span> the coordinates pointing from <span class="math notranslate nohighlight">\(B\)</span> to <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p class="sd-card-text">Integrating twice with boundary conditions at clamp <span class="math notranslate nohighlight">\(w(z=0)\)</span>, <span class="math notranslate nohighlight">\(w'(z) = 0\)</span></p>
+\[M(z) = - \dfrac{q b^2}{2} + q b z - \dfrac{q z^2}{2} = - \dfrac{q x^2}{2} \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(x = b - z\)</span> the coordinates pointing from <span class="math notranslate nohighlight">\(B\)</span> to <span class="math notranslate nohighlight">\(A\)</span>.
+Integrating twice with boundary conditions at clamp <span class="math notranslate nohighlight">\(w(z=0)\)</span>, <span class="math notranslate nohighlight">\(w'(z) = 0\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   w'(z) &amp; = \frac{1}{EJ} \left( -\frac{q z^3}{6} + \frac{q z^2}{2} - \frac{q b^2}{2} z \right) + \frac{\alpha \, \Delta T}{h} z + \underbrace{a}_{=0} \\
@@ -466,8 +466,19 @@ Solution.<div class="sd-summary-down docutils">
 <p class="sd-card-text">The displacement in B reads</p>
 <div class="math notranslate nohighlight">
 \[w_B = w(z=b) = - \dfrac{1}{8} \dfrac{q b^4}{EJ} + \dfrac{1}{2} \dfrac{\alpha \, \Delta T b^2}{h} \ . \]</div>
-<p class="sd-card-text"><strong>Method 2.</strong></p>
-<p class="sd-card-text">…</p>
+<p class="sd-card-text"><strong>Method 2 - PCVW.</strong> Using the weak fomr of congruence conditions,</p>
+<div class="math notranslate nohighlight">
+\[0 = \int_{z=0}^{b} \widetilde{M}(z) \left( \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dz - \widetilde{F} w_B \ , \]</div>
+<p class="sd-card-text">with <em>virtual load</em> <span class="math notranslate nohighlight">\(\widetilde{F} = 1\)</span> s.t. <span class="math notranslate nohighlight">\(\widetilde{M}(z) = 1 - z\)</span>, or <span class="math notranslate nohighlight">\(\widetilde{M}(x) = x\)</span>, the equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{x=0}^{b} x \left( -\dfrac{q x^2}{2 EJ} + \dfrac{\alpha \Delta T}{h} \right) \, dx - 1 \cdot w_B = \\
+  &amp; = - \dfrac{q b^4}{8 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} - w_B \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus the result (the same as the one computed with the elastic line method, hopefully) reads</p>
+<div class="math notranslate nohighlight">
+\[w_B = - \dfrac{q b^4}{8 EJ} + \dfrac{\alpha \Delta T \, b^2}{2 h} \ .\]</div>
 </div>
 </details><!-- Esercizio ************************************************************* -->
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -490,7 +501,7 @@ Problem 2.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -537,7 +548,7 @@ Problem 3.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -601,7 +612,7 @@ Problem 4.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -612,7 +623,7 @@ Solution.<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,\]</div>
 <p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
-<p class="sd-card-text">…</p>
+<p class="sd-card-text"><strong>todo</strong></p>
 <p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -667,7 +678,7 @@ Problem 5.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -679,6 +690,7 @@ Solution.<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[M(z) = - q \left( \dfrac{z^2}{2} - b z + \dfrac{b^2}{2} \right) + V_B ( b - z ) + M_B  \ ,\]</div>
 <p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text"><strong>todo</strong></p>
 <p class="sd-card-text"><strong>Method 2 - PCVW.</strong> Differently from previous problems, the real displacements are not identically zero as the rotation <span class="math notranslate nohighlight">\(\theta_B\)</span> is not rigidly constrained to be zero, but this rotation is contrasted by an elastic spring introducing a real benging moment <span class="math notranslate nohighlight">\(M_B = - k \theta_B\)</span> into the beam. The principle of complementary virtual work reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -738,7 +750,7 @@ Problem 6.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -772,7 +784,7 @@ From equilibrium conditions, the reactions in <span class="math notranslate nohi
   &amp; = V_C z \quad , \quad z \in \left[ 0 , b \right] \\
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
-<p class="sd-card-text">…</p>
+<p class="sd-card-text"><strong>todo</strong></p>
 <p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -822,7 +834,7 @@ Problem 7.</div>
 </div>
 </div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solution.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -872,6 +884,7 @@ Solution.<div class="sd-summary-down docutils">
             &amp; = M_H \left( 1 - \dfrac{z}{b} \right) \ .
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text"><strong>Method 1 - Elastic line.</strong></p>
+<p class="sd-card-text"><strong>todo</strong> <em>Too much time-consuming, IMHO</em></p>
 <p class="sd-card-text"><strong>Method 2 - PCVW.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -915,6 +928,7 @@ Three sets of <em>virtual loads</em> are used to get the linear system required 
 \begin{bmatrix} \frac{M_A}{b} \\ \frac{M_H}{b} \\ V_D \end{bmatrix} = 
 \begin{bmatrix} -\frac{5\sqrt{2}}{48} \\ -\frac{7}{12} \\ \frac{1}{4}  \end{bmatrix} F +
 \begin{bmatrix} 0 \\ -\frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}\end{split}\]</div>
+<p class="sd-card-text"><strong>Symmetry of the problem.</strong> PCVW provides a symmetric form of the problem, i.e. the matrix of the linear system to be solved to evaluate the hyperstatics is symmetric.</p>
 <p class="sd-card-text"><strong>Checking physical dimensions.</strong> In the equation above, numerical coefficients are well separated from groups of physical quantities, that (should) have the physical dimension of a force. Both the unknown and the first term on the RHS are readily checked. Physical dimensions of the last contribution reads</p>
 <div class="math notranslate nohighlight">
 \[\left[ \dfrac{\alpha \Delta T EJ}{hb} \right] = \dfrac{[\alpha \Delta T][E][J]}{[h b]} = \dfrac{1 \cdot \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4}{\text{length}^2} = \text{force} \ .\]</div>
@@ -923,7 +937,7 @@ Three sets of <em>virtual loads</em> are used to get the linear system required 
 \[\left[ \dfrac{EJ}{k b} \right] = \dfrac{ \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4 }{ \text{moment} \cdot \text{length} } = 1 \ ,\]</div>
 <p class="sd-card-text">being <span class="math notranslate nohighlight">\(\text{moment} = \text{force} \cdot \text{length}\)</span>.</p>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Evaluation of the integrals of the inverse of the stiffness matrix<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>

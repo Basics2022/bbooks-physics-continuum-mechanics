@@ -1,5 +1,5 @@
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form-general)=
-# Small displacement - Statics - Weak formulation and "Energy" theorems for generic beam structures
+# General elastic beam structures
 
 In this section, theorems for elastic structures are specialized for beam structures. 
 
