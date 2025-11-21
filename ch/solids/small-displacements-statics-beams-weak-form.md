@@ -114,6 +114,51 @@ having used integration by parts and boundary conditions on Neumann boundaries w
 
 ```
 
+```{prf:example} Finite element method. Example: 1-element clamped Bernoulli beam
+
+**Approximation 1.** Choosing only one test function $u_{y,2} = z^2$ (that satisfies the essential boundary conditions, '$u_{y,2}(0)=0$, $u'_{y,2}(0)=0$), and assuming that the $y$-displacement $s_y$ is proportional to that test function (same test and base function, to get a symmetric problem - even when multi-dimensional),
+
+$$s_y(z) = a_2 z^2$$
+
+and the bending moment reads
+
+$$M_x(z) = - EJ_x s_y''(z) = - 2 EJ_x a_2 \ ,$$
+
+the weak formulation of equilibrium equation reads (assuming Bernoulli beam, no distributed loads, and lumped force $F_y$ at the free end as the only load)
+
+$$\begin{aligned}
+  0 & = - \int_{z=0}^{b} ( 2 EJ_x a_2 ) ( 2 ) \, dz + F_y b^2 = \\
+    & = - 4 EJ_x b \, a_2 + F_y b^2 \ ,
+\end{aligned}$$
+
+so that the only coefficient of the approximation is $a_2 = \frac{b}{4 EJ} F_y$. Thus the approximate solution of the problem is $s_y(z) = \frac{F_y b}{4 EJ_x} z^2$, and the displacement of the free end is $w(b) = \frac{Fb^3}{4 EJ_x}$.
+
+**Comment.** The displacement of the approximate solution is smaller than the displacement of the exact solution $w_B = \frac{Fb^3}{3 EJ_x}$, as the approximated solution can't represent the exact solution, $s_y(z) = \frac{Fb^3}{EJ}\left( - \frac{1}{6}\left(\frac{z}{b}\right)^3 + \frac{1}{2}\left(\frac{z}{b}\right)^2 \right)$, since it doesn't contain any $z^3$ term, and this introduce an *extra numerical additional constraint* that makes the approximate model stiffer than the continuous model.
+
+**Approximation 2.**
+
+$$s_y(z) = a_2 z^2 + a_3 z^3 = \begin{bmatrix} z^2 & z^3 \end{bmatrix} \begin{bmatrix} a_2 \\ a_3 \end{bmatrix}$$
+$$s''_y(z) = 2 a_2 + 6 a_3 z = \begin{bmatrix} 2   & 6 z \end{bmatrix} \begin{bmatrix} a_2 \\ a_3 \end{bmatrix}$$
+
+$$\begin{aligned}
+\mathbf{0} 
+  & = - \int_{z=0}^{b} \begin{bmatrix} 2 \\ 6 z \end{bmatrix} EJ_x  \begin{bmatrix} 2 & 6 z \end{bmatrix} \, dz \, \begin{bmatrix} a_2 \\ a_3 \end{bmatrix} + \begin{bmatrix} b^2 \\ b^3 \end{bmatrix} F_y = \\
+  & = - EJ_x \begin{bmatrix} 4 b & 6 b^2 \\ 6 b^2 & 12 b^3 \end{bmatrix} \, \begin{bmatrix} a_2 \\ a_3 \end{bmatrix} + \begin{bmatrix} b^2 \\ b^3 \end{bmatrix} F_y \ ,
+\end{aligned}$$
+
+and the solution of the system provides the value of the coefficients of the linear combination in the approximate solution
+
+$$\begin{aligned}
+ \begin{bmatrix} a_2 \\ a_3 \end{bmatrix} = \dfrac{1}{12 b^4} \begin{bmatrix} 12 b^3 & - 6 b^2 \\ - 6 b^2 & 4 b \end{bmatrix} \begin{bmatrix} b^2 \\ b^3 \end{bmatrix} \dfrac{F_y}{E J_x} = \begin{bmatrix} \frac{b}{2} \\ -\frac{1}{6} \end{bmatrix} \dfrac{F_y}{EJ_x} \ ,
+\end{aligned}$$
+
+This approximation allows to get the exact solution of the continuous problem, 
+
+$$s_y(z) = \frac{F_y b}{2 EJ_x} z^2 - \frac{F_y}{6 EJ_x} z^3 \ .$$
+
+
+```
+
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:congruence)=
 ### Weak formulation of congruence conditions
 
