@@ -889,7 +889,7 @@ Three sets of <em>virtual loads</em> are used to get the linear system required 
 \[\begin{aligned}
 0 &amp; = 
     \int_{z=0}^{\sqrt{2}b} \left( \dfrac{z}{2 \sqrt{2} b} - 1 \right) \dfrac{1}{EJ} \left[ -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \right] \, dz 
-  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \ , dz + \dfrac{M_A}{k} 
+  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz + \dfrac{M_A}{k} 
 \end{aligned}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
@@ -907,7 +907,63 @@ Three sets of <em>virtual loads</em> are used to get the linear system required 
   + \int_{z=0}^{b} - (z-b) \dfrac{1}{EJ} \left( \dfrac{F}{2} - V_D \right) (z-b) \, dz
 \end{aligned}\]</div>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} 11 &amp; 12 &amp; 13 \\ 12 &amp; 22 &amp; 23 \\ 13 &amp; 23 &amp; 33 \end{bmatrix} \begin{bmatrix} M_A \\ M_H \\ V_D b \end{bmatrix} = \begin{bmatrix} f_1 \\ f_2 \\ f_3  \end{bmatrix} \dfrac{F \dots}{\dots} + \begin{bmatrix} t_1 \\ t_2 \\ t_3 \end{bmatrix} \dfrac{\alpha \Delta T \dots}{\dots}\end{split}\]</div>
+\[\begin{split}\begin{bmatrix}
+  \frac{7 \sqrt{2}}{12} + \frac{7}{12} + \frac{EJ}{kb} &amp; -\frac{5}{12} &amp; \frac{5}{12} \\
+ -\frac{5}{12}                                         &amp; 1             &amp; -\frac{2}{3} \\
+  \frac{5}{12}                                         &amp; -\frac{2}{3}  &amp;  \frac{4}{3} + \frac{EJ}{kb} 
+\end{bmatrix} 
+\begin{bmatrix} \frac{M_A}{b} \\ \frac{M_H}{b} \\ V_D \end{bmatrix} = 
+\begin{bmatrix} -\frac{5\sqrt{2}}{48} - \frac{1}{8} \\ -\frac{1}{2} \\ \frac{1}{2}  \end{bmatrix} F +
+\begin{bmatrix} 0 \\ \frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}\end{split}\]</div>
+<p class="sd-card-text"><strong>Checking physical dimensions.</strong> In the equation above, numerical coefficients are well separated from groups of physical quantities, that (should) have the physical dimension of a force. Both the unknown and the first term on the RHS are readily checked. Physical dimensions of the last contribution reads</p>
+<div class="math notranslate nohighlight">
+\[\left[ \dfrac{\alpha \Delta T EJ}{hb} \right] = \dfrac{[\alpha \Delta T][E][J]}{[h b]} = \dfrac{1 \cdot \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4}{\text{length}^2} = \text{force} \ .\]</div>
+<p class="sd-card-text">The ratio <span class="math notranslate nohighlight">\(\frac{EJ}{kb}\)</span> is non-dimensional</p>
+<div class="math notranslate nohighlight">
+\[\left[ \dfrac{EJ}{k b} \right] = \dfrac{ \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4 }{ \text{moment} \cdot \text{length} } = 1 \ ,\]</div>
+<p class="sd-card-text">being <span class="math notranslate nohighlight">\(\text{moment} = \text{force} \cdot \text{length}\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Evaluation of the integrals of the inverse of the stiffness matrix<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Line integrals of the first equation read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  EJ I_{1} 
+  &amp; = F b^2 \left( \dfrac{\sqrt{2}}{6} + \underbrace{\left(\dfrac{1}{2}\dfrac{3}{2}-\dfrac{3}{4}\dfrac{5}{6}\right)}_{=\frac{1}{8}} \right) + q \left( - \dfrac{\sqrt{2}}{16} + 0 \right) + M_A \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{3}{2} + \dfrac{1}{4}\dfrac{5}{6}   \right)}_{=\frac{7}{12}} \right) + M_H \left( 0 - \dfrac{1}{2} \dfrac{5}{6} \right) + V_D \left( 0 + \dfrac{1}{2}\dfrac{5}{6} \right) = \\
+  &amp; = ... \\
+  &amp; = \left( \dfrac{5\sqrt{2}}{48} + \dfrac{1}{8} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{7}{12} \right) - \dfrac{5}{12} M_H + \dfrac{5}{12} V_D \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being the first integral</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  EJ I_{11} 
+  &amp; = q b^3 \left( - \dfrac{\left( \sqrt{2} b \right)^4 }{4}\dfrac{1}{8 \sqrt{2}} \right) + F b^2 \left( \dfrac{\left( \sqrt{2} b \right)^3}{3}\dfrac{1}{4}  \right) + M_A b \underbrace{\left( \left( \sqrt{2} \right) - 2 \dfrac{\left( \sqrt{2} \right)^2}{2} \dfrac{1}{2 \sqrt{2}} + \dfrac{\left( \sqrt{2} \right)^3}{3} \dfrac{1}{8} \right)}_{ = \sqrt{2} \left( 1 - \dfrac{1}{2} + \dfrac{1}{12} \right) = \frac{7 \sqrt{2}}{12}} = \\
+  &amp; = - \dfrac{\sqrt{2}}{16} q b^3 + \dfrac{\sqrt{2}}{6} Fb^2 + \dfrac{7 \sqrt{2}}{12} M_A b = \\
+  &amp; = \dfrac{5 \sqrt{2}}{48} Fb + \dfrac{7 \sqrt{2}}{12} M_A b 
+\end{aligned}\end{split}\]</div>
+<hr class="docutils" />
+<p class="sd-card-text">Line integrals of the second equation read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  EJ I_{2} 
+  &amp; = F b^2 \left( 0 + \dfrac{1}{3} + 0 \right) + M_A b \left( -\dfrac{1}{2}\dfrac{5}{6} + 0 + 0 \right) + M_H b \left( +\dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + V_D b^2 \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 \right) + \dfrac{\alpha \Delta T EJ b}{h} \left( 0 - \dfrac{1}{2} + 0 \right) = \\
+  &amp; = \dfrac{1}{2} F b^2 - \dfrac{5}{12} M_A b + 1 \cdot M_H b - \dfrac{2}{3} V_D b^2 - \dfrac{1}{2} \dfrac{\alpha \Delta T EJ b}{h} \ .
+\end{aligned}
+\end{split}\]</div>
+<hr class="docutils" />
+<p class="sd-card-text">Line integrals of the third equation read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  EJ I_{3} 
+  &amp; = F b \left( 0 - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right) + M_A \left( \dfrac{1}{2} \left( \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
+  &amp; = - \dfrac{1}{2} F b + \dfrac{5}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
+\end{aligned}
+\end{split}\]</div>
 </div>
 </details><!--
 ```{only} latex

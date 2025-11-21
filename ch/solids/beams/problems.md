@@ -489,7 +489,7 @@ Three sets of *virtual loads* are used to get the linear system required to eval
 $$\begin{aligned}
 0 & = 
     \int_{z=0}^{\sqrt{2}b} \left( \dfrac{z}{2 \sqrt{2} b} - 1 \right) \dfrac{1}{EJ} \left[ -M_A + \left( F + \dfrac{1}{2} \dfrac{M_A}{b} \right) \dfrac{z}{\sqrt{2}} - \dfrac{q \left(\frac{z}{\sqrt{2}}\right)^2}{2} \right] \, dz 
-  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \ , dz + \dfrac{M_A}{k} 
+  + \int_{z=0}^{b} \left( \dfrac{1}{2} + \dfrac{1}{2} \dfrac{z}{b} \right) \dfrac{1}{EJ} \left[ \dfrac{1}{2} M_A + Fb + z \left( - \dfrac{3}{2} F- \dfrac{M_H}{b} + \dfrac{1}{2}\dfrac{M_A}{b} + V_D \right) \right] \, dz + \dfrac{M_A}{k} 
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -508,10 +508,69 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-$$\begin{bmatrix} 11 & 12 & 13 \\ 12 & 22 & 23 \\ 13 & 23 & 33 \end{bmatrix} \begin{bmatrix} M_A \\ M_H \\ V_D b \end{bmatrix} = \begin{bmatrix} f_1 \\ f_2 \\ f_3  \end{bmatrix} \dfrac{F \dots}{\dots} + \begin{bmatrix} t_1 \\ t_2 \\ t_3 \end{bmatrix} \dfrac{\alpha \Delta T \dots}{\dots}$$
+$$\begin{bmatrix}
+  \frac{7 \sqrt{2}}{12} + \frac{7}{12} + \frac{EJ}{kb} & -\frac{5}{12} & \frac{5}{12} \\
+ -\frac{5}{12}                                         & 1             & -\frac{2}{3} \\
+  \frac{5}{12}                                         & -\frac{2}{3}  &  \frac{4}{3} + \frac{EJ}{kb} 
+\end{bmatrix} 
+\begin{bmatrix} \frac{M_A}{b} \\ \frac{M_H}{b} \\ V_D \end{bmatrix} = 
+\begin{bmatrix} -\frac{5\sqrt{2}}{48} - \frac{1}{8} \\ -\frac{1}{2} \\ \frac{1}{2}  \end{bmatrix} F +
+\begin{bmatrix} 0 \\ \frac{1}{2} \\ -\frac{1}{2} \end{bmatrix} \dfrac{\alpha \Delta T EJ}{h b}$$
 
+**Checking physical dimensions.** In the equation above, numerical coefficients are well separated from groups of physical quantities, that (should) have the physical dimension of a force. Both the unknown and the first term on the RHS are readily checked. Physical dimensions of the last contribution reads
+
+$$\left[ \dfrac{\alpha \Delta T EJ}{hb} \right] = \dfrac{[\alpha \Delta T][E][J]}{[h b]} = \dfrac{1 \cdot \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4}{\text{length}^2} = \text{force} \ .$$
+
+The ratio $\frac{EJ}{kb}$ is non-dimensional
+
+$$\left[ \dfrac{EJ}{k b} \right] = \dfrac{ \frac{\text{force}}{\text{length}^2} \cdot \text{length}^4 }{ \text{moment} \cdot \text{length} } = 1 \ ,$$
+
+being $\text{moment} = \text{force} \cdot \text{length}$.
 
 ```
+
+```{dropdown} Evaluation of the integrals of the inverse of the stiffness matrix
+:open:
+
+Line integrals of the first equation read
+
+$$\begin{aligned}
+  EJ I_{1} 
+  & = F b^2 \left( \dfrac{\sqrt{2}}{6} + \underbrace{\left(\dfrac{1}{2}\dfrac{3}{2}-\dfrac{3}{4}\dfrac{5}{6}\right)}_{=\frac{1}{8}} \right) + q \left( - \dfrac{\sqrt{2}}{16} + 0 \right) + M_A \left( \dfrac{7\sqrt{2}}{12}  + \underbrace{\left( \dfrac{1}{4}\dfrac{3}{2} + \dfrac{1}{4}\dfrac{5}{6}   \right)}_{=\frac{7}{12}} \right) + M_H \left( 0 - \dfrac{1}{2} \dfrac{5}{6} \right) + V_D \left( 0 + \dfrac{1}{2}\dfrac{5}{6} \right) = \\
+  & = ... \\
+  & = \left( \dfrac{5\sqrt{2}}{48} + \dfrac{1}{8} \right) F b^2 + \left( \dfrac{7\sqrt{2}}{12} + \dfrac{7}{12} \right) - \dfrac{5}{12} M_H + \dfrac{5}{12} V_D \ ,
+\end{aligned}$$
+
+being the first integral
+
+$$\begin{aligned}
+  EJ I_{11} 
+  & = q b^3 \left( - \dfrac{\left( \sqrt{2} b \right)^4 }{4}\dfrac{1}{8 \sqrt{2}} \right) + F b^2 \left( \dfrac{\left( \sqrt{2} b \right)^3}{3}\dfrac{1}{4}  \right) + M_A b \underbrace{\left( \left( \sqrt{2} \right) - 2 \dfrac{\left( \sqrt{2} \right)^2}{2} \dfrac{1}{2 \sqrt{2}} + \dfrac{\left( \sqrt{2} \right)^3}{3} \dfrac{1}{8} \right)}_{ = \sqrt{2} \left( 1 - \dfrac{1}{2} + \dfrac{1}{12} \right) = \frac{7 \sqrt{2}}{12}} = \\
+  & = - \dfrac{\sqrt{2}}{16} q b^3 + \dfrac{\sqrt{2}}{6} Fb^2 + \dfrac{7 \sqrt{2}}{12} M_A b = \\
+  & = \dfrac{5 \sqrt{2}}{48} Fb + \dfrac{7 \sqrt{2}}{12} M_A b 
+\end{aligned}$$
+
+---
+
+Line integrals of the second equation read
+
+$$\begin{aligned}
+  EJ I_{2} 
+  & = F b^2 \left( 0 + \dfrac{1}{3} + 0 \right) + M_A b \left( -\dfrac{1}{2}\dfrac{5}{6} + 0 + 0 \right) + M_H b \left( +\dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + V_D b^2 \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 \right) + \dfrac{\alpha \Delta T EJ b}{h} \left( 0 - \dfrac{1}{2} + 0 \right) = \\
+  & = \dfrac{1}{2} F b^2 - \dfrac{5}{12} M_A b + 1 \cdot M_H b - \dfrac{2}{3} V_D b^2 - \dfrac{1}{2} \dfrac{\alpha \Delta T EJ b}{h} \ .
+\end{aligned}
+$$
+
+---
+
+Line integrals of the third equation read
+
+$$\begin{aligned}
+  EJ I_{3} 
+  & = F b \left( 0 - \dfrac{1}{3} + 0 - \dfrac{1}{6} \right) + M_A \left( \dfrac{1}{2} \left( \dfrac{1}{2} + \dfrac{1}{3} \right) + 0 + 0 + 0 \right) + M_H \left( -\dfrac{1}{3} - \dfrac{1}{3} + 0 + 0 \right) + V_D b \left( \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} + \dfrac{1}{3} \right) + \dfrac{\alpha \Delta T EJ}{h} \left( 0 + \dfrac{1}{2} + 0 + 0 \right) = \\
+  & = - \dfrac{1}{2} F b + \dfrac{5}{12} M_A b^2 - \dfrac{2}{3} M_H b^2 + \dfrac{4}{3} V_D b^3 + \dfrac{1}{2} \dfrac{\alpha \Delta T EJ}{h} \ .
+\end{aligned}
+$$
 
 
 
