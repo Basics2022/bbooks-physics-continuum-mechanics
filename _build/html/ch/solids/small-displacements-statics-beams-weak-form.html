@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-weak-form-3d.html">7.1. 3-dimensional solid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">7.2. General elastic beam structures</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3. Isotropic elastic beam structures</a></li>
@@ -502,19 +502,32 @@ Timoshenko beam <div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   0 &amp; = \int_{\text{beams}} \left\{ u_x ( F'_x + f_x ) + u_y ( F'_y + f_y ) + u_z ( F'_z + f_z ) + \right. \\
-    &amp; \qquad \qquad + \left. \phi_x (M'_x - F_y + m_y) + \phi_y(M'_y + F_x + m_y) + \phi_z (M'_z + m_z) \right\} = \\
-    &amp; = - \int_{\text{beams}} \left\{ F_x ( u'_x - \phi_y ) + F_y ( u'_y + \phi_x ) + F_z u'_z + M_x \phi'x + M_y \phi'_ y + M_z \phi'_z \right\} + \\
-    &amp; \qquad + \left. \left[ F_x u_x + F_y u_y + F_z u_z + M_x \phi_x + M_y \phi_y + M_z \phi_z \right]\right|_{\partial \text{str}}
+    &amp; \qquad \qquad + \left. \phi_x (M'_x - F_y + m_x) + \phi_y(M'_y + F_x + m_y) + \phi_z (M'_z + m_z) \right\} = \\
+    &amp; = - \int_{\text{beams}} \left\{ F_x ( u'_x - \phi_y ) + F_y ( u'_y + \phi_x ) + F_z u'_z + M_x \phi'_x + M_y \phi'_y + M_z \phi'_z \right\} + \\
+    &amp; \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z + m_x \phi_x + m_y \phi_y + m_z \phi_z \right\} + \\
+    &amp; \quad \ + \left. \left[ F_x u_x + F_y u_y + F_z u_z + M_x \phi_x + M_y \phi_y + M_z \phi_z \right]\right|_{\partial \, \text{str}}
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">having used integration by parts. This relation holds <strong>for every</strong> <span class="math notranslate nohighlight">\(u_i\)</span>, <span class="math notranslate nohighlight">\(\phi_i\)</span>.</p>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Bernoulli beam for 2-dimensional problems<div class="sd-summary-down docutils">
+Bernoulli beam<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \int_{\text{beams}} \left\{ u_x ( - M''_y + f_x - m'_y ) + u_y ( M''_x + f_y + m'_x ) + u_z ( F'_z + f_z ) + \phi_z ( M'_z + m_z )  \right\} = \\
+    &amp; = - \int_{\text{beams}} \left\{ F_z u'_z + M_z \phi'_z + M_y u''_x - M_x u''_y \right\} + \\
+    &amp; \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z - m_x u'_y + m_y u'_x + m_z \phi_z \right\} + \\
+    &amp; \quad \ + \left. \left[ F_z u_z + M_z \phi_z + u_x \left( - M'_y - m_y \right) + u_y \left( M'_x + m_x \right) + u'_x M_y - u'_y M_x \right]\right|_{\partial \, \text{str}} = \\
+    &amp; = - \int_{\text{beams}} \left\{ F_z u'_z + M_z \phi'_z + M_y u''_x - M_x u''_y \right\} + \\
+    &amp; \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z - m_x u'_y + m_y u'_x + m_z \phi_z \right\} + \\
+    &amp; \quad \ + \left. \left[ F_z u_z + M_z \phi_z + u_x F_x + u_y F_y + u'_x M_y - u'_y M_x \right]\right|_{\partial \, \text{str}}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having used moment balance equations <span class="math notranslate nohighlight">\(M'_x + m_x = F_y\)</span> and <span class="math notranslate nohighlight">\(M'_y + m_y = - F_x\)</span>.</p>
+<p class="sd-card-text"><strong>Comparision with Timoshenko beam.</strong> The formulation for a Bernoulli beam structure looks the same as the formulation for a Timoshenko beam structure, under the assumption of negligible shear volume contributions, and/or that <em>test functions</em> are not completely independent but they satisfy Bernoulli kinematic assumption, <span class="math notranslate nohighlight">\(u'_x = \phi_y\)</span> and <span class="math notranslate nohighlight">\(u'_y = - \phi_x\)</span>.</p>
 <!--
 Assuming here 2-dimensional problem (and thus only one component of the bending moment, no torsion)
 
@@ -588,7 +601,7 @@ Timoshenko beam<div class="sd-summary-down docutils">
 </details></div>
 <div class="section" id="principle-of-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-pvw"></span><h3><span class="section-number">7.3.2.3. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
-<p>Starting from the <a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"><span class="std std-ref">weak form of equilibrium conditions</span></a>, and choosing the test functions <span class="math notranslate nohighlight">\(u_i = \delta s_i\)</span>, <span class="math notranslate nohighlight">\(\phi_i = \delta \theta_i\)</span> to be variations of congruent displacement fields,</p>
+<p>Starting from the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-equilibrium"><span class="std std-ref">weak form of equilibrium conditions</span></a>, and choosing the test functions <span class="math notranslate nohighlight">\(u_i = \delta s_i\)</span>, <span class="math notranslate nohighlight">\(\phi_i = \delta \theta_i\)</span> to be variations of congruent displacement fields,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
  &amp; \delta s_x      = 0 &amp;&amp; \text{where $x$-transverse displacement is prescribed} \\

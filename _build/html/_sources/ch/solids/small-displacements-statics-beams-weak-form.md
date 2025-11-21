@@ -71,17 +71,32 @@ The weak form of the equilibrium equations for a beam structure modelled with [T
 
 $$\begin{aligned}
   0 & = \int_{\text{beams}} \left\{ u_x ( F'_x + f_x ) + u_y ( F'_y + f_y ) + u_z ( F'_z + f_z ) + \right. \\
-    & \qquad \qquad + \left. \phi_x (M'_x - F_y + m_y) + \phi_y(M'_y + F_x + m_y) + \phi_z (M'_z + m_z) \right\} = \\
-    & = - \int_{\text{beams}} \left\{ F_x ( u'_x - \phi_y ) + F_y ( u'_y + \phi_x ) + F_z u'_z + M_x \phi'x + M_y \phi'_ y + M_z \phi'_z \right\} + \\
-    & \qquad + \left. \left[ F_x u_x + F_y u_y + F_z u_z + M_x \phi_x + M_y \phi_y + M_z \phi_z \right]\right|_{\partial \text{str}}
+    & \qquad \qquad + \left. \phi_x (M'_x - F_y + m_x) + \phi_y(M'_y + F_x + m_y) + \phi_z (M'_z + m_z) \right\} = \\
+    & = - \int_{\text{beams}} \left\{ F_x ( u'_x - \phi_y ) + F_y ( u'_y + \phi_x ) + F_z u'_z + M_x \phi'_x + M_y \phi'_y + M_z \phi'_z \right\} + \\
+    & \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z + m_x \phi_x + m_y \phi_y + m_z \phi_z \right\} + \\
+    & \quad \ + \left. \left[ F_x u_x + F_y u_y + F_z u_z + M_x \phi_x + M_y \phi_y + M_z \phi_z \right]\right|_{\partial \, \text{str}}
 \end{aligned}$$
 
 having used integration by parts. This relation holds **for every** $u_i$, $\phi_i$.
 
 ```
 
+```{dropdown} Bernoulli beam
+:open:
 
-```{dropdown} Bernoulli beam for 2-dimensional problems
+$$\begin{aligned}
+  0 & = \int_{\text{beams}} \left\{ u_x ( - M''_y + f_x - m'_y ) + u_y ( M''_x + f_y + m'_x ) + u_z ( F'_z + f_z ) + \phi_z ( M'_z + m_z )  \right\} = \\
+    & = - \int_{\text{beams}} \left\{ F_z u'_z + M_z \phi'_z + M_y u''_x - M_x u''_y \right\} + \\
+    & \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z - m_x u'_y + m_y u'_x + m_z \phi_z \right\} + \\
+    & \quad \ + \left. \left[ F_z u_z + M_z \phi_z + u_x \left( - M'_y - m_y \right) + u_y \left( M'_x + m_x \right) + u'_x M_y - u'_y M_x \right]\right|_{\partial \, \text{str}} = \\
+    & = - \int_{\text{beams}} \left\{ F_z u'_z + M_z \phi'_z + M_y u''_x - M_x u''_y \right\} + \\
+    & \quad \ + \int_{\text{beams}} \left\{ f_x u_x + f_y u_y + f_z u_z - m_x u'_y + m_y u'_x + m_z \phi_z \right\} + \\
+    & \quad \ + \left. \left[ F_z u_z + M_z \phi_z + u_x F_x + u_y F_y + u'_x M_y - u'_y M_x \right]\right|_{\partial \, \text{str}}
+\end{aligned}$$
+
+having used moment balance equations $M'_x + m_x = F_y$ and $M'_y + m_y = - F_x$.
+
+**Comparision with Timoshenko beam.** The formulation for a Bernoulli beam structure looks the same as the formulation for a Timoshenko beam structure, under the assumption of negligible shear volume contributions, and/or that *test functions* are not completely independent but they satisfy Bernoulli kinematic assumption, $u'_x = \phi_y$ and $u'_y = - \phi_x$.
 
 <!--
 Assuming here 2-dimensional problem (and thus only one component of the bending moment, no torsion)
