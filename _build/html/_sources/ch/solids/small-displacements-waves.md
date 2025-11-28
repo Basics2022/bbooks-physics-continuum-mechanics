@@ -65,7 +65,7 @@ $$\mathbf{s}^p_{\mathbf{k},\omega} = i \,\mathbf{k} \phi_{\mathbf{k},\omega}  \ 
 
 while the divergence-free is orthogonal, and thus transverse, w.r.t. the direction of wave propagation,
 
-$$\mathbf{k} \cdot \mathbf{s}^s_{\mathbf{k},\omega} = i \, \mathbf{k} \times  \left( \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) = \mathbf{0} \ .$$
+$$\mathbf{k} \cdot \mathbf{s}^s_{\mathbf{k},\omega} = i \, \mathbf{k} \cdot  \left( \mathbf{k} \times \mathbf{a}_{\mathbf{k}, \omega} \right) = 0 \ .$$
 
 
 

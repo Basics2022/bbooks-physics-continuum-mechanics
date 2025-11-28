@@ -116,10 +116,135 @@ As the variation $\Delta s_i$ only depends on the $i^{th}$ eigenvector, and not 
 
 ```
 
+## Sensitivity of eigenvalues and eigenvectors
 
+Link to [Sensitivity of spectral decomposition, for first order equations](https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html).
+The sensitivity of the $i^{th}$ eigenvalue to a general parameter reads
 
+$$s_{i/p} = - \dfrac{s_i \mathbf{u}_i^* \mathbf{C}_{/p} \mathbf{u}_i}{\mathbf{u}_i^* (2 s_i \mathbf{M} + \mathbf{C} ) \mathbf{u}_i} \ .$$
 
+The sensitivity of this eigenvalue to damping $\mathbf{C}$ of the undamped system as reference condition $\mathbf{C} = \mathbf{0}$ reads
 
+$$s_{i/\mathbf{C}} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i \otimes \mathbf{u}_i}{m_i} \ .$$
 
+The sensitivity of the eigenvector $\mathbf{u}_{i/p}$ can be evaluated as the solution of a linear system derived from the derivation of the eigenvalue problem w.r.t. the parameter $p$
 
+$$\begin{aligned}
+  \mathbf{0} 
+  & = \dfrac{d}{dp}\left\{ \left( s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right) \mathbf{u} \right\} = \\
+  & = \left( s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right) \mathbf{u}_{/p} + \left( 2 s s_{/p} \mathbf{M} + s_{/p} \mathbf{C} + s \mathbf{C}_{/p} \right) \mathbf{u} \ ,
+\end{aligned}$$
+
+having assumed here $\mathbf{M}_{/p} = \mathbf{0}$ and $\mathbf{K}_{/p} = \mathbf{0}$. The linear system thus becomes
+
+$$\left( s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right) \mathbf{u}_{/p} = \underbrace{- \left( 2 s s_{/p} \mathbf{M} + s_{/p} \mathbf{C} + s \mathbf{C}_{/p} \right) \mathbf{u}}_{= \mathbf{b}}\ .$$
+
+* This linear system is singular, as $s$ is an eigenvalue of the system, and 
+
+  $$\left( s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} \right) \mathbf{x} = \mathbf{0} \ ,$$
+
+  for every $\mathbf{x}$ that is a linear combination of the eigenvectors with eigenvalue $s$. Thus, if the linear system has a solution, it has infinite solution. The linear system has a solution if the RHS $\mathbf{b}$ is in the range of the matrix $\mathbf{A}(s) := s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K}$.
+
+* If $\mathbf{b} \in \text{R}(\mathbf{A})$ then it's orthogonal to $\text{K}(\mathbf{A}^*)$, and viceversa. Kernel of $\mathbf{A}^* := s^{* 2} \mathbf{M}^* + s^* \mathbf{C}^* + \mathbf{K}^*$ is spanned by the left eigenvectors $\mathbf{v}$ associated with the eigenvalue $s$. Direct evaluation of the product $\mathbf{v}^* \mathbf{b}$ proves that $\mathbf{b} \perp \text{K}(\mathbf{A}^*)$ and thus $\mathbf{b} \in \text{R}(\mathbf{A})$, and thus a solution exists,
+
+  $$\begin{aligned}
+    \mathbf{v}^* \mathbf{b} 
+    & = \mathbf{v}^* \left( - 2 s s_{/p} \mathbf{M} - s_{/p} \mathbf{C} - s \mathbf{C}_{/p} \right) \mathbf{u} = \\
+    & = \mathbf{v}^* ( - 2 s \mathbf{M} - \mathbf{C} ) \mathbf{u} s_{/p} - s \mathbf{v}^* \mathbf{C}_{/p} \mathbf{u} = \\
+    & = \mathbf{v}^* ( - 2 s \mathbf{M} - \mathbf{C} ) \mathbf{u} \dfrac{-s \mathbf{v}^* \mathbf{C}_{/p} \mathbf{u}}{\mathbf{v}^* ( 2 s \mathbf{M} + \mathbf{C}) \mathbf{u}} - s \mathbf{v}^* \mathbf{C}_{/p} \mathbf{u} = 0 \ .
+  \end{aligned}$$
+
+* Since a solution exists, an infinite number of solution exists. Given a solution $\widetilde{\mathbf{u}}_{/p}$, adding a linear combination of the eigenvectors with eigenvalue $s$ produces a solution as well,
+
+  $$\widetilde{\mathbf{u}}_{/p} + \mathbf{U} \boldsymbol\beta \ .$$
+
+* In order to remove the arbitariness, it's possible to introduce some conditions, like the orthogonality condition $\mathbf{V}^* \mathbf{M} \mathbf{u}_{/p} ) \mathbf{0}$
+
+* Writing the solution as a linear combination of eigenvectors $\mathbf{U}$ of the linear system (are they a basis?) and explicitly discern the eigenvectors with eigenvalue $s_i$ fro the other ones,
+
+  $$\mathbf{u}_{/p} = \mathbf{U}_{\notin i} \boldsymbol\alpha + \mathbf{U}_i \boldsymbol\beta \ ,$$
+
+  the linear system and the orthogonality condition $\mathbf{V}_i^* \mathbf{M} \mathbf{U}_{\notin i} = \mathbf{0}$ give the decoupled linear system
+
+  $$\begin{cases}
+    \mathbf{V}^*_{\notin i} \left( s_i^2 \mathbf{M} + s_i \mathbf{C} + \mathbf{K} \right) \mathbf{U}_{\notin i} \boldsymbol\alpha = \mathbf{V}^*_{\notin i} \mathbf{b} \\
+    \mathbf{V}_i \mathbf{M} \mathbf{U}_i \boldsymbol\beta = \mathbf{0} \ .
+  \end{cases}$$
+
+  Under the assumption that mass, damping and stiffness matrices are simultaneously diagnoalized, it immediately follows that this linear system is diagonal,
+
+  $$\begin{cases}
+    \text{diag} \left\{ s_i^2 m_{j \notin i} + s_i c_{j \notin i} + k_{j\notin i} \right\} \boldsymbol\alpha = \mathbf{V}_{\notin i}^*  \mathbf{b}\\
+    \text{diag} \left\{ m_i \right\} \boldsymbol\beta = \mathbf{0} \ .
+  \end{cases}$$
+
+  If mass normalization is chosen, $\mathbf{V}^* \mathbf{M} \mathbf{U} = \mathbf{I}$, i.e. $m_j = 1$, $k_j = \omega_j^2 = |s_j|^2$, and $c_i = 2 \xi_j \omega_j = - 2 \, \text{re}\{ s_j \}$, being $s_j = \omega_j \left( - \xi_j \mp i \sqrt{ 1 - \xi^2_j } \right)$. It's immediate to prove that
+
+  $$s^2 - 2 s \, \text{re}\{ s_j \} + |s_j|^2 = ( s - s_j^* ) ( s - s_j ) \ ,$$
+
+  as
+
+  $$(s - s_j^* ) (s - s^j ) = s^2 - s (s_j + s_j^*) + s_j^* s_j = s^2 - 2 \, \text{re}\{ s_j \} + |s_j|^2 \ .$$
+
+  The solution of the linear system thus reads
+
+  $$\begin{cases}
+    \boldsymbol\alpha = \text{diag}\left\{ \dfrac{1}{s_i^2 + 2 \xi_j \omega_j s_i + \omega_j^2} \right\} \mathbf{V}^*_{\notin i} \mathbf{b} \\
+    \boldsymbol\beta = \mathbf{0} \ ,
+  \end{cases}$$
+
+  s.t. the unique solution of the augmented problem reads
+
+  $$\begin{aligned}
+    \mathbf{u}_{i/p} 
+    & = \mathbf{U}_{\notin i} \text{diag}\left\{ \dfrac{1}{s_i^2 + 2 \xi_j \omega_j s_i + \omega_j^2} \right\} \mathbf{V}^*_{\notin i} \mathbf{b}_i = \\
+    & = - \mathbf{U}_{\notin i} \text{diag}\left\{ \dfrac{1}{s_i^2 + 2 \xi_j \omega_j s_i + \omega_j^2} \right\} \mathbf{V}^*_{\notin i} \left( 2 s_i s_{i/p} \mathbf{M} + s_{i/p} \mathbf{C} + s_i \mathbf{C}_{/p} \right) \mathbf{u}_i = \\
+    & = - s_i \mathbf{U}_{\notin i} \text{diag}\left\{ \dfrac{1}{s_i^2 + 2 \xi_j \omega_j s_i + \omega_j^2} \right\} \mathbf{V}^*_{\notin i} \mathbf{C}_{/p} \mathbf{u}_i = \\
+    & = \dots
+  \end{aligned}$$
+
+```{dropdown} Algebra with components
+:open: 
+
+Let the matrix $\mathbf{U}_{\notin i} = \left[ \dots | \mathbf{u}_j | \dots \right]$, and $U_{ab}^{\notin i} = u^{(b)}_a$, $V_{ab}^{\notin i} = v^{(b)}_a$,
+
+$$\begin{aligned}
+  u^{(i)}_{a/p}
+  & = - s_i U^{\notin i}_{ab} \dfrac{\delta_{be}}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} V^{\notin i, \ *}_{ce} C_{cd/p} u^{(i)}_d = \\
+  & = - u^{(b)}_a \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} v^{(b) \, *}_{c} C_{cd/p} u_d^{(i)} = \\
+  & = - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_b^* \mathbf{C}_{/p} \mathbf{u}_i \, \mathbf{u}_b
+\end{aligned}$$
+
+```
+
+```{dropdown} Parameter $\ p = C_{rs}$
+:open:
+
+If $p = C_{rs}$, then $C_{cd/p} = C_{cd/C_{rs}} = \delta_{cr} \delta_{ds}$, and 
+
+$$\begin{aligned}
+  u^{(i)}_{a/C_{rs}}
+  & = - s_i U^{\notin i}_{ab} \dfrac{\delta_{be}}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} V^{\notin i, \ *}_{ce} C_{cd/C_{rs}} u^{(i)}_d = \\
+  & = - \sum_{b \ne i} u^{(b)}_a \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} v^{(b) \, *}_{c} \delta_{cr} \delta_{ds} u_d^{(i)} = \\
+  & = - \sum_{b \ne i} u^{(b)}_a \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} v^{(b) \, *}_{r} u_s^{(i)} = \\
+\end{aligned}$$
+
+is a *third-order tensor*, as it's the derivative of a vector quantity w.r.t. a second-order tensor $\mathbf{C}$[^tensor-matrix], and its index representation has 3 non-dummy indices, namely $a$, $r$, $s$.
+
+[^tensor-matrix]: Is this really a tensor? Should we recall the definition of tensor here? What's the right name of the extension of a matrix with 3 indices?
+
+The first-order approximation of the eigenvector reads
+
+$$\begin{aligned}
+  u^{(i)}_a 
+  & \simeq u^{(i)}_{a,0} + \sum_{r,s} C_{rs} u^{(i)}_{a/C_{rs}} = \\
+  &      = u^{(i)}_{a,0} - \sum_{r,s} C_{rs} \sum_{b \ne i} u_a^{(b)} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} v_r^{(b) \ *} u_s^{(i)} = \\
+  &      = u^{(i)}_{a,0} - \sum_{b \ne i} u_a^{(b)} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \sum_{r,s} v_r^{(b) \ *} C_{rs} u_s^{(i)} \ ,
+\end{aligned}$$
+
+or using vector formalism
+
+$$\mathbf{u}_i = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} \ .$$
+
+```
 
