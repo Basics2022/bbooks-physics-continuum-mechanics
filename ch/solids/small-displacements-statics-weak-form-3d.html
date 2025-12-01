@@ -537,9 +537,87 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 <div class="theorem-content section" id="proof-content">
 <p>Under the assumptions …, there exists a unique solution of the elastic problem that is at the same time congruent and equilibrated.</p>
 </div>
-</div><p>In structural mechanics, it’s quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions… it’s possible to prove that hte lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.</p>
-<p>…<strong>todo</strong>…</p>
+</div><p>In structural mechanics, it’s quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions… it’s possible to prove that the lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.</p>
+<p>The proof of existence of a solution requires some functional analysis tools (not developed here, yet). The proof of uniqueness and the necessary conditions can be discussed with a proof by contradiction, assuming that two solutions of the same problem exists and evaluating the norm of the difference of the solution on the whole domain, quantifying the difference between these solutions, and eventually assessing that this norm is identically zero under certain assumptions.</p>
+<p>The proof follows a similar procedure as the <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/elliptic.html#existence-and-uniqueness">proof of uniqueness of the solution of elliptic problems</a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Equilibrium equation for statics can be written as a function of strain and displacement, exploiting the constitutive equation <span class="math notranslate nohighlight">\(\sigma_{ij} = C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0   &amp; = \sigma_{ij/i} + f_j = \left( C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T \right)_{/i} + f_j &amp;&amp; \text{in $V$} \\
+  g_i &amp; = s_i             &amp;&amp; \text{on $S_D$} \\
+  t_j &amp; = n_i \sigma_{ij} = n_i ( C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T ) &amp;&amp; \text{on $S_N$} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Let’s assume two strain fields exists s.t. their solution of the elastic problem, and let’s define <span class="math notranslate nohighlight">\(\delta \boldsymbol\varepsilon = \boldsymbol\varepsilon_2(\mathbf{r}) - \boldsymbol\varepsilon_1(\mathbf{r})\)</span>. This difference satisfies the homogeneous problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0   &amp; = C_{ijkl} \delta \varepsilon_{kl}        &amp;&amp; \text{in $V$} \\
+  0   &amp; = \delta s_i                              &amp;&amp; \text{on $S_D$} \\
+  0   &amp; = n_i \, C_{ijkl} \delta \varepsilon_{kl} &amp;&amp; \text{on $S_N$} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">given a prescribed temperature field <span class="math notranslate nohighlight">\(\Delta T\)</span>.</p>
+<p class="sd-card-text">…</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_{V} \delta \varepsilon_{ij} C_{ijkl} \delta \varepsilon_{kl}
+  &amp; =  \int_{V} \dfrac{1}{2} \left( \delta s_{i/j} + \delta s_{j/i} \right) C_{ijkl} \delta \varepsilon_{kl} = \\
+  &amp; =  \int_{V} \delta s_{j/i} C_{ijkl} \delta \varepsilon_{kl} = \\
+  &amp; =  \int_{V} \left\{ \left( \delta s_{j} C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} - \delta s_{j} \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} \right\} = \\
+  &amp; =  \oint_{\partial V} n_i \, \delta s_{j} C_{ijkl} \delta \varepsilon_{kl} - \int_V \delta s_{j} \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} = \\
+  &amp; =  \int_{S_D} n_i \, \underbrace{ \delta s_{j} }_{\delta s_j |_{S_D} = 0} C_{ijkl} \delta \varepsilon_{kl} + \int_{S_N} n_i \, \delta s_j \underbrace{ C_{ijkl} \delta \varepsilon_{kl} }_{ C_{ijkl} \delta \varepsilon |_{S_N} = 0} - \int_V \delta s_{j} \underbrace{ \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i}}_{ = 0} = \\
+  &amp; = 0 \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\delta \varepsilon : \mathbf{C} : \delta \varepsilon \ge 0\)</span> for every symmetric <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor (<strong>todo</strong> this is related to constraints on deformation energy…), the integral condition implies <span class="math notranslate nohighlight">\(\delta \boldsymbol\varepsilon : \mathbf{C} : \delta \boldsymbol\varepsilon = 0\)</span> (<strong>todo</strong> check it). As <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> … (<strong>todo</strong> which property required?), this further implies <span class="math notranslate nohighlight">\(\delta \boldsymbol\varepsilon = \mathbf{0}\)</span>, and thus the two solution may differ at most by a rigid motion,</p>
+<div class="math notranslate nohighlight">
+\[s_2(\mathbf{r}) = s_1(\mathbf{r}) + \mathbf{a} + \boldsymbol\theta_\times \mathbf{r} \ .\]</div>
+<p class="sd-card-text"><strong>If</strong> the problem has boundary conditions preventing rigid motion, i.e. no rigid degree of freedom, there’s no arbitrariety in the solution as the boundary conditions set <span class="math notranslate nohighlight">\(\mathbf{a} = \mathbf{0}\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol\theta = \mathbf{0}\)</span>, and thus</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s}_1(\mathbf{r}) = \mathbf{s}_2(\mathbf{r}) \ .\]</div>
+<p class="sd-card-text"><strong>Comments and todo.</strong></p>
+<ul>
+<li><p class="sd-card-text"><strong>todo</strong> Comment condition <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon = \varepsilon_{ij} C_{ijkl} \varepsilon \ge 0\)</span>, with internal energy balance equation</p></li>
+<li><p class="sd-card-text">Show explicitly the case of a linear isotropic medium, governed by the constitutive law <span class="math notranslate nohighlight">\(\sigma_{ij} = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij}\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[C_{ijkl} = \mu \delta_{ik} \delta_{jl} + \mu \delta_{il} \delta_{jk} + \lambda \delta_{ij} \delta_{kl} \ ,\]</div>
+<p class="sd-card-text">i.e. the most general expression of an isotropic rank-<span class="math notranslate nohighlight">\(4\)</span> tensor relating two isotropic and symmetric rank-<span class="math notranslate nohighlight">\(2\)</span> tensors, like the stress and small strain tensors<a class="footnote-reference brackets" href="#rank-4-iso" id="id2">2</a>. In this case the double dot product of the stress and strain tensors reads</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\varepsilon : \boldsymbol\sigma = \varepsilon_{ij} \sigma_{ij} = \varepsilon_{ij} \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij}  \right) = 2 \mu \varepsilon_{ij} \varepsilon_{ij} + \lambda \varepsilon_{ll} \varepsilon_{kk} \delta_{ij} = 2 \mu |\boldsymbol\varepsilon|^2 + \lambda \text{tr}\left(\boldsymbol\varepsilon\right)^2 \ge 0 \ .\]</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>todo</strong> Any thermodynamic condition prescribing the sign of the coefficients <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span>? Anything like minimum energy or maximum entropy principle at thermodynamic equilibrium?</p></li>
+</ul>
+<!--
+
+the norm of the gradient of the displacement field reads
+
+$$\begin{aligned}
+  \int_{V} | \nabla \mathbf{s} |^2
+  & = \int_{V} s_{i/j} s_{i/j} = \\
+  & = \int_{V} \left( \varepsilon_{ij} + \Omega_{ij} \right) \left( \varepsilon_{ij} + \Omega_{ij} \right) = \\
+  & = \int_{V} \left( \varepsilon_{ij} \varepsilon_{ij} + \Omega_{ij} \Omega_{ij} \right) \ ,
+\end{aligned}$$
+
+as $\boldsymbol\varepsilon$ and $\boldsymbol\Omega$ are the symmetric and the anti-symmetric parts of the gradient of the displacement field, respectively, the symmetric part representing deformations while the anti-symmetric representing infinitesimal rigid rotations.
+
+The contribution of the deformation can be recast as
+
+$$\begin{aligned}
+  \int_V \varepsilon_{ij} \varepsilon_{ij} 
+  & = \int_V \varepsilon_{ij} \dfrac{1}{2} \left( s_{i/j} + s_{j/i} \right) = \\
+  & = \int_V \varepsilon_{ij} s_{i/j} = \\
+  & = \int_V \left\{ \left( \varepsilon_{ij} s_{i} \right)_{/j} - \varepsilon_{ \right\} = \\
+\end{aligned}$$
+
+-->
 </div>
+</details></div>
 <div class="section" id="principle-of-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-pvw"></span><h3><span class="section-number">7.1.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
 <p>Starting from the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-equilibrium"><span class="std std-ref">weak form of equilibrium conditions</span></a>, and choosing <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> to be the variation of a <strong>congruent displacement field</strong> <span class="math notranslate nohighlight">\(\widetilde{s}\)</span>  with internal congruence in <span class="math notranslate nohighlight">\(V\)</span> and compatibility with <em>given</em> essential constraints on <span class="math notranslate nohighlight">\(S_D\)</span>, i.e. that satisfies the conditions</p>
@@ -701,6 +779,9 @@ $$
 <dl class="footnote brackets">
 <dt class="label" id="test-fun-regularity"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>For every test function that is <strong>regular enough</strong>, meaning that everything that is written in the equatiions exist.</p>
+</dd>
+<dt class="label" id="rank-4-iso"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Otherwise the first and second scalar factors are different, <span class="math notranslate nohighlight">\(C_{ijkl} = \mu \delta_{ik} \delta_{jl} + \eta \delta_{il} \delta_{jk} + \lambda \delta_{ij} \delta_{kl}\)</span>.</p>
 </dd>
 </dl>
 </div>
