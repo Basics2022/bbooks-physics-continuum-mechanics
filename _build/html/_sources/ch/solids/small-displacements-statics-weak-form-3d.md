@@ -98,9 +98,94 @@ Under the assumptions ..., there exists a unique solution of the elastic problem
 
 ```
 
-In structural mechanics, it's quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions... it's possible to prove that hte lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.
+In structural mechanics, it's quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions... it's possible to prove that the lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.
 
-...**todo**...
+The proof of existence of a solution requires some functional analysis tools (not developed here, yet). The proof of uniqueness and the necessary conditions can be discussed with a proof by contradiction, assuming that two solutions of the same problem exists and evaluating the norm of the difference of the solution on the whole domain, quantifying the difference between these solutions, and eventually assessing that this norm is identically zero under certain assumptions.
+
+The proof follows a similar procedure as the [proof of uniqueness of the solution of elliptic problems](https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/elliptic.html#existence-and-uniqueness).
+
+```{dropdown} Proof.
+:open:
+
+Equilibrium equation for statics can be written as a function of strain and displacement, exploiting the constitutive equation $\sigma_{ij} = C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T$,
+
+$$\begin{aligned}
+  0   & = \sigma_{ij/i} + f_j = \left( C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T \right)_{/i} + f_j && \text{in $V$} \\
+  g_i & = s_i             && \text{on $S_D$} \\
+  t_j & = n_i \sigma_{ij} = n_i ( C_{ijkl} \varepsilon_{kl} - \beta_{ij} \Delta T ) && \text{on $S_N$} \\
+\end{aligned}$$
+
+Let's assume two strain fields exists s.t. their solution of the elastic problem, and let's define $\delta \boldsymbol\varepsilon = \boldsymbol\varepsilon_2(\mathbf{r}) - \boldsymbol\varepsilon_1(\mathbf{r})$. This difference satisfies the homogeneous problem
+
+$$\begin{aligned}
+  0   & = C_{ijkl} \delta \varepsilon_{kl}        && \text{in $V$} \\
+  0   & = \delta s_i                              && \text{on $S_D$} \\
+  0   & = n_i \, C_{ijkl} \delta \varepsilon_{kl} && \text{on $S_N$} \ ,
+\end{aligned}$$
+
+given a prescribed temperature field $\Delta T$. 
+
+...
+
+$$\begin{aligned}
+  \int_{V} \delta \varepsilon_{ij} C_{ijkl} \delta \varepsilon_{kl}
+  & =  \int_{V} \dfrac{1}{2} \left( \delta s_{i/j} + \delta s_{j/i} \right) C_{ijkl} \delta \varepsilon_{kl} = \\
+  & =  \int_{V} \delta s_{j/i} C_{ijkl} \delta \varepsilon_{kl} = \\
+  & =  \int_{V} \left\{ \left( \delta s_{j} C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} - \delta s_{j} \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} \right\} = \\
+  & =  \oint_{\partial V} n_i \, \delta s_{j} C_{ijkl} \delta \varepsilon_{kl} - \int_V \delta s_{j} \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i} = \\
+  & =  \int_{S_D} n_i \, \underbrace{ \delta s_{j} }_{\delta s_j |_{S_D} = 0} C_{ijkl} \delta \varepsilon_{kl} + \int_{S_N} n_i \, \delta s_j \underbrace{ C_{ijkl} \delta \varepsilon_{kl} }_{ C_{ijkl} \delta \varepsilon |_{S_N} = 0} - \int_V \delta s_{j} \underbrace{ \left( C_{ijkl} \delta \varepsilon_{kl} \right)_{/i}}_{ = 0} = \\
+  & = 0 \ .
+\end{aligned}$$
+
+As $\delta \varepsilon : \mathbf{C} : \delta \varepsilon \ge 0$ for every symmetric $2^{nd}$-order tensor (**todo** this is related to constraints on deformation energy...), the integral condition implies $\delta \boldsymbol\varepsilon : \mathbf{C} : \delta \boldsymbol\varepsilon = 0$ (**todo** check it). As $\mathbf{C}$ ... (**todo** which property required?), this further implies $\delta \boldsymbol\varepsilon = \mathbf{0}$, and thus the two solution may differ at most by a rigid motion,
+
+$$s_2(\mathbf{r}) = s_1(\mathbf{r}) + \mathbf{a} + \boldsymbol\theta_\times \mathbf{r} \ .$$
+
+**If** the problem has boundary conditions preventing rigid motion, i.e. no rigid degree of freedom, there's no arbitrariety in the solution as the boundary conditions set $\mathbf{a} = \mathbf{0}$, and $\boldsymbol\theta = \mathbf{0}$, and thus
+
+$$\mathbf{s}_1(\mathbf{r}) = \mathbf{s}_2(\mathbf{r}) \ .$$
+
+**Comments and todo.**
+
+* **todo** Comment condition $\boldsymbol\varepsilon : \mathbf{C} : \boldsymbol\varepsilon = \varepsilon_{ij} C_{ijkl} \varepsilon \ge 0$, with internal energy balance equation
+
+* Show explicitly the case of a linear isotropic medium, governed by the constitutive law $\sigma_{ij} = 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij}$, i.e.
+
+    $$C_{ijkl} = \mu \delta_{ik} \delta_{jl} + \mu \delta_{il} \delta_{jk} + \lambda \delta_{ij} \delta_{kl} \ ,$$
+
+    i.e. the most general expression of an isotropic rank-$4$ tensor relating two isotropic and symmetric rank-$2$ tensors, like the stress and small strain tensors[^rank-4-iso]. In this case the double dot product of the stress and strain tensors reads
+
+    $$\boldsymbol\varepsilon : \boldsymbol\sigma = \varepsilon_{ij} \sigma_{ij} = \varepsilon_{ij} \left( 2 \mu \varepsilon_{ij} + \lambda \varepsilon_{ll} \delta_{ij}  \right) = 2 \mu \varepsilon_{ij} \varepsilon_{ij} + \lambda \varepsilon_{ll} \varepsilon_{kk} \delta_{ij} = 2 \mu |\boldsymbol\varepsilon|^2 + \lambda \text{tr}\left(\boldsymbol\varepsilon\right)^2 \ge 0 \ .$$
+
+[^rank-4-iso]: Otherwise the first and second scalar factors are different, $C_{ijkl} = \mu \delta_{ik} \delta_{jl} + \eta \delta_{il} \delta_{jk} + \lambda \delta_{ij} \delta_{kl}$.
+
+* **todo** Any thermodynamic condition prescribing the sign of the coefficients $\mu$, $\lambda$? Anything like minimum energy or maximum entropy principle at thermodynamic equilibrium?
+
+<!--
+
+the norm of the gradient of the displacement field reads
+
+$$\begin{aligned}
+  \int_{V} | \nabla \mathbf{s} |^2
+  & = \int_{V} s_{i/j} s_{i/j} = \\
+  & = \int_{V} \left( \varepsilon_{ij} + \Omega_{ij} \right) \left( \varepsilon_{ij} + \Omega_{ij} \right) = \\
+  & = \int_{V} \left( \varepsilon_{ij} \varepsilon_{ij} + \Omega_{ij} \Omega_{ij} \right) \ ,
+\end{aligned}$$
+
+as $\boldsymbol\varepsilon$ and $\boldsymbol\Omega$ are the symmetric and the anti-symmetric parts of the gradient of the displacement field, respectively, the symmetric part representing deformations while the anti-symmetric representing infinitesimal rigid rotations.
+
+The contribution of the deformation can be recast as
+
+$$\begin{aligned}
+  \int_V \varepsilon_{ij} \varepsilon_{ij} 
+  & = \int_V \varepsilon_{ij} \dfrac{1}{2} \left( s_{i/j} + s_{j/i} \right) = \\
+  & = \int_V \varepsilon_{ij} s_{i/j} = \\
+  & = \int_V \left\{ \left( \varepsilon_{ij} s_{i} \right)_{/j} - \varepsilon_{ \right\} = \\
+\end{aligned}$$
+
+-->
+
+```
 
 (solid-mechanics:intro:small-displacements-statics-weak-form:weak:pvw)=
 ### Principle of virtual work
