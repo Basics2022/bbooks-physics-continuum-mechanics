@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7.2. General elastic beam structures" href="small-displacements-statics-beams-weak-form-general.html" />
-    <link rel="prev" title="7. Small displacement - Statics - Weak formulation and “Energy” theorems" href="small-displacements-statics-weak-form.html" />
+    <link rel="prev" title="7. Small displacement - Statics - Weak formulation and “energy” theorems" href="small-displacements-statics-weak-form.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">5. Introduction to Solid Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-statics.html">6. Small displacement - statics</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “Energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="small-displacements-statics-weak-form.html">7. Small displacement - Statics - Weak formulation and “energy” theorems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">7.1. 3-dimensional solid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html">7.2. General elastic beam structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="small-displacements-statics-beams-weak-form.html">7.3. Isotropic elastic beam structures</a></li>
@@ -537,7 +537,8 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 <div class="theorem-content section" id="proof-content">
 <p>Under the assumptions …, there exists a unique solution of the elastic problem that is at the same time congruent and equilibrated.</p>
 </div>
-</div><p>…<strong>todo</strong>…</p>
+</div><p>In structural mechanics, it’s quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions… it’s possible to prove that hte lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.</p>
+<p>…<strong>todo</strong>…</p>
 </div>
 <div class="section" id="principle-of-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-pvw"></span><h3><span class="section-number">7.1.2.4. </span>Principle of virtual work<a class="headerlink" href="#principle-of-virtual-work" title="Permalink to this heading">#</a></h3>
@@ -561,7 +562,7 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 </div>
 <div class="section" id="principle-of-complementary-virtual-work">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-pcvw"></span><h3><span class="section-number">7.1.2.5. </span>Principle of complementary virtual work<a class="headerlink" href="#principle-of-complementary-virtual-work" title="Permalink to this heading">#</a></h3>
-<p>Starting from the weak form of the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence"><span class="std std-ref">congruence condition</span></a>, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
+<p>Starting from the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-congruence"><span class="std std-ref">weak form of congruence conditions</span></a>, and choosing <span class="math notranslate nohighlight">\(\boldsymbol\Omega\)</span> to be the variation of an <strong>equilibrated stress field</strong> <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\sigma}}\)</span> due to <em>given</em> external loads <span class="math notranslate nohighlight">\(\widetilde{\mathbf{f}}\)</span> in <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{t}}_{\mathbf{n}}\)</span> on <span class="math notranslate nohighlight">\(S_N\)</span>, i.e. satisfying the conditions</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 &amp; \text{in $V$} \\
@@ -582,7 +583,7 @@ If <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> is in
 </div>
 <div class="section" id="principle-of-stationariety-of-total-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential"></span><h3><span class="section-number">7.1.2.6. </span>Principle of stationariety of total potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-potential-energy" title="Permalink to this heading">#</a></h3>
-<p>Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\)</span>, it follows that</p>
+<p>Choosing the (unique) solution of the elastic problem as the compatible field used in the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-pvw"><span class="std std-ref">principle of virtual work</span></a>, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{s}} = \mathbf{s}\)</span>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}\)</span>, it follows that</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
  0 &amp; = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \mathbf{t} =  
@@ -635,13 +636,13 @@ $$\begin{aligned}
 </div></div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">7.1.2.7. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
-<p>If the displacement of the Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\)</span>,</p>
+<p>Choosing the (unique) solution of the elastic problem as the <strong>equilibrated stress field</strong> in the <a class="reference internal" href="#solid-mechanics-intro-small-displacements-statics-weak-form-weak-pcvw"><span class="std std-ref">principle of complementary virtual work</span></a>, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{sigma}} = \boldsymbol\sigma\)</span> with loads <span class="math notranslate nohighlight">\(\widetilde{\)</span>, if the displacement of the Robin boundary reads <span class="math notranslate nohighlight">\(\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 0 &amp; = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
   &amp; = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
 \end{aligned}\end{split}\]</div>
-<p>and if <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \, \Delta T = 0\)</span>, and</p>
+<p>If <span class="math notranslate nohighlight">\(\Delta T\)</span> is prescribed, it follows <span class="math notranslate nohighlight">\(\delta \, \Delta T = 0\)</span>, and</p>
 <div class="math notranslate nohighlight">
 \[\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .\]</div>
 <div class="proof theorem admonition" id="theorem-2">
@@ -742,7 +743,7 @@ $$
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “Energy” theorems</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “energy” theorems</p>
       </div>
     </a>
     <a class="right-next"

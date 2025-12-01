@@ -98,6 +98,8 @@ Under the assumptions ..., there exists a unique solution of the elastic problem
 
 ```
 
+In structural mechanics, it's quite common to deal with congruent displacement and strain fields, and equilibrated stress fields. Stress and strain fields are related via the constitutive law of the medium. A congruent displacement and strain field may produce non-equilibrated stress fields; an equilibrated stress field may produce non-congruent displacement field. Under the assumptions... it's possible to prove that hte lienar elastic problem has a unique solution corresponding to the congruent strain and displacement and equilibrated stress fields, i.e. the unique set of fields simultaneously satisfying equilibrium equations and constraints.
+
 ...**todo**...
 
 (solid-mechanics:intro:small-displacements-statics-weak-form:weak:pvw)=
@@ -126,7 +128,7 @@ $$\begin{aligned}
 (solid-mechanics:intro:small-displacements-statics-weak-form:weak:pcvw)=
 ### Principle of complementary virtual work
 
-Starting from the weak form of the [congruence condition](solid-mechanics:intro:small-displacements-statics-weak-form:weak:congruence), and choosing $\boldsymbol\Omega$ to be the variation of an **equilibrated stress field** $\widetilde{\boldsymbol{\sigma}}$ due to *given* external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$, i.e. satisfying the conditions
+Starting from the [weak form of congruence conditions](solid-mechanics:intro:small-displacements-statics-weak-form:weak:congruence), and choosing $\boldsymbol\Omega$ to be the variation of an **equilibrated stress field** $\widetilde{\boldsymbol{\sigma}}$ due to *given* external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_{\mathbf{n}}$ on $S_N$, i.e. satisfying the conditions
 
 $$\begin{cases}
   \widetilde{\sigma}_{ij/i} + \widetilde{f}_j = 0 & \text{in $V$} \\
@@ -151,7 +153,7 @@ $$\begin{aligned}
 (solid-mechanics:intro:small-displacements-statics-weak-form:weak:stationariety-potential)=
 ### Principle of stationariety of total potential energy
 
-Choosing the (unique) solution of the elastic problem as the compatible field used in the principle of virtual work, $\widetilde{\mathbf{s}} = \mathbf{s}$, $\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}$, it follows that
+Choosing the (unique) solution of the elastic problem as the compatible field used in the [principle of virtual work](solid-mechanics:intro:small-displacements-statics-weak-form:weak:pvw), $\widetilde{\mathbf{s}} = \mathbf{s}$, $\widetilde{\boldsymbol{\varepsilon}} = \boldsymbol{\varepsilon}$, it follows that
 
 $$\begin{aligned}
  0 & = - \int_V \delta \boldsymbol\varepsilon : \boldsymbol\sigma + \int_{V} \delta \mathbf{s} \cdot \overline{\mathbf{f}} + \int_{S_N} \delta \mathbf{s} \cdot \overline{\mathbf{t}} + \int_{S_R} \delta \mathbf{s} \cdot \mathbf{t} =  
@@ -210,14 +212,15 @@ Among all the equilibrated solutions, the congruent solution (and thus the uniqu
 (solid-mechanics:intro:small-displacements-statics-weak-form:weak:stationariety-potential-complementary)=
 ### Principle of stationariety of total complementary potential energy
 
-If the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
+
+Choosing the (unique) solution of the elastic problem as the **equilibrated stress field** in the [principle of complementary virtual work](solid-mechanics:intro:small-displacements-statics-weak-form:weak:pcvw), $\widetilde{\boldsymbol{sigma}} = \boldsymbol\sigma$ with loads $\widetilde{$, if the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
 
 $$\begin{aligned}
 0 & = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
   & = \delta \underbrace{ \left\{ \int_V \dfrac{1}{2} \boldsymbol\sigma : \mathbf{D} : \boldsymbol\sigma + \int_{V} \boldsymbol\sigma : \boldsymbol\alpha \Delta T - \int_{S_D} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} + \int_{S_R} \dfrac{1}{2} \mathbf{t}_n \cdot \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} - \int_{S_R} \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{r}} \right\} }_{\Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}})} - \int_V \boldsymbol\sigma : \boldsymbol\alpha \, \delta \Delta T \\
 \end{aligned}$$
 
-and if $\Delta T$ is prescribed, it follows $\delta \, \Delta T = 0$, and
+If $\Delta T$ is prescribed, it follows $\delta \, \Delta T = 0$, and
 
 $$\delta \Pi^*(\boldsymbol\sigma, \mathbf{t}_{\mathbf{n}}) = 0 \ .$$
 
