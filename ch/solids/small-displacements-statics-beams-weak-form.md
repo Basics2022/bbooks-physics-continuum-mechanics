@@ -116,7 +116,7 @@ having used integration by parts and boundary conditions on Neumann boundaries w
 
 ```{prf:example} Finite element method. Example: 1-element clamped Bernoulli beam
 
-**Approximation 1.** Choosing only one test function $u_{y,2} = z^2$ (that satisfies the essential boundary conditions, '$u_{y,2}(0)=0$, $u'_{y,2}(0)=0$), and assuming that the $y$-displacement $s_y$ is proportional to that test function (same test and base function, to get a symmetric problem - even when multi-dimensional),
+**Approximation 1.** Choosing only one test function $u_{y,2}(z) = z^2$ (that satisfies the essential boundary conditions, ($u_{y,2}(0)=0$, $u'_{y,2}(0)=0$), and assuming that the $y$-displacement $s_y$ is proportional to that test function (same test and base function, to get a symmetric problem - even when multi-dimensional),
 
 $$s_y(z) = a_2 z^2$$
 
@@ -284,3 +284,82 @@ $$\begin{aligned}
 (solid-mechanics:intro:small-displacements-statics-beam-weak-form:weak:stationariety-potential-complementary)=
 ### Principle of stationariety of total complementary potential energy
 
+```{prf:example} Clamp-cart beam
+
+A beam of length $b$ is clamped in $A$ and constrained with a cart in $B$ preventing transverse displacement. A transverse distributed uniform load $q$ is applied. Thermal deformation is induced by a linear distribution of $\Delta T$ across all the sections of the beam. Assuming slender beam model and considering only the bending deformation, solve the (hyperstatic) structure: determine the internal bending moment $M(z)$ and the displacement $w(z)$.
+
+Let's solve the problem with different approaches, after calling $X$ the cart reaction and choosing it as the independent unknown hyperstatics.
+The reaction in $A$ are $V_A = - X + qb$, $H_A = 0$, $M_A = - \frac{qb^2}{2} + Xb$ (clockwise), and the internal bending moment from $A: \, z=0$ to $B: \, z=b$ (counter-clockwise)
+
+$$\begin{aligned}
+  M(z)
+  & = M_A + V_A \, z - \frac{q z^2}{2} = \\
+  & = -\frac{qb^2}{2} + Xb + \left( - X + qb \right) z - \frac{q z^2}{2} = \\
+  & = -\frac{1}{2} q \left( b - z \right)^2 + X ( b - z ) \ .
+\end{aligned}$$
+
+**Method 1 - Elastic line.** The axial equilibrium is trivial with axial internal action $N(z) = 0$, and displacement $u(z) = 0$. Focusing on bending equilibrium and transverse displacement 
+
+$$\theta'(z) = \theta^{mech \ '}(z) + \theta^{th \ '}(z) = \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \ ,$$
+
+with the approximation $\theta(z) \simeq w'(z)$, the problem is governed by the differential problem
+
+$$
+  w''(z) = \frac{1}{EJ} \left[  -\frac{1}{2} q \left( b - z \right)^2 + X ( b - z ) \right] + \frac{\alpha \Delta T}{h} \ ,
+$$
+
+supplied with the boundary conditions $w(z=0) = 0$, $w'(z=0) = 0$, $w(z=b) = 0$. The solution reads
+
+$$\begin{aligned}
+  w'(z) & = \frac{q}{EJ} \left[ - \frac{b^2 z}{2} + \frac{b z^2}{2} - \frac{z^3}{6} \right] + \frac{X}{EJ} \left[ \left( bz - \frac{z^2}{2} \right) \right] + \frac{\alpha \Delta T}{h}z + A \\
+  w (z) & = \frac{q}{EJ} \left[ - \frac{b^2 z^2}{4} + \frac{b z^3}{6} - \frac{z^4}{24} \right] + \frac{X}{EJ} \left[ \left( b \frac{z^2}{2} - \frac{z^3}{6} \right) \right] + \frac{\alpha \Delta T}{2h}z^2 + Az + B \ .
+\end{aligned}$$
+
+Boundary conditions in $z=0$ forces $A = 0$, $B = 0$. The boundary condition in $B: \, z = b$ is used to evaluate the hyperstatics $X$
+
+$$0 = w(b) = -\frac{qb^4}{8 EJ} + \frac{Xb^3}{3EJ} + \frac{\alpha \Delta T \, b^2}{2 h} \ ,$$
+
+so that:
+
+* the hyperstatics is 
+
+   $$X = \frac{3}{8} qb - \frac{3}{2}\frac{\alpha \Delta T \, EJ}{hb} \ ,$$
+
+* the internal bending moment is 
+
+  $$M(z) = - \frac{qz^2}{2} + \left( \frac{5}{8} qb + \frac{3}{2} \frac{\alpha \Delta T \, EJ}{h} \right) z + \left( - \frac{1}{8} q b^2 - \frac{3}{2} \alpha \Delta T \, EJ b \right) $$
+
+* the transverse displacement is 
+
+  $$w(z) = -\frac{q z^4}{24 \, EJ} + \left( \frac{5}{8} qb + \frac{3}{2} \frac{\alpha \Delta T \, EJ}{h} \right) \frac{z^3}{6} + \left( - \frac{1}{8} q b^2 - \frac{3}{2} \alpha \Delta T \, EJ b \right) \frac{z^2}{2} \ .$$
+
+**Proof, $\ w(b) = 0$.** $-\frac{1}{24} + \frac{5}{48} - \frac{1}{16} = \frac{-2+5-3}{48} = 0 .$
+
+**Method 2 - Force method.** An equilibrated solution with unit external loads at the hyperstatics, $\widetilde{X} = 1$, has intenral bending moment $\widetilde{M}(z) = X ( b - z)$. The PCVW with this equilibrated solution as the test function in the weak formulation reads
+
+$$\begin{aligned}
+  0
+  & = \int_{z=0}^{b} \widetilde{M}(z) \theta'(z) \, dz - \widetilde{X} \underbrace{w_B}_{=0} = \\
+  & = \int_{z=0}^{b} \widetilde{M}(z) \left( \frac{M(z)}{EJ} + \frac{\alpha \Delta T}{h} \right) \, dz = \\
+  & = \int_{z=0}^{b} \left( b - z \right) \left[ \frac{1}{EJ} \left( -\frac{1}{2} q (b-z)^2 + X(b-z) \right) + \frac{\alpha \Delta T}{h} \right] \, dz = \\
+  & = - \dfrac{1}{8} \frac{qb^4}{EJ} + \frac{1}{3}\frac{Xb^3}{EJ} + \frac{\alpha \Delta T \, b^2}{2 h} \ ,
+\end{aligned}$$
+
+and thus the same expression of the hyperstatics is found, $X = \frac{3}{8} qb - \frac{3}{2} \frac{\alpha \Delta T \, EJ}{hb}$.
+
+**Method 3 - Stationariety of total complementary potential energy.** Total complementary potential energy reads
+
+$$\Pi^* = \int_{z=0}^{b} \frac{1}{2} \frac{M^2(z; X)}{EJ} \, dz + \int_{z=0}^{b} M(z; X) \frac{\alpha \Delta T}{h} \, dz \ ,$$
+
+and its derivative[^variation-derivative] w.r.t. $X$ (the only independent variable; equilibrium and constitutive law are already used to get the latter expression),
+
+[^variation-derivative]: The variation of bending moment becomes $\delta M(z; X) = \frac{\partial M}{\partial X} \delta X$, and thus $\delta \Pi^* = \frac{\partial \Pi^*}{\partial X} \delta X$. If the total complementary potential energy functional needs to be stationary, $\delta \Pi^*$ for every possible $\delta X$, it follows $\frac{\partial \Pi^*}{\partial X} = 0$.
+
+$$\begin{aligned}
+  0 
+  & = \frac{\partial \Pi^*}{\partial X} = \int_{z=0}^{b} \frac{M(z; X)}{EJ} \frac{\partial M}{\partial X}(z; X) \, dz + \int_{z=0}^{b} \frac{\partial M}{\partial X}(z;X) \frac{\alpha \Delta T}{h} \, dz \ .
+\end{aligned}$$
+
+Using the expression of teh internal bending moment $M(z; X) = -\frac{1}{2} q (b-z)^2 + X(b-z)$, the same expression as the one provided by **method 2 - force method** is found. Thus, doing algebra properly, this method gives the same results as the other two methods.
+
+```

@@ -545,7 +545,7 @@ having used integration by parts and boundary conditions on Neumann boundaries w
 </details><div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 7.1 </span> (Finite element method. Example: 1-element clamped Bernoulli beam)</p>
 <div class="example-content section" id="proof-content">
-<p><strong>Approximation 1.</strong> Choosing only one test function <span class="math notranslate nohighlight">\(u_{y,2} = z^2\)</span> (that satisfies the essential boundary conditions, ‘<span class="math notranslate nohighlight">\(u_{y,2}(0)=0\)</span>, <span class="math notranslate nohighlight">\(u'_{y,2}(0)=0\)</span>), and assuming that the <span class="math notranslate nohighlight">\(y\)</span>-displacement <span class="math notranslate nohighlight">\(s_y\)</span> is proportional to that test function (same test and base function, to get a symmetric problem - even when multi-dimensional),</p>
+<p><strong>Approximation 1.</strong> Choosing only one test function <span class="math notranslate nohighlight">\(u_{y,2}(z) = z^2\)</span> (that satisfies the essential boundary conditions, (<span class="math notranslate nohighlight">\(u_{y,2}(0)=0\)</span>, <span class="math notranslate nohighlight">\(u'_{y,2}(0)=0\)</span>), and assuming that the <span class="math notranslate nohighlight">\(y\)</span>-displacement <span class="math notranslate nohighlight">\(s_y\)</span> is proportional to that test function (same test and base function, to get a symmetric problem - even when multi-dimensional),</p>
 <div class="math notranslate nohighlight">
 \[s_y(z) = a_2 z^2\]</div>
 <p>and the bending moment reads</p>
@@ -696,6 +696,79 @@ Timoshenko beam<div class="sd-summary-down docutils">
 </div>
 <div class="section" id="principle-of-stationariety-of-total-complementary-potential-energy">
 <span id="solid-mechanics-intro-small-displacements-statics-beam-weak-form-weak-stationariety-potential-complementary"></span><h3><span class="section-number">7.3.2.6. </span>Principle of stationariety of total complementary potential energy<a class="headerlink" href="#principle-of-stationariety-of-total-complementary-potential-energy" title="Permalink to this heading">#</a></h3>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 7.2 </span> (Clamp-cart beam)</p>
+<div class="example-content section" id="proof-content">
+<p>A beam of length <span class="math notranslate nohighlight">\(b\)</span> is clamped in <span class="math notranslate nohighlight">\(A\)</span> and constrained with a cart in <span class="math notranslate nohighlight">\(B\)</span> preventing transverse displacement. A transverse distributed uniform load <span class="math notranslate nohighlight">\(q\)</span> is applied. Thermal deformation is induced by a linear distribution of <span class="math notranslate nohighlight">\(\Delta T\)</span> across all the sections of the beam. Assuming slender beam model and considering only the bending deformation, solve the (hyperstatic) structure: determine the internal bending moment <span class="math notranslate nohighlight">\(M(z)\)</span> and the displacement <span class="math notranslate nohighlight">\(w(z)\)</span>.</p>
+<p>Let’s solve the problem with different approaches, after calling <span class="math notranslate nohighlight">\(X\)</span> the cart reaction and choosing it as the independent unknown hyperstatics.
+The reaction in <span class="math notranslate nohighlight">\(A\)</span> are <span class="math notranslate nohighlight">\(V_A = - X + qb\)</span>, <span class="math notranslate nohighlight">\(H_A = 0\)</span>, <span class="math notranslate nohighlight">\(M_A = - \frac{qb^2}{2} + Xb\)</span> (clockwise), and the internal bending moment from <span class="math notranslate nohighlight">\(A: \, z=0\)</span> to <span class="math notranslate nohighlight">\(B: \, z=b\)</span> (counter-clockwise)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  M(z)
+  &amp; = M_A + V_A \, z - \frac{q z^2}{2} = \\
+  &amp; = -\frac{qb^2}{2} + Xb + \left( - X + qb \right) z - \frac{q z^2}{2} = \\
+  &amp; = -\frac{1}{2} q \left( b - z \right)^2 + X ( b - z ) \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Method 1 - Elastic line.</strong> The axial equilibrium is trivial with axial internal action <span class="math notranslate nohighlight">\(N(z) = 0\)</span>, and displacement <span class="math notranslate nohighlight">\(u(z) = 0\)</span>. Focusing on bending equilibrium and transverse displacement</p>
+<div class="math notranslate nohighlight">
+\[\theta'(z) = \theta^{mech \ '}(z) + \theta^{th \ '}(z) = \dfrac{M(z)}{EJ} + \dfrac{\alpha \Delta T}{h} \ ,\]</div>
+<p>with the approximation <span class="math notranslate nohighlight">\(\theta(z) \simeq w'(z)\)</span>, the problem is governed by the differential problem</p>
+<div class="math notranslate nohighlight">
+\[
+  w''(z) = \frac{1}{EJ} \left[  -\frac{1}{2} q \left( b - z \right)^2 + X ( b - z ) \right] + \frac{\alpha \Delta T}{h} \ ,
+\]</div>
+<p>supplied with the boundary conditions <span class="math notranslate nohighlight">\(w(z=0) = 0\)</span>, <span class="math notranslate nohighlight">\(w'(z=0) = 0\)</span>, <span class="math notranslate nohighlight">\(w(z=b) = 0\)</span>. The solution reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  w'(z) &amp; = \frac{q}{EJ} \left[ - \frac{b^2 z}{2} + \frac{b z^2}{2} - \frac{z^3}{6} \right] + \frac{X}{EJ} \left[ \left( bz - \frac{z^2}{2} \right) \right] + \frac{\alpha \Delta T}{h}z + A \\
+  w (z) &amp; = \frac{q}{EJ} \left[ - \frac{b^2 z^2}{4} + \frac{b z^3}{6} - \frac{z^4}{24} \right] + \frac{X}{EJ} \left[ \left( b \frac{z^2}{2} - \frac{z^3}{6} \right) \right] + \frac{\alpha \Delta T}{2h}z^2 + Az + B \ .
+\end{aligned}\end{split}\]</div>
+<p>Boundary conditions in <span class="math notranslate nohighlight">\(z=0\)</span> forces <span class="math notranslate nohighlight">\(A = 0\)</span>, <span class="math notranslate nohighlight">\(B = 0\)</span>. The boundary condition in <span class="math notranslate nohighlight">\(B: \, z = b\)</span> is used to evaluate the hyperstatics <span class="math notranslate nohighlight">\(X\)</span></p>
+<div class="math notranslate nohighlight">
+\[0 = w(b) = -\frac{qb^4}{8 EJ} + \frac{Xb^3}{3EJ} + \frac{\alpha \Delta T \, b^2}{2 h} \ ,\]</div>
+<p>so that:</p>
+<ul>
+<li><p>the hyperstatics is</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{3}{8} qb - \frac{3}{2}\frac{\alpha \Delta T \, EJ}{hb} \ ,\]</div>
+</li>
+<li><p>the internal bending moment is</p>
+<div class="math notranslate nohighlight">
+\[M(z) = - \frac{qz^2}{2} + \left( \frac{5}{8} qb + \frac{3}{2} \frac{\alpha \Delta T \, EJ}{h} \right) z + \left( - \frac{1}{8} q b^2 - \frac{3}{2} \alpha \Delta T \, EJ b \right) \]</div>
+</li>
+<li><p>the transverse displacement is</p>
+<div class="math notranslate nohighlight">
+\[w(z) = -\frac{q z^4}{24 \, EJ} + \left( \frac{5}{8} qb + \frac{3}{2} \frac{\alpha \Delta T \, EJ}{h} \right) \frac{z^3}{6} + \left( - \frac{1}{8} q b^2 - \frac{3}{2} \alpha \Delta T \, EJ b \right) \frac{z^2}{2} \ .\]</div>
+</li>
+</ul>
+<p><strong>Proof, <span class="math notranslate nohighlight">\(\ w(b) = 0\)</span>.</strong> <span class="math notranslate nohighlight">\(-\frac{1}{24} + \frac{5}{48} - \frac{1}{16} = \frac{-2+5-3}{48} = 0 .\)</span></p>
+<p><strong>Method 2 - Force method.</strong> An equilibrated solution with unit external loads at the hyperstatics, <span class="math notranslate nohighlight">\(\widetilde{X} = 1\)</span>, has intenral bending moment <span class="math notranslate nohighlight">\(\widetilde{M}(z) = X ( b - z)\)</span>. The PCVW with this equilibrated solution as the test function in the weak formulation reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{z=0}^{b} \widetilde{M}(z) \theta'(z) \, dz - \widetilde{X} \underbrace{w_B}_{=0} = \\
+  &amp; = \int_{z=0}^{b} \widetilde{M}(z) \left( \frac{M(z)}{EJ} + \frac{\alpha \Delta T}{h} \right) \, dz = \\
+  &amp; = \int_{z=0}^{b} \left( b - z \right) \left[ \frac{1}{EJ} \left( -\frac{1}{2} q (b-z)^2 + X(b-z) \right) + \frac{\alpha \Delta T}{h} \right] \, dz = \\
+  &amp; = - \dfrac{1}{8} \frac{qb^4}{EJ} + \frac{1}{3}\frac{Xb^3}{EJ} + \frac{\alpha \Delta T \, b^2}{2 h} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus the same expression of the hyperstatics is found, <span class="math notranslate nohighlight">\(X = \frac{3}{8} qb - \frac{3}{2} \frac{\alpha \Delta T \, EJ}{hb}\)</span>.</p>
+<p><strong>Method 3 - Stationariety of total complementary potential energy.</strong> Total complementary potential energy reads</p>
+<div class="math notranslate nohighlight">
+\[\Pi^* = \int_{z=0}^{b} \frac{1}{2} \frac{M^2(z; X)}{EJ} \, dz + \int_{z=0}^{b} M(z; X) \frac{\alpha \Delta T}{h} \, dz \ ,\]</div>
+<p>and its derivative<a class="footnote-reference brackets" href="#variation-derivative" id="id1">1</a> w.r.t. <span class="math notranslate nohighlight">\(X\)</span> (the only independent variable; equilibrium and constitutive law are already used to get the latter expression),</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0 
+  &amp; = \frac{\partial \Pi^*}{\partial X} = \int_{z=0}^{b} \frac{M(z; X)}{EJ} \frac{\partial M}{\partial X}(z; X) \, dz + \int_{z=0}^{b} \frac{\partial M}{\partial X}(z;X) \frac{\alpha \Delta T}{h} \, dz \ .
+\end{aligned}\]</div>
+<p>Using the expression of teh internal bending moment <span class="math notranslate nohighlight">\(M(z; X) = -\frac{1}{2} q (b-z)^2 + X(b-z)\)</span>, the same expression as the one provided by <strong>method 2 - force method</strong> is found.</p>
+</div>
+</div><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="variation-derivative"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The variation of bending moment becomes <span class="math notranslate nohighlight">\(\delta M(z; X) = \frac{\partial M}{\partial X} \delta X\)</span>, and thus <span class="math notranslate nohighlight">\(\delta \Pi^* = \frac{\partial \Pi^*}{\partial X} \delta X\)</span>. If the total complementary potential energy functional needs to be stationary, <span class="math notranslate nohighlight">\(\delta \Pi^*\)</span> for every possible <span class="math notranslate nohighlight">\(\delta X\)</span>, it follows <span class="math notranslate nohighlight">\(\frac{\partial \Pi^*}{\partial X} = 0\)</span>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
