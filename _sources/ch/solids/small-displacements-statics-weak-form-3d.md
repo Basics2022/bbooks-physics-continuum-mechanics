@@ -298,7 +298,7 @@ Among all the equilibrated solutions, the congruent solution (and thus the uniqu
 ### Principle of stationariety of total complementary potential energy
 
 
-Choosing the (unique) solution of the elastic problem as the **equilibrated stress field** in the [principle of complementary virtual work](solid-mechanics:intro:small-displacements-statics-weak-form:weak:pcvw), $\widetilde{\boldsymbol{sigma}} = \boldsymbol\sigma$ with loads $\widetilde{$, if the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
+Choosing the (unique) solution of the elastic problem as the **equilibrated stress field** in the [principle of complementary virtual work](solid-mechanics:intro:small-displacements-statics-weak-form:weak:pcvw), $\widetilde{\boldsymbol{\sigma}} = \boldsymbol\sigma$ with given loads $\widetilde{\mathbf{f}}$, if the displacement of the Robin boundary reads $\mathbf{s} = - \mathbf{S} \cdot \mathbf{t}_{\mathbf{n}} + \overline{\mathbf{r}}$,
 
 $$\begin{aligned}
 0 & = \int_{V} \delta \boldsymbol\sigma : \boldsymbol\varepsilon - \int_{S_D} \delta \mathbf{t}_{\mathbf{n}} \cdot \overline{\mathbf{s}} - \int_{S_R} \delta \mathbf{t}_{\mathbf{n}} \cdot \mathbf{s} = \\
