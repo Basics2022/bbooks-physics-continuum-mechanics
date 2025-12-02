@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/solids/small-displacements-statics-weak-form';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -419,24 +421,31 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="small-displacement-statics-weak-formulation-and-energy-theorems">
 <span id="solid-mechanics-intro-small-displacements-statics-weak-form"></span><h1><span class="section-number">7. </span>Small displacement - Statics - Weak formulation and “energy” theorems<a class="headerlink" href="#small-displacement-statics-weak-formulation-and-energy-theorems" title="Permalink to this heading">#</a></h1>
-<p>This section presents different weak formulations of the elastic problem, for different models of elastic structures</p>
+<p>This section presents different weak formulations in the elastic problem, for both equilibrium conditions and congruence conditions, for different models/structural elements.</p>
+<p><strong>Models.</strong> In this section, weak formulations for different models of elastic structures are explicitly derived:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="small-displacements-statics-weak-form-3d.html#solid-mechanics-intro-small-displacements-statics-weak-form-3d"><span class="std std-ref">3-dimensional solid</span></a></p></li>
+<li><p><a class="reference internal" href="small-displacements-statics-weak-form-3d.html#solid-mechanics-intro-small-displacements-statics-weak-form-3d"><span class="std std-ref">Three-dimensional solid</span></a></p></li>
 <li><p><a class="reference internal" href="small-displacements-statics-beams-weak-form-general.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form-general"><span class="std std-ref">General beam model</span></a></p></li>
 <li><p><a class="reference internal" href="small-displacements-statics-beams-weak-form.html#solid-mechanics-intro-small-displacements-statics-beam-weak-form"><span class="std std-ref">Simplified beam models</span></a></p></li>
 </ul>
-<p>The results shown here can be classified into two different approaches:</p>
+<p><strong>Approaches.</strong> The results shown here can be classified into two different approaches, depending on the independent variables of the methods:</p>
 <ul class="simple">
 <li><p><strong>displacement approach</strong>: 1) weak form of the equilibrium equations, 2) principle of virtual work, and 3) stationariety of the total potential energy</p></li>
 <li><p><strong>force approach</strong>: 1) weak form of the congruence conditionss, 2) principle of complementary virtual work, and 3) stationariety of the total complementary potential energy.</p></li>
 </ul>
-<p><strong>Finite element method</strong> naturally arises from the weak form of the equilibrium equations.</p>
-<p>Some <a class="reference internal" href="beams/problems.html#solid-mechanics-small-displacements-beams-problems"><span class="std std-ref">problems about beam structures</span></a> can be conveniently approached with the contents of this  section.</p>
+<p>A <em>force approach</em> can be efficiently used to <em>evaluate hyperstatics</em> and <em>point displacements/rotations</em>, common questions in simple problems/exercises of the introductory courses in structural mechanics, as a result of low-dimensional linear systems that can be solved with a pen-and-paper approach. <em>Displacement methods</em> usually require some assumptions about the displacement field, and provides a common general methods for solving the <em>whole structure</em>. As an example, <em>finite element method</em> can be formulated as a discrete counterpart (usually a projection over a finite-dimensional basis) of the the weak form of equilibrium equations: <em>FEM</em> usually results in a <em>“higher”-dimensional</em> linear system<a class="footnote-reference brackets" href="#fem-pc" id="id1">1</a> (if compared with those of a force approach), that makes from little to no sense at all to solve <em>by-hand</em>, but can be easily built and solved with a computer.</p>
+<p><strong>Examples, problems and exercises.</strong> Some <a class="reference internal" href="beams/problems.html#solid-mechanics-small-displacements-beams-problems"><span class="std std-ref">problems about beam structures</span></a> can be conveniently approached with the contents of this  section.</p>
 <!-- :class: tip dropdown -->
 <div class="tip dropdown admonition">
 <p class="admonition-title">Reading guidance</p>
 <p>There is no mandatory or recommended order for addressing these paragraphs. The treatment of the <strong>elastic solid</strong> requires some familiarity with <em>tensors</em>. Beam models can be treated as simplified models of the 3-dimensional solid, under assumptions on stress (or strain) fields. The formulation of the <strong>general elastic beam</strong> introduces a vector-based framework applicable to any elastic beam: it may appear obscure or cryptic at first, but it offers a level of generality that greatly simplifies the <em>numerical implementation</em> of arbitrary beam models. The <strong>structurally decoupled elastic beam</strong> is a very specific case of this general treatment, yet it enables the construction of <em>simple models</em> suitable for solving structural problems by hand, using only paper, pencil, and manageable amounts of algebra. Simple models become even simpler for <a class="reference internal" href="beams/slender.html#solid-mechanics-small-displacements-beams-slender"><span class="std std-ref">slender beams</span></a> with Bernoulli’s kinematic assumption - i.e. if displacement due to axial and shear actions are negligible if compared with bending. This approach helps internalize the core principles by allowing practice on simpler problems without unnecessary algebraic complexity — after all, computers exist for the heavy calculations.</p>
 </div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="fem-pc"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Finite element methods for linear structural problems usually provide a linear problem, <span class="math notranslate nohighlight">\(\mathbf{K} \mathbf{u} = \mathbf{f}\)</span>, with some useful properties that can be exploited while building and solving the problem: the stiffness matrix <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> is usually <strong>sparse</strong> (this properties allows to <em>save memory</em>, using sparse matrix format to avoid storing in an inefficient way lots of information — lots of zero; efficients <em>algorithms</em> exist for matrix operations with sparse matrices) and <strong>symmetric</strong> (many <em>algorithms</em> work well with symmetric matrices).</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
 </div>
