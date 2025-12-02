@@ -13,7 +13,6 @@
 
 ```
 
-
 - **Labile - Undetermined.**
 - **Isostatic - "determined".**
 - **Hyperstatic - "overdetermined".**
@@ -43,6 +42,227 @@ The expression of strain tensor $\symbf{\varepsilon}$ as a function of stress te
 $$\symbf{\varepsilon} = $$
 
  can be easily evaluated, using the relation between the traces of the tensors
+
+```{dropdown} Rank-2 and rank-4 isotropic tensors
+:open:
+
+An isotropic tensor has the same components after rotations of the vectors of the basis.
+
+**Rank-2 tensor.** A rank-2 tensor $\mathbf{A}$ can be expressed in an original basis $\{ \mathbf{b}_i \}_i$ and a rotated basis $\{ \widetilde{\mathbf{b}}_j \}_j$, related by the transformation law
+
+$$\widetilde{\mathbf{b}}_j = \left( \mathbf{b}^i \cdot \widetilde{\mathbf{b}}_j \right) \mathbf{b}_i = R^{i}_{j} \mathbf{b}_i \ .$$
+
+A rank-2 tensor can be written as
+
+$$\mathbf{A} = A^{ij} \mathbf{b}_i \mathbf{b}_j = \widetilde{A}^{kl} \widetilde{\mathbf{b}}_k \widetilde{\mathbf{b}}_l = \underbrace{\widetilde{A}^{kl} R^i_k R^j_l}_{=A^{ij}} \mathbf{b}_i \mathbf{b}_j \ .$$
+
+An isotropic tensor has the same components in both the original and the rotated bases, namely $\widetilde{A}^{ij} = A^{ij} = \widetilde{A}^{kl} R^i_k R^j_l$. An arbitrary infinitesimal rotation can be represented as $R^i_k = \delta_{ik} + \varepsilon^i_{\ mk} \theta^m$. The condition of isotropic tensors for an infinitesimal rotation reads
+
+$$\begin{aligned}
+  \widetilde{A}^{ij} 
+  & = \widetilde{A}^{kl} ( \delta_{ik} + \varepsilon^i_{\ mk} \theta^m ) ( \delta_{jl} + \varepsilon^j_{\ nl} \theta^n ) = \\
+  & = \widetilde{A}^{ij} + \widetilde{A}^{kj} \varepsilon_{imk} \theta_m + \widetilde{A}^{il} \varepsilon_{jnl} \theta^n +
+  \widetilde{A}^{kl}
+  \left| \begin{matrix} \delta_{ij} & \delta_{in} & \delta_{il} \\
+                        \delta_{mj} & \delta_{mn} & \delta_{ml} \\
+                        \delta_{kj} & \delta_{kn} & \delta_{kl} \end{matrix} \right| \theta_m \theta_n = \\
+  & = \widetilde{A}^{ij} + \left( \widetilde{A}^{kj} \varepsilon_{imk} + \widetilde{A}^{ik} \varepsilon_{jmk} \right) \theta^m
+    + \widetilde{A}^{kl} \theta_m \theta_n \left( \delta_{ij} \delta_{mn} \delta_{kl} + \dots \right) = \\
+  & = \dots + \theta_m \theta_m \widetilde{A}^{kk} \delta_{ij} + \theta_i \theta_l \widetilde{A}^{jl} + \theta_j \theta_k \widetilde{A}^{ki} 
+    - \theta_l \theta_k \widetilde{A}^{kl} \delta_{ij} - \theta_j \theta_i \widetilde{A}^{ll} - \theta_m \theta_m \widetilde{A}^{ji} = \\
+\end{aligned}$$
+
+Zero-order condition is identically satisfied.
+First-order conditions
+
+$$\begin{aligned}
+  i,j, m = 1, 1, 1 :& \quad 0 = 0                                       \\
+  i,j, m = 1, 1, 2 :& \quad 0 = \widetilde{A}^{31} + \widetilde{A}^{13} \\
+  i,j, m = 1, 2, 1 :& \quad 0 = 0 - \widetilde{A}^{13} \\
+  i,j, m = 1, 2, 2 :& \quad 0 = \widetilde{A}^{31} + 0 \\
+  i,j, m = 1, 2, 3 :& \quad 0 = - \widetilde{A}^{22} + \widetilde{A}^{11} \\
+  \dots
+\end{aligned}$$
+
+imply
+
+$$\begin{aligned}
+  & \widetilde{A}^{11} = \widetilde{A}^{22} = \widetilde{A}^{33} =: a \\
+  & \widetilde{A}^{ij} = 0 \quad \text{if $i \ne j$}
+\end{aligned}$$
+
+Second order conditions...(do they need to hold, in this first-order approximation of small rotations?)
+
+<!--
+then become
+
+$$\begin{aligned}
+  0
+  & = \delta_{ij} 3 a \theta_m \theta_m + \theta_i \theta_l \delta_{jl} a + \theta_j \theta_k \delta_{ki} a - \theta_l \theta_k a \delta_{kl} \delta_{ij} - \theta_j \theta_i 3 a - \theta_m \theta_m a \delta_{ij} = \\
+  & = \delta_{ij} \left( 3 a \theta_m \theta_m - a \theta_l \theta_l - a \theta_m \theta_m \right) + \theta_i \theta_j ( a + a - 3a ) = \\
+  & = \delta_{ij} a \theta_m \theta_m - a \theta_i \theta_j
+\end{aligned}$$
+-->
+
+**Rank-4 tensor.** For an rank-4 tensor the isotropic condition under a first order approximation of a rotation reads
+
+$$\begin{aligned}
+  A^{ijkl} 
+  & = A^{mnpq} \left( \delta_{im} + \varepsilon_{ium} \theta_u  \right) 
+               \left( \delta_{jn} + \varepsilon_{jvn} \theta_v  \right) 
+               \left( \delta_{kp} + \varepsilon_{kwp} \theta_w  \right) 
+               \left( \delta_{lq} + \varepsilon_{lxq} \theta_x  \right) \ ,
+\end{aligned}$$
+
+Zero-order condition is identically satisfied. First order conditions read
+
+$$\begin{aligned}
+  0 & =
+  \varepsilon_{ium} A^{mjkl} \theta_u + 
+  \varepsilon_{jvn} A^{inkl} \theta_v + 
+  \varepsilon_{kwp} A^{ijpl} \theta_w + 
+  \varepsilon_{lxq} A^{ijkq} \theta_x = \\
+  & = \left(  V
+  \varepsilon_{ium} A^{mjkl} + 
+  \varepsilon_{jun} A^{inkl} + 
+  \varepsilon_{kup} A^{ijpl} + 
+  \varepsilon_{luq} A^{ijkq}
+  \right) \theta_u = \\
+\end{aligned}$$
+
+Some combinations:
+- 4 equal indices, $i = j = k = l$. Identity, if the index $u$ has the same value. If the index $u$ has different value, there's some info if $m$ is different from $i$ and $u$
+
+   $$0 = \varepsilon_{ium} \left( A^{miii} + A^{imii} + A^{iimi} + A^{iiim} \right) \theta_u \quad \text{no sum}$$
+
+- 3 equal indices, $i = j = k \ne l$.
+
+   $$\begin{aligned}
+    0 & = \left(
+      \varepsilon_{ium} A^{mjkl} + \varepsilon_{jun} A^{inkl} + \varepsilon_{kup} A^{ijpl} + \varepsilon_{luq} A^{ijkq}
+      \right) \theta_u = \\
+      & = \left( \varepsilon_{ium} \left( A^{miil} + A^{imil} + A^{iiml} \right) + \varepsilon_{lum} A^{iiim} \right) \theta_u
+   \end{aligned}$$
+
+   For $u = i$, the only non-trivial equation is for $m \ne i, l$:
+
+   $$0 = \varepsilon_{lim} A^{iiim}$$
+
+   For $u = l$, the only non-trivial equation is for $m \ne i, l$:
+
+   $$\varepsilon_{ilm} \left( A^{miil} + A^{imil} + A^{iiml} \right) \theta_l$$
+
+   For $u \ne i, l$,
+
+   - for $m = l$
+   
+      $$0 =  \varepsilon_{iul} \left( A^{miil} + A^{imil} + A^{iiml} \right) \theta_u$$
+
+   - for $m = i$
+      
+      $$0 = \varepsilon_{lui} A^{iiii}  \theta_u$$
+
+    *Uncomment*
+
+<!--
+    If $u = i$, info only if $m \ne i, l$
+
+    $$0 = \varepsilon_{lim} A^{iiil} \theta_u$$
+
+   And for every such a combination, **components with three indices with the same value are identically zero, $A^{iiij} = A^{iiji} = \dots = 0$**. On the other hand, if $q = i$
+
+   If $u = l$, info only if $m \ne i, l$
+
+   $$0 = \varepsilon_{ium} ( A^{miil} + A^{imil} + A^{iiml} ) \theta_u$$
+
+   If $u \ne i, l$, info for $m \ne i, u$, i.e. for $m = l$
+
+   $$\begin{aligned}
+     0 & = \left( \varepsilon_{ium} ( A^{miil} + A^{imil} + A^{iiml} ) + \varepsilon_{lun} \underbrace{A^{iiin}}_{ = 0} \right) \theta_u = \\
+       & = \varepsilon_{ium} \left( A^{miil} + A^{imil} + A^{iiml} \right) \theta_u = \\
+   \end{aligned}$$
+
+   and thus $0 = A^{liil} + A^{ilil} + A^{iill}$.
+   
+-->
+
+- 2 equal indices, $i = j \ne k, l$. Here two sub-cases may occur depending if 1) $k = l$ or 2) not. In case 1), need for evaluating the cases 1.1) $u = i$ (or equivalently $u=k$) or 1.2) $u \ne i,k$; in case 2), need for evaluating 2.1) $u = i$, or 2.2) $u = k$ (or equivalently, $u = l$).
+
+   - Case 1.1)
+
+     $$\begin{aligned}
+       0 
+       & = \left( \varepsilon_{ium} A^{mjkl} + \varepsilon_{jun} A^{inkl} + \varepsilon_{kup} A^{ijpl} + \varepsilon_{luq} A^{ijkq} \right) \theta_u = \\
+       & = \left( \varepsilon_{ium} ( A^{mill} + A^{imll} ) + \varepsilon_{lum} A^{iiml} + \varepsilon_{lum} A^{iilm} \right) \theta_u = \\
+       & =                                           \left(  \varepsilon_{lim} ( A^{iiml} + A^{iilm} ) \right) \theta_i
+     \end{aligned}$$
+
+     so switching the last two indices gives $A^{iiml} = A^{iilm}$.
+
+   - Case 1.2)
+
+     $$\begin{aligned}
+       0 
+       & = \left( \varepsilon_{ium} A^{mjkl} + \varepsilon_{jun} A^{inkl} + \varepsilon_{kup} A^{ijpl} + \varepsilon_{luq} A^{ijkq} \right) \theta_u = \\
+       & = \left( \varepsilon_{ium} ( A^{mill} + A^{imll} ) + \varepsilon_{lum} A^{iiml} + \varepsilon_{lum} A^{iilm} \right) \theta_u = \\
+       & = \left( \varepsilon_{iul} ( A^{lill} + A^{illl} ) + \varepsilon_{lui} A^{iiil} + \varepsilon_{lui} A^{iili} \right) \theta_u = \\
+       & = 0
+     \end{aligned}$$
+
+   - Case 2.1)
+
+     $$\begin{aligned}
+       0 
+       & = \left( \varepsilon_{ium} A^{mjkl} + \varepsilon_{jun} A^{inkl} + \varepsilon_{kup} A^{ijpl} + \varepsilon_{luq} A^{ijkq} \right) \theta_u = \\
+       & = \left(                          0 +                          0 + \varepsilon_{kip} A^{iipl} + \varepsilon_{lip} A^{iikp} \right) \theta_i = \\
+       & = \left( \varepsilon_{kil} A^{iill} + \varepsilon_{lik} A^{iikk} \right) \theta_i = \\
+       & = \varepsilon_{kil} \left( A^{iill} - A^{iikk} \right) \theta_i  \ .
+     \end{aligned}$$
+     
+     so $A^{iill} = A^{iikk}$.
+
+   - Case 2.2) $i \ne k, l$, $k \ne l$. If $u = k$
+
+     $$\begin{aligned}
+       0 
+       & = \left( \varepsilon_{ium} A^{mjkl} + \varepsilon_{jun} A^{inkl} + \varepsilon_{kup} A^{ijpl} + \varepsilon_{luq} A^{ijkq} \right) \theta_u = \\
+       & = \left( \varepsilon_{ikm} A^{mikl} + \varepsilon_{ikm} A^{imkl} + \varepsilon_{kkm} A^{iiml} + \varepsilon_{lkm} A^{iikm} \right) \theta_k = \\
+       & = \left( \varepsilon_{ikl} A^{likl} + \varepsilon_{ikl} A^{ilkl} + 0 + \varepsilon_{lki} \underbrace{ A^{iiki} }_{=0} \right) \theta_k = \\
+       & = \varepsilon_{ikl} \left(  A^{likl} + A^{ilkl} \right) \theta_k = \\
+     \end{aligned}$$
+
+     so switching the first two indices gives $A^{likl} = A^{ilkl}$.
+
+Putting everything together..., $A^{iiij} = 0$, $A^{iijk} = 0$. So only the components with pairs of equal indices may be non-zero. The conditions not used yet are
+
+$$\begin{aligned}
+ 0 & =  \\
+ 0 & = A^{iill} - A^{iikk} \\
+\end{aligned}$$
+
+
+<!--
+$$\begin{aligned}
+  (i,j,k,l), u = (1,1,1,1), 1: & \quad 0 = 0 \\
+  (i,j,k,l), u = (1,1,1,1), 2: & \quad 0 = A^{3111} + A^{1311} + A^{1131} + A^{1113} \\
+  (i,j,k,l), u = (2,1,1,1), 1: & \quad 0 =-A^{3111}                                  \\
+  (i,j,k,l), u = (1,2,1,1), 1: & \quad 0 =-A^{1311}                                  \\
+  \dots & \quad \dots \\
+  (i,j,k,l), u = (2,2,1,1), 1: & \quad 0 =-A^{3211} - A^{2311}                       \\
+  (i,j,k,l), u = (2,2,1,1), 2: & \quad 0 =                     + A^{2231} + A^{2213} \\
+  (i,j,k,l), u = (2,2,1,1), 3: & \quad 0 =                                           \\
+\end{aligned}$$
+-->
+
+
+```
+
+```{dropdown} Thermodynamic constraints on parameters of the constitutive law
+:open:
+
+**todo** Discuss constraints on the sign of the parameters of the constitutive law, due to thermodynamics
+
+```
 
 ```{dropdown} Different expression of constitutive laws, and sets of parameters.
 
