@@ -360,8 +360,6 @@ $$\begin{aligned}
   & = \frac{\partial \Pi^*}{\partial X} = \int_{z=0}^{b} \frac{M(z; X)}{EJ} \frac{\partial M}{\partial X}(z; X) \, dz + \int_{z=0}^{b} \frac{\partial M}{\partial X}(z;X) \frac{\alpha \Delta T}{h} \, dz \ .
 \end{aligned}$$
 
-Using the expression of teh internal bending moment $M(z; X) = -\frac{1}{2} q (b-z)^2 + X(b-z)$, the same expression as the one provided by **method 2 - force method** is found.
-
-
+Using the expression of teh internal bending moment $M(z; X) = -\frac{1}{2} q (b-z)^2 + X(b-z)$, the same expression as the one provided by **method 2 - force method** is found. Thus, doing algebra properly, this method gives the same results as the other two methods.
 
 ```
