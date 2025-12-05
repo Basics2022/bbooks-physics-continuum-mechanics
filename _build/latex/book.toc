@@ -1,0 +1,123 @@
+\selectlanguage *{english}
+\contentsline {part}{I\hspace {1em}Continuum Mechanics}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}Kinematics}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Material points in physical space}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Arbitrary points in physical space}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Time derivatives of a function from different descriptions}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Kinematics of two points}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Kinematics in reference space}{7}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Strain}{7}{subsection.1.5.1}%
+\contentsline {subsubsection}{Green\sphinxhyphen {}Lagrange tensor}{7}{subsubsection*.3}%
+\contentsline {chapter}{\numberline {2}Governing Equations}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Integral Balance Equations of aaa physical quantities}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Principles of classical mechanics for closed systems \sphinxhyphen {} Lagrangian description}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Integral balance equations for arbitrary domains \sphinxhyphen {} arbitrary description}{10}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Integral balance equations for control volumes \sphinxhyphen {} Eulerian description}{11}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Differential Balance Equations of aaa physical quantities}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Balance equation in physical space}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Balance equations in reference space}{12}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Differential Balance Equations of ddd physical quantities}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Integral Balance Equations of ddd physical quantities}{13}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Jump conditions}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Integral Balance Equations in reference space}{13}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Mass}{13}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Momentum}{14}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Kinetic energy}{15}{subsection.2.6.3}%
+\contentsline {subsubsection}{Variational principles}{17}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {2.6.4}Total energy}{17}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Internal energy}{19}{subsection.2.6.5}%
+\contentsline {chapter}{\numberline {3}Equazioni di stato ed equazioni costitutive}{21}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Equazioni di bilancio di altre grandezze fisiche}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Bilanci in forma differenziale, convettiva}{23}{section.4.1}%
+\contentsline {part}{II\hspace {1em}Solid Mechanics}{27}{part.2}%
+\contentsline {chapter}{\numberline {5}Introduction to Solid Mechanics}{29}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Small displacement \sphinxhyphen {} statics}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1}\textbackslash {}texttt\{todo\}}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Linear isotropic elastic medium}{31}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Constitutive equation}{31}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Beam models}{40}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Beam structures}{40}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Small displacement \sphinxhyphen {} Statics \sphinxhyphen {} Weak formulation and “energy” theorems}{41}{chapter.7}%
+\contentsline {section}{\numberline {7.1}3\sphinxhyphen {}dimensional solid}{42}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Strong formulation of the problem}{42}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Weak formulations of the problem}{43}{subsection.7.1.2}%
+\contentsline {subsubsection}{Weak formulation of equilibrium conditions}{43}{subsubsection*.6}%
+\contentsline {subsubsection}{Weak formulation of congruence conditions}{43}{subsubsection*.8}%
+\contentsline {subsubsection}{Existence and uniqueness of the solution}{44}{subsubsection*.9}%
+\contentsline {subsubsection}{Principle of virtual work}{45}{subsubsection*.11}%
+\contentsline {subsubsection}{Principle of complementary virtual work}{45}{subsubsection*.12}%
+\contentsline {subsubsection}{Principle of stationariety of total potential energy}{46}{subsubsection*.13}%
+\contentsline {subsubsection}{Principle of stationariety of total complementary potential energy}{47}{subsubsection*.14}%
+\contentsline {subsection}{\numberline {7.1.3}Classical theorems}{47}{subsection.7.1.3}%
+\contentsline {subsubsection}{Maxwell\sphinxhyphen {}Betti}{47}{subsubsection*.15}%
+\contentsline {subsubsection}{Menabrea\sphinxhyphen {}Castigliano}{47}{subsubsection*.16}%
+\contentsline {section}{\numberline {7.2}General elastic beam structures}{47}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Strong formulation of the problem}{47}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Weak formulations of the problem}{50}{subsection.7.2.2}%
+\contentsline {subsubsection}{Weak formulation of equilibrium conditions}{50}{subsubsection*.17}%
+\contentsline {subsubsection}{Weak formulation of congruence conditions}{50}{subsubsection*.18}%
+\contentsline {subsubsection}{Principle of virtual work}{51}{subsubsection*.19}%
+\contentsline {subsubsection}{Principle of complementary virtual work}{51}{subsubsection*.20}%
+\contentsline {subsubsection}{Principle of stationariety of total potential energy}{52}{subsubsection*.21}%
+\contentsline {subsubsection}{Principle of stationariety of total complementary potential energy}{52}{subsubsection*.22}%
+\contentsline {section}{\numberline {7.3}Isotropic elastic beam structures}{52}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Strong formulation of the problem}{52}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Weak formulations of the problem}{53}{subsection.7.3.2}%
+\contentsline {subsubsection}{Weak formulation of equilibrium conditions}{53}{subsubsection*.23}%
+\contentsline {subsubsection}{Weak formulation of congruence conditions}{55}{subsubsection*.24}%
+\contentsline {subsubsection}{Principle of virtual work}{56}{subsubsection*.25}%
+\contentsline {subsubsection}{Principle of complementary virtual work}{56}{subsubsection*.26}%
+\contentsline {subsubsection}{Principle of stationariety of total potential energy}{57}{subsubsection*.27}%
+\contentsline {subsubsection}{Principle of stationariety of total complementary potential energy}{57}{subsubsection*.28}%
+\contentsline {chapter}{\numberline {8}Waves in linear elastic homogeneous isotropic media}{59}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Navier\sphinxhyphen {}Cauchy equation: displacement formulation of the momentum equation}{59}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Helmholtz decomposition and sum of waves equation for \(p\) and \(s\) waves}{59}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Fourier decomposition: \(p\) is longitudinal, \(s\) is transverse}{60}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Finite element methods for beam structures}{61}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Beams}{63}{chapter.10}%
+\contentsline {section}{\numberline {10.1}de Saint Venant beam}{63}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Assumptions}{63}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Internal actions}{63}{subsection.10.1.2}%
+\contentsline {subsubsection}{Axial}{63}{subsubsection*.30}%
+\contentsline {subsubsection}{Shear}{63}{subsubsection*.31}%
+\contentsline {subsubsection}{Bending}{64}{subsubsection*.32}%
+\contentsline {subsubsection}{Torsion}{64}{subsubsection*.33}%
+\contentsline {section}{\numberline {10.2}Thin\sphinxhyphen {}walled beam}{64}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Open section}{65}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Closed section}{65}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Multiple\sphinxhyphen {}loop section}{65}{subsection.10.2.3}%
+\contentsline {section}{\numberline {10.3}Timoshenko beam}{65}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Kinematic assumptions}{65}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Internal actions}{66}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Balance equations}{66}{subsection.10.3.3}%
+\contentsline {section}{\numberline {10.4}Bernoulli beam}{68}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Aeronautical beam}{68}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Slender beams}{68}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Problems}{70}{section.10.7}%
+\contentsline {chapter}{\numberline {11}Modal methods for structural problems}{71}{chapter.11}%
+\contentsline {section}{\numberline {11.1}No free rigid motion}{71}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Dimension reduction}{72}{subsection.11.1.1}%
+\contentsline {subsubsection}{Truncation and direct recovery of loads}{72}{subsubsection*.34}%
+\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{72}{subsubsection*.35}%
+\contentsline {section}{\numberline {11.2}With free rigid motion}{74}{section.11.2}%
+\contentsline {chapter}{\numberline {12}Structural damping}{77}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Small damping}{77}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Sensitivity of eigenvalues and eigenvectors}{79}{section.12.2}%
+\contentsline {part}{III\hspace {1em}Fluid Mechanics}{83}{part.3}%
+\contentsline {chapter}{\numberline {13}Introduction to Fluid Mechanics}{85}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Statics}{87}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Constitutive Equations of Fluid Mechanics}{89}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Newtonian Fluids}{89}{section.15.1}%
+\contentsline {chapter}{\numberline {16}Governing Equations of Fluid Mechanics}{91}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Newtonian Fluid}{91}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Derived quantities}{92}{section.16.2}%
+\contentsline {chapter}{\numberline {17}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{95}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Incompressible Fluid Mechanics}{97}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Navier\sphinxhyphen {}Stokes Equations}{97}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Vorticity}{98}{section.18.2}%
+\contentsline {section}{\numberline {18.3}Bernoulli theorems}{98}{section.18.3}%
+\contentsline {chapter}{\numberline {19}Compressible Fluid Mechanics}{101}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Compressible Inviscid Fluid Mechanics}{101}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Shocks}{101}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}Quasi\sphinxhyphen {}1d flows}{101}{subsection.19.1.2}%
+\contentsline {chapter}{Proof Index}{103}{section*.38}%
