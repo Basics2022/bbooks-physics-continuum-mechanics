@@ -148,6 +148,10 @@ Some combinations:
 
    $$0 = \varepsilon_{lim} A^{iiim}$$
 
+   *Check and Uncomment*
+
+<!--
+
    For $u = l$, the only non-trivial equation is for $m \ne i, l$:
 
    $$\varepsilon_{ilm} \left( A^{miil} + A^{imil} + A^{iiml} \right) \theta_l$$
@@ -162,9 +166,6 @@ Some combinations:
       
       $$0 = \varepsilon_{lui} A^{iiii}  \theta_u$$
 
-    *Uncomment*
-
-<!--
     If $u = i$, info only if $m \ne i, l$
 
     $$0 = \varepsilon_{lim} A^{iiil} \theta_u$$
