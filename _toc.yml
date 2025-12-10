@@ -33,6 +33,9 @@ parts:
     - file: ch/solids/small-displacements-statics-beams-weak-form
   - file: ch/solids/small-displacements-waves
   - file: ch/solids/small-displacements-fem-beams
+    sections:
+    - file: ch/solids/small-displacements-fem-beams-decoupled
+    - file: ch/solids/small-displacements-fem-beams-general
   - file: ch/solids/beams
     sections:
     - file: ch/solids/beams/de-saint-venant
