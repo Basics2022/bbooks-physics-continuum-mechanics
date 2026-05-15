@@ -130,7 +130,7 @@ $$\begin{aligned}
 
 $$\begin{aligned}
   \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
-  = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{U}_s \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+  = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
 \end{aligned}$$
 
 having used the identity (proved below, under negligible damping assumption) $\mathbf{K} \mathbf{U}_s = \mathbf{M} \mathbf{U}_s \text{diag}\{\omega_i^2\}$.
