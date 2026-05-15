@@ -1,6 +1,8 @@
 (solid-mechanics:intro:small-displacements:numerics)=
 # Modal methods for structural problems
 
+See [Math: ODE: Integration schemes for ODEs: Time-integration of a mechanical system](https://basics2022.github.io/bbooks-math-miscellanea/ch/ode/time-integration-mechanical-systems.html). So far, quite quick and dirty. Take a look at the end of the .ipynb.
+
 $$\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .$$
 
 ## No free rigid motion
