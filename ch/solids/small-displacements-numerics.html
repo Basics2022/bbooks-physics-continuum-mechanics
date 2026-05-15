@@ -444,6 +444,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="modal-methods-for-structural-problems">
 <span id="solid-mechanics-intro-small-displacements-numerics"></span><h1><span class="section-number">11. </span>Modal methods for structural problems<a class="headerlink" href="#modal-methods-for-structural-problems" title="Permalink to this heading">#</a></h1>
+<p>See <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/ode/time-integration-mechanical-systems.html">Math: ODE: Integration schemes for ODEs: Time-integration of a mechanical system</a>. So far, quite quick and dirty. Take a look at the end of the .ipynb.</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\]</div>
 <div class="section" id="no-free-rigid-motion">
@@ -565,12 +566,27 @@ document.write(`
   \mathbf{u}_0 &amp; =      \mathbf{u} (0) = \mathbf{U}      \mathbf{q} (0) = \mathbf{U}_s      \mathbf{q}_s (0) + \mathbf{U}_f      \mathbf{q}_f (0) \\
   \mathbf{v}_0 &amp; = \dot{\mathbf{u}}(0) = \mathbf{U} \dot{\mathbf{q}}(0) = \mathbf{U}_s \dot{\mathbf{q}}_s(0) + \mathbf{U}_f \dot{\mathbf{q}}_f(0) \\
 \end{aligned}\end{split}\]</div>
-<p>Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read</p>
+<p><strong>Truncation of fast modes.</strong> Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
        \mathbf{q}_s (0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 \\
   \dot{\mathbf{q}}_s(0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{v}_0 \ .
 \end{aligned}\end{split}\]</div>
+<p><strong>Mode acceleration.</strong> Using mode accelerations, the contribution of static recovery should be considered as well in the minimization process of finding <span class="math notranslate nohighlight">\(\mathbf{q}_{s,0}\)</span> so that the error of <span class="math notranslate nohighlight">\(\mathbf{U}_s \mathbf{q}_s(0)\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{u}}_0 := \mathbf{u}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \mathbf{f}(0)\]</div>
+<p>is minimum. <strong>todo</strong> *Check it! It should be enough to replace <span class="math notranslate nohighlight">\(\mathbf{u}_0\)</span> of the truncation method, with the corrected <span class="math notranslate nohighlight">\(\widetilde{\mathbf{u}}_0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+       \mathbf{q}_s (0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{u}}_0 \\
+  \dot{\mathbf{q}}_s(0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{v}}_0 \ ,
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> <em>check!</em> with (???)</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 \]</div>
+<p>or (???)</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \dot{\mathbf{f}}(0)\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Minimization of the error of the initial condition<div class="sd-summary-down docutils">

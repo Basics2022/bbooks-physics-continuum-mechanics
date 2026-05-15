@@ -1,6 +1,8 @@
 (solid-mechanics:intro:small-displacements:numerics)=
 # Modal methods for structural problems
 
+See [Math: ODE: Integration schemes for ODEs: Time-integration of a mechanical system](https://basics2022.github.io/bbooks-math-miscellanea/ch/ode/time-integration-mechanical-systems.html). So far, quite quick and dirty. Take a look at the end of the .ipynb.
+
 $$\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .$$
 
 ## No free rigid motion
@@ -142,12 +144,34 @@ $$\begin{aligned}
   \mathbf{v}_0 & = \dot{\mathbf{u}}(0) = \mathbf{U} \dot{\mathbf{q}}(0) = \mathbf{U}_s \dot{\mathbf{q}}_s(0) + \mathbf{U}_f \dot{\mathbf{q}}_f(0) \\
 \end{aligned}$$
 
-Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read
+**Truncation of fast modes.** Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read
 
 $$\begin{aligned}
        \mathbf{q}_s (0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 \\
   \dot{\mathbf{q}}_s(0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{v}_0 \ .
 \end{aligned}$$
+
+**Mode acceleration.** Using mode accelerations, the contribution of static recovery should be considered as well in the minimization process of finding $\mathbf{q}_{s,0}$ so that the error of $\mathbf{U}_s \mathbf{q}_s(0)$ with
+
+$$\widetilde{\mathbf{u}}_0 := \mathbf{u}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \mathbf{f}(0)$$
+
+is minimum. **todo** *Check it! It should be enough to replace $\mathbf{u}_0$ of the truncation method, with the corrected $\widetilde{\mathbf{u}}_0$
+
+$$\begin{aligned}
+       \mathbf{q}_s (0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{u}}_0 \\
+  \dot{\mathbf{q}}_s(0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{v}}_0 \ ,
+\end{aligned}$$
+
+**todo** *check!* with (???)
+
+$$\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 $$
+
+or (???)
+
+$$\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \dot{\mathbf{f}}(0)$$
+
+
+
 
 ```{dropdown} Minimization of the error of the initial condition
 
