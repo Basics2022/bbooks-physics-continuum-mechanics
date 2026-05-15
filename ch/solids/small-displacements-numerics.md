@@ -129,11 +129,64 @@ $$\begin{aligned}
 **State space system.** 
 
 $$\begin{aligned}
-  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{u}}_s \\ \ddot{\mathbf{u}}_s \end{bmatrix} 
+  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
   = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{U}_s \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
 \end{aligned}$$
 
 having used the identity (proved below, under negligible damping assumption) $\mathbf{K} \mathbf{U}_s = \mathbf{M} \mathbf{U}_s \text{diag}\{\omega_i^2\}$.
+
+**Initial conditions.** Here the initial conidtions for the slow modal variables need to provide the best approximation of the complete initial condition. Let the initial conditions be
+
+$$\begin{aligned}
+  \mathbf{u}_0 & =      \mathbf{u} (0) = \mathbf{U}      \mathbf{q} (0) = \mathbf{U}_s      \mathbf{q}_s (0) + \mathbf{U}_f      \mathbf{q}_f (0) \\
+  \mathbf{v}_0 & = \dot{\mathbf{u}}(0) = \mathbf{U} \dot{\mathbf{q}}(0) = \mathbf{U}_s \dot{\mathbf{q}}_s(0) + \mathbf{U}_f \dot{\mathbf{q}}_f(0) \\
+\end{aligned}$$
+
+Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read
+
+$$\begin{aligned}
+       \mathbf{q}_s (0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 \\
+  \dot{\mathbf{q}}_s(0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{v}_0 \ .
+\end{aligned}$$
+
+```{dropdown} Minimization of the error of the initial condition
+
+Find $\mathbf{q}_{s,0}$ so that 
+
+$$\min_{\mathbf{q}_{s,0}} \left|| \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right||^2$$
+
+Let's investigate two different norms.
+
+**Mass-norm.** (It's a norm if $M > 0$, otherwise a semi-norm - e.g. with a matrix including algebraic constraints)
+
+$$\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \mathbf{M} \left( \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right)$$
+
+$$\begin{aligned}
+ \mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon 
+ & = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \mathbf{U}_s^* \mathbf{M} \mathbf{U}_s \mathbf{q}_{s,0} = \\
+ & = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \text{diag}\{ m_s \} \mathbf{q}_{s,0} = \\
+\end{aligned}$$
+
+so that the solution reads
+
+$$\mathbf{q}_{s,0} = \text{diag} \{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0$$
+
+**$L_2$-norm.**
+
+$$\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)$$
+
+$$\mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon = - 2 \mathbf{U}^* \mathbf{u}_0 + 2 \mathbf{U}^* \mathbf{U} \mathbf{q}_{s,0} $$
+
+so that the solution reads
+
+$$\mathbf{q}_{s,0} = \left[ \mathbf{U}_s^* \mathbf{U}_s \right]^{-1} \mathbf{U}_s^* \mathbf{u}_0$$
+
+
+
+
+```
+
+
 
 **Convergence.** For $s = j\omega$, and $\omega \gg \omega_0$ the leading term in the displacement goes as $-\frac{1}{m_i \omega_i^2}$, and the stress with \frac{}{}; for $\omega \ll \omega_0$ the leading term goes as $-2 \frac{\xi_i \omega}{m_i \omega_i^3}$ if the damping is not negligible, as $-\frac{\omega^2}{m_i \omega_i^4}$ if the damping is negligible.
 
