@@ -200,8 +200,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-fem-beams.html">9. Finite element methods for beam structures</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="small-displacements-fem-beams.html">9. Finite element methods for beam structures</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-fem-beams-decoupled.html">9.1. Decoupled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-fem-beams-general.html">9.2. General beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
@@ -551,11 +555,55 @@ document.write(`
 <p><strong>State space system.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{u}}_s \\ \ddot{\mathbf{u}}_s \end{bmatrix} 
+  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
   = \begin{bmatrix} \mathbf{U}_s &amp; \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &amp;  \mathbf{0} \\ \mathbf{0} &amp; \mathbf{U}_s \\ -\text{diag}\{ \omega^2_s \} &amp; -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
 \end{aligned}\end{split}\]</div>
 <p>having used the identity (proved below, under negligible damping assumption) <span class="math notranslate nohighlight">\(\mathbf{K} \mathbf{U}_s = \mathbf{M} \mathbf{U}_s \text{diag}\{\omega_i^2\}\)</span>.</p>
-<p><strong>Convergence.</strong> For <span class="math notranslate nohighlight">\(s = j\omega\)</span>, and <span class="math notranslate nohighlight">\(\omega \gg \omega_0\)</span> the leading term in the displacement goes as <span class="math notranslate nohighlight">\(-\frac{1}{m_i \omega_i^2}\)</span>, and the stress with \frac{}{}; for <span class="math notranslate nohighlight">\(\omega \ll \omega_0\)</span> the leading term goes as <span class="math notranslate nohighlight">\(-2 \frac{\xi_i \omega}{m_i \omega_i^3}\)</span> if the damping is not negligible, as <span class="math notranslate nohighlight">\(-\frac{\omega^2}{m_i \omega_i^4}\)</span> if the damping is negligible.</p>
+<p><strong>Initial conditions.</strong> Here the initial conidtions for the slow modal variables need to provide the best approximation of the complete initial condition. Let the initial conditions be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}_0 &amp; =      \mathbf{u} (0) = \mathbf{U}      \mathbf{q} (0) = \mathbf{U}_s      \mathbf{q}_s (0) + \mathbf{U}_f      \mathbf{q}_f (0) \\
+  \mathbf{v}_0 &amp; = \dot{\mathbf{u}}(0) = \mathbf{U} \dot{\mathbf{q}}(0) = \mathbf{U}_s \dot{\mathbf{q}}_s(0) + \mathbf{U}_f \dot{\mathbf{q}}_f(0) \\
+\end{aligned}\end{split}\]</div>
+<p>Using minimization of the mass-norm, for systems with non-singular mass matrices, the initial conditions for the state and its derivative in modal variables read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+       \mathbf{q}_s (0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 \\
+  \dot{\mathbf{q}}_s(0) &amp; = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{v}_0 \ .
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Minimization of the error of the initial condition<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Find <span class="math notranslate nohighlight">\(\mathbf{q}_{s,0}\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[\min_{\mathbf{q}_{s,0}} \left|| \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right||^2\]</div>
+<p class="sd-card-text">Let’s investigate two different norms.</p>
+<p class="sd-card-text"><strong>Mass-norm.</strong> (It’s a norm if <span class="math notranslate nohighlight">\(M &gt; 0\)</span>, otherwise a semi-norm - e.g. with a matrix including algebraic constraints)</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \mathbf{M} \left( \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon 
+ &amp; = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \mathbf{U}_s^* \mathbf{M} \mathbf{U}_s \mathbf{q}_{s,0} = \\
+ &amp; = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \text{diag}\{ m_s \} \mathbf{q}_{s,0} = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that the solution reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{q}_{s,0} = \text{diag} \{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0\]</div>
+<p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(L_2\)</span>-norm.</strong></p>
+<div class="math notranslate nohighlight">
+\[\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon = - 2 \mathbf{U}^* \mathbf{u}_0 + 2 \mathbf{U}^* \mathbf{U} \mathbf{q}_{s,0} \]</div>
+<p class="sd-card-text">so that the solution reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{q}_{s,0} = \left[ \mathbf{U}_s^* \mathbf{U}_s \right]^{-1} \mathbf{U}_s^* \mathbf{u}_0\]</div>
+</div>
+</details><p><strong>Convergence.</strong> For <span class="math notranslate nohighlight">\(s = j\omega\)</span>, and <span class="math notranslate nohighlight">\(\omega \gg \omega_0\)</span> the leading term in the displacement goes as <span class="math notranslate nohighlight">\(-\frac{1}{m_i \omega_i^2}\)</span>, and the stress with \frac{}{}; for <span class="math notranslate nohighlight">\(\omega \ll \omega_0\)</span> the leading term goes as <span class="math notranslate nohighlight">\(-2 \frac{\xi_i \omega}{m_i \omega_i^3}\)</span> if the damping is not negligible, as <span class="math notranslate nohighlight">\(-\frac{\omega^2}{m_i \omega_i^4}\)</span> if the damping is negligible.</p>
 <p><strong>todo</strong> Choose one expression to comment (and motivate the choice)</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
