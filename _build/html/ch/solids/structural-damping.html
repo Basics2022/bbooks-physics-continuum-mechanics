@@ -200,8 +200,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-waves.html">8. Waves in linear elastic homogeneous isotropic media</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-fem-beams.html">9. Finite element methods for beam structures</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="small-displacements-fem-beams.html">9. Finite element methods for beam structures</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-fem-beams-decoupled.html">9.1. Decoupled beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="small-displacements-fem-beams-general.html">9.2. General beam</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="beams.html">10. Beams</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="beams/de-saint-venant.html">10.1. de Saint Venant beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/thin-walled.html">10.2. Thin-walled beam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="beams/timoshenko.html">10.3. Timoshenko beam</a></li>
@@ -433,14 +437,31 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="structural-damping">
 <span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">12. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
-<p>As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there’s no rigid motion allowed, can be represented by the second order system</p>
+<div class="admonition-see-also admonition">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html">Sensitivity of spectral decomposition</a>. Here the sensitivity of spectral decomposition of the second-order system <span class="math notranslate nohighlight">\(s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} = \mathbf{0}\)</span> arising in structural mechanics is discussed. The link contains a general treatment of the spectral sensitivity of a generalized first order eigenvalue problem <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\)</span>.</p>
+</div>
+<p>As a first approximation, a large number of structures can be treated as <strong>undamped structures</strong> governed by the second-order dynamical system</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\]</div>
-<p>being mass and stiffness matrices <span class="math notranslate nohighlight">\(\mathbf{M}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> that are positive definite, and symmetric if derived as an example from a Lagrangian formulation of the problem.</p>
-<p><strong>todo</strong> Add reference to Lagrange mechanics and its properties in the classical mechanics bbooks.</p>
-<p>This kind of systems are conveniently described using <strong>modal basis</strong>, as modes (or free/natural modes of vibrations) are orthogonal w.r.t. both mass and stiffness matrix.</p>
-<p><strong>todo</strong> Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.</p>
-<p><strong>Free response</strong> using modal basis</p>
+\[\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ .\]</div>
+<p>being mass and stiffness matrices <span class="math notranslate nohighlight">\(\mathbf{M}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K}\)</span>. These equations usually represent the linearized system around a stable equilibrium. Mass and stiffness matrices are:</p>
+<ul class="simple">
+<li><p><strong>symmetric</strong> if the equations of motion are derived using a <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html">Lagrangian approach</a>. If the equations of motion are derived using Newton’s approach, mass and stiffness matrices can be non-symmetric, but they can be transformed into symmetric matrices with a change of coordinates.</p></li>
+<li><p><strong>semi-positive definite</strong>: mass matrix is definite positive if there’s no algebraic constraint in the system  (or - equilvaelntly - components without inertia); stiffness matrix is definite positive if the structure has no free rigid degree of motion.</p></li>
+</ul>
+<p>For a proof of this properties, see <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange-properties.html#lagrange-equations-of-the-ii-kind">Classical Mechanics: Lagrangian Mechanics: Properties of the Lagrangian approach: Lagrange equations of the second kind</a>.</p>
+<p>This kind of systems are conveniently described using a <strong>modal basis</strong>, see <a class="reference internal" href="small-displacements-numerics.html#solid-mechanics-intro-small-displacements-numerics"><span class="std std-ref">Modal methods for structural problems</span></a>, that simultaneously diagonalize mass and stiffness matrices.</p>
+<p>This section is devoted to the discussion of <strong>structural damping</strong>, and it’s “proved” it can be represented as a diagonal matrix in modal basis - i.e. modal basis simultaneously diagonalize mass, structural damping, and stiffness matrices, for small values of damping (typical of metallic structures).
+Damped dynamical equations are treated as a perturbation of the undamped dynamical equations. Sensitivity of the eigenvalues and eigenvectors shows that</p>
+<ul class="simple">
+<li><p>the imaginary eigenvalues of the undamped systems become complex with non-positive real part, <span class="math notranslate nohighlight">\(s_i = s_{i,0} - \frac{1}{2} \frac{\mathbf{u}_i^* \mathbf{C} \mathbf{u}_i}{m_i}\)</span>, with <span class="math notranslate nohighlight">\(s_{i,0} = \mp j \Omega_i\)</span>, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvalues">(12.2)</a>; the real part is non-positive as the structural stiffness matrix is semi-definite positive, <span class="math notranslate nohighlight">\(\mathbf{C} \ge 0\)</span>, for the dissipation of mechanical energy shown in <a class="reference internal" href="#equation-eq-damping-second-principle-of-td">(12.1)</a> - a manifestation of the <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-second.html#physics-hs-thermodynamics-foundation-principles-second">second principle of thermodynamics</a></p></li>
+<li><p>the eigenvectors don’t change, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvectors">(12.3)</a></p></li>
+</ul>
+<!--
+**todo** Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.
+
+**Free response** using modal basis
+-->
 <div class="section" id="small-damping">
 <h2><span class="section-number">12.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
 <p>Structural small damping can be treated as a first order perturbation of the undamped system,</p>
@@ -477,8 +498,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
 <p class="sd-card-text">the kinetic energy and the mechanical energy balance is derived (<strong>todo</strong> add references) with scalar multiplication by <span class="math notranslate nohighlight">\(\dot{\mathbf{u}}\)</span>. For constant matrices,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+<div class="math notranslate nohighlight" id="equation-eq-damping-second-principle-of-td">
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-eq-damping-second-principle-of-td" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} &amp; = \dot{\mathbf{u}}^T \mathbf{f} \\
  \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
  \dfrac{d}{dt} \left( K + V \right) &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
@@ -521,8 +542,8 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[s_{i/C_{jk}} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/C_{jk}} \mathbf{u}_i}{m_i} = -\dfrac{1}{2} \dfrac{u^{(i)}_j u^{(i)}_k}{m_i} \ ,\]</div>
 <p class="sd-card-text">and the first order polynomial expansion of <span class="math notranslate nohighlight">\(s_i\)</span> in coefficients <span class="math notranslate nohighlight">\(C_{jk}\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+<div class="math notranslate nohighlight" id="equation-eq-damping-eigenvalues">
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-eq-damping-eigenvalues" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   s_i &amp; = s_{i,0} + s_{i/C_{jk}} C_{jk} = \\
       &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
       &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
@@ -650,8 +671,13 @@ Parameter <span class="math notranslate nohighlight">\(\ p = C_{rs}\)</span><div
   &amp;      = u^{(i)}_{a,0} - \sum_{b \ne i} u_a^{(b)} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \sum_{r,s} v_r^{(b) \ *} C_{rs} u_s^{(i)} \ ,
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">or using vector formalism</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u}_i = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} \ .\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-damping-eigenvectors">
+<span class="eqno">(12.3)<a class="headerlink" href="#equation-eq-damping-eigenvectors" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \mathbf{u}_i
+ &amp; = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} = \\
+ &amp; = \mathbf{u}_{i,0} \left[ 1 - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \right] = \\
+ &amp; = \propto \mathbf{u}_{i,0} \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details><hr class="footnotes docutils" />
 <dl class="footnote brackets">
