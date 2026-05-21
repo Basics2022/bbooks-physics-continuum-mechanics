@@ -1,20 +1,34 @@
 (solid-mechanics:intro:small-displacements:damping)=
 # Structural damping
 
-As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there's no rigid motion allowed, can be represented by the second order system
+```{admonition} See also
 
-$$\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,$$
+[Sensitivity of spectral decomposition](https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html). Here the sensitivity of spectral decomposition of the second-order system $s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} = \mathbf{0}$ arising in structural mechanics is discussed. The link contains a general treatment of the spectral sensitivity of a generalized first order eigenvalue problem $\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i$.
 
-being mass and stiffness matrices $\mathbf{M}$, $\mathbf{K}$ that are positive definite, and symmetric if derived as an example from a Lagrangian formulation of the problem.
+```
 
-**todo** Add reference to Lagrange mechanics and its properties in the classical mechanics bbooks.
+As a first approximation, a large number of structures can be treated as **undamped structures** governed by the second-order dynamical system
 
-This kind of systems are conveniently described using **modal basis**, as modes (or free/natural modes of vibrations) are orthogonal w.r.t. both mass and stiffness matrix.
+$$\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ .$$
 
+being mass and stiffness matrices $\mathbf{M}$, $\mathbf{K}$. These equations usually represent the linearized system around a stable equilibrium. Mass and stiffness matrices are:
+* **symmetric** if the equations of motion are derived using a [Lagrangian approach](https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html). If the equations of motion are derived using Newton's approach, mass and stiffness matrices can be non-symmetric, but they can be transformed into symmetric matrices with a change of coordinates.
+* **semi-positive definite**: mass matrix is definite positive if there's no algebraic constraint in the system  (or - equilvaelntly - components without inertia); stiffness matrix is definite positive if the structure has no free rigid degree of motion.
+
+For a proof of this properties, see [Classical Mechanics: Lagrangian Mechanics: Properties of the Lagrangian approach: Lagrange equations of the second kind](https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange-properties.html#lagrange-equations-of-the-ii-kind).
+
+This kind of systems are conveniently described using a **modal basis**, see [Modal methods for structural problems](solid-mechanics:intro:small-displacements:numerics), that simultaneously diagonalize mass and stiffness matrices. 
+
+This section is devoted to the discussion of **structural damping**, and it's "proved" it can be represented as a diagonal matrix in modal basis - i.e. modal basis simultaneously diagonalize mass, structural damping, and stiffness matrices, for small values of damping (typical of metallic structures).
+Damped dynamical equations are treated as a perturbation of the undamped dynamical equations. Sensitivity of the eigenvalues and eigenvectors shows that
+* the imaginary eigenvalues of the undamped systems become complex with non-positive real part, $s_i = s_{i,0} - \frac{1}{2} \frac{\mathbf{u}_i^* \mathbf{C} \mathbf{u}_i}{m_i}$, with $s_{i,0} = \mp j \Omega_i$, as shown in {eq}`eq:damping:eigenvalues`; the real part is non-positive as the structural stiffness matrix is semi-definite positive, $\mathbf{C} \ge 0$, for the dissipation of mechanical energy shown in {eq}`eq:damping:second-principle-of-td` - a manifestation of the [second principle of thermodynamics](https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-second.html#physics-hs-thermodynamics-foundation-principles-second)
+* the eigenvectors don't change, as shown in {eq}`eq:damping:eigenvectors`
+
+<!--
 **todo** Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.
 
 **Free response** using modal basis
-
+-->
 
 ## Small damping
 
@@ -58,7 +72,7 @@ $$\begin{aligned}
  \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} & = \dot{\mathbf{u}}^T \mathbf{f} \\
  \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] & = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
  \dfrac{d}{dt} \left( K + V \right) & = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
-\end{aligned}$$
+\end{aligned}$$ (eq:damping:second-principle-of-td)
 
 having recognized $D = \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} \ge 0$ as the dissipation from damping, that can't make the mechanical energy of the system $K + V$ increase. This condition implies that $\mathbf{C}$ is (semi)definite positive.
 
@@ -108,7 +122,7 @@ $$\begin{aligned}
       & = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
       & = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
 \ .
-\end{aligned}$$
+\end{aligned}$$ (eq:damping:eigenvalues)
 
 From this expression, it's possible to deduce that the $i^{th}$ eigenvalue of the slightly damped system differs from the $i^{th}$ eigenvalue of the undamped system $s_{i,0} = \mp j \omega_{i}$ of a real non-positive (as $\mathbf{C} \ge 0$ for dissipative damping actions) term $\Delta s_i = - \frac{1}{2} \frac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i} \in \mathbb{R}$, $\Delta s_i \le 0$, depending only on the damping matrix and the $i^{th}$ mode. This term shifts the eigenvalue $s_i$ to the left in the complex plane, and thus makes it asymptotically stable.
 
@@ -244,7 +258,12 @@ $$\begin{aligned}
 
 or using vector formalism
 
-$$\mathbf{u}_i = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} \ .$$
+$$\begin{aligned}
+ \mathbf{u}_i
+ & = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} = \\
+ & = \mathbf{u}_{i,0} \left[ 1 - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \right] = \\
+ & = \propto \mathbf{u}_{i,0} \ .
+\end{aligned}$$ (eq:damping:eigenvectors)
 
 ```
 
