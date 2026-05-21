@@ -262,7 +262,7 @@ $$\begin{aligned}
  \mathbf{u}_i
  & = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} = \\
  & = \mathbf{u}_{i,0} \left[ 1 - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \right] = \\
- & = \propto \mathbf{u}_{i,0} \ .
+ & \propto \mathbf{u}_{i,0} \ .
 \end{aligned}$$ (eq:damping:eigenvectors)
 
 ```
