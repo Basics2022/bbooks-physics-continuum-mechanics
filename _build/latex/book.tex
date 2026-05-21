@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Dec 05, 2025}
+\date{May 21, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -3019,7 +3019,614 @@ while the divergence\sphinxhyphen{}free is orthogonal, and thus transverse, w.r.
 
 
 \chapter{Finite element methods for beam structures}
-\label{\detokenize{ch/solids/small-displacements-fem-beams:finite-element-methods-for-beam-structures}}\label{\detokenize{ch/solids/small-displacements-fem-beams:solid-mechanics-intro-small-displacements-beam-fem}}\label{\detokenize{ch/solids/small-displacements-fem-beams::doc}}\subsubsection*{Strong form}
+\label{\detokenize{ch/solids/small-displacements-fem-beams:finite-element-methods-for-beam-structures}}\label{\detokenize{ch/solids/small-displacements-fem-beams:solid-mechanics-intro-small-displacements-beam-fem}}\label{\detokenize{ch/solids/small-displacements-fem-beams::doc}}
+\sphinxAtStartPar
+This section and its sub\sphinxhyphen{}sections deal with finite element methods for beam structures. Finite element method is discussed in (more) detail in the
+\sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/intro.html}{bbook about mathematics}, mainly in the sections about \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/intro.html}{partial differential equations (PDEs)} and \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/numerics.html}{numerical methods for PDEs}.
+
+\sphinxAtStartPar
+Here, FEM are presented applied to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\DUrole{xref,myst}{\sphinxstylestrong{decoupled beam structures}}, where axial, torsional and shear\sphinxhyphen{}bending dynamics are nutually independent, and governed by eq… derived for a decoupled {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beam}}}}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/solids/small-displacements-fem-beams-general:solid-mechanics-intro-small-displacements-beam-fem-general}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{generic beam structures}}}}}, where a general coupling may exist between any kinematic variable and internal force/moment, as described for a general {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beam}}}}, eq…
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\section{Decoupled beam}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:decoupled-beam}}\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:solid-mechanics-intro-small-displacements-beam-fem-decoupled}}\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled::doc}}
+
+\subsection{Single straight beam}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:single-straight-beam}}
+
+\subsubsection{Axial dynamics}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:axial-dynamics}}\begin{equation*}
+\begin{split}\begin{aligned}
+  m \ddot{s}_z - \left( EA s'_z \right)' = f_z
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Piecewise \sphinxstylestrong{first\sphinxhyphen{}degree polynomial} approximation of the displacement. The base functions on the reference element \(\xi \in [-1,1]\) are
+\begin{equation*}
+\begin{split}
+  \phi_1(\xi) = \frac{1}{2} \left( 1 - \xi \right) \quad , \quad
+  \phi_2(\xi) = \frac{1}{2} \left( 1 + \xi \right) 
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and their first order derivatives read
+\begin{equation*}
+\begin{split}
+  \phi'_1(\xi) = - \frac{1}{2} \quad , \quad
+  \phi'_2(\xi) =   \frac{1}{2}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Weak formulation.}
+\begin{equation*}
+\begin{split}\int_{\ell} w m \ddot{s} + \int_{\ell} w' EA s' = \int_{\ell} w f + \left.\left[ w EA s' \right]\right|_{\partial \ell}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Discrete problem.} Exploiting additivity of the integrals over partition of domains,
+\begin{equation*}
+\begin{split}\int_{\ell} = \sum_{k} \int_{\ell_k}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+introducing the approximation \(s(x,t) = \sum_{j} \phi_j(x) s_j(t) = \boldsymbol\phi(x)^T \mathbf{s}(t)\), and testing over all the base functions \(\phi_i(x)\), the discrete problem reads
+\begin{equation*}
+\begin{split}\int_{\ell} \phi_i(x) m \phi_j(x) \, dx \, \ddot{s}_j + \int_{\ell} \phi'_i(x) EA \phi'_j(x) \, dx \, s_j = \int_{\ell} \phi_i(x) f(x) \, dx + \left.\left[ \phi_i EA s' \right]\right|_{\partial \ell} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In the \(i^{th}\) equation, non\sphinxhyphen{}zero contributions only come from elements \(k\) where both \(\phi_i\), \(\phi_j\) are simultaneously non\sphinxhyphen{}zero.
+
+
+\paragraph{Example: clamped\sphinxhyphen{}free beam}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:example-clamped-free-beam}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Parameters}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Physical parameters}
+\PYG{n}{l}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{EA} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}
+\PYG{n}{f} \PYG{o}{=} \PYG{l+m+mf}{.0}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Discretization parameters, for building mesh}
+\PYG{n}{nelems} \PYG{o}{=} \PYG{l+m+mi}{3}
+\PYG{n}{nnodes} \PYG{o}{=} \PYG{n}{nelems} \PYG{o}{+} \PYG{l+m+mi}{1}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Boundary conditions}
+\PYG{n}{u0}\PYG{p}{,} \PYG{n}{F1} \PYG{o}{=} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{1.}   \PYG{c+c1}{\PYGZsh{} Dirichlet (displ) in P0, Neumann (force) in P1}
+\PYG{n}{i\PYGZus{}dir} \PYG{o}{=} \PYG{p}{[} \PYG{l+m+mi}{0} \PYG{p}{]}
+\PYG{n}{u\PYGZus{}dir} \PYG{o}{=} \PYG{p}{[} \PYG{n}{u0} \PYG{p}{]}
+\PYG{n}{i\PYGZus{}neu} \PYG{o}{=} \PYG{p}{[} \PYG{n}{nnodes}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{p}{]}
+\PYG{n}{f\PYGZus{}neu} \PYG{o}{=} \PYG{p}{[} \PYG{n}{F1} \PYG{p}{]}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Mesh}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node coordinates}
+\PYG{n}{rr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{nnodes}\PYG{p}{)} \PYG{o}{*} \PYG{n}{l}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node\PYGZhy{}element connectivity matrix}
+\PYG{n}{ee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{p}{[} \PYG{n}{iel}\PYG{p}{,} \PYG{n}{iel}\PYG{o}{+}\PYG{l+m+mi}{1} \PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{ee}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.         0.33333333 0.66666667 1.        ]
+[[0 1]
+ [1 2]
+ [2 3]]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}\begin{equation*}
+\begin{split}\begin{aligned}
+  M_{11}^{loc} = M_{22}^{loc} & = \int_{\xi=-1}^{1} \left( \dfrac{1}{2} \left( 1- \xi \right)\right)^2 d \xi = \frac{1}{4} \left( 2 + \dfrac{2}{3} \right) = \dfrac{2}{3} \\
+  M_{12}^{loc} & = \int_{\xi=-1}^{1} \dfrac{1}{4} \left( 1 - \xi \right) \left( 1 + \xi \right) d \xi = \dfrac{1}{3} 
+\end{aligned}\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local mass and stiffness matrices}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Length of the elements}
+\PYG{n}{el\PYGZus{}len} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{el\PYGZus{}jac} \PYG{o}{=} \PYG{n}{el\PYGZus{}len} \PYG{o}{*} \PYG{l+m+mf}{.5}
+\PYG{c+c1}{\PYGZsh{} print(el\PYGZus{}len)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local mass matrix, stripped by row}
+\PYG{n}{me\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{2.} \PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{3.}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local stiffness matrix, stripped by row}
+\PYG{n}{ke\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{l+m+mf}{.5} \PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Assembling global matrices}
+\PYG{n}{mi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{p}{[} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{p}{]} \PYG{k}{for} \PYG{n}{e} \PYG{o+ow}{in} \PYG{n}{ee}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{mj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{p}{[} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{p}{]} \PYG{k}{for} \PYG{n}{e} \PYG{o+ow}{in} \PYG{n}{ee}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{me} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{me\PYGZus{}loc} \PYG{o}{*} \PYG{n}{m}  \PYG{o}{*} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{ke\PYGZus{}loc} \PYG{o}{*} \PYG{n}{EA} \PYG{o}{/} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{M} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{me}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mi}\PYG{p}{,} \PYG{n}{mj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{ke}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mi}\PYG{p}{,} \PYG{n}{mj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} print(M.todense())}
+\PYG{c+c1}{\PYGZsh{} print(K.todense())}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\subparagraph{Static problem}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:static-problem}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Prescribe boundary conditions}
+\PYG{c+c1}{\PYGZsh{} 1) Slicing or 2) augmented system}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} 1) Slicing}
+\PYG{c+c1}{\PYGZsh{} [ Kuu Kud ][ uu ] = [ fu ] + [ Fu ]}
+\PYG{c+c1}{\PYGZsh{} [ Kdu Kdd ][ ud ]   [ fd ]   [ Fd ]}
+\PYG{n}{iD} \PYG{o}{=} \PYG{n}{i\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{iU} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{Kuu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kud} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdd} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{n}{F\PYGZus{}vol} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{F\PYGZus{}vol}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{[}\PYG{n}{i\PYGZus{}neu}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{F1}
+\PYG{n}{fu} \PYG{o}{=} \PYG{n}{f}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{f}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]}
+
+\PYG{n}{ud} \PYG{o}{=} \PYG{n}{u\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{fu}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Kuu}\PYG{o}{.}\PYG{n}{todense}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Solve the linear problem, and retrieve the solution}
+\PYG{n}{uu} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{spsolve}\PYG{p}{(}\PYG{n}{Kuu}\PYG{p}{,} \PYG{n}{fu} \PYG{o}{\PYGZhy{}} \PYG{n}{Kud} \PYG{o}{@} \PYG{n}{ud} \PYG{p}{)}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{Kdu} \PYG{o}{@} \PYG{n}{uu} \PYG{o}{+} \PYG{n}{Kdd} \PYG{o}{@} \PYG{n}{ud}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{uu}\PYG{p}{)}
+
+\PYG{n}{u} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{uu}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ud}
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fu}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fd}
+
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{,} \PYG{n}{u}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0. 0. 1.]
+[[ 6. \PYGZhy{}3.  0.]
+ [\PYGZhy{}3.  6. \PYGZhy{}3.]
+ [ 0. \PYGZhy{}3.  3.]]
+[0.33333333 0.66666667 1.        ]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}u\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{fdd9a75903089748f7dda98e264d5cf643353739b8cf9fbaca5a6d95bdd07f6d}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+
+\subsubsection{Torsional dynamics}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:torsional-dynamics}}\begin{equation*}
+\begin{split}\begin{aligned}
+  I_z \ddot{\theta}_z - \left( GJ_z \theta'_z \right)' = m_z
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Same as axial dynamics…
+
+
+\subsubsection{Shear\sphinxhyphen{}Bending dynamics}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:shear-bending-dynamics}}\begin{equation*}
+\begin{split}\begin{cases}
+  & m \ddot{s}_x - \left( \chi_x^{-1}GA ( s'_x - \theta_y ) \right)' = f_x \\
+  & I_y \ddot{\theta}_y - \left( EJ \theta_y' \right)' - \chi_x^{-1}GA \left( s_x' - \theta_y \right) = m_x
+\end{cases}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{cases}
+  & m \ddot{s}_y - \dots = f_y \\
+  & I_x \ddot{\theta}_x - \dots = m_x
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Finite\sphinxhyphen{}dimensional approximation
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s(x,t) & = \boldsymbol\phi_s^T(x) \mathbf{s}(t) \\
+  \theta(x,t) & = \boldsymbol\phi_\theta^T(x) \boldsymbol{\theta}(t) \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{cases}
+  \int_{\ell} \boldsymbol\phi_s m \boldsymbol\phi_s^T \, dx \, \ddot{\mathbf{s}} + \int_{\ell} \boldsymbol\phi'_s \chi^{-1} GA \left( \boldsymbol\phi_s^{' \ T} \mathbf{s} - \boldsymbol\phi^T_\theta \boldsymbol\theta \right) \, dx = \int_{\ell} \boldsymbol\phi^T_s \, f + \left.\left[ \boldsymbol\phi_s  \underbrace{ \chi^{-1}GA( \boldsymbol\phi^{' \ T}_s \mathbf{s} - \boldsymbol\phi^T_\theta \boldsymbol\theta) }_{T} \right]\right|_{\partial \ell} \\
+    \int_{\ell} \boldsymbol\phi_\theta I \boldsymbol\phi_\theta^T \, dx \, \ddot{\boldsymbol{\theta}} + \int_{\ell} \boldsymbol\phi'_\theta EJ \boldsymbol\phi_\theta^{' \ T} \boldsymbol{\theta} - \int_{\ell} \boldsymbol\phi_\theta \chi^{-1} GA \left( \boldsymbol\phi^{' \ T}_s \mathbf{s} - \boldsymbol\phi^T_\theta \boldsymbol\theta \right)\, dx = m + \left.\left[ \boldsymbol\phi_\theta  \underbrace{ EJ \boldsymbol\phi^{' \ T}_\theta \boldsymbol{\theta} }_{M} \right]\right|_{\partial \ell}
+\end{cases}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{bmatrix} \int_{\ell} \boldsymbol\phi_s m \boldsymbol\phi_s^T & 0 \\ 0 & \int_{\ell} \boldsymbol\phi_\theta I \boldsymbol\phi_\theta^T \end{bmatrix}\begin{bmatrix} \ddot{\mathbf{s}} \\ \ddot{\boldsymbol{\theta}} \end{bmatrix} + \begin{bmatrix} \int_{\ell} \boldsymbol\phi'_s \chi^{-1} GA \boldsymbol\phi_s^{' \ T} & -\int_{\ell} \boldsymbol\phi'_s \chi^{-1} GA \boldsymbol\phi_\theta^{T} \\  -\int_{\ell} \boldsymbol\phi_\theta \chi^{-1} GA \boldsymbol\phi_s^{' \ T} & \int_{\ell} \boldsymbol\phi'_\theta EJ \boldsymbol\phi_\theta^{' \ T} + \int_{\ell} \boldsymbol\phi_\theta \chi GA \boldsymbol\phi_\theta^{T} \end{bmatrix}\begin{bmatrix} \mathbf{s} \\ \boldsymbol{\theta} \end{bmatrix} = \begin{bmatrix} \dots \\ \dots \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Different approximations for displacement and rotation
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \phi^s_1(\xi) & = \dfrac{1}{2} \xi ( \xi - 1 ) && , \quad \phi^{s \ '}_1(\xi) = \xi - \dfrac{1}{2} \\
+  \phi^s_2(\xi) & = 1 - \xi^2                    && , \quad \phi^{s \ '}_2(\xi) = - 2 \xi \\
+  \phi^s_3(\xi) & = \dfrac{1}{2} \xi ( \xi + 1 ) && , \quad \phi^{s \ '}_3(\xi) = \xi + \dfrac{1}{2} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \phi^\theta_1(\xi) & = \dfrac{1}{2} ( 1 - \xi ) && , \quad \phi^{\theta \ '}_1(\xi) = - \dfrac{1}{2} \\
+  \phi^\theta_2(\xi) & = \dfrac{1}{2} ( 1 + \xi ) && , \quad \phi^{\theta \ '}_2(\xi) =   \dfrac{1}{2} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{M}_{ss} = \begin{bmatrix} 
+\frac{4}{15} & \frac{2 }{15} & -\frac{1}{15} \\
+\cdot        & \frac{16}{15} &  \frac{2}{15} \\
+\cdot        & \cdot         &  \frac{4}{15}
+\end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{K}_{ss} = \begin{bmatrix} 
+\frac{7}{6} & -\frac{4}{3} &  \frac{1}{6} \\
+\cdot       &  \frac{8}{3} & -\frac{4}{3} \\
+\cdot       & \cdot        &  \frac{7}{6}
+\end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{A}_{s\theta} = \begin{bmatrix} 
+ -\frac{5}{6} & -\frac{1}{6} \\
+  \frac{2}{3} & -\frac{2}{3} \\
+  \frac{1}{6} &  \frac{5}{6}       
+\end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  A_{11} & = \int_{-1}^{1} \phi^{s \ '}_1(\xi) \phi^{\theta}_1(\xi) \, d \xi
+  = \int_{-1}^{1} \left( \xi - \frac{1}{2} \right) \frac{1}{2} \left( 1 - \xi \right) d \xi
+  = \int_{-1}^{1} \left( -\frac{1}{4} - \frac{1}{2} \xi^2 \right) d \xi = - \dfrac{1}{2} - \dfrac{1}{3} = - \dfrac{5}{6} \\
+    A_{12} & = \int_{-1}^{1} \phi^{s \ '}_1(\xi) \phi^{\theta}_2(\xi) \, d \xi
+  = \int_{-1}^{1} \left( \xi - \frac{1}{2} \right) \frac{1}{2} \left( 1 + \xi \right) d \xi
+  = \int_{-1}^{1} \left( -\frac{1}{4} + \frac{1}{2} \xi^2 \right) d \xi = - \dfrac{1}{2} + \dfrac{1}{3} = - \dfrac{1}{6} \\
+    A_{21} & = \int_{-1}^{1} \phi^{s \ '}_2(\xi) \phi^{\theta}_1(\xi) \, d \xi
+  = \int_{-1}^{1} \quad - 2 \xi \quad \ \frac{1}{2} \left( 1 - \xi \right) d \xi
+  = \int_{-1}^{1} \qquad \quad \ \ \ \ \ \ \xi^2 \quad d \xi = \ \ \ \dfrac{2}{3} \\
+    A_{22} & = \int_{-1}^{1} \phi^{s \ '}_2(\xi) \phi^{\theta}_2(\xi) \, d \xi
+  = \int_{-1}^{1} \quad - 2 \xi \quad \ \frac{1}{2} \left( 1 + \xi \right) d \xi
+  = \int_{-1}^{1} \qquad \quad \ \ - \xi^2 \quad d \xi = - \dfrac{2}{3} \\
+    A_{31} & = \int_{-1}^{1} \phi^{s \ '}_3(\xi) \phi^{\theta}_1(\xi) \, d \xi
+  = \int_{-1}^{1} \left( \xi + \frac{1}{2} \right) \frac{1}{2} \left( 1 - \xi \right) d \xi
+  = \int_{-1}^{1} \left( \ \ \ \frac{1}{4} - \frac{1}{2} \xi^2 \right) d \xi = \ \ \ \dfrac{1}{2} - \dfrac{1}{3} = \dfrac{1}{6} \\
+    A_{32} & = \int_{-1}^{1} \phi^{s \ '}_3(\xi) \phi^{\theta}_2(\xi) \, d \xi
+  = \int_{-1}^{1} \left( \xi + \frac{1}{2} \right) \frac{1}{2} \left( 1 + \xi \right) d \xi
+  = \int_{-1}^{1} \left( \ \ \ \frac{1}{4} + \frac{1}{2} \xi^2 \right) d \xi = \ \ \ \dfrac{1}{2} + \dfrac{1}{3} = \dfrac{5}{6} \\
+\end{aligned}\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZpc{}}\PYG{k}{reset} \PYGZhy{}f
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Parameters}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Physical parameters}
+\PYG{n}{l} \PYG{o}{=} \PYG{l+m+mf}{1.}                  \PYG{c+c1}{\PYGZsh{} length}
+\PYG{n}{m}\PYG{p}{,} \PYG{n}{I} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}           \PYG{c+c1}{\PYGZsh{} mass and inertia density}
+\PYG{n}{EJ} \PYG{o}{=} \PYG{l+m+mf}{1.}                 \PYG{c+c1}{\PYGZsh{} bending stiffness}
+\PYG{n}{xGA} \PYG{o}{=} \PYG{l+m+mf}{10000.} \PYG{o}{*} \PYG{n}{EJ}        \PYG{c+c1}{\PYGZsh{} shear stiffness (relative to bending stiffness)}
+\PYG{n}{qf}\PYG{p}{,} \PYG{n}{qm} \PYG{o}{=} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0}         \PYG{c+c1}{\PYGZsh{} distributed loads, force and moments}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Discretization parameters, for building mesh}
+\PYG{n}{nelems} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{nnodes\PYGZus{}p1} \PYG{o}{=} \PYG{n}{nelems} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{n}{nnodes\PYGZus{}p2} \PYG{o}{=} \PYG{n}{nelems}
+\PYG{n}{nnodes} \PYG{o}{=} \PYG{n}{nnodes\PYGZus{}p1} \PYG{o}{+} \PYG{n}{nnodes\PYGZus{}p2}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Boundary conditions}
+\PYG{n}{u0}\PYG{p}{,} \PYG{n}{theta0} \PYG{o}{=} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0}    \PYG{c+c1}{\PYGZsh{} clamp in P0}
+\PYG{n}{F1}\PYG{p}{,} \PYG{n}{M1} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{.0}        \PYG{c+c1}{\PYGZsh{} only force in P1}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Mesh}
+\PYG{c+c1}{\PYGZsh{} Not only P1 elements, but P1(rotation)\PYGZhy{}P2(displacement) elements}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node coordinates (nnodes,nd), with space dimension nd=1}
+\PYG{n}{rr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{nnodes\PYGZus{}p1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{l}                 \PYG{c+c1}{\PYGZsh{} P1 nodes (equi\PYGZhy{}spaced)}
+\PYG{n}{rr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{rr}\PYG{p}{,} \PYG{l+m+mf}{.5}\PYG{o}{*}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]} \PYG{o}{+} \PYG{n}{rr}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}      \PYG{c+c1}{\PYGZsh{} concatentate P1 with P2 nodes}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node\PYGZhy{}element connectivity matrix (nelems,3)}
+\PYG{c+c1}{\PYGZsh{} First two ids: P1\PYGZhy{}nodes, third id: P2\PYGZhy{}node}
+\PYG{n}{ee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{p}{[} \PYG{n}{iel}\PYG{p}{,} \PYG{n}{iel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{nnodes\PYGZus{}p1}\PYG{o}{+}\PYG{n}{iel} \PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Global indices}
+\PYG{c+c1}{\PYGZsh{} Some nodes have 2 variables (P1 have both displacement and rotation). In order to }
+\PYG{c+c1}{\PYGZsh{} assemble global matrices, global indices of the variables are required}
+\PYG{n}{i\PYGZus{}displ} \PYG{o}{=} \PYG{n}{ee}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{i\PYGZus{}theta} \PYG{o}{=} \PYG{n}{ee}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)} \PYG{o}{+} \PYG{n}{nnodes}
+\PYG{n}{i\PYGZus{}var} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{block}\PYG{p}{(}\PYG{p}{[}\PYG{n}{i\PYGZus{}displ}\PYG{p}{,} \PYG{n}{i\PYGZus{}theta}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{n\PYGZus{}vars} \PYG{o}{=} \PYG{n}{nnodes} \PYG{o}{+} \PYG{n}{nnodes\PYGZus{}p1}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{rr:}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{rr}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ee:}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{ee}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{i\PYGZus{}var: }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i\PYGZus{}var}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+rr:
+ [0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   0.05 0.15 0.25
+ 0.35 0.45 0.55 0.65 0.75 0.85 0.95]
+ee:
+ [[ 0  1 11]
+ [ 1  2 12]
+ [ 2  3 13]
+ [ 3  4 14]
+ [ 4  5 15]
+ [ 5  6 16]
+ [ 6  7 17]
+ [ 7  8 18]
+ [ 8  9 19]
+ [ 9 10 20]]
+i\PYGZus{}var: 
+ [[ 0  1 11 21 22]
+ [ 1  2 12 22 23]
+ [ 2  3 13 23 24]
+ [ 3  4 14 24 25]
+ [ 4  5 15 25 26]
+ [ 5  6 16 26 27]
+ [ 6  7 17 27 28]
+ [ 7  8 18 28 29]
+ [ 8  9 19 29 30]
+ [ 9 10 20 30 31]]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local mass and stiffness matrices}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Length of the elements}
+\PYG{n}{el\PYGZus{}len} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{el\PYGZus{}jac} \PYG{o}{=} \PYG{n}{el\PYGZus{}len} \PYG{o}{*} \PYG{l+m+mf}{.5}
+\PYG{c+c1}{\PYGZsh{} print(el\PYGZus{}len)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local mass matrix, stripped by row}
+\PYG{n}{me\PYGZus{}tt\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{2.} \PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{3.}
+\PYG{n}{me\PYGZus{}ss\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{4.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{4.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{16.}\PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{15.}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Local stiffness matrix, stripped by row}
+\PYG{n}{ke\PYGZus{}tt\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{.5}\PYG{p}{,} \PYG{l+m+mf}{.5} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke\PYGZus{}ss\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{7.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{8.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{7.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{8.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{8.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{8.}\PYG{p}{,} \PYG{l+m+mf}{16.}\PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{6.}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Ast}
+\PYG{c+c1}{\PYGZsh{} [ \PYGZhy{}5, \PYGZhy{}1 ]}
+\PYG{c+c1}{\PYGZsh{} [  1,  5 ]}
+\PYG{c+c1}{\PYGZsh{} [  4, \PYGZhy{}4 ] / 6}
+\PYG{n}{ae\PYGZus{}st\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{5.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{5.}\PYG{p}{,} \PYG{l+m+mf}{4.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.}\PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{6.}
+\PYG{n}{ae\PYGZus{}ts\PYGZus{}loc} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{5.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{4.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{5.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.}\PYG{p}{]}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mf}{6.}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Assembling global matrices}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Mass}
+\PYG{n}{mi\PYGZus{}ss} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{repeat}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{mj\PYGZus{}ss} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tile}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{me\PYGZus{}ss} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{me\PYGZus{}ss\PYGZus{}loc} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{mi\PYGZus{}tt} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{repeat}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{mj\PYGZus{}tt} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tile}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{p}{]}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{me\PYGZus{}tt} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{me\PYGZus{}tt\PYGZus{}loc} \PYG{o}{*} \PYG{n}{I} \PYG{o}{*} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{mi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{mi\PYGZus{}ss}\PYG{p}{,} \PYG{n}{mi\PYGZus{}tt}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{mj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{mj\PYGZus{}ss}\PYG{p}{,} \PYG{n}{mj\PYGZus{}tt}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{me} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{me\PYGZus{}ss}\PYG{p}{,} \PYG{n}{me\PYGZus{}tt}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{M} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{me}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mi}\PYG{p}{,}\PYG{n}{mj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Stiffness}
+\PYG{n}{ke\PYGZus{}ss}    \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{ke\PYGZus{}ss\PYGZus{}loc} \PYG{o}{*} \PYG{n}{xGA} \PYG{o}{/} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke\PYGZus{}tt\PYGZus{}EJ} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{ke\PYGZus{}tt\PYGZus{}loc} \PYG{o}{*} \PYG{n}{EJ}  \PYG{o}{/} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke\PYGZus{}tt\PYGZus{}GA} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{me\PYGZus{}tt\PYGZus{}loc} \PYG{o}{*} \PYG{n}{xGA} \PYG{o}{*} \PYG{n}{el\PYGZus{}jac}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{]} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke\PYGZus{}tt}    \PYG{o}{=} \PYG{n}{ke\PYGZus{}tt\PYGZus{}EJ} \PYG{o}{+} \PYG{n}{ke\PYGZus{}tt\PYGZus{}GA}
+
+\PYG{n}{ai\PYGZus{}st} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{repeat}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{aj\PYGZus{}st} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tile}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{p}{]}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{ai\PYGZus{}ts} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{repeat}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{aj\PYGZus{}ts} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tile}\PYG{p}{(}\PYG{n}{i\PYGZus{}var}\PYG{p}{[}\PYG{n}{iel}\PYG{p}{,}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{ke\PYGZus{}st}    \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{o}{\PYGZhy{}} \PYG{n}{ae\PYGZus{}st\PYGZus{}loc} \PYG{o}{*} \PYG{n}{xGA} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke\PYGZus{}ts}    \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{o}{\PYGZhy{}} \PYG{n}{ae\PYGZus{}ts\PYGZus{}loc} \PYG{o}{*} \PYG{n}{xGA} \PYG{k}{for} \PYG{n}{iel} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nelems}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{ki} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{mi\PYGZus{}ss}\PYG{p}{,} \PYG{n}{ai\PYGZus{}st}\PYG{p}{,} \PYG{n}{ai\PYGZus{}ts}\PYG{p}{,} \PYG{n}{mi\PYGZus{}tt} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{kj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{mj\PYGZus{}ss}\PYG{p}{,} \PYG{n}{aj\PYGZus{}st}\PYG{p}{,} \PYG{n}{aj\PYGZus{}ts}\PYG{p}{,} \PYG{n}{mj\PYGZus{}tt} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[} \PYG{n}{ke\PYGZus{}ss}\PYG{p}{,} \PYG{n}{ke\PYGZus{}st}\PYG{p}{,} \PYG{n}{ke\PYGZus{}ts}\PYG{p}{,} \PYG{n}{ke\PYGZus{}tt} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{ke}\PYG{p}{,} \PYG{p}{(}\PYG{n}{ki}\PYG{p}{,}\PYG{n}{kj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Some check/output for low\PYGZhy{}dimensional problems}
+\PYG{k}{if} \PYG{p}{(} \PYG{n}{nelems} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4} \PYG{p}{)}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZgt{} Mass matrix:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{M}\PYG{o}{.}\PYG{n}{todense}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Sum of elements of mass matrix: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{M}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Needs to be equal to the total mass of the system}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZgt{} Stiffness matrix:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{todense}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+
+  \PYG{k}{if} \PYG{p}{(} \PYG{n}{nelems} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3} \PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Null space:}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Comment: 2\PYGZhy{}dimensional null space (rigid translation and rotation, or their linear combination)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{sp}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{null\PYGZus{}space}\PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{todense}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\paragraph{Example: clamped beam}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-decoupled:example-clamped-beam}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} HERE, a very rude implementation:}
+\PYG{c+c1}{\PYGZsh{} a good design needs a cleaner impelemntation of boundary conditions and loads}
+\PYG{c+c1}{\PYGZsh{} and can be easily (with some work) achieved relying on OO\PYGZhy{}programming, relying}
+\PYG{c+c1}{\PYGZsh{} on classes}
+
+\PYG{c+c1}{\PYGZsh{} TODO: could it be a good idea to provide an example of a FEM code implementation,}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} clearly separating pre\PYGZhy{}processing, analyses, and post\PYGZhy{}processing}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} relying on OO\PYGZhy{}programming}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} factor method for maintenability and expansion with the min amount of pain}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} ...}
+\PYG{c+c1}{\PYGZsh{} ???}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Essential boundary conditions}
+\PYG{n}{iD} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nnodes} \PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} var index of displ and rot of the first node}
+\PYG{n}{uD} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0} \PYG{p}{]}\PYG{p}{)}      \PYG{c+c1}{\PYGZsh{} value of the displ and rot of the first node}
+
+\PYG{n}{iN} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{nnodes\PYGZus{}p1} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1} \PYG{p}{]}\PYG{p}{)}    \PYG{c+c1}{\PYGZsh{} var index of the displ of the last node}
+\PYG{n}{fN} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{1.} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{iU} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{n\PYGZus{}vars}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Slicing}
+\PYG{n}{Kuu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kud} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdd} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{n}{F\PYGZus{}vol} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}vars}\PYG{p}{)}
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{F\PYGZus{}vol}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{f}\PYG{p}{[}\PYG{n}{iN}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{fN}
+\PYG{n}{fu} \PYG{o}{=} \PYG{n}{f}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{f}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Solve the linear problem, and retrieve the solution}
+\PYG{n}{uu} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{spsolve}\PYG{p}{(}\PYG{n}{Kuu}\PYG{p}{,} \PYG{n}{fu} \PYG{o}{\PYGZhy{}} \PYG{n}{Kud} \PYG{o}{@} \PYG{n}{uD} \PYG{p}{)}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{Kdu} \PYG{o}{@} \PYG{n}{uu} \PYG{o}{+} \PYG{n}{Kdd} \PYG{o}{@} \PYG{n}{uD}
+
+\PYG{n}{nU} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{iU}\PYG{p}{)}
+\PYG{n}{u} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n\PYGZus{}vars}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{uu}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{uD}
+
+\PYG{n}{u\PYGZus{}displ} \PYG{o}{=} \PYG{n}{u}\PYG{p}{[}\PYG{p}{:}\PYG{n}{nnodes}\PYG{p}{]}
+\PYG{n}{u\PYGZus{}rot}   \PYG{o}{=} \PYG{n}{u}\PYG{p}{[}\PYG{n}{nnodes}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}            \PYG{p}{,} \PYG{n}{u\PYGZus{}displ}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{[}\PYG{p}{:}\PYG{n}{nnodes\PYGZus{}p1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{u\PYGZus{}rot}  \PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Displ.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Rot.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{u\PYGZus{}displ: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{u\PYGZus{}displ}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{u\PYGZus{}rot  : }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{u\PYGZus{}rot}\PYG{+w}{  }\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+u\PYGZus{}displ: [0.        0.00476   0.01852   0.04028   0.06904   0.1038    0.14356
+ 0.18732   0.23408   0.28284   0.3326    0.0011925 0.0105775 0.0284625
+ 0.0538475 0.0857325 0.1231175 0.1650025 0.2103875 0.2582725 0.3076575]
+u\PYGZus{}rot  : [0.    0.095 0.18  0.255 0.32  0.375 0.42  0.455 0.48  0.495 0.5  ]
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{6c1a81f4027a442acf848546f21a9838a7fc37ee31429f11fac87ff1562a0cc6}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxstepscope
+
+
+\section{General beam}
+\label{\detokenize{ch/solids/small-displacements-fem-beams-general:general-beam}}\label{\detokenize{ch/solids/small-displacements-fem-beams-general:solid-mechanics-intro-small-displacements-beam-fem-general}}\label{\detokenize{ch/solids/small-displacements-fem-beams-general::doc}}\subsubsection*{Strong form}
 
 \sphinxAtStartPar
 Momentum and angular momentum balance equation for a straight beam
@@ -3096,7 +3703,7 @@ the problem becomes
 \sphinxAtStartPar
 \sphinxstylestrong{Assembly of the finite element linear system.}
 \begin{equation*}
-\begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} + \mathbf{B} \Delta T \ .\end{split}
+\begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} + \mathbf{B} \boldsymbol\Delta \mathbf{T} \ .\end{split}
 \end{equation*}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -3625,7 +4232,10 @@ and if the components of the force have similar magnitude \(Y \sim Z\), the orde
 
 
 \chapter{Modal methods for structural problems}
-\label{\detokenize{ch/solids/small-displacements-numerics:modal-methods-for-structural-problems}}\label{\detokenize{ch/solids/small-displacements-numerics:solid-mechanics-intro-small-displacements-numerics}}\label{\detokenize{ch/solids/small-displacements-numerics::doc}}\begin{equation*}
+\label{\detokenize{ch/solids/small-displacements-numerics:modal-methods-for-structural-problems}}\label{\detokenize{ch/solids/small-displacements-numerics:solid-mechanics-intro-small-displacements-numerics}}\label{\detokenize{ch/solids/small-displacements-numerics::doc}}
+\sphinxAtStartPar
+See \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/ode/time-integration-mechanical-systems.html}{Math: ODE: Integration schemes for ODEs: Time\sphinxhyphen{}integration of a mechanical system}. So far, quite quick and dirty. Take a look at the end of the .ipynb.
+\begin{equation*}
 \begin{split}\mathbf{M} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ .\end{split}
 \end{equation*}
 
@@ -3777,13 +4387,89 @@ The internal stress/actions are represente here as
 \sphinxstylestrong{State space system.}
 \begin{equation*}
 \begin{split}\begin{aligned}
-  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{u}}_s \\ \ddot{\mathbf{u}}_s \end{bmatrix} 
-  = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{U}_s \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
+  = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
 having used the identity (proved below, under negligible damping assumption) \(\mathbf{K} \mathbf{U}_s = \mathbf{M} \mathbf{U}_s \text{diag}\{\omega_i^2\}\).
 
+\sphinxAtStartPar
+\sphinxstylestrong{Initial conditions.} Here the initial conidtions for the slow modal variables need to provide the best approximation of the complete initial condition. Let the initial conditions be
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}_0 & =      \mathbf{u} (0) = \mathbf{U}      \mathbf{q} (0) = \mathbf{U}_s      \mathbf{q}_s (0) + \mathbf{U}_f      \mathbf{q}_f (0) \\
+  \mathbf{v}_0 & = \dot{\mathbf{u}}(0) = \mathbf{U} \dot{\mathbf{q}}(0) = \mathbf{U}_s \dot{\mathbf{q}}_s(0) + \mathbf{U}_f \dot{\mathbf{q}}_f(0) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Truncation of fast modes.} Using minimization of the mass\sphinxhyphen{}norm, for systems with non\sphinxhyphen{}singular mass matrices, the initial conditions for the state and its derivative in modal variables read
+\begin{equation*}
+\begin{split}\begin{aligned}
+       \mathbf{q}_s (0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 \\
+  \dot{\mathbf{q}}_s(0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{v}_0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Mode acceleration.} Using mode accelerations, the contribution of static recovery should be considered as well in the minimization process of finding \(\mathbf{q}_{s,0}\) so that the error of \(\mathbf{U}_s \mathbf{q}_s(0)\) with
+\begin{equation*}
+\begin{split}\widetilde{\mathbf{u}}_0 := \mathbf{u}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \mathbf{f}(0)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+is minimum. \sphinxstylestrong{todo} *Check it! It should be enough to replace \(\mathbf{u}_0\) of the truncation method, with the corrected \(\widetilde{\mathbf{u}}_0\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+       \mathbf{q}_s (0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{u}}_0 \\
+  \dot{\mathbf{q}}_s(0) & = \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \widetilde{\mathbf{v}}_0 \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{check!} with (???)
+\begin{equation*}
+\begin{split}\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 \end{split}
+\end{equation*}
+\sphinxAtStartPar
+or (???)
+\begin{equation*}
+\begin{split}\widetilde{\mathbf{v}}_0 := \mathbf{v}_0 - \left( \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s  \right) \dot{\mathbf{f}}(0)\end{split}
+\end{equation*}\subsubsection*{Minimization of the error of the initial condition}
+
+\sphinxAtStartPar
+Find \(\mathbf{q}_{s,0}\) so that
+\begin{equation*}
+\begin{split}\min_{\mathbf{q}_{s,0}} \left|| \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right||^2\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let’s investigate two different norms.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Mass\sphinxhyphen{}norm.} (It’s a norm if \(M > 0\), otherwise a semi\sphinxhyphen{}norm \sphinxhyphen{} e.g. with a matrix including algebraic constraints)
+\begin{equation*}
+\begin{split}\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \mathbf{M} \left( \mathbf{u}_0 - \mathbf{U}_s \mathbf{q}_{s,0} \right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+ \mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon 
+ & = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \mathbf{U}_s^* \mathbf{M} \mathbf{U}_s \mathbf{q}_{s,0} = \\
+ & = - 2 \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0 + 2 \text{diag}\{ m_s \} \mathbf{q}_{s,0} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the solution reads
+\begin{equation*}
+\begin{split}\mathbf{q}_{s,0} = \text{diag} \{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{M} \mathbf{u}_0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{\(L_2\)\sphinxhyphen{}norm.}
+\begin{equation*}
+\begin{split}\varepsilon := \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)^* \left( \mathbf{u}_0 - \mathbf{U} \mathbf{q}_{s,0} \right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{0} = \partial_{\mathbf{q}_{s,0}} \varepsilon = - 2 \mathbf{U}^* \mathbf{u}_0 + 2 \mathbf{U}^* \mathbf{U} \mathbf{q}_{s,0} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the solution reads
+\begin{equation*}
+\begin{split}\mathbf{q}_{s,0} = \left[ \mathbf{U}_s^* \mathbf{U}_s \right]^{-1} \mathbf{U}_s^* \mathbf{u}_0\end{split}
+\end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{Convergence.} For \(s = j\omega\), and \(\omega \gg \omega_0\) the leading term in the displacement goes as \(-\frac{1}{m_i \omega_i^2}\), and the stress with \textbackslash{}frac\{\}\{\}; for \(\omega \ll \omega_0\) the leading term goes as \(-2 \frac{\xi_i \omega}{m_i \omega_i^3}\) if the damping is not negligible, as \(-\frac{\omega^2}{m_i \omega_i^4}\) if the damping is negligible.
 
@@ -3911,25 +4597,51 @@ or
 
 \chapter{Structural damping}
 \label{\detokenize{ch/solids/structural-damping:structural-damping}}\label{\detokenize{ch/solids/structural-damping:solid-mechanics-intro-small-displacements-damping}}\label{\detokenize{ch/solids/structural-damping::doc}}
+\begin{sphinxadmonition}{note}{See also}
+
 \sphinxAtStartPar
-As a first approximation, a large number of structures can be treated as undamped structures that, if constrained so that there’s no rigid motion allowed, can be represented by the second order system
+\sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html}{Sensitivity of spectral decomposition}. Here the sensitivity of spectral decomposition of the second\sphinxhyphen{}order system \(s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} = \mathbf{0}\) arising in structural mechanics is discussed. The link contains a general treatment of the spectral sensitivity of a generalized first order eigenvalue problem \(\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+As a first approximation, a large number of structures can be treated as \sphinxstylestrong{undamped structures} governed by the second\sphinxhyphen{}order dynamical system
 \begin{equation*}
-\begin{split}\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\end{split}
+\begin{split}\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-being mass and stiffness matrices \(\mathbf{M}\), \(\mathbf{K}\) that are positive definite, and symmetric if derived as an example from a Lagrangian formulation of the problem.
+being mass and stiffness matrices \(\mathbf{M}\), \(\mathbf{K}\). These equations usually represent the linearized system around a stable equilibrium. Mass and stiffness matrices are:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{symmetric} if the equations of motion are derived using a \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html}{Lagrangian approach}. If the equations of motion are derived using Newton’s approach, mass and stiffness matrices can be non\sphinxhyphen{}symmetric, but they can be transformed into symmetric matrices with a change of coordinates.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{semi\sphinxhyphen{}positive definite}: mass matrix is definite positive if there’s no algebraic constraint in the system  (or \sphinxhyphen{} equilvaelntly \sphinxhyphen{} components without inertia); stiffness matrix is definite positive if the structure has no free rigid degree of motion.
+
+\end{itemize}
 
 \sphinxAtStartPar
-\sphinxstylestrong{todo} Add reference to Lagrange mechanics and its properties in the classical mechanics bbooks.
+For a proof of this properties, see \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange-properties.html\#lagrange-equations-of-the-ii-kind}{Classical Mechanics: Lagrangian Mechanics: Properties of the Lagrangian approach: Lagrange equations of the second kind}.
 
 \sphinxAtStartPar
-This kind of systems are conveniently described using \sphinxstylestrong{modal basis}, as modes (or free/natural modes of vibrations) are orthogonal w.r.t. both mass and stiffness matrix.
+This kind of systems are conveniently described using a \sphinxstylestrong{modal basis}, see {\hyperref[\detokenize{ch/solids/small-displacements-numerics:solid-mechanics-intro-small-displacements-numerics}]{\sphinxcrossref{\DUrole{std,std-ref}{Modal methods for structural problems}}}}, that simultaneously diagonalize mass and stiffness matrices.
 
 \sphinxAtStartPar
-\sphinxstylestrong{todo} Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.
-
+This section is devoted to the discussion of \sphinxstylestrong{structural damping}, and it’s “proved” it can be represented as a diagonal matrix in modal basis \sphinxhyphen{} i.e. modal basis simultaneously diagonalize mass, structural damping, and stiffness matrices, for small values of damping (typical of metallic structures).
+Damped dynamical equations are treated as a perturbation of the undamped dynamical equations. Sensitivity of the eigenvalues and eigenvectors shows that
+\begin{itemize}
+\item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Free response} using modal basis
+the imaginary eigenvalues of the undamped systems become complex with non\sphinxhyphen{}positive real part, \(s_i = s_{i,0} - \frac{1}{2} \frac{\mathbf{u}_i^* \mathbf{C} \mathbf{u}_i}{m_i}\), with \(s_{i,0} = \mp j \Omega_i\), as shown in \eqref{equation:ch/solids/structural-damping:eq:damping:eigenvalues}; the real part is non\sphinxhyphen{}positive as the structural stiffness matrix is semi\sphinxhyphen{}definite positive, \(\mathbf{C} \ge 0\), for the dissipation of mechanical energy shown in \eqref{equation:ch/solids/structural-damping:eq:damping:second-principle-of-td} \sphinxhyphen{} a manifestation of the \sphinxhref{https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-second.html\#physics-hs-thermodynamics-foundation-principles-second}{second principle of thermodynamics}
+
+\item {} 
+\sphinxAtStartPar
+the eigenvectors don’t change, as shown in \eqref{equation:ch/solids/structural-damping:eq:damping:eigenvectors}
+
+\end{itemize}
+
+
 
 
 \section{Small damping}
@@ -3983,13 +4695,13 @@ Starting from the equations of motion
 \end{equation*}
 \sphinxAtStartPar
 the kinetic energy and the mechanical energy balance is derived (\sphinxstylestrong{todo} add references) with scalar multiplication by \(\dot{\mathbf{u}}\). For constant matrices,
-\begin{equation*}
+\begin{equation}\label{equation:ch/solids/structural-damping:eq:damping:second-principle-of-td}
 \begin{split}\begin{aligned}
  \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} & = \dot{\mathbf{u}}^T \mathbf{f} \\
  \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] & = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
  \dfrac{d}{dt} \left( K + V \right) & = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 having recognized \(D = \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} \ge 0\) as the dissipation from damping, that can’t make the mechanical energy of the system \(K + V\) increase. This condition implies that \(\mathbf{C}\) is (semi)definite positive.
 \subsubsection*{Diagonal damping in modal basis}
@@ -4036,14 +4748,14 @@ having recognized the modal mass \(m_i := \mathbf{u}_i^T \mathbf{M} \mathbf{u}_i
 \end{equation*}
 \sphinxAtStartPar
 and the first order polynomial expansion of \(s_i\) in coefficients \(C_{jk}\) reads
-\begin{equation*}
+\begin{equation}\label{equation:ch/solids/structural-damping:eq:damping:eigenvalues}
 \begin{split}\begin{aligned}
   s_i & = s_{i,0} + s_{i/C_{jk}} C_{jk} = \\
       & = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
       & = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
 \ .
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 From this expression, it’s possible to deduce that the \(i^{th}\) eigenvalue of the slightly damped system differs from the \(i^{th}\) eigenvalue of the undamped system \(s_{i,0} = \mp j \omega_{i}\) of a real non\sphinxhyphen{}positive (as \(\mathbf{C} \ge 0\) for dissipative damping actions) term \(\Delta s_i = - \frac{1}{2} \frac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i} \in \mathbb{R}\), \(\Delta s_i \le 0\), depending only on the damping matrix and the \(i^{th}\) mode. This term shifts the eigenvalue \(s_i\) to the left in the complex plane, and thus makes it asymptotically stable.
 
@@ -4202,9 +4914,14 @@ The first\sphinxhyphen{}order approximation of the eigenvector reads
 \end{equation*}
 \sphinxAtStartPar
 or using vector formalism
-\begin{equation*}
-\begin{split}\mathbf{u}_i = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} \ .\end{split}
-\end{equation*}
+\begin{equation}\label{equation:ch/solids/structural-damping:eq:damping:eigenvectors}
+\begin{split}\begin{aligned}
+ \mathbf{u}_i
+ & = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} = \\
+ & = \mathbf{u}_{i,0} \left[ 1 - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \right] = \\
+ & \propto \mathbf{u}_{i,0} \ .
+\end{aligned}\end{split}
+\end{equation}
 
 \bigskip\hrule\bigskip
 

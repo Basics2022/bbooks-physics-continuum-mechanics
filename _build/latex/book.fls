@@ -462,6 +462,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT fdd9a75903089748f7dda98e264d5cf643353739b8cf9fbaca5a6d95bdd07f6d.png
+INPUT fdd9a75903089748f7dda98e264d5cf643353739b8cf9fbaca5a6d95bdd07f6d.png
+INPUT 6c1a81f4027a442acf848546f21a9838a7fc37ee31429f11fac87ff1562a0cc6.png
+INPUT 6c1a81f4027a442acf848546f21a9838a7fc37ee31429f11fac87ff1562a0cc6.png
 INPUT book.ind
 INPUT book.ind
 INPUT book.aux
