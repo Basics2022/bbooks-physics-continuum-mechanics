@@ -103,30 +103,36 @@
 \contentsline {section}{\numberline {10.5}Aeronautical beam}{78}{section.10.5}%
 \contentsline {section}{\numberline {10.6}Slender beams}{78}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Problems}{80}{section.10.7}%
-\contentsline {chapter}{\numberline {11}Modal methods for structural problems}{81}{chapter.11}%
-\contentsline {section}{\numberline {11.1}No free rigid motion}{81}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Dimension reduction}{82}{subsection.11.1.1}%
-\contentsline {subsubsection}{Truncation and direct recovery of loads}{82}{subsubsection*.40}%
-\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{82}{subsubsection*.41}%
-\contentsline {section}{\numberline {11.2}With free rigid motion}{85}{section.11.2}%
-\contentsline {chapter}{\numberline {12}Structural damping}{87}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Small damping}{88}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Sensitivity of eigenvalues and eigenvectors}{90}{section.12.2}%
-\contentsline {part}{III\hspace {1em}Fluid Mechanics}{93}{part.3}%
-\contentsline {chapter}{\numberline {13}Introduction to Fluid Mechanics}{95}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Statics}{97}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Constitutive Equations of Fluid Mechanics}{99}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Newtonian Fluids}{99}{section.15.1}%
-\contentsline {chapter}{\numberline {16}Governing Equations of Fluid Mechanics}{101}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Newtonian Fluid}{101}{section.16.1}%
-\contentsline {section}{\numberline {16.2}Derived quantities}{102}{section.16.2}%
-\contentsline {chapter}{\numberline {17}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{105}{chapter.17}%
-\contentsline {chapter}{\numberline {18}Incompressible Fluid Mechanics}{107}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Navier\sphinxhyphen {}Stokes Equations}{107}{section.18.1}%
-\contentsline {section}{\numberline {18.2}Vorticity}{108}{section.18.2}%
-\contentsline {section}{\numberline {18.3}Bernoulli theorems}{108}{section.18.3}%
-\contentsline {chapter}{\numberline {19}Compressible Fluid Mechanics}{111}{chapter.19}%
-\contentsline {section}{\numberline {19.1}Compressible Inviscid Fluid Mechanics}{111}{section.19.1}%
-\contentsline {subsection}{\numberline {19.1.1}Shocks}{111}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}Quasi\sphinxhyphen {}1d flows}{111}{subsection.19.1.2}%
-\contentsline {chapter}{Proof Index}{113}{section*.44}%
+\contentsline {chapter}{\numberline {11}Plates, Membranes and Shells}{81}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Kirchhoff plate}{81}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Kinematic assumptions}{81}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Internal actions}{82}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Balance equations}{82}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Statics of linear isotropic Kirchhoff plate \sphinxhyphen {} pure bending}{85}{subsection.11.1.4}%
+\contentsline {chapter}{\numberline {12}Modal methods for structural problems}{87}{chapter.12}%
+\contentsline {section}{\numberline {12.1}No free rigid motion}{87}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Dimension reduction}{88}{subsection.12.1.1}%
+\contentsline {subsubsection}{Truncation and direct recovery of loads}{88}{subsubsection*.40}%
+\contentsline {subsubsection}{Mode acceleration and static recovery of fast modes}{88}{subsubsection*.41}%
+\contentsline {section}{\numberline {12.2}With free rigid motion}{91}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Structural damping}{93}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Small damping}{94}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Sensitivity of eigenvalues and eigenvectors}{96}{section.13.2}%
+\contentsline {part}{III\hspace {1em}Fluid Mechanics}{99}{part.3}%
+\contentsline {chapter}{\numberline {14}Introduction to Fluid Mechanics}{101}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Statics}{103}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Constitutive Equations of Fluid Mechanics}{105}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Newtonian Fluids}{105}{section.16.1}%
+\contentsline {chapter}{\numberline {17}Governing Equations of Fluid Mechanics}{107}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Newtonian Fluid}{107}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Derived quantities}{108}{section.17.2}%
+\contentsline {chapter}{\numberline {18}Non\sphinxhyphen {}dimensional Equations of Fluid Mechanics}{111}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Incompressible Fluid Mechanics}{113}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Navier\sphinxhyphen {}Stokes Equations}{113}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Vorticity}{114}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Bernoulli theorems}{114}{section.19.3}%
+\contentsline {chapter}{\numberline {20}Compressible Fluid Mechanics}{117}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Compressible Inviscid Fluid Mechanics}{117}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Shocks}{117}{subsection.20.1.1}%
+\contentsline {subsection}{\numberline {20.1.2}Quasi\sphinxhyphen {}1d flows}{117}{subsection.20.1.2}%
+\contentsline {chapter}{Proof Index}{119}{section*.44}%
