@@ -174,6 +174,12 @@ $$\begin{aligned}
 
 ## Statics of linear isotropic Kirchhoff plate - pure bending
 
+**todo**
+
+* Add details of the simplifications of the equations
+* Add details about the constitutive law: linear isotropic elastic medium, plane stress or strain assumption,...
+* ...
+
 ```{dropdown} Details of the simplified equations
 
 $$\begin{aligned}
