@@ -170,8 +170,8 @@ $$\begin{aligned}
   0 & = - m   \ddot{s}_{Px}   + F_{xx/x} + F_{yx/y}              + f_x \\ 
   0 & = - m   \ddot{s}_{Py}   + F_{xy/x} + F_{yy/y}              + f_y \\ 
   0 & = - m   \ddot{s}_{Pz}   + F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{zx}     + m_x \\ 
-  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{zy}     + m_y \\ 
+  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{xz}     + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{yz}     + m_y \\ 
   0 & = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
 \end{aligned}$$
 
@@ -190,8 +190,8 @@ $$\begin{aligned}
   0 & = F_{xx/x} + F_{yx/y}                    \\ 
   0 & = F_{xy/x} + F_{yy/y}                    \\ 
   0 & = F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = M_{xx/x} + M_{yx/y} + F_{zx}           \\ 
-  0 & = M_{xy/x} + M_{yy/y} - F_{zy}           \\ 
+  0 & = M_{xx/x} + M_{yx/y} + F_{xz}           \\ 
+  0 & = M_{xy/x} + M_{yy/y} - F_{yz}           \\ 
   0 & = M_{xz/z} + M_{yz/y}                    \\ 
 \end{aligned}$$
 
@@ -247,4 +247,50 @@ $$\begin{aligned}
 i.e.
 
 $$D \Delta^2 w = f_z \ .$$
+
+```{dropdown}
+:open:
+
+Using here 2-dimensional nabla differential operator
+
+$$\begin{aligned}
+  f_z 
+  & = D \Delta^2 w = \\
+  & = D \Delta \, \Delta w = \\
+  & = D ( \nabla \cdot \nabla ) ( \nabla \cdot \nabla ) w \ ,
+\end{aligned}$$
+
+**Gradient of the out-of-plane displacement field.** It's immediately related to the field of infinitiesimal rotations,
+
+$$\nabla w(x,y) = \hat{\mathbf{x}} w_{/x} + \hat{\mathbf{y}} w_{/y} = - \hat{\mathbf{x}} \theta_{y} + \hat{\mathbf{y}} \theta_{x} = \hat{\mathbf{z}} \times \boldsymbol\theta(x,y) \ .$$
+
+Since $w_{/xy} = w_{/yx}$, then $-\theta_{y/y} = \theta_{x/x}$, i.e. the field of the infinitesimal rotation is solenoidal, 
+
+$$\nabla \cdot \boldsymbol\theta = 0 \ .$$
+
+<!--
+Exploiting the properties of Dirac delta, after multiplying the relation $w_{/i} = \varepsilon_{ijk} \delta_{j3} \theta_k$ by $\varepsilon_{abi}$, it follows
+
+$$\begin{aligned}
+ \varepsilon_{abi} w_{/i} 
+ & = \varepsilon_{abi}  \varepsilon_{ijk} \delta_{j3} \theta_k = \\
+ & = \left( \delta_{aj} \delta_{bk} - \delta_{ak} \delta_{bj} \right) \delta_{j3} \theta_k = \\
+ & = \delta_{a3} \theta_b - \delta_{b3} \theta_a \ , 
+\end{aligned}$$
+-->
+
+**Divergence of the gradient of $w(x,y)$.**
+
+$$\nabla \cdot \nabla w = - \theta_{y/x} + \theta_{x/y} = - \nabla \times \boldsymbol \theta \ .$$
+
+
+---
+
+$$f_z = - \nabla \cdot \mathbf{F}_z$$
+
+with 
+
+$$\mathbf{F}_z = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix}$$
+
+```
 
