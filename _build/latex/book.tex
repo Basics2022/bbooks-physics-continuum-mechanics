@@ -4267,7 +4267,7 @@ shell: …
 \section{Kirchhoff plate}
 \label{\detokenize{ch/solids/plates-shells/kirchhoff:kirchhoff-plate}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}}\label{\detokenize{ch/solids/plates-shells/kirchhoff::doc}}
 \sphinxAtStartPar
-Following the procedure in {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beam}}}} then simplified to the Euler\sphinxhyphen{}Bernoulli beam model, this section contains:
+Following the procedure already used for {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beam model}}}}, and then simplified to the Euler\sphinxhyphen{}Bernoulli beam model, this section contains:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -4280,6 +4280,19 @@ Following the procedure in {\hyperref[\detokenize{ch/solids/beams/timoshenko:sol
 \item {} 
 \sphinxAtStartPar
 {\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Balance equations}}}}
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Show Timoshenko model, and then simplify to Kirchhoff model (analogous to Euler\sphinxhyphen{}Bernoulli beam model).
+
+\item {} 
+\sphinxAtStartPar
+Discuss drill d.o.f.
 
 \end{itemize}
 
@@ -4452,21 +4465,38 @@ For an inertially decoupled element, using Cartesian coordinates
   0 & = - m   \ddot{s}_{Px}   + F_{xx/x} + F_{yx/y}              + f_x \\ 
   0 & = - m   \ddot{s}_{Py}   + F_{xy/x} + F_{yy/y}              + f_y \\ 
   0 & = - m   \ddot{s}_{Pz}   + F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{zx}     + m_x \\ 
-  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{zy}     + m_y \\ 
+  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{yz}     + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{xz}     + m_y \\ 
   0 & = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
 \end{aligned}\end{split}
 \end{equation*}
 
 \subsection{Statics of linear isotropic Kirchhoff plate \sphinxhyphen{} pure bending}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:statics-of-linear-isotropic-kirchhoff-plate-pure-bending}}\subsubsection*{Details of the simplified equations}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:statics-of-linear-isotropic-kirchhoff-plate-pure-bending}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Add details of the simplifications of the equations
+
+\item {} 
+\sphinxAtStartPar
+Add details about the constitutive law: linear isotropic elastic medium, plane stress or strain assumption,…
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+\subsubsection*{Details of the simplified equations}
 \begin{equation*}
 \begin{split}\begin{aligned}
   0 & = F_{xx/x} + F_{yx/y}                    \\ 
   0 & = F_{xy/x} + F_{yy/y}                    \\ 
   0 & = F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = M_{xx/x} + M_{yx/y} + F_{zx}           \\ 
-  0 & = M_{xy/x} + M_{yy/y} - F_{zy}           \\ 
+  0 & = M_{xx/x} + M_{yx/y} + F_{yz}           \\ 
+  0 & = M_{xy/x} + M_{yy/y} - F_{xz}           \\ 
   0 & = M_{xz/z} + M_{yz/y}                    \\ 
 \end{aligned}\end{split}
 \end{equation*}
@@ -4525,6 +4555,147 @@ i.e.
 \begin{equation*}
 \begin{split}D \Delta^2 w = f_z \ .\end{split}
 \end{equation*}
+\sphinxAtStartPar
+Using here 2\sphinxhyphen{}dimensional nabla differential operator
+\begin{equation*}
+\begin{split}\begin{aligned}
+  f_z 
+  & = D \Delta^2 w = \\
+  & = D \Delta \, \Delta w = \\
+  & = D ( \nabla \cdot \nabla ) ( \nabla \cdot \nabla ) w \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Gradient of the out\sphinxhyphen{}of\sphinxhyphen{}plane displacement field.} It’s immediately related to the field of infinitiesimal rotations,
+\begin{equation*}
+\begin{split}\nabla w(x,y) = \hat{\mathbf{x}} w_{/x} + \hat{\mathbf{y}} w_{/y} = - \hat{\mathbf{x}} \theta_{y} + \hat{\mathbf{y}} \theta_{x} = \hat{\mathbf{z}} \times \boldsymbol\theta(x,y) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\boldsymbol\theta = ( \theta_x, \theta_y, 0)\). Exploiting the vector identity \(\mathbf{a} \times ( \mathbf{b} \times \mathbf{c} ) = ( \mathbf{a} \cdot \mathbf{c} ) \mathbf{b} - ( \mathbf{a} \cdot \mathbf{b}) \mathbf{c}\), and the orthogonality between \(\hat{\mathbf{z}}\) and \(\boldsymbol\theta\), \(\hat{\mathbf{z}} \cdot \boldsymbol\theta = 0\), then
+\begin{equation*}
+\begin{split}\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Since \(w_{/xy} = w_{/yx}\), then \(-\theta_{y/y} = \theta_{x/x}\), i.e. the field of the infinitesimal rotation is solenoidal,
+\begin{equation*}
+\begin{split}\nabla \cdot \boldsymbol\theta = 0 \ .\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Divergence of the gradient of \(w(x,y)\).}
+\begin{equation*}
+\begin{split}\Delta w = \nabla \cdot \nabla w = w_{/xx} + w_{/yy} = - \theta_{y/x} + \theta_{x/y} = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol \theta \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Gradient of the divergence of the gradient of \(w(x,y)\).}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \Delta w
+  & = \nabla \nabla \cdot \nabla w  = \\
+  & = \hat{\mathbf{x}} \left( w_{/xxx} + w_{/yyx} \right) + \hat{\mathbf{y}} \left( w_{/xxy} + w_{/yyy} \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} + \theta_{x/yx} \right) + \hat{\mathbf{y}} \left( - \theta_{y/xy} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} - \theta_{y/yy} \right) + \hat{\mathbf{y}} \left(   \theta_{x/xx} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \Delta \theta_y \right) + \hat{\mathbf{y}} \left( \Delta \theta_x \right) = \\
+  & = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the inverse relation, exploiting orthogonality of \(\hat{\mathbf{z}}\) and \(\Delta \boldsymbol\theta\),
+\begin{equation*}
+\begin{split}\Delta \boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla \Delta w \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Comparing with \(\Delta \boldsymbol\theta = D^{-1} \hat{\mathbf{z}} \times \mathbf{F}_z\), it immediately follows that
+\begin{equation*}
+\begin{split}\mathbf{F}_z = - D \nabla \Delta w \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+compatible with the two expressions of the equilibrium equation, \(f_z = D \nabla \cdot \nabla \Delta w\), or \(f_z = - \nabla \cdot \mathbf{F}\).
+
+
+\bigskip\hrule\bigskip
+
+\begin{equation*}
+\begin{split}\left\{ \begin{aligned}
+  M_{xx} & = D( 1 - m ) w_{/xy} \\
+  M_{xy} & = - D( w_{/xx} + m w_{/yy} ) \\
+  M_{yx} & =   D( w_{/yy} + m w_{/xx} ) \\
+  M_{yy} & = - D( 1 - m ) w_{/xy} \\
+\end{aligned} \right.\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} & M_{yy} \end{bmatrix}
+  & = D \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix} + m D \begin{bmatrix} -w_{/xy} & w_{/xx} \\ -w_{/yy} & w_{/xy} \end{bmatrix} = \\
+  & = D \begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x}  & \theta_{y/y} \end{bmatrix} + m D \begin{bmatrix} -\theta_{x/x} &  -\theta_{y/x} \\ -\theta_{x/y}& -\theta_{y/y} \end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbb{M} = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta \ .\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+Evaluating the divergence
+\begin{equation*}
+\begin{split}\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} = D \Delta \boldsymbol{\theta} \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+having exploited the relation \(\nabla \cdot \boldsymbol\theta = 0\) to set \(\theta_{i/ij} = 0\).
+
+
+\bigskip\hrule\bigskip
+
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x} & \theta_{y/y} \end{bmatrix} = \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix} =   \begin{bmatrix} \cdot &  1 \\ - 1 & \cdot \end{bmatrix} \begin{bmatrix} w_{/xx} & w_{/xy} \\ w_{/yx} & w_{ /yy} \end{bmatrix}
+\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}
+\begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x} & \theta_{y/y} \end{bmatrix}^T = \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix}^T =   \begin{bmatrix} w_{/xx} & w_{/xy} \\ w_{/yx} & w_{ /yy} \end{bmatrix}^T \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix}
+\end{split}
+\end{equation*}
+
+\bigskip\hrule\bigskip
+
+
+\sphinxAtStartPar
+Angular momentum equilibrium equation reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \mathbf{0}
+ & = \nabla_{(2)} \cdot \mathbb{M} - \hat{\mathbf{z}}\times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) = \\
+ & = \nabla_{(2)} \cdot \mathbb{M} - \hat{\mathbf{z}}\times \mathbf{F}_z \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\mathbf{0} = \begin{bmatrix} F_{yz} \\ -F_{xz} \end{bmatrix} + \begin{bmatrix} M_{xx/x} + M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix} \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{bmatrix} F_{xz} \\ F_{yz} \end{bmatrix} = \begin{bmatrix}  M_{xy/x} + M_{yy/y} \\ - M_{xx/x} - M_{yx/y} \end{bmatrix} = \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \nabla \cdot \mathbb{M} =  D \begin{bmatrix} \cdot &  1 \\ -1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus,
+\begin{equation*}
+\begin{split}\Delta \boldsymbol{\theta} = D^{-1} \begin{bmatrix} \cdot & -1  \\ 1 & \cdot \end{bmatrix} \mathbf{F}_z = D^{-1} \hat{\mathbf{z}} \times \mathbf{F}_z \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Recalling the relation \(\theta_x = w_{/y}\), \(\theta_y = - w_{/x}\), then
+\begin{equation*}
+\begin{split}\mathbf{F}_z = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \begin{bmatrix} \Delta w_{/y} \\ - \Delta w_{/x} \end{bmatrix} = - D \begin{bmatrix} \Delta w_{/x} \\ \Delta w_{/y} \end{bmatrix} = - D \nabla \Delta w \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Comparing with \(\nabla \nabla \cdot \nabla w = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  f_z
+  & = - \nabla \cdot \mathbf{F}_z = \\
+  & = - \nabla \cdot \left( D \, \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \right) = \\
+  & = - D \Delta^2 w \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+
 \sphinxstepscope
 
 

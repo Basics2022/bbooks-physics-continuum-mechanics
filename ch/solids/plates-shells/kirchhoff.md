@@ -170,8 +170,8 @@ $$\begin{aligned}
   0 & = - m   \ddot{s}_{Px}   + F_{xx/x} + F_{yx/y}              + f_x \\ 
   0 & = - m   \ddot{s}_{Py}   + F_{xy/x} + F_{yy/y}              + f_y \\ 
   0 & = - m   \ddot{s}_{Pz}   + F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{xz}     + m_x \\ 
-  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{yz}     + m_y \\ 
+  0 & = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{yz}     + m_x \\ 
+  0 & = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{xz}     + m_y \\ 
   0 & = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
 \end{aligned}$$
 
@@ -190,8 +190,8 @@ $$\begin{aligned}
   0 & = F_{xx/x} + F_{yx/y}                    \\ 
   0 & = F_{xy/x} + F_{yy/y}                    \\ 
   0 & = F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 & = M_{xx/x} + M_{yx/y} + F_{xz}           \\ 
-  0 & = M_{xy/x} + M_{yy/y} - F_{yz}           \\ 
+  0 & = M_{xx/x} + M_{yx/y} + F_{yz}           \\ 
+  0 & = M_{xy/x} + M_{yy/y} - F_{xz}           \\ 
   0 & = M_{xz/z} + M_{yz/y}                    \\ 
 \end{aligned}$$
 
@@ -264,6 +264,12 @@ $$\begin{aligned}
 
 $$\nabla w(x,y) = \hat{\mathbf{x}} w_{/x} + \hat{\mathbf{y}} w_{/y} = - \hat{\mathbf{x}} \theta_{y} + \hat{\mathbf{y}} \theta_{x} = \hat{\mathbf{z}} \times \boldsymbol\theta(x,y) \ .$$
 
+with $\boldsymbol\theta = ( \theta_x, \theta_y, 0)$. Exploiting the vector identity $\mathbf{a} \times ( \mathbf{b} \times \mathbf{c} ) = ( \mathbf{a} \cdot \mathbf{c} ) \mathbf{b} - ( \mathbf{a} \cdot \mathbf{b}) \mathbf{c}$, and the orthogonality between $\hat{\mathbf{z}}$ and $\boldsymbol\theta$, $\hat{\mathbf{z}} \cdot \boldsymbol\theta = 0$, then
+
+$$\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .$$
+
+
+
 Since $w_{/xy} = w_{/yx}$, then $-\theta_{y/y} = \theta_{x/x}$, i.e. the field of the infinitesimal rotation is solenoidal, 
 
 $$\nabla \cdot \boldsymbol\theta = 0 \ .$$
@@ -281,16 +287,128 @@ $$\begin{aligned}
 
 **Divergence of the gradient of $w(x,y)$.**
 
-$$\nabla \cdot \nabla w = - \theta_{y/x} + \theta_{x/y} = - \nabla \times \boldsymbol \theta \ .$$
+$$\Delta w = \nabla \cdot \nabla w = w_{/xx} + w_{/yy} = - \theta_{y/x} + \theta_{x/y} = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol \theta \ .$$
 
+**Gradient of the divergence of the gradient of $w(x,y)$.**
+
+$$\begin{aligned}
+  \nabla \Delta w
+  & = \nabla \nabla \cdot \nabla w  = \\
+  & = \hat{\mathbf{x}} \left( w_{/xxx} + w_{/yyx} \right) + \hat{\mathbf{y}} \left( w_{/xxy} + w_{/yyy} \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} + \theta_{x/yx} \right) + \hat{\mathbf{y}} \left( - \theta_{y/xy} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} - \theta_{y/yy} \right) + \hat{\mathbf{y}} \left(   \theta_{x/xx} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \Delta \theta_y \right) + \hat{\mathbf{y}} \left( \Delta \theta_x \right) = \\
+  & = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta
+\end{aligned}$$
+
+and the inverse relation, exploiting orthogonality of $\hat{\mathbf{z}}$ and $\Delta \boldsymbol\theta$,
+
+$$\Delta \boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla \Delta w \ .$$
+
+Comparing with $\Delta \boldsymbol\theta = D^{-1} \hat{\mathbf{z}} \times \mathbf{F}_z$, it immediately follows that
+
+$$\mathbf{F}_z = - D \nabla \Delta w \ ,$$
+
+compatible with the two expressions of the equilibrium equation, $f_z = D \nabla \cdot \nabla \Delta w$, or $f_z = - \nabla \cdot \mathbf{F}$.
 
 ---
 
-$$f_z = - \nabla \cdot \mathbf{F}_z$$
+$$\left\{ \begin{aligned}
+  M_{xx} & = D( 1 - m ) w_{/xy} \\
+  M_{xy} & = - D( w_{/xx} + m w_{/yy} ) \\
+  M_{yx} & =   D( w_{/yy} + m w_{/xx} ) \\
+  M_{yy} & = - D( 1 - m ) w_{/xy} \\
+\end{aligned} \right.$$
 
-with 
+$$\begin{aligned}
+  \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} & M_{yy} \end{bmatrix}
+  & = D \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix} + m D \begin{bmatrix} -w_{/xy} & w_{/xx} \\ -w_{/yy} & w_{/xy} \end{bmatrix} = \\
+  & = D \begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x}  & \theta_{y/y} \end{bmatrix} + m D \begin{bmatrix} -\theta_{x/x} &  -\theta_{y/x} \\ -\theta_{x/y}& -\theta_{y/y} \end{bmatrix} \ .
+\end{aligned}$$
 
-$$\mathbf{F}_z = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix}$$
+$$\mathbb{M} = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta \ .$$
+
+<!--
+or
+
+$$\begin{aligned}
+  \mathbb{M} 
+  & = \frac{1}{2} D \left(  \nabla \boldsymbol\theta + \nabla^T \boldsymbol\theta \right) + \frac{1}{2} D \left(  \nabla \boldsymbol\theta - \nabla^T \boldsymbol\theta \right) - \frac{1}{2} m D \left( \nabla^T \boldsymbol\theta + \nabla \boldsymbol\theta \right) - \frac{1}{2} m D  \left( \nabla^T \boldsymbol\theta - \nabla \boldsymbol\theta \right) \ .
+\end{aligned}$$
+-->
+
+Evaluating the divergence 
+
+$$\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} = D \Delta \boldsymbol{\theta} \ . $$
+
+having exploited the relation $\nabla \cdot \boldsymbol\theta = 0$ to set $\theta_{i/ij} = 0$.
+
+---
+
+$$
+\begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x} & \theta_{y/y} \end{bmatrix} = \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix} =   \begin{bmatrix} \cdot &  1 \\ - 1 & \cdot \end{bmatrix} \begin{bmatrix} w_{/xx} & w_{/xy} \\ w_{/yx} & w_{ /yy} \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x} & \theta_{y/y} \end{bmatrix}^T = \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix}^T =   \begin{bmatrix} w_{/xx} & w_{/xy} \\ w_{/yx} & w_{ /yy} \end{bmatrix}^T \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix}
+$$
+
+---
+
+Angular momentum equilibrium equation reads
+
+$$\begin{aligned}
+ \mathbf{0}
+ & = \nabla_{(2)} \cdot \mathbb{M} - \hat{\mathbf{z}}\times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) = \\
+ & = \nabla_{(2)} \cdot \mathbb{M} - \hat{\mathbf{z}}\times \mathbf{F}_z \ ,
+\end{aligned}$$
+
+or
+
+$$\mathbf{0} = \begin{bmatrix} F_{yz} \\ -F_{xz} \end{bmatrix} + \begin{bmatrix} M_{xx/x} + M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix} $$
+
+$$\begin{bmatrix} F_{xz} \\ F_{yz} \end{bmatrix} = \begin{bmatrix}  M_{xy/x} + M_{yy/y} \\ - M_{xx/x} - M_{yx/y} \end{bmatrix} = \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \nabla \cdot \mathbb{M} =  D \begin{bmatrix} \cdot &  1 \\ -1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \ ,$$
+
+and thus,
+
+$$\Delta \boldsymbol{\theta} = D^{-1} \begin{bmatrix} \cdot & -1  \\ 1 & \cdot \end{bmatrix} \mathbf{F}_z = D^{-1} \hat{\mathbf{z}} \times \mathbf{F}_z \ .$$
+
+Recalling the relation $\theta_x = w_{/y}$, $\theta_y = - w_{/x}$, then
+
+$$\mathbf{F}_z = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \begin{bmatrix} \Delta w_{/y} \\ - \Delta w_{/x} \end{bmatrix} = - D \begin{bmatrix} \Delta w_{/x} \\ \Delta w_{/y} \end{bmatrix} = - D \nabla \Delta w \ .$$
+
+Comparing with $\nabla \nabla \cdot \nabla w = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta$,
+
+$$\begin{aligned}
+  f_z
+  & = - \nabla \cdot \mathbf{F}_z = \\
+  & = - \nabla \cdot \left( D \, \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \right) = \\
+  & = - D \Delta^2 w \ .
+\end{aligned}$$
+
+
+
+<!--
+---
+
+$$\nabla \cdot \mathbb{M} = \nabla \cdot \left(  \right)$$
+
+---
+
+$$\begin{aligned}
+ - f_z 
+ & = \nabla \cdot \mathbf{F}_z = \\
+ & = \nabla \cdot \left( \begin{bmatrix} -1 & \cdot \\ \cdot & 1 \end{bmatrix} \nabla \cdot \mathbb{M} \right)
+\end{aligned}$$
+
+---
+
+$$\left\{\begin{aligned}
+  & \nabla_{(2)} \cdot \mathbb{F} + \mathbf{f} = \mathbf{0} \\
+  & \nabla_{(2)} \cdot \mathbb{M} + \hat{\mathbf{z}} \times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) =  \mathbf{0} \\
+\end{aligned} \right.$$
+
+-->
 
 ```
 
