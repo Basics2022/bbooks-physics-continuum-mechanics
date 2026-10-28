@@ -24,7 +24,7 @@ $$\begin{aligned}
    \varepsilon_{yy} & = s^{\nu+w}_{Py/y} \\
  2 \varepsilon_{zx} & = s'_{Px} - \theta_y - y \theta'_z + s^{\nu+w}_{x/z} + s^{\nu+w}_{z/x} \\
  2 \varepsilon_{zy} & = s'_{Py} + \theta_x + x \theta'_z + s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \\
- 2 \varepsilon_{xy} & = s^{\nu+w}_{y/z} + s^{\nu+w}_{z/y} \ .
+ 2 \varepsilon_{xy} & = s^{\nu+w}_{x/y} + s^{\nu+w}_{y/x} \ .
 \end{aligned}$$
 
 
@@ -37,6 +37,8 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ## Internal actions
+
+With the unit normal of the beam sections being alinged with the axis of the beam, $\hat{\mathbf{n}} = \hat{\mathbf{z}}$,
 
 $$\begin{aligned}
   \mathbf{F} & = \int_{A} \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \int_{A} \hat{\mathbf{x}} \tau_{zx} + \hat{\mathbf{y}} \tau_{zy} + \hat{\mathbf{z}} \sigma_{zz} \\
@@ -100,7 +102,7 @@ $$\begin{aligned}
 
 Balance equations for a beam can be obtained integrating indefinite balance equations for a 3-dimensional solid on the sections $A(z)$ of the beam, with some further assumption on non-rigid contributions to displacement.
 
-**Momentum equation +**
+**Momentum equation**
 
 $$\mathbf{\rho}_0 \ddot{\mathbf{s}} = \nabla \cdot \boldsymbol\sigma + \mathbf{f}$$
 

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Structural damping &#8212; continuum mechanics</title>
+    <title>13. Structural damping &#8212; continuum mechanics</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
-    <link rel="prev" title="11. Modal methods for structural problems" href="small-displacements-numerics.html" />
+    <link rel="next" title="14. Introduction to Fluid Mechanics" href="../fluids/intro.html" />
+    <link rel="prev" title="12. Modal methods for structural problems" href="small-displacements-numerics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -215,18 +215,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="beams/problems.html">10.7. Problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">11. Modal methods for structural problems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Structural damping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="plates-shells.html">11. Plates, Membranes and Shells</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="plates-shells/kirchhoff.html">11.1. Kirchhoff plate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Structural damping</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fluid Mechanics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">13. Introduction to Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">14. Statics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">15. Constitutive Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">16. Governing Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">17. Non-dimensional Equations of Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">18. Incompressible Fluid Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">19. Compressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/intro.html">14. Introduction to Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/statics.html">15. Statics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/constitutive-equations.html">16. Constitutive Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/governing-equations.html">17. Governing Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/dimensional-analysis.html">18. Non-dimensional Equations of Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/incompressible.html">19. Incompressible Fluid Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fluids/compressible.html">20. Compressible Fluid Mechanics</a></li>
 </ul>
 
     </div>
@@ -422,8 +426,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">12.1. Small damping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalues-and-eigenvectors">12.2. Sensitivity of eigenvalues and eigenvectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">13.1. Small damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalues-and-eigenvectors">13.2. Sensitivity of eigenvalues and eigenvectors</a></li>
 </ul>
             </nav>
         </div>
@@ -436,7 +440,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="structural-damping">
-<span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">12. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
+<span id="solid-mechanics-intro-small-displacements-damping"></span><h1><span class="section-number">13. </span>Structural damping<a class="headerlink" href="#structural-damping" title="Permalink to this heading">#</a></h1>
 <div class="admonition-see-also admonition">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html">Sensitivity of spectral decomposition</a>. Here the sensitivity of spectral decomposition of the second-order system <span class="math notranslate nohighlight">\(s^2 \mathbf{M} + s \mathbf{C} + \mathbf{K} = \mathbf{0}\)</span> arising in structural mechanics is discussed. The link contains a general treatment of the spectral sensitivity of a generalized first order eigenvalue problem <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\)</span>.</p>
@@ -454,8 +458,8 @@ document.write(`
 <p>This section is devoted to the discussion of <strong>structural damping</strong>, and it’s “proved” it can be represented as a diagonal matrix in modal basis - i.e. modal basis simultaneously diagonalize mass, structural damping, and stiffness matrices, for small values of damping (typical of metallic structures).
 Damped dynamical equations are treated as a perturbation of the undamped dynamical equations. Sensitivity of the eigenvalues and eigenvectors shows that</p>
 <ul class="simple">
-<li><p>the imaginary eigenvalues of the undamped systems become complex with non-positive real part, <span class="math notranslate nohighlight">\(s_i = s_{i,0} - \frac{1}{2} \frac{\mathbf{u}_i^* \mathbf{C} \mathbf{u}_i}{m_i}\)</span>, with <span class="math notranslate nohighlight">\(s_{i,0} = \mp j \Omega_i\)</span>, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvalues">(12.2)</a>; the real part is non-positive as the structural stiffness matrix is semi-definite positive, <span class="math notranslate nohighlight">\(\mathbf{C} \ge 0\)</span>, for the dissipation of mechanical energy shown in <a class="reference internal" href="#equation-eq-damping-second-principle-of-td">(12.1)</a> - a manifestation of the <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-second.html#physics-hs-thermodynamics-foundation-principles-second">second principle of thermodynamics</a></p></li>
-<li><p>the eigenvectors don’t change, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvectors">(12.3)</a></p></li>
+<li><p>the imaginary eigenvalues of the undamped systems become complex with non-positive real part, <span class="math notranslate nohighlight">\(s_i = s_{i,0} - \frac{1}{2} \frac{\mathbf{u}_i^* \mathbf{C} \mathbf{u}_i}{m_i}\)</span>, with <span class="math notranslate nohighlight">\(s_{i,0} = \mp j \Omega_i\)</span>, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvalues">(13.2)</a>; the real part is non-positive as the structural stiffness matrix is semi-definite positive, <span class="math notranslate nohighlight">\(\mathbf{C} \ge 0\)</span>, for the dissipation of mechanical energy shown in <a class="reference internal" href="#equation-eq-damping-second-principle-of-td">(13.1)</a> - a manifestation of the <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-second.html#physics-hs-thermodynamics-foundation-principles-second">second principle of thermodynamics</a></p></li>
+<li><p>the eigenvectors don’t change, as shown in <a class="reference internal" href="#equation-eq-damping-eigenvectors">(13.3)</a></p></li>
 </ul>
 <!--
 **todo** Add reference; add comment: diagonal, or diagonalizable with coincident eigenvectors.
@@ -463,7 +467,7 @@ Damped dynamical equations are treated as a perturbation of the undamped dynamic
 **Free response** using modal basis
 -->
 <div class="section" id="small-damping">
-<h2><span class="section-number">12.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Small damping<a class="headerlink" href="#small-damping" title="Permalink to this heading">#</a></h2>
 <p>Structural small damping can be treated as a first order perturbation of the undamped system,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
@@ -499,7 +503,7 @@ Damped dynamical equations are treated as a perturbation of the undamped dynamic
 \[\mathbf{M} \ddot{\mathbf{u}} + \mathbf{C} \dot{\mathbf{u}} + \mathbf{K} \mathbf{u} = \mathbf{f} \ ,\]</div>
 <p class="sd-card-text">the kinetic energy and the mechanical energy balance is derived (<strong>todo</strong> add references) with scalar multiplication by <span class="math notranslate nohighlight">\(\dot{\mathbf{u}}\)</span>. For constant matrices,</p>
 <div class="math notranslate nohighlight" id="equation-eq-damping-second-principle-of-td">
-<span class="eqno">(12.1)<a class="headerlink" href="#equation-eq-damping-second-principle-of-td" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13.1)<a class="headerlink" href="#equation-eq-damping-second-principle-of-td" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \dot{\mathbf{u}}^T \mathbf{M} \ddot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}} + \dot{\mathbf{u}}^T \mathbf{K} \mathbf{u} &amp; = \dot{\mathbf{u}}^T \mathbf{f} \\
  \dfrac{d}{dt} \left[ \dfrac{1}{2} \dot{\mathbf{u}}^T \mathbf{M} \dot{\mathbf{u}} + \dfrac{1}{2} \mathbf{u}^T \mathbf{K} \mathbf{u} \right] &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}  \\
  \dfrac{d}{dt} \left( K + V \right) &amp; = \dot{\mathbf{u}}^T \mathbf{f} - \underbrace{\dot{\mathbf{u}}^T \mathbf{C} \dot{\mathbf{u}}}_{ D \ge 0} \ , \\
@@ -543,7 +547,7 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
 \[s_{i/C_{jk}} = - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C}_{/C_{jk}} \mathbf{u}_i}{m_i} = -\dfrac{1}{2} \dfrac{u^{(i)}_j u^{(i)}_k}{m_i} \ ,\]</div>
 <p class="sd-card-text">and the first order polynomial expansion of <span class="math notranslate nohighlight">\(s_i\)</span> in coefficients <span class="math notranslate nohighlight">\(C_{jk}\)</span> reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-damping-eigenvalues">
-<span class="eqno">(12.2)<a class="headerlink" href="#equation-eq-damping-eigenvalues" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13.2)<a class="headerlink" href="#equation-eq-damping-eigenvalues" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   s_i &amp; = s_{i,0} + s_{i/C_{jk}} C_{jk} = \\
       &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{u^{(i)}_j C_{jk} u^{(i)}_k}{m_i} = \\
       &amp; = s_{i,0} - \dfrac{1}{2} \dfrac{\mathbf{u}_i^T \mathbf{C} \mathbf{u}_i}{m_i}
@@ -554,7 +558,7 @@ Diagonal damping in modal basis<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="sensitivity-of-eigenvalues-and-eigenvectors">
-<h2><span class="section-number">12.2. </span>Sensitivity of eigenvalues and eigenvectors<a class="headerlink" href="#sensitivity-of-eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Sensitivity of eigenvalues and eigenvectors<a class="headerlink" href="#sensitivity-of-eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
 <p>Link to <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html">Sensitivity of spectral decomposition, for first order equations</a>.
 The sensitivity of the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue to a general parameter reads</p>
 <div class="math notranslate nohighlight">
@@ -672,7 +676,7 @@ Parameter <span class="math notranslate nohighlight">\(\ p = C_{rs}\)</span><div
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">or using vector formalism</p>
 <div class="math notranslate nohighlight" id="equation-eq-damping-eigenvectors">
-<span class="eqno">(12.3)<a class="headerlink" href="#equation-eq-damping-eigenvectors" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13.3)<a class="headerlink" href="#equation-eq-damping-eigenvectors" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \mathbf{u}_i
  &amp; = \mathbf{u}_{i,0} - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \, \mathbf{u}_{i,0} = \\
  &amp; = \mathbf{u}_{i,0} \left[ 1 - \sum_{b \ne i} \dfrac{s_i}{s_i^2 + 2 \xi_b \omega_b s_i + \omega_b^2} \mathbf{v}_{b,0}^* \mathbf{C} \mathbf{u}_{i,0} \right] = \\
@@ -724,7 +728,7 @@ Parameter <span class="math notranslate nohighlight">\(\ p = C_{rs}\)</span><div
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Modal methods for structural problems</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Modal methods for structural problems</p>
       </div>
     </a>
     <a class="right-next"
@@ -732,7 +736,7 @@ Parameter <span class="math notranslate nohighlight">\(\ p = C_{rs}\)</span><div
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Introduction to Fluid Mechanics</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Introduction to Fluid Mechanics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -751,8 +755,8 @@ Parameter <span class="math notranslate nohighlight">\(\ p = C_{rs}\)</span><div
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">12.1. Small damping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalues-and-eigenvectors">12.2. Sensitivity of eigenvalues and eigenvectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-damping">13.1. Small damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalues-and-eigenvectors">13.2. Sensitivity of eigenvalues and eigenvectors</a></li>
 </ul>
   </nav></div>
 
