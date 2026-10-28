@@ -604,8 +604,8 @@ Contribution of stress to moment<div class="sd-summary-down docutils">
   0 &amp; = - m   \ddot{s}_{Px}   + F_{xx/x} + F_{yx/y}              + f_x \\ 
   0 &amp; = - m   \ddot{s}_{Py}   + F_{xy/x} + F_{yy/y}              + f_y \\ 
   0 &amp; = - m   \ddot{s}_{Pz}   + F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 &amp; = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{zx}     + m_x \\ 
-  0 &amp; = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{zy}     + m_y \\ 
+  0 &amp; = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{xz}     + m_x \\ 
+  0 &amp; = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{yz}     + m_y \\ 
   0 &amp; = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
 \end{aligned}\end{split}\]</div>
 </div>
@@ -629,8 +629,8 @@ Details of the simplified equations<div class="sd-summary-down docutils">
   0 &amp; = F_{xx/x} + F_{yx/y}                    \\ 
   0 &amp; = F_{xy/x} + F_{yy/y}                    \\ 
   0 &amp; = F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 &amp; = M_{xx/x} + M_{yx/y} + F_{zx}           \\ 
-  0 &amp; = M_{xy/x} + M_{yy/y} - F_{zy}           \\ 
+  0 &amp; = M_{xx/x} + M_{yx/y} + F_{xz}           \\ 
+  0 &amp; = M_{xy/x} + M_{yy/y} - F_{yz}           \\ 
   0 &amp; = M_{xz/z} + M_{yz/y}                    \\ 
 \end{aligned}\end{split}\]</div>
 </div>
@@ -681,7 +681,48 @@ Details of the simplified equations<div class="sd-summary-down docutils">
 <p>i.e.</p>
 <div class="math notranslate nohighlight">
 \[D \Delta^2 w = f_z \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Using here 2-dimensional nabla differential operator</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  f_z 
+  &amp; = D \Delta^2 w = \\
+  &amp; = D \Delta \, \Delta w = \\
+  &amp; = D ( \nabla \cdot \nabla ) ( \nabla \cdot \nabla ) w \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Gradient of the out-of-plane displacement field.</strong> It’s immediately related to the field of infinitiesimal rotations,</p>
+<div class="math notranslate nohighlight">
+\[\nabla w(x,y) = \hat{\mathbf{x}} w_{/x} + \hat{\mathbf{y}} w_{/y} = - \hat{\mathbf{x}} \theta_{y} + \hat{\mathbf{y}} \theta_{x} = \hat{\mathbf{z}} \times \boldsymbol\theta(x,y) \ .\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(w_{/xy} = w_{/yx}\)</span>, then <span class="math notranslate nohighlight">\(-\theta_{y/y} = \theta_{x/x}\)</span>, i.e. the field of the infinitesimal rotation is solenoidal,</p>
+<div class="math notranslate nohighlight">
+\[\nabla \cdot \boldsymbol\theta = 0 \ .\]</div>
+<!--
+Exploiting the properties of Dirac delta, after multiplying the relation $w_{/i} = \varepsilon_{ijk} \delta_{j3} \theta_k$ by $\varepsilon_{abi}$, it follows
+
+$$\begin{aligned}
+ \varepsilon_{abi} w_{/i} 
+ & = \varepsilon_{abi}  \varepsilon_{ijk} \delta_{j3} \theta_k = \\
+ & = \left( \delta_{aj} \delta_{bk} - \delta_{ak} \delta_{bj} \right) \delta_{j3} \theta_k = \\
+ & = \delta_{a3} \theta_b - \delta_{b3} \theta_a \ , 
+\end{aligned}$$
+-->
+<p class="sd-card-text"><strong>Divergence of the gradient of <span class="math notranslate nohighlight">\(w(x,y)\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\nabla \cdot \nabla w = - \theta_{y/x} + \theta_{x/y} = - \nabla \times \boldsymbol \theta \ .\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[f_z = - \nabla \cdot \mathbf{F}_z\]</div>
+<p class="sd-card-text">with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{F}_z = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix}\end{split}\]</div>
 </div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
