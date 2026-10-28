@@ -75,15 +75,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1Z86N0G4V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z1Z86N0G4V');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -714,13 +705,67 @@ $$\begin{aligned}
 -->
 <p class="sd-card-text"><strong>Divergence of the gradient of <span class="math notranslate nohighlight">\(w(x,y)\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[\nabla \cdot \nabla w = - \theta_{y/x} + \theta_{x/y} = - \nabla \times \boldsymbol \theta \ .\]</div>
+\[\nabla \cdot \nabla w = w_{/xx} + w_{/yy} = - \theta_{y/x} + \theta_{x/y} = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol \theta \ .\]</div>
+<p class="sd-card-text"><strong>Gradient of the divergence of the gradient of <span class="math notranslate nohighlight">\(w(x,y)\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla \nabla \cdot \nabla w 
+  &amp; = \hat{\mathbf{x}} \left( w_{/xxx} + w_{/yyx} \right) + \hat{\mathbf{y}} \left( w_{/xxy} + w_{/yyy} \right) = \\
+  &amp; = \hat{\mathbf{x}} \left( - \theta_{y/xx} + \theta_{x/yx} \right) + \hat{\mathbf{y}} \left( - \theta_{y/xy} + \theta_{x/yy}  \right) = \\
+  &amp; = \hat{\mathbf{x}} \left( - \theta_{y/xx} - \theta_{y/yy} \right) + \hat{\mathbf{y}} \left(   \theta_{x/xx} + \theta_{x/yy}  \right) = \\
+  &amp; = \hat{\mathbf{x}} \left( - \Delta \theta_y \right) + \hat{\mathbf{y}} \left( \Delta \theta_x \right) = \\
+  &amp; = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta
+\end{aligned}\end{split}\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+  M_{xx} &amp; = D( 1 - m ) w_{/xy} \\
+  M_{xy} &amp; = - D( w_{/xx} + m w_{/yy} ) \\
+  M_{yx} &amp; =   D( w_{/yy} + m w_{/xx} ) \\
+  M_{yy} &amp; = - D( 1 - m ) w_{/xy} \\
+\end{aligned} \right.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} M_{xx} &amp; M_{yx} \\ M_{xy} &amp; M_{yy} \end{bmatrix}
+  &amp; = D \begin{bmatrix} w_{/xy} &amp; w_{/yy} \\ - w_{/xx} &amp; - w_{/xy} \end{bmatrix} + m D \begin{bmatrix} -w_{/xy} &amp; w_{/xx} \\ -w_{/yy} &amp; w_{/xy} \end{bmatrix} = \\
+  &amp; = D \begin{bmatrix} \theta_{x/x} &amp; \theta_{x/y} \\ \theta_{y/x}  &amp; \theta_{y/y} \end{bmatrix} + m D \begin{bmatrix} -\theta_{x/x} &amp;  -\theta_{y/x} \\ -\theta_{x/y}&amp; -\theta_{y/y} \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{M} = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta \ .\]</div>
+<!--
+or
+
+$$\begin{aligned}
+  \mathbb{M} 
+  & = \frac{1}{2} D \left(  \nabla \boldsymbol\theta + \nabla^T \boldsymbol\theta \right) + \frac{1}{2} D \left(  \nabla \boldsymbol\theta - \nabla^T \boldsymbol\theta \right) - \frac{1}{2} m D \left( \nabla^T \boldsymbol\theta + \nabla \boldsymbol\theta \right) - \frac{1}{2} m D  \left( \nabla^T \boldsymbol\theta - \nabla \boldsymbol\theta \right) \ .
+\end{aligned}$$
+-->
+<p class="sd-card-text">Evaluating the divergence</p>
+<div class="math notranslate nohighlight">
+\[\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} \ . \]</div>
 <hr class="docutils" />
 <div class="math notranslate nohighlight">
 \[f_z = - \nabla \cdot \mathbf{F}_z\]</div>
 <p class="sd-card-text">with</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{F}_z = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix}\end{split}\]</div>
+\[\begin{split}\mathbf{F}_z = \begin{bmatrix} F_{xz} \\ F_{yz} \end{bmatrix} = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix} = \begin{bmatrix} -1 &amp; \cdot \\ \cdot &amp; 1 \end{bmatrix} \nabla \cdot \mathbb{M} = D \Delta \boldsymbol{\theta} \ ,\end{split}\]</div>
+<p class="sd-card-text">having exploited the relation <span class="math notranslate nohighlight">\(\nabla \cdot \boldsymbol\theta = 0\)</span> to set <span class="math notranslate nohighlight">\(\theta_{i/ij} = 0\)</span>.</p>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[\nabla \cdot \mathbb{M} = \nabla \cdot \left(  \right)\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ - f_z 
+ &amp; = \nabla \cdot \mathbf{F}_z = \\
+ &amp; = \nabla \cdot \left( \begin{bmatrix} -1 &amp; \cdot \\ \cdot &amp; 1 \end{bmatrix} \nabla \cdot \mathbb{M} \right)
+\end{aligned}\end{split}\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  &amp; \nabla_{(2)} \cdot \mathbb{F} + \mathbf{f} = \mathbf{0} \\
+  &amp; \nabla_{(2)} \cdot \mathbb{M} + \hat{\mathbf{z}} \times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) =  \mathbf{0} \\
+\end{aligned} \right.\end{split}\]</div>
 </div>
 </details></div>
 </div>

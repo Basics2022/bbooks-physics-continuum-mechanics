@@ -281,8 +281,49 @@ $$\begin{aligned}
 
 **Divergence of the gradient of $w(x,y)$.**
 
-$$\nabla \cdot \nabla w = - \theta_{y/x} + \theta_{x/y} = - \nabla \times \boldsymbol \theta \ .$$
+$$\nabla \cdot \nabla w = w_{/xx} + w_{/yy} = - \theta_{y/x} + \theta_{x/y} = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol \theta \ .$$
 
+**Gradient of the divergence of the gradient of $w(x,y)$.**
+
+$$\begin{aligned}
+  \nabla \nabla \cdot \nabla w 
+  & = \hat{\mathbf{x}} \left( w_{/xxx} + w_{/yyx} \right) + \hat{\mathbf{y}} \left( w_{/xxy} + w_{/yyy} \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} + \theta_{x/yx} \right) + \hat{\mathbf{y}} \left( - \theta_{y/xy} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \theta_{y/xx} - \theta_{y/yy} \right) + \hat{\mathbf{y}} \left(   \theta_{x/xx} + \theta_{x/yy}  \right) = \\
+  & = \hat{\mathbf{x}} \left( - \Delta \theta_y \right) + \hat{\mathbf{y}} \left( \Delta \theta_x \right) = \\
+  & = \hat{\mathbf{z}} \times \Delta \boldsymbol\theta
+\end{aligned}$$
+
+
+---
+
+$$\left\{ \begin{aligned}
+  M_{xx} & = D( 1 - m ) w_{/xy} \\
+  M_{xy} & = - D( w_{/xx} + m w_{/yy} ) \\
+  M_{yx} & =   D( w_{/yy} + m w_{/xx} ) \\
+  M_{yy} & = - D( 1 - m ) w_{/xy} \\
+\end{aligned} \right.$$
+
+$$\begin{aligned}
+  \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} & M_{yy} \end{bmatrix}
+  & = D \begin{bmatrix} w_{/xy} & w_{/yy} \\ - w_{/xx} & - w_{/xy} \end{bmatrix} + m D \begin{bmatrix} -w_{/xy} & w_{/xx} \\ -w_{/yy} & w_{/xy} \end{bmatrix} = \\
+  & = D \begin{bmatrix} \theta_{x/x} & \theta_{x/y} \\ \theta_{y/x}  & \theta_{y/y} \end{bmatrix} + m D \begin{bmatrix} -\theta_{x/x} &  -\theta_{y/x} \\ -\theta_{x/y}& -\theta_{y/y} \end{bmatrix} \ .
+\end{aligned}$$
+
+$$\mathbb{M} = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta \ .$$
+
+<!--
+or
+
+$$\begin{aligned}
+  \mathbb{M} 
+  & = \frac{1}{2} D \left(  \nabla \boldsymbol\theta + \nabla^T \boldsymbol\theta \right) + \frac{1}{2} D \left(  \nabla \boldsymbol\theta - \nabla^T \boldsymbol\theta \right) - \frac{1}{2} m D \left( \nabla^T \boldsymbol\theta + \nabla \boldsymbol\theta \right) - \frac{1}{2} m D  \left( \nabla^T \boldsymbol\theta - \nabla \boldsymbol\theta \right) \ .
+\end{aligned}$$
+-->
+
+Evaluating the divergence 
+
+$$\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} \ . $$
 
 ---
 
@@ -290,7 +331,28 @@ $$f_z = - \nabla \cdot \mathbf{F}_z$$
 
 with 
 
-$$\mathbf{F}_z = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix}$$
+$$\mathbf{F}_z = \begin{bmatrix} F_{xz} \\ F_{yz} \end{bmatrix} = \begin{bmatrix} - M_{xx/x} - M_{yx/y} \\ M_{xy/x} + M_{yy/y} \end{bmatrix} = \begin{bmatrix} -1 & \cdot \\ \cdot & 1 \end{bmatrix} \nabla \cdot \mathbb{M} = D \Delta \boldsymbol{\theta} \ ,$$
+
+having exploited the relation $\nabla \cdot \boldsymbol\theta = 0$ to set $\theta_{i/ij} = 0$.
+
+---
+
+$$\nabla \cdot \mathbb{M} = \nabla \cdot \left(  \right)$$
+
+---
+
+$$\begin{aligned}
+ - f_z 
+ & = \nabla \cdot \mathbf{F}_z = \\
+ & = \nabla \cdot \left( \begin{bmatrix} -1 & \cdot \\ \cdot & 1 \end{bmatrix} \nabla \cdot \mathbb{M} \right)
+\end{aligned}$$
+
+---
+
+$$\left\{\begin{aligned}
+  & \nabla_{(2)} \cdot \mathbb{F} + \mathbf{f} = \mathbf{0} \\
+  & \nabla_{(2)} \cdot \mathbb{M} + \hat{\mathbf{z}} \times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) =  \mathbf{0} \\
+\end{aligned} \right.$$
 
 ```
 
