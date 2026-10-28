@@ -1,10 +1,14 @@
 (solid-mechanics:small-displacements:plates-shells:kirchhoff)=
 # Kirchhoff plate
 
-Following the procedure in [Timoshenko beam](solid-mechanics:small-displacements:beams:timoshenko) then simplified to the Euler-Bernoulli beam model, this section contains:
+Following the procedure already used for [Timoshenko beam model](solid-mechanics:small-displacements:beams:timoshenko), and then simplified to the Euler-Bernoulli beam model, this section contains:
 * [Kinematic assumptions, and the elastic constitutive law](solid-mechanics:small-displacements:plates-shells:kirchhoff:assumptions)
 * [Internal actions](solid-mechanics:small-displacements:plates-shells:kirchhoff:internal-actions)
 * [Balance equations](solid-mechanics:small-displacements:plates-shells:kirchhoff:balance-equations)
+
+**todo** 
+* Show Timoshenko model, and then simplify to Kirchhoff model (analogous to Euler-Bernoulli beam model).
+* Discuss drill d.o.f.
 
 (solid-mechanics:small-displacements:plates-shells:kirchhoff:assumptions)=
 ## Kinematic assumptions
