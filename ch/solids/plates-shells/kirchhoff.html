@@ -683,7 +683,7 @@ Details of the simplified equations<div class="sd-summary-down docutils">
 \[D \Delta^2 w = f_z \ .\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+Detailed discussion of the meaning of the space derivatives of the displacement field <span class="math notranslate nohighlight">\(\ w(x,y)\)</span>.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
@@ -760,7 +760,16 @@ $$\begin{aligned}
   & = \frac{1}{2} D \left(  \nabla \boldsymbol\theta + \nabla^T \boldsymbol\theta \right) + \frac{1}{2} D \left(  \nabla \boldsymbol\theta - \nabla^T \boldsymbol\theta \right) - \frac{1}{2} m D \left( \nabla^T \boldsymbol\theta + \nabla \boldsymbol\theta \right) - \frac{1}{2} m D  \left( \nabla^T \boldsymbol\theta - \nabla \boldsymbol\theta \right) \ .
 \end{aligned}$$
 -->
-<p class="sd-card-text">Evaluating the divergence</p>
+<p class="sd-card-text">The Laplacian of the displacement field <span class="math notranslate nohighlight">\(\Delta w\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1-m) D}\]</div>
+<!--
+---
+
+$$\begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} & M_{yy} \end{bmatrix} \begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} - M_{xx} + M_{yx} \\ - M_{xy} + M_{yy} \end{bmatrix} = - M_{xx} + M_{yx} - M_{xy} + M_{yy} \ .$$
+-->
+<hr class="docutils" />
+<p class="sd-card-text">The divergence of <span class="math notranslate nohighlight">\(\mathbb{M}\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} = D \Delta \boldsymbol{\theta} \ . \]</div>
 <p class="sd-card-text">having exploited the relation <span class="math notranslate nohighlight">\(\nabla \cdot \boldsymbol\theta = 0\)</span> to set <span class="math notranslate nohighlight">\(\theta_{i/ij} = 0\)</span>.</p>

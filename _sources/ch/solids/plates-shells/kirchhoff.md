@@ -248,7 +248,7 @@ i.e.
 
 $$D \Delta^2 w = f_z \ .$$
 
-```{dropdown}
+```{dropdown} Detailed discussion of the meaning of the space derivatives of the displacement field $\ w(x,y)$.
 :open:
 
 Using here 2-dimensional nabla differential operator
@@ -337,7 +337,19 @@ $$\begin{aligned}
 \end{aligned}$$
 -->
 
-Evaluating the divergence 
+The Laplacian of the displacement field $\Delta w$ reads
+
+$$\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1-m) D}$$
+
+<!--
+---
+
+$$\begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} & M_{yy} \end{bmatrix} \begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} - M_{xx} + M_{yx} \\ - M_{xy} + M_{yy} \end{bmatrix} = - M_{xx} + M_{yx} - M_{xy} + M_{yy} \ .$$
+-->
+
+---
+
+The divergence of $\mathbb{M}$ reads
 
 $$\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} = D \Delta \boldsymbol{\theta} \ . $$
 
