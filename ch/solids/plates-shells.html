@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="11.1. Kirchhoff plate" href="plates-shells/kirchhoff.html" />
+    <link rel="next" title="11.1. Timoshenko plate" href="plates-shells/timoshenko.html" />
     <link rel="prev" title="10.7. Problems" href="beams/problems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -214,7 +214,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Plates, Membranes and Shells</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="plates-shells/kirchhoff.html">11.1. Kirchhoff plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plates-shells/timoshenko.html">11.1. Timoshenko plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plates-shells/kirchhoff.html">11.2. Kirchhoff plate</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
@@ -433,9 +434,8 @@ document.write(`
 <li><p>plate: …</p></li>
 <li><p>membrane: …</p></li>
 <li><p>shell: …</p></li>
-</ul>
-<ul class="simple">
-<li><p><a class="reference internal" href="plates-shells/kirchhoff.html#solid-mechanics-small-displacements-plates-shells-kirchhoff"><span class="std std-ref">Kirchhoff plate</span></a></p></li>
+<li><p><a class="reference internal" href="plates-shells/timoshenko.html#solid-mechanics-small-displacements-plates-shells-timoshenko"><span class="std std-ref">Timoshenko plate</span></a>. Displacement approach to build plate model</p></li>
+<li><p><a class="reference internal" href="plates-shells/kirchhoff.html#solid-mechanics-small-displacements-plates-shells-kirchhoff"><span class="std std-ref">Kirchhoff plate</span></a>. Simplification of Timoshenko plate. Pure bending and some examples. Discussion of the meaning of the spatial derivative of the out-of-plane displacement field.</p></li>
 </ul>
 <!--
 - [de Saint Venant](solid-mechanics:small-displacements:beams:de-saint-venant)
@@ -488,11 +488,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="plates-shells/kirchhoff.html"
+       href="plates-shells/timoshenko.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11.1. </span>Kirchhoff plate</p>
+        <p class="prev-next-title"><span class="section-number">11.1. </span>Timoshenko plate</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
