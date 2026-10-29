@@ -1,12 +1,12 @@
 (solid-mechanics:small-displacements:plates-shells:kirchhoff)=
 # Kirchhoff plate
 
-<div style="color:red">Is this the right name?</div>
+Kirchhoff plate immediately follows as a simplified model of [Timoshenko plate model](solid-mechanics:small-displacements:plates-shells:timoshenko). In this section, some random contents:
 
 * ...
-* [Pure bending]()
-  * [Analytical solution for rectangular plates]()
-  * [Detailed discussion of the meaning of the derivatives of the displacement field]()
+* [Bending of an isotropic Kirchhoff plate](solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending)
+  * [Analytical solution for rectangular plates](solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending:analytical-sln)
+  * [Detailed discussion of the meaning of the derivatives of the displacement field](solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending:discussion)
 
 (solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending)=
 ## Statics of linear isotropic Kirchhoff plate - pure bending
@@ -81,6 +81,7 @@ i.e.
 
 $$D \Delta^2 w = f_z \ .$$
 
+(solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending:analytical-sln)=
 ### Analytical solution of a rectangular plate
 
 Using Cartesian coordinates $(x,y)$, the domain of a rectangular plate reads $(x,y) = [0,L_x] \times [0,L_y]$.
@@ -185,6 +186,7 @@ $$\begin{aligned}
 * ...
 -->
 
+(solid-mechanics:small-displacements:plates-shells:kirchhoff:pure-bending:discussion)=
 ### Discussion of the meaning of the space derivatives of the displacement field
 
 ```{dropdown} Detailed discussion of the meaning of the space derivatives of the displacement field $\ w(x,y)$.
@@ -278,7 +280,7 @@ $$\begin{aligned}
 
 The Laplacian of the displacement field $\Delta w$ reads
 
-$$\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1-m) D}$$
+$$\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1+m) D}$$
 
 <!--
 ---

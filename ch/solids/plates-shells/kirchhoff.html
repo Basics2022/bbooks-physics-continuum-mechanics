@@ -449,13 +449,13 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="kirchhoff-plate">
 <span id="solid-mechanics-small-displacements-plates-shells-kirchhoff"></span><h1><span class="section-number">11.2. </span>Kirchhoff plate<a class="headerlink" href="#kirchhoff-plate" title="Permalink to this heading">#</a></h1>
-<div style="color:red">Is this the right name?</div>
+<p>Kirchhoff plate immediately follows as a simplified model of <a class="reference internal" href="timoshenko.html#solid-mechanics-small-displacements-plates-shells-timoshenko"><span class="std std-ref">Timoshenko plate model</span></a>. In this section, some random contents:</p>
 <ul class="simple">
 <li><p>…</p></li>
-<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Pure bending</span></a></p>
+<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending"><span class="std std-ref">Bending of an isotropic Kirchhoff plate</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Analytical solution for rectangular plates</span></a></p></li>
-<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Detailed discussion of the meaning of the derivatives of the displacement field</span></a></p></li>
+<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-analytical-sln"><span class="std std-ref">Analytical solution for rectangular plates</span></a></p></li>
+<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-discussion"><span class="std std-ref">Detailed discussion of the meaning of the derivatives of the displacement field</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -532,7 +532,7 @@ Details of the simplified equations<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[D \Delta^2 w = f_z \ .\]</div>
 <div class="section" id="analytical-solution-of-a-rectangular-plate">
-<h3><span class="section-number">11.2.1.1. </span>Analytical solution of a rectangular plate<a class="headerlink" href="#analytical-solution-of-a-rectangular-plate" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-analytical-sln"></span><h3><span class="section-number">11.2.1.1. </span>Analytical solution of a rectangular plate<a class="headerlink" href="#analytical-solution-of-a-rectangular-plate" title="Permalink to this heading">#</a></h3>
 <p>Using Cartesian coordinates <span class="math notranslate nohighlight">\((x,y)\)</span>, the domain of a rectangular plate reads <span class="math notranslate nohighlight">\((x,y) = [0,L_x] \times [0,L_y]\)</span>.</p>
 <div class="section" id="hinged-boundary">
 <h4><span class="section-number">11.2.1.1.1. </span>Hinged boundary<a class="headerlink" href="#hinged-boundary" title="Permalink to this heading">#</a></h4>
@@ -624,7 +624,7 @@ $$\begin{aligned}
 </div>
 </div>
 <div class="section" id="discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field">
-<h3><span class="section-number">11.2.1.2. </span>Discussion of the meaning of the space derivatives of the displacement field<a class="headerlink" href="#discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field" title="Permalink to this heading">#</a></h3>
+<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-discussion"></span><h3><span class="section-number">11.2.1.2. </span>Discussion of the meaning of the space derivatives of the displacement field<a class="headerlink" href="#discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field" title="Permalink to this heading">#</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Detailed discussion of the meaning of the space derivatives of the displacement field <span class="math notranslate nohighlight">\(\ w(x,y)\)</span>.<div class="sd-summary-down docutils">
@@ -706,7 +706,7 @@ $$\begin{aligned}
 -->
 <p class="sd-card-text">The Laplacian of the displacement field <span class="math notranslate nohighlight">\(\Delta w\)</span> reads</p>
 <div class="math notranslate nohighlight">
-\[\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1-m) D}\]</div>
+\[\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1+m) D}\]</div>
 <!--
 ---
 
