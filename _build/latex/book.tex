@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Oct 28, 2026}
+\date{Oct 29, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -4251,11 +4251,13 @@ membrane: …
 \sphinxAtStartPar
 shell: …
 
-\end{itemize}
-\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}]{\sphinxcrossref{\DUrole{std,std-ref}{Kirchhoff plate}}}}
+{\hyperref[\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko plate}}}}. Displacement approach to build plate model
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}]{\sphinxcrossref{\DUrole{std,std-ref}{Kirchhoff plate}}}}. Simplification of Timoshenko plate. Pure bending and some examples. Discussion of the meaning of the spatial derivative of the out\sphinxhyphen{}of\sphinxhyphen{}plane displacement field.
 
 \end{itemize}
 
@@ -4264,24 +4266,29 @@ shell: …
 \sphinxstepscope
 
 
-\section{Kirchhoff plate}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:kirchhoff-plate}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}}\label{\detokenize{ch/solids/plates-shells/kirchhoff::doc}}
+\section{Timoshenko plate}
+\label{\detokenize{ch/solids/plates-shells/timoshenko:timoshenko-plate}}\label{\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-timoshenko}}\label{\detokenize{ch/solids/plates-shells/timoshenko::doc}}
+
+
 \sphinxAtStartPar
 Following the procedure already used for {\hyperref[\detokenize{ch/solids/beams/timoshenko:solid-mechanics-small-displacements-beams-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko beam model}}}}, and then simplified to the Euler\sphinxhyphen{}Bernoulli beam model, this section contains:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions}]{\sphinxcrossref{\DUrole{std,std-ref}{Kinematic assumptions, and the elastic constitutive law}}}}
+{\hyperref[\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions}]{\sphinxcrossref{\DUrole{std,std-ref}{Kinematic assumptions, and the elastic constitutive law}}}}
 
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions}]{\sphinxcrossref{\DUrole{std,std-ref}{Internal actions}}}}
+{\hyperref[\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions}]{\sphinxcrossref{\DUrole{std,std-ref}{Internal actions}}}}
 
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Balance equations}}}}
+{\hyperref[\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Balance equations}}}}
 
 \end{itemize}
+
+\sphinxAtStartPar
+This model is further simplifed in {\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}]{\sphinxcrossref{\DUrole{std,std-ref}{Kirchhoff plate model}}}}.
 
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
@@ -4298,7 +4305,7 @@ Discuss drill d.o.f.
 
 
 \subsection{Kinematic assumptions}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:kinematic-assumptions}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions}}
+\label{\detokenize{ch/solids/plates-shells/timoshenko:kinematic-assumptions}}\label{\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions}}
 \sphinxAtStartPar
 \sphinxstylestrong{Displacement.}
 \begin{equation*}
@@ -4331,7 +4338,7 @@ Kirchhoff assumptions imply \(\theta_x = s_{Pz/y}\), \(\theta_y = -s_{Pz/x}\), a
 
 
 \subsection{Internal actions}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:internal-actions}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions}}
+\label{\detokenize{ch/solids/plates-shells/timoshenko:internal-actions}}\label{\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions}}
 \sphinxAtStartPar
 Cutting an elementary surface with unit\sphinxhyphen{}normal vector pointing outwards, the force acting on it is
 \begin{equation*}
@@ -4365,7 +4372,7 @@ so that
 
 
 \subsection{Balance equations}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:balance-equations}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations}}
+\label{\detokenize{ch/solids/plates-shells/timoshenko:balance-equations}}\label{\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations}}
 \sphinxAtStartPar
 Balance equations for a beam can be obtained integrating indefinite balance equations for a 3\sphinxhyphen{}dimensional solid on the sections \(A(z)\) of the beam, with some further assumption on non\sphinxhyphen{}rigid contributions to displacement.
 
@@ -4470,9 +4477,37 @@ For an inertially decoupled element, using Cartesian coordinates
   0 & = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
 \end{aligned}\end{split}
 \end{equation*}
+\sphinxstepscope
+
+
+\section{Kirchhoff plate}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:kirchhoff-plate}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff}}\label{\detokenize{ch/solids/plates-shells/kirchhoff::doc}}
+\sphinxAtStartPar
+Kirchhoff plate immediately follows as a simplified model of {\hyperref[\detokenize{ch/solids/plates-shells/timoshenko:solid-mechanics-small-displacements-plates-shells-timoshenko}]{\sphinxcrossref{\DUrole{std,std-ref}{Timoshenko plate model}}}}. In this section, some random contents:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+…
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending}]{\sphinxcrossref{\DUrole{std,std-ref}{Bending of an isotropic Kirchhoff plate}}}}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-analytical-sln}]{\sphinxcrossref{\DUrole{std,std-ref}{Analytical solution for rectangular plates}}}}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-discussion}]{\sphinxcrossref{\DUrole{std,std-ref}{Detailed discussion of the meaning of the derivatives of the displacement field}}}}
+
+\end{itemize}
+
+\end{itemize}
+
 
 \subsection{Statics of linear isotropic Kirchhoff plate \sphinxhyphen{} pure bending}
-\label{\detokenize{ch/solids/plates-shells/kirchhoff:statics-of-linear-isotropic-kirchhoff-plate-pure-bending}}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:statics-of-linear-isotropic-kirchhoff-plate-pure-bending}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending}}
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \begin{itemize}
@@ -4554,7 +4589,103 @@ The equation becomes
 i.e.
 \begin{equation*}
 \begin{split}D \Delta^2 w = f_z \ .\end{split}
-\end{equation*}\subsubsection*{Detailed discussion of the meaning of the space derivatives of the displacement field \protect\(\ w(x,y)\protect\).}
+\end{equation*}
+
+\subsubsection{Analytical solution of a rectangular plate}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:analytical-solution-of-a-rectangular-plate}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-analytical-sln}}
+\sphinxAtStartPar
+Using Cartesian coordinates \((x,y)\), the domain of a rectangular plate reads \((x,y) = [0,L_x] \times [0,L_y]\).
+
+
+\paragraph{Hinged boundary}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:hinged-boundary}}
+\sphinxAtStartPar
+\sphinxstylestrong{BOundary conditions.} On the sides with \(x = 0\), \(x = L_x\), with free rotation around the side (zero component of the moment, as there’s no net reaction moment)
+\begin{equation*}
+\begin{split}w(x_b, y  ) = 0 \quad , \quad M_{xy}(x_b,y  ) = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+On the sides with \(y = 0\), \(y = L_y\), with free rotation around the side (zero component of the moment, as there’s no net reaction moment)
+\begin{equation*}
+\begin{split}w(x  , y_b) = 0 \quad , \quad M_{yx}(x  ,y_b) = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Base functions.} The solution can be found as a linear combination of the base functions satisfying the homogeneous essential boundary conditions,
+\begin{equation*}
+\begin{split}\phi_{n_x n_y}(x,y) = \sin\left( n_x \frac{\pi x}{L_x} \right) \, \sin\left( n_y \frac{\pi y}{L_y} \right) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. as
+\begin{equation*}
+\begin{split}w(x,y) = \sum_{n_x, n_y \in \mathbb{N}} a_{n_x, n_y} \phi_{x_n, n_y}(x,y) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Remark.} This choice of base functions satisfies the essential boundary conditions about displacement, and identically satisfies also the natural boundary condition about moment, by setting equal to zero both individual contributions \(w_{/xx}\), \(w_{/yy}\) appearing in \(M_{xy} = - D(w_{/xx} + m w_{/yy})\), and \(M_{yx} =   D(w_{/yy} + m w_{/xx})\).
+
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Double Laplacian.} The double Laplacian of the base function \(\phi_{n_x n_y}(x,y)\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \Delta^2 \phi_{n_x n_y}(x,y) 
+  & = \phi_{n_x n_y/xxxx} + 2  \phi_{n_x n_y/xxyy} +  \phi_{n_x n_y/yyyy} = \\
+  & = \left\{ \left( \frac{\pi n_x}{L_x} \right)^4 + 2 \left( \frac{\pi n_x}{L_x} \right)^2 \left( \frac{\pi n_y}{L_y} \right)^2 + \left( \frac{\pi n_y}{L_y} \right)^4 \right\} \phi_{n_x n_y}(x,y) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Series exapnsion of external distributed load, \(f\), and solution by coefficient matching.} Let the Fourier expansion of the load \(f(x,y)\) be
+\begin{equation*}
+\begin{split}f(x,y) = \sum_{n_x,n_y \in \mathbb{N}} f_{n_x, n_y} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) = \sum_{n_x,n_y \in \mathbb{N}} f_{n_x, n_y} \phi_{n_x n_y}(x,y) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation}\label{equation:ch/solids/plates-shells/kirchhoff:eq:plates:kirchhoff:analytic:rectangular:load-fourier-coeff}
+\begin{split}f_{n_x n_y} = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} f(x,y) \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \,dx \, dy \end{split}
+\end{equation}
+\sphinxAtStartPar
+Then the solution of the problem is obtained by coefficient matching as
+\begin{equation*}
+\begin{split}a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{1}{L_x}\right)^2 +  \left(\frac{1}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+“Harmonic” load: let the load be \(f(x,y) = f_{11} \sin\left( \tfrac{\pi x}{L_x} \right) \sin \left( \tfrac{\pi y}{L_y} \right)\), then the solution can be represented by one base function only, i.e. \(\phi_{11}(x,y)\), while the coefficient of the linear expansion of any other base function is zero by coefficient matching. The coefficent \(a_{11}\) reads
+\begin{equation*}
+\begin{split}f_{11} = D \pi^4 \left\{ \left(\frac{1}{L_x}\right)^2 + \left(\frac{1}{L_y}\right)^2 \right\}^2 \, a_{11} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e.
+\begin{equation*}
+\begin{split}w(x,y) = \frac{f_{11}}{D \pi^4} \left[ \left(\frac{1}{L_x}\right)^2 + \left(\frac{1}{L_y}\right)^2 \right]^{-1} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \ .\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Uniform load, \(f(x,y) = f\): only contributions with odd indices survive in the integrals \eqref{equation:ch/solids/plates-shells/kirchhoff:eq:plates:kirchhoff:analytic:rectangular:load-fourier-coeff}, as
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \frac{f_{n_x n_y}}{f}
+     & = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \,dx \, dy = \\
+     & = \frac{4}{L_x L_y} \frac{L_x}{n_x \pi} \frac{L_y}{n_y \pi} \left.\cos\left( \frac{n_x \pi x}{L_x} \right)\right|_{0}^{L_x} \left.\cos\left( \frac{n_y \pi y}{L_y} \right)\right|_{0}^{L_y} = \\
+     & = \left\{ \begin{aligned}
+     n_k = 2 m_k + 1: & \quad \frac{16}{\pi^2 (2m_x+1)(2m_y+1)} \\
+     n_k = 2 m_k    : & \quad 0 \\
+     \end{aligned} \right.
+   \end{aligned}\end{split}
+\end{equation*}
+\end{itemize}
+
+
+\paragraph{Clamped boundary}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:clamped-boundary}}
+\sphinxAtStartPar
+…
+
+
+
+
+\subsubsection{Discussion of the meaning of the space derivatives of the displacement field}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff:discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field}}\label{\detokenize{ch/solids/plates-shells/kirchhoff:solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending-discussion}}\subsubsection*{Detailed discussion of the meaning of the space derivatives of the displacement field \protect\(\ w(x,y)\protect\).}
 
 \sphinxAtStartPar
 Using here 2\sphinxhyphen{}dimensional nabla differential operator
@@ -4636,7 +4767,18 @@ compatible with the two expressions of the equilibrium equation, \(f_z = D \nabl
 
 
 \sphinxAtStartPar
-Evaluating the divergence
+The Laplacian of the displacement field \(\Delta w\) reads
+\begin{equation*}
+\begin{split}\Delta w = w_{/xx} + w_{/yy} = \frac{M_{yx} - M_{xy}}{(1+m) D}\end{split}
+\end{equation*}
+
+
+
+\bigskip\hrule\bigskip
+
+
+\sphinxAtStartPar
+The divergence of \(\mathbb{M}\) reads
 \begin{equation*}
 \begin{split}\nabla \cdot \mathbb{M} = \partial_{i} M_{ij} = \partial_{i} \left( D \theta_{j/i} - m D \theta_{i/j} \right) = D \theta_{j/ii} - m D \theta_{i/ij} =  D \theta_{j/ii} = D \Delta \boldsymbol{\theta} \ . \end{split}
 \end{equation*}
