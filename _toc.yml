@@ -49,6 +49,7 @@ parts:
 #     - file: ch/solids/beams/problem-1
   - file: ch/solids/plates-shells
     sections:
+    - file: ch/solids/plates-shells/timoshenko
     - file: ch/solids/plates-shells/kirchhoff
   - file: ch/solids/small-displacements-numerics
   - file: ch/solids/structural-damping

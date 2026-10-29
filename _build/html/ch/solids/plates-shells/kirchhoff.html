@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.1. Kirchhoff plate &#8212; continuum mechanics</title>
+    <title>11.2. Kirchhoff plate &#8212; continuum mechanics</title>
   
   
   
@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="12. Modal methods for structural problems" href="../small-displacements-numerics.html" />
-    <link rel="prev" title="11. Plates, Membranes and Shells" href="../plates-shells.html" />
+    <link rel="prev" title="11.1. Timoshenko plate" href="timoshenko.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,7 +216,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../plates-shells.html">11. Plates, Membranes and Shells</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. Kirchhoff plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timoshenko.html">11.1. Timoshenko plate</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.2. Kirchhoff plate</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
@@ -426,10 +427,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematic-assumptions">11.1.1. Kinematic assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">11.1.2. Internal actions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">11.1.3. Balance equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending">11.1.4. Statics of linear isotropic Kirchhoff plate - pure bending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending">11.2.1. Statics of linear isotropic Kirchhoff plate - pure bending</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution-of-a-rectangular-plate">11.2.1.1. Analytical solution of a rectangular plate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hinged-boundary">11.2.1.1.1. Hinged boundary</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clamped-boundary">11.2.1.1.2. Clamped boundary</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field">11.2.1.2. Discussion of the meaning of the space derivatives of the displacement field</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -442,175 +448,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="kirchhoff-plate">
-<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff"></span><h1><span class="section-number">11.1. </span>Kirchhoff plate<a class="headerlink" href="#kirchhoff-plate" title="Permalink to this heading">#</a></h1>
-<p>Following the procedure already used for <a class="reference internal" href="../beams/timoshenko.html#solid-mechanics-small-displacements-beams-timoshenko"><span class="std std-ref">Timoshenko beam model</span></a>, and then simplified to the Euler-Bernoulli beam model, this section contains:</p>
+<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff"></span><h1><span class="section-number">11.2. </span>Kirchhoff plate<a class="headerlink" href="#kirchhoff-plate" title="Permalink to this heading">#</a></h1>
+<div style="color:red">Is this the right name?</div>
 <ul class="simple">
-<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions"><span class="std std-ref">Kinematic assumptions, and the elastic constitutive law</span></a></p></li>
-<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions"><span class="std std-ref">Internal actions</span></a></p></li>
-<li><p><a class="reference internal" href="#solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations"><span class="std std-ref">Balance equations</span></a></p></li>
+<li><p>…</p></li>
+<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Pure bending</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Analytical solution for rectangular plates</span></a></p></li>
+<li><p><a class="reference internal" href="../plates-shells.html"><span class="doc std std-doc">Detailed discussion of the meaning of the derivatives of the displacement field</span></a></p></li>
 </ul>
-<p><strong>todo</strong></p>
-<ul class="simple">
-<li><p>Show Timoshenko model, and then simplify to Kirchhoff model (analogous to Euler-Bernoulli beam model).</p></li>
-<li><p>Discuss drill d.o.f.</p></li>
+</li>
 </ul>
-<div class="section" id="kinematic-assumptions">
-<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-assumptions"></span><h2><span class="section-number">11.1.1. </span>Kinematic assumptions<a class="headerlink" href="#kinematic-assumptions" title="Permalink to this heading">#</a></h2>
-<p><strong>Displacement.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{s}(x,y,z,t)
-  &amp; = \mathbf{s}_P(x,y,t) + \boldsymbol{\theta}(x,y,t) \times \mathbf{r}_P(x,y) = \\ 
-  &amp; = \mathbf{s}_P(x,y,t) + \hat{\mathbf{x}} \left( + z \theta_y(x,y) \right) - \hat{\mathbf{y}} \left( z \theta_x(x,y) \right) \ ,
-\end{aligned}\end{split}\]</div>
-<p>assuming negligible warping, and without in-plane roation (drilling d.o.f., <span class="math notranslate nohighlight">\(\theta_z\)</span>).</p>
-<p><strong>Strain.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-   \varepsilon_{zz} &amp; = s_{Pz/z} \\
-   \varepsilon_{xx} &amp; = s_{Px/x} + z \theta_{y/x} \\
-   \varepsilon_{yy} &amp; = s_{Py/y} - z \theta_{x/y} \\
- 2 \varepsilon_{zx} &amp; = s_{Pz/x} + \theta_y \\
- 2 \varepsilon_{zy} &amp; = s_{Pz/y} - \theta_x \\
- 2 \varepsilon_{xy} &amp; = s_{Px/y} + s_{Py/x} + z \theta_{y/y} - z \theta_{x/x} \ .
-\end{aligned}\end{split}\]</div>
-<p>Kirchhoff assumptions imply <span class="math notranslate nohighlight">\(\theta_x = s_{Pz/y}\)</span>, <span class="math notranslate nohighlight">\(\theta_y = -s_{Pz/x}\)</span>, and thus no “transverse” shear stress <span class="math notranslate nohighlight">\(\varepsilon_{zx} = \varepsilon_{zy} = 0\)</span>. Negligible volumetric strain in the direction perpendicular to the surface of the plate, <span class="math notranslate nohighlight">\(\varepsilon_{zz} = 0\)</span>. Under these assumptions, only 3 components of the strain tensor can be different from zero: <span class="math notranslate nohighlight">\(\varepsilon_{xx}\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_{yy}\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_{xy}\)</span>.</p>
-<p><strong>Elastic constitutive law.</strong> <strong>todo</strong> <em>Discuss plane stress or plane strain</em>, <em>Elastic isotropic constutive law, and other linear elastic laws</em>,…</p>
-</div>
-<div class="section" id="internal-actions">
-<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-internal-actions"></span><h2><span class="section-number">11.1.2. </span>Internal actions<a class="headerlink" href="#internal-actions" title="Permalink to this heading">#</a></h2>
-<p>Cutting an elementary surface with unit-normal vector pointing outwards, the force acting on it is</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{F}_{\hat{\mathbf{n}}} := \int_{A} \hat{\mathbf{n}} \cdot \boldsymbol{\sigma} \ , \]</div>
-<p>so that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{F}_{\hat{\mathbf{x}}} &amp; = \int_{A_x} \hat{\mathbf{x}} \cdot \boldsymbol{\sigma} = \int_{A_x} \left\{ \hat{\mathbf{x}} \sigma_{xx} + \hat{\mathbf{y}} \sigma_{xy} + \hat{\mathbf{z}} \sigma_{xz} \right\} \\
-  \mathbf{F}_{\hat{\mathbf{y}}} &amp; = \int_{A_x} \hat{\mathbf{x}} \cdot \boldsymbol{\sigma} = \int_{A_y} \left\{ \hat{\mathbf{x}} \sigma_{yx} + \hat{\mathbf{y}} \sigma_{yy} + \hat{\mathbf{z}} \sigma_{yz} \right\} \\
-\end{aligned}\end{split}\]</div>
-<p>The internal moment, with <span class="math notranslate nohighlight">\(\mathbf{r} = z \hat{\mathbf{z}}\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{M}_{\hat{\mathbf{n}}} &amp; := \int_{A} \mathbf{r} \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) \\
-\end{aligned}\end{split}\]</div>
-<p>so that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{M}_{\hat{\mathbf{x}}} &amp; := \int_{A_x} \mathbf{r} \times ( \hat{\mathbf{x}} \cdot \boldsymbol\sigma ) = \int_{A_x} \hat{\mathbf{x}} \left( -z \sigma_{xy} \right) + \hat{\mathbf{y}} \left( z \sigma_{xx} \right) \\
-  \mathbf{M}_{\hat{\mathbf{y}}} &amp; := \int_{A_y} \mathbf{r} \times ( \hat{\mathbf{y}} \cdot \boldsymbol\sigma ) = \int_{A_y} \hat{\mathbf{x}} \left( -z \sigma_{yy} \right) + \hat{\mathbf{y}} \left( z \sigma_{yx} \right) \\
-\end{aligned}\end{split}\]</div>
-<p><strong>Remark</strong> <span class="math notranslate nohighlight">\(M_{xx} = - M_{yy}\)</span>.</p>
-</div>
-<div class="section" id="balance-equations">
-<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-balance-equations"></span><h2><span class="section-number">11.1.3. </span>Balance equations<a class="headerlink" href="#balance-equations" title="Permalink to this heading">#</a></h2>
-<p>Balance equations for a beam can be obtained integrating indefinite balance equations for a 3-dimensional solid on the sections <span class="math notranslate nohighlight">\(A(z)\)</span> of the beam, with some further assumption on non-rigid contributions to displacement.</p>
-<p><strong>Momentum equation.</strong> Using a “Cartesian” elementary volume with sides <span class="math notranslate nohighlight">\(\Delta x\)</span>, <span class="math notranslate nohighlight">\(\Delta y\)</span>, <span class="math notranslate nohighlight">\(h\)</span></p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\rho}_0 \ddot{\mathbf{s}} = \nabla \cdot \boldsymbol\sigma + \mathbf{f}\]</div>
-<p>gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- 0 
- &amp; = - m \ddot{\mathbf{s}}_P - \mathbf{S}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{F}_{x/x} + \mathbf{F}_{y/y} + \mathbf{f} = \\
- &amp; = - m \ddot{\mathbf{s}}_P - \mathbf{S}_{P} \cdot \ddot{\boldsymbol\theta} + \nabla_{(2)} \cdot \mathbb{F} + \mathbf{f} \ .
-\end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0} 
-&amp; = - \int_{\Delta V} \rho_0 \ddot{\mathbf{s}} + \int_{\Delta V} \nabla \cdot \boldsymbol\sigma + \int_{\Delta V} \rho_0 \mathbf{g} = \\
-&amp; = - \Delta x \Delta y \, \int_{h} \rho_0 \left( \ddot{\mathbf{s}}_P - \mathbf{r}_P \times \ddot{\boldsymbol{\theta}} \right) + \\
-  &amp; \quad + \int_{A_x(x)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \int_{A_x(x+\Delta x)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma  + \\
-  &amp; \quad + \int_{A_y(y)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \int_{A_y(y+\Delta y)} \hat{\mathbf{n}} \cdot \boldsymbol\sigma  + \\
-  &amp; \quad + \int_{\Delta A_{lat,sup}} \hat{\mathbf{n}} \cdot \boldsymbol\sigma + \int_{\Delta A_{lat,inf}} \hat{\mathbf{n}} \cdot \boldsymbol\sigma +  \\
-  &amp; \quad + \Delta A \, \int_{h} \rho_0 \mathbf{g} = \\
-&amp; = - \Delta x \Delta y \, \int_{h} \rho_0 \left( \ddot{\mathbf{s}}_P - \mathbf{r}_P \times \ddot{\boldsymbol{\theta}} \right) + \\
-  &amp; \quad + \Delta x \, \partial_x \int_{A_x(x)} \hat{\mathbf{x}} \cdot \boldsymbol\sigma  + \\
-  &amp; \quad + \Delta y \, \partial_y \int_{A_y(y)} \hat{\mathbf{y}} \cdot \boldsymbol\sigma  + \\
-  &amp; \quad + \int_{\Delta A_{lat,sup-inf}} \mathbf{f}^{lat} 
-          + \Delta A \, \int_{h} \rho_0 \mathbf{g} = \\
-&amp; = \Delta A \left[ - m \ddot{\mathbf{s}}_P - \mathbf{S}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{F}_{x/x} + \mathbf{F}_{y/y} + \mathbf{f} \right]
-\end{aligned}\end{split}\]</div>
-</div>
-</details><p><strong>Angular momentum equation.</strong></p>
-<div class="math notranslate nohighlight">
-\[\mathbf{r}_P \times \mathbf{\rho}_0 \ddot{\mathbf{s}} = \mathbf{r}_P \times \left( \nabla \cdot \boldsymbol\sigma + \mathbf{f} \right)\]</div>
-<p>gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0
-  &amp; = - \mathbf{S}_P^T \cdot \ddot{\mathbf{s}}_P - \mathbf{I}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{M}_{x/x} + \mathbf{M}_{y/y} - \hat{\mathbf{z}} \times \mathbf{F} + \mathbf{m} = \\
-  &amp; = - \mathbf{S}_P^T \cdot \ddot{\mathbf{s}}_P - \mathbf{I}_{P} \cdot \ddot{\boldsymbol\theta} + \nabla_{(2)} \cdot \mathbb{M} - \hat{\mathbf{z}} \times \left( \mathbb{F} \cdot \hat{\mathbf{z}} \right) + \mathbf{m}  \ .
-\end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0} 
-&amp; = - \int_{\Delta V} \rho_0 \mathbf{r}_P \times \ddot{\mathbf{s}} + \int_{\Delta V} \mathbf{r}_P \times \nabla \cdot \boldsymbol\sigma + \int_{\Delta V} \rho_0 \mathbf{r}_P \times \mathbf{g} = \\
-&amp; = - \Delta A \, \int_{h} \rho_0 \mathbf{r}_P \times \left( \ddot{\mathbf{s}}_P - \mathbf{r}_P \times \ddot{\boldsymbol{\theta}} \right)
-    + \dots \\
-&amp; = \Delta A \left[ - \mathbf{S}_P^T \cdot \ddot{\mathbf{s}}_P - \mathbf{I}_{P} \cdot \ddot{\boldsymbol\theta} + \mathbf{M}_{x/x} + \mathbf{M}_{y/y} + \mathbf{m}^{lat} + \mathbf{m}_V \right] \ .
-\end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Contribution of stress to moment<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">With <span class="math notranslate nohighlight">\(\mathbf{r} = z \hat{\mathbf{z}}\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{r} = z \, \delta_{i3} \, \hat{\mathbf{e}}_i = r_3 \, \delta_{i3} \, \hat{\mathbf{e}}_i \)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \int_{V} \mathbf{r} \times \nabla \cdot \boldsymbol\sigma 
-  &amp; = \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} r_j \sigma_{lk/l} = \\
-  &amp; = \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \left[  \left( r_j \sigma_{lk} \right)_{/l} - r_{j/l} \sigma_{lk} \right] = \\
-  &amp; = \hat{\mathbf{e}}_i \int_{\partial V} \varepsilon_{ijk} r_j n_l  \sigma_{lk} - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} r_{j/l} \sigma_{lk} = \\
-  &amp; = \hat{\mathbf{e}}_i \int_{\partial V} \varepsilon_{ijk} r_j n_l  \sigma_{lk} - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \left( r_3 \delta_{j3} \right)_{/l} \sigma_{lk} = \\
-  &amp; = \hat{\mathbf{e}}_i \int_{\partial V} \varepsilon_{ijk} r_j n_l  \sigma_{lk} - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{ijk} \delta_{l3} \delta_{j3} \sigma_{lk} = \\
-  &amp; = \hat{\mathbf{e}}_i \int_{\partial V} \varepsilon_{ijk} r_j n_l  \sigma_{lk} - \hat{\mathbf{e}}_i \int_{V} \varepsilon_{i3k} \sigma_{3k} = \\
-  &amp; = \int_{\partial V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) - \hat{\mathbf{x}} \int_{V} \varepsilon_{132} \sigma_{32} - \hat{\mathbf{y}} \int_{V} \varepsilon_{231} \sigma_{31} = \\
-  &amp; = \int_{\partial V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) + \hat{\mathbf{x}} \int_{V} \sigma_{32} - \hat{\mathbf{y}} \int_{V}  \sigma_{31} = \\
-  &amp; = \int_{\partial V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) + \hat{\mathbf{x}} F_{zy} - \hat{\mathbf{y}} F_{zx} = \\
-  &amp; = \int_{\partial V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) - \hat{\mathbf{z}} \times \mathbf{F}_z \ .
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">For an elementary plate element <span class="math notranslate nohighlight">\(\Delta A\)</span>, the first contribution contains internal moments on 4 surfaces cutting the plate and the contribution of the pair of lateral surfaces, that can be summed with the volume contribution to get load from linear density loads,</p>
-<div class="math notranslate nohighlight">
-\[\int_{\partial \Delta V} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma ) 
- = \Delta y \, \Delta x \, \mathbf{M}_{x/x} + \Delta x \, \Delta y \, \mathbf{M}_{y/y} + \int_{A_{lat,sup}} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma )  + \int_{A_{lat,inf}} \mathbf{r}_P \times ( \hat{\mathbf{n}} \cdot \boldsymbol\sigma )  \]</div>
-<p class="sd-card-text">The contribution of the lateral surfaces becom</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- &amp; \int_{A_{lat,sup}} z^{sup} \hat{\mathbf{z}} \times \mathbf{f}^{sup} + \int_{A_{lat,inf}} z^{inf} \hat{\mathbf{z}} \times \mathbf{f}^{inf} = \\
- &amp; \quad = \Delta x \, \Delta y \, \mathbf{m}^{lat} \ ,
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">with  the definition <span class="math notranslate nohighlight">\(\mathbf{m}^{lat} := z^{sup} \mathbf{f}^{sup} + z^{inf} \mathbf{f}^{inf}\)</span>. As an example, if the reference surface is the mid-surface, then <span class="math notranslate nohighlight">\(z_{sup} = - z_{inf} = \tfrac{h}{2}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{m}^{lat} = \tfrac{h}{2} \hat{\mathbf{z}} \times \left( \mathbf{f}^{sup} - \mathbf{f}^{inf} \right)\)</span>.</p>
-</div>
-</details><p>For an inertially decoupled element, using Cartesian coordinates</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 &amp; = - m   \ddot{s}_{Px}   + F_{xx/x} + F_{yx/y}              + f_x \\ 
-  0 &amp; = - m   \ddot{s}_{Py}   + F_{xy/x} + F_{yy/y}              + f_y \\ 
-  0 &amp; = - m   \ddot{s}_{Pz}   + F_{xz/x} + F_{yz/y}              + f_z \\ 
-  0 &amp; = - I_x \ddot{\theta}_x + M_{xx/x} + M_{yx/y} + F_{yz}     + m_x \\ 
-  0 &amp; = - I_y \ddot{\theta}_y + M_{xy/x} + M_{yy/y} - F_{xz}     + m_y \\ 
-  0 &amp; = - I_z \ddot{\theta}_z + M_{xz/z} + M_{yz/y}              + m_z \\ 
-\end{aligned}\end{split}\]</div>
-</div>
 <div class="section" id="statics-of-linear-isotropic-kirchhoff-plate-pure-bending">
-<h2><span class="section-number">11.1.4. </span>Statics of linear isotropic Kirchhoff plate - pure bending<a class="headerlink" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending" title="Permalink to this heading">#</a></h2>
+<span id="solid-mechanics-small-displacements-plates-shells-kirchhoff-pure-bending"></span><h2><span class="section-number">11.2.1. </span>Statics of linear isotropic Kirchhoff plate - pure bending<a class="headerlink" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending" title="Permalink to this heading">#</a></h2>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p>Add details of the simplifications of the equations</p></li>
@@ -681,6 +531,100 @@ Details of the simplified equations<div class="sd-summary-down docutils">
 <p>i.e.</p>
 <div class="math notranslate nohighlight">
 \[D \Delta^2 w = f_z \ .\]</div>
+<div class="section" id="analytical-solution-of-a-rectangular-plate">
+<h3><span class="section-number">11.2.1.1. </span>Analytical solution of a rectangular plate<a class="headerlink" href="#analytical-solution-of-a-rectangular-plate" title="Permalink to this heading">#</a></h3>
+<p>Using Cartesian coordinates <span class="math notranslate nohighlight">\((x,y)\)</span>, the domain of a rectangular plate reads <span class="math notranslate nohighlight">\((x,y) = [0,L_x] \times [0,L_y]\)</span>.</p>
+<div class="section" id="hinged-boundary">
+<h4><span class="section-number">11.2.1.1.1. </span>Hinged boundary<a class="headerlink" href="#hinged-boundary" title="Permalink to this heading">#</a></h4>
+<p><strong>BOundary conditions.</strong> On the sides with <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = L_x\)</span>, with free rotation around the side (zero component of the moment, as there’s no net reaction moment)</p>
+<div class="math notranslate nohighlight">
+\[w(x_b, y  ) = 0 \quad , \quad M_{xy}(x_b,y  ) = 0 \ .\]</div>
+<p>On the sides with <span class="math notranslate nohighlight">\(y = 0\)</span>, <span class="math notranslate nohighlight">\(y = L_y\)</span>, with free rotation around the side (zero component of the moment, as there’s no net reaction moment)</p>
+<div class="math notranslate nohighlight">
+\[w(x  , y_b) = 0 \quad , \quad M_{yx}(x  ,y_b) = 0 \ .\]</div>
+<p><strong>Base functions.</strong> The solution can be found as a linear combination of the base functions satisfying the homogeneous essential boundary conditions,</p>
+<div class="math notranslate nohighlight">
+\[\phi_{n_x n_y}(x,y) = \sin\left( n_x \frac{\pi x}{L_x} \right) \, \sin\left( n_y \frac{\pi y}{L_y} \right) \ ,\]</div>
+<p>i.e. as</p>
+<div class="math notranslate nohighlight">
+\[w(x,y) = \sum_{n_x, n_y \in \mathbb{N}} a_{n_x, n_y} \phi_{x_n, n_y}(x,y) \ .\]</div>
+<p><strong>Remark.</strong> This choice of base functions satisfies the essential boundary conditions about displacement, and identically satisfies also the natural boundary condition about moment, by setting equal to zero both individual contributions <span class="math notranslate nohighlight">\(w_{/xx}\)</span>, <span class="math notranslate nohighlight">\(w_{/yy}\)</span> appearing in <span class="math notranslate nohighlight">\(M_{xy} = - D(w_{/xx} + m w_{/yy})\)</span>, and <span class="math notranslate nohighlight">\(M_{yx} =   D(w_{/yy} + m w_{/xx})\)</span>.</p>
+<div style="color:red"> Is this ok? Is this choice forcing extra constraints? </div>
+<p><strong>Double Laplacian.</strong> The double Laplacian of the base function <span class="math notranslate nohighlight">\(\phi_{n_x n_y}(x,y)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Delta^2 \phi_{n_x n_y}(x,y) 
+  &amp; = \phi_{n_x n_y/xxxx} + 2  \phi_{n_x n_y/xxyy} +  \phi_{n_x n_y/yyyy} = \\
+  &amp; = \left\{ \left( \frac{\pi n_x}{L_x} \right)^4 + 2 \left( \frac{\pi n_x}{L_x} \right)^2 \left( \frac{\pi n_y}{L_y} \right)^2 + \left( \frac{\pi n_y}{L_y} \right)^4 \right\} \phi_{n_x n_y}(x,y) \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Series exapnsion of external distributed load, <span class="math notranslate nohighlight">\(f\)</span>, and solution by coefficient matching.</strong> Let the Fourier expansion of the load <span class="math notranslate nohighlight">\(f(x,y)\)</span> be</p>
+<div class="math notranslate nohighlight">
+\[f(x,y) = \sum_{n_x,n_y \in \mathbb{N}} f_{n_x, n_y} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) = \sum_{n_x,n_y \in \mathbb{N}} f_{n_x, n_y} \phi_{n_x n_y}(x,y) \ ,\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight" id="equation-eq-plates-kirchhoff-analytic-rectangular-load-fourier-coeff">
+<span class="eqno">(11.1)<a class="headerlink" href="#equation-eq-plates-kirchhoff-analytic-rectangular-load-fourier-coeff" title="Permalink to this equation">#</a></span>\[f_{n_x n_y} = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} f(x,y) \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \,dx \, dy \]</div>
+<p>Then the solution of the problem is obtained by coefficient matching as</p>
+<div class="math notranslate nohighlight">
+\[a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{1}{L_x}\right)^2 +  \left(\frac{1}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\]</div>
+<ul>
+<li><p>“Harmonic” load: let the load be <span class="math notranslate nohighlight">\(f(x,y) = f_{11} \sin\left( \tfrac{\pi x}{L_x} \right) \sin \left( \tfrac{\pi y}{L_y} \right)\)</span>, then the solution can be represented by one base function only, i.e. <span class="math notranslate nohighlight">\(\phi_{11}(x,y)\)</span>, while the coefficient of the linear expansion of any other base function is zero by coefficient matching. The coefficent <span class="math notranslate nohighlight">\(a_{11}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[f_{11} = D \pi^4 \left\{ \left(\frac{1}{L_x}\right)^2 + \left(\frac{1}{L_y}\right)^2 \right\}^2 \, a_{11} \ ,\]</div>
+<p>i.e.</p>
+<div class="math notranslate nohighlight">
+\[w(x,y) = \frac{f_{11}}{D \pi^4} \left[ \left(\frac{1}{L_x}\right)^2 + \left(\frac{1}{L_y}\right)^2 \right]^{-1} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \ .\]</div>
+</li>
+<li><p>Uniform load, <span class="math notranslate nohighlight">\(f(x,y) = f\)</span>: only contributions with odd indices survive in the integrals <a class="reference internal" href="#equation-eq-plates-kirchhoff-analytic-rectangular-load-fourier-coeff">(11.1)</a>, as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \frac{f_{n_x n_y}}{f}
+     &amp; = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \,dx \, dy = \\
+     &amp; = \frac{4}{L_x L_y} \frac{L_x}{n_x \pi} \frac{L_y}{n_y \pi} \left.\cos\left( \frac{n_x \pi x}{L_x} \right)\right|_{0}^{L_x} \left.\cos\left( \frac{n_y \pi y}{L_y} \right)\right|_{0}^{L_y} = \\
+     &amp; = \left\{ \begin{aligned}
+     n_k = 2 m_k + 1: &amp; \quad \frac{16}{\pi^2 (2m_x+1)(2m_y+1)} \\
+     n_k = 2 m_k    : &amp; \quad 0 \\
+     \end{aligned} \right.
+   \end{aligned}\end{split}\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="clamped-boundary">
+<h4><span class="section-number">11.2.1.1.2. </span>Clamped boundary<a class="headerlink" href="#clamped-boundary" title="Permalink to this heading">#</a></h4>
+<p>…</p>
+<!--
+**Boundary conditions.** On the sides with $x = 0$, $x = L_x$, 
+
+$$w(x_b, y  ) = 0 \quad , \quad w_{/x}(x_b,y  ) = 0 \ .$$
+
+On the sides with $y = 0$, $y = L_y$,
+
+$$w(x  , y_b) = 0 \quad , \quad w_{/y}(x  ,y_b) = 0 \ .$$
+
+**Base functions.** The solution can be found as a linear combination of the base functions satisfying the homogeneous essential boundary conditions, 
+
+$$\phi_{n_x n_y}(x,y) = \left[ 1 - \cos\left( n_x \frac{\pi x}{L_x} \right) \right] \left[ 1 - \cos\left( n_y \frac{\pi y}{L_y} \right) \right] \ ,$$
+
+i.e. as
+
+$$w(x,y) = \sum_{n_x, n_y \in \mathbb{N}} a_{n_x, n_y} \phi_{x_n, n_y}(x,y) \ .$$
+
+**Double Laplacian.** The double Laplacian of the base function $\phi_{n_x n_y}(x,y)$ reads
+
+$$\begin{aligned}
+  \Delta^2 \phi_{n_x n_y}(x,y) 
+  & = \phi_{n_x n_y/xxxx} + 2  \phi_{n_x n_y/xxyy} +  \phi_{n_x n_y/yyyy} = \\
+  & = \left\{ - \left( \frac{\pi n_x}{L_x} \right)^4 c_{n_x}(x) [ 1 - c_{n_y}(y) ] + 2 \left( \frac{\pi n_x}{L_x} \right)^2 \left( \frac{\pi n_y}{L_y} \right)^2 c_{n_x}(x) c_{n_y}(y) - \left( \frac{\pi n_y}{L_y} \right)^4 [ 1 - c_{n_x}(x) ] c_{n_y}(y) \right\}
+\end{aligned}$$
+
+**Series exapnsion of external distributed load, $f$, and solution by coefficient matching.**
+
+* Uniform 
+* ...
+-->
+</div>
+</div>
+<div class="section" id="discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field">
+<h3><span class="section-number">11.2.1.2. </span>Discussion of the meaning of the space derivatives of the displacement field<a class="headerlink" href="#discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field" title="Permalink to this heading">#</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Detailed discussion of the meaning of the space derivatives of the displacement field <span class="math notranslate nohighlight">\(\ w(x,y)\)</span>.<div class="sd-summary-down docutils">
@@ -833,6 +777,7 @@ $$\left\{\begin{aligned}
 </div>
 </details></div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -865,12 +810,12 @@ $$\left\{\begin{aligned}
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../plates-shells.html"
+       href="timoshenko.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Plates, Membranes and Shells</p>
+        <p class="prev-next-title"><span class="section-number">11.1. </span>Timoshenko plate</p>
       </div>
     </a>
     <a class="right-next"
@@ -897,10 +842,15 @@ $$\left\{\begin{aligned}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematic-assumptions">11.1.1. Kinematic assumptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-actions">11.1.2. Internal actions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations">11.1.3. Balance equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending">11.1.4. Statics of linear isotropic Kirchhoff plate - pure bending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statics-of-linear-isotropic-kirchhoff-plate-pure-bending">11.2.1. Statics of linear isotropic Kirchhoff plate - pure bending</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution-of-a-rectangular-plate">11.2.1.1. Analytical solution of a rectangular plate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hinged-boundary">11.2.1.1.1. Hinged boundary</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clamped-boundary">11.2.1.1.2. Clamped boundary</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-meaning-of-the-space-derivatives-of-the-displacement-field">11.2.1.2. Discussion of the meaning of the space derivatives of the displacement field</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
