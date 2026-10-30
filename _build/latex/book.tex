@@ -85,7 +85,7 @@
         
 
 \title{continuum mechanics}
-\date{Oct 29, 2026}
+\date{Oct 30, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -4646,7 +4646,7 @@ with
 \sphinxAtStartPar
 Then the solution of the problem is obtained by coefficient matching as
 \begin{equation*}
-\begin{split}a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{1}{L_x}\right)^2 +  \left(\frac{1}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\end{split}
+\begin{split}a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{n_x}{L_x}\right)^2 +  \left(\frac{n_y}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\end{split}
 \end{equation*}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -4834,11 +4834,125 @@ Comparing with \(\nabla \nabla \cdot \nabla w = \hat{\mathbf{z}} \times \Delta \
   f_z
   & = - \nabla \cdot \mathbf{F}_z = \\
   & = - \nabla \cdot \left( D \, \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \right) = \\
-  & = - D \Delta^2 w \ .
+  & =   D \Delta^2 w \ .
 \end{aligned}\end{split}
 \end{equation*}
 
 
+\sphinxstepscope
+
+
+\section{Analytic solution of bending of a hinged Kirchhoff plate}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln:analytic-solution-of-bending-of-a-hinged-kirchhoff-plate}}\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln:solid-mechanics-small-displacements-plates-shells-kirchhoff-analytical}}\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln::doc}}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsection{Out\sphinxhyphen{}of\sphinxhyphen{}plane displacement \protect\(w(x,y)\protect\) and small rotations \protect\(\boldsymbol\theta(x,y)\protect\)}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln:out-of-plane-displacement-w-x-y-and-small-rotations-boldsymbol-theta-x-y}}
+\sphinxAtStartPar
+Out\sphinxhyphen{}of\sphinxhyphen{}plane displacement is written as the Fourier series
+\begin{equation*}
+\begin{split}w(x,y) = \sum_{m,n=1, \, \text{odd}}^{+\infty} a_{mn} \sin \left( \frac{m \pi x}{L_x} \right) \sin \left(  \frac{n \pi y}{L_y} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Small rotations reads \(\boldsymbol \theta = - \hat{\mathbf{z}} \times \nabla w\) \sphinxhyphen{} the inverse relation is \(\nabla w = \hat{\mathbf{z}} \times \boldsymbol\theta\) \sphinxhyphen{} or in Cartesian components
+\begin{equation*}
+\begin{split}\left\{ \begin{aligned}
+  \theta_x & = w_{/y} \\
+  \theta_y & = -w_{/x} \ .
+\end{aligned} \right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using the analytical solution,
+\begin{equation*}
+\begin{split}\left\{ \begin{aligned}
+  \theta_x & = \sum_{m,n=1, \, \text{odd}}^{+\infty} a_{mn} \left( \frac{n \pi}{L_y} \right) \sin \left( \frac{m \pi x}{L_x} \right) \cos \left(  \frac{m \pi x}{L_x} \right) \\
+  \theta_y & = - \sum_{m,n=1, \, \text{odd}}^{+\infty} a_{mn} \left( \frac{m \pi}{L_x} \right) \cos \left( \frac{m \pi x}{L_x} \right) \sin \left(  \frac{m \pi x}{L_x} \right) \ .
+\end{aligned} \right.\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{eca19377d59f7ce253c2a60e7019881f75bfd651a91a26cabe48e5a3e8c43a7b}.png}
+
+\noindent\sphinxincludegraphics{{7d59aa5100aeef458664e0828f6404a7fd3fee8a8885a958dc8c85e6f1a2c081}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsection{Internal moment and force}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln:internal-moment-and-force}}
+\sphinxAtStartPar
+Internal moment tensor
+\begin{equation*}
+\begin{split}\mathbb{M} = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Internal transverse force vector
+\begin{equation*}
+\begin{split}\mathbf{F} =  - D \nabla \Delta w = D \hat{\mathbf{z}} \times \Delta \boldsymbol\theta \ .\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{7452d3234b69a071dfad042c2a67c02d50d85efa32dbc6e843e5d81dc1c7206d}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{7550249932e8834191261cda3ea9d58848d811bc18f915c9440377992ee24995}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsection{Laplacian and double Laplacian of the out\sphinxhyphen{}of\sphinxhyphen{}plane displacement \protect\(w(x,y)\protect\)}
+\label{\detokenize{ch/solids/plates-shells/kirchhoff-analytic-sln:laplacian-and-double-laplacian-of-the-out-of-plane-displacement-w-x-y}}
+\sphinxAtStartPar
+Here, the double Laplacian is the Fourier series approximation of the external distributed load.
+
+\sphinxAtStartPar
+…
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{f5023d7e04593f6fefe3330eff1b2a8930234bcf6a35a1d7d97a78300b3c0ce0}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Avg(del\PYGZus{}del\PYGZus{}w)  : 0.14434850109505598
+Uniform load, q0: 5000.0
+Stiffness, D    : 33230.769230769234
+Avg(del\PYGZus{}del\PYGZus{}w) * D:  4796.811728697246
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{6d184a98814e27fc8d0dd27e344ec97ba544d42f2727529508c1b3d81c9cb49b}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
 \sphinxstepscope
 
 

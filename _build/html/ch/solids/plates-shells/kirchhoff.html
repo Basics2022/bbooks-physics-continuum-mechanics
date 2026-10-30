@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="12. Modal methods for structural problems" href="../small-displacements-numerics.html" />
+    <link rel="next" title="11.3. Analytic solution of bending of a hinged Kirchhoff plate" href="kirchhoff-analytic-sln.html" />
     <link rel="prev" title="11.1. Timoshenko plate" href="timoshenko.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -218,6 +218,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../plates-shells.html">11. Plates, Membranes and Shells</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="timoshenko.html">11.1. Timoshenko plate</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">11.2. Kirchhoff plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kirchhoff-analytic-sln.html">11.3. Analytic solution of bending of a hinged Kirchhoff plate</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../small-displacements-numerics.html">12. Modal methods for structural problems</a></li>
@@ -565,7 +566,7 @@ Details of the simplified equations<div class="sd-summary-down docutils">
 <span class="eqno">(11.1)<a class="headerlink" href="#equation-eq-plates-kirchhoff-analytic-rectangular-load-fourier-coeff" title="Permalink to this equation">#</a></span>\[f_{n_x n_y} = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} f(x,y) \sin\left( \frac{n_x \pi x}{L_x} \right) \, \sin\left( \frac{n_y \pi y}{L_y} \right) \,dx \, dy \]</div>
 <p>Then the solution of the problem is obtained by coefficient matching as</p>
 <div class="math notranslate nohighlight">
-\[a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{1}{L_x}\right)^2 +  \left(\frac{1}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\]</div>
+\[a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{n_x}{L_x}\right)^2 +  \left(\frac{n_y}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .\]</div>
 <ul>
 <li><p>“Harmonic” load: let the load be <span class="math notranslate nohighlight">\(f(x,y) = f_{11} \sin\left( \tfrac{\pi x}{L_x} \right) \sin \left( \tfrac{\pi y}{L_y} \right)\)</span>, then the solution can be represented by one base function only, i.e. <span class="math notranslate nohighlight">\(\phi_{11}(x,y)\)</span>, while the coefficient of the linear expansion of any other base function is zero by coefficient matching. The coefficent <span class="math notranslate nohighlight">\(a_{11}\)</span> reads</p>
 <div class="math notranslate nohighlight">
@@ -751,7 +752,7 @@ $$\begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} M_{xx} & M_{yx} \\ M_{xy} 
   f_z
   &amp; = - \nabla \cdot \mathbf{F}_z = \\
   &amp; = - \nabla \cdot \left( D \, \begin{bmatrix} \cdot &amp; -1 \\ 1 &amp; \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \right) = \\
-  &amp; = - D \Delta^2 w \ .
+  &amp; =   D \Delta^2 w \ .
 \end{aligned}\end{split}\]</div>
 <!--
 ---
@@ -819,11 +820,11 @@ $$\left\{\begin{aligned}
       </div>
     </a>
     <a class="right-next"
-       href="../small-displacements-numerics.html"
+       href="kirchhoff-analytic-sln.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Modal methods for structural problems</p>
+        <p class="prev-next-title"><span class="section-number">11.3. </span>Analytic solution of bending of a hinged Kirchhoff plate</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

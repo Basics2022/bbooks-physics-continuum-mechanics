@@ -51,6 +51,7 @@ parts:
     sections:
     - file: ch/solids/plates-shells/timoshenko
     - file: ch/solids/plates-shells/kirchhoff
+    - file: ch/solids/plates-shells/kirchhoff-analytic-sln
   - file: ch/solids/small-displacements-numerics
   - file: ch/solids/structural-damping
 - caption: Fluid Mechanics
