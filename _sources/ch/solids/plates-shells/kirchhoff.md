@@ -128,7 +128,7 @@ $$f_{n_x n_y} = \frac{4}{L_x L_y} \int_{x=0}^{L_x} \int_{y=0}^{L_y} f(x,y) \sin\
 
 Then the solution of the problem is obtained by coefficient matching as
 
-$$a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{1}{L_x}\right)^2 +  \left(\frac{1}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .$$
+$$a_{n_x n_y} = \frac{1}{ \pi^4 D \left[ \left(\frac{n_x}{L_x}\right)^2 +  \left(\frac{n_y}{L_y}\right)^2 \right]^2} f_{n_x n_y} \ .$$
 
 * "Harmonic" load: let the load be $f(x,y) = f_{11} \sin\left( \tfrac{\pi x}{L_x} \right) \sin \left( \tfrac{\pi y}{L_y} \right)$, then the solution can be represented by one base function only, i.e. $\phi_{11}(x,y)$, while the coefficient of the linear expansion of any other base function is zero by coefficient matching. The coefficent $a_{11}$ reads
 
@@ -336,7 +336,7 @@ $$\begin{aligned}
   f_z
   & = - \nabla \cdot \mathbf{F}_z = \\
   & = - \nabla \cdot \left( D \, \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \Delta \boldsymbol{\theta} \right) = \\
-  & = - D \Delta^2 w \ .
+  & =   D \Delta^2 w \ .
 \end{aligned}$$
 
 
