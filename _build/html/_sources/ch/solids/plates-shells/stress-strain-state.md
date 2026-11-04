@@ -117,13 +117,12 @@ $$
 \begin{bmatrix} \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy} \end{bmatrix}
 = 
 \frac{1+\nu}{E}
-\begin{bmatrix} 1-\nu & -\nu & \cdot \\ -\nu & 1-\nu & \cdot \\ \cdot & \cdot & 1-2\nu  \end{bmatrix}
+\begin{bmatrix} 1-\nu & -\nu & \cdot \\ -\nu & 1-\nu & \cdot \\ \cdot & \cdot & 1 \end{bmatrix}
 \begin{bmatrix} \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy} \end{bmatrix}
 $$
 
 
 ```{dropdown} Details
-:open:
 
 $$
 \begin{bmatrix} 1-\nu & \nu & \cdot \\ \nu & 1-\nu & \cdot \\ \cdot & \cdot & 1-2\nu  \end{bmatrix}^{-1} =
