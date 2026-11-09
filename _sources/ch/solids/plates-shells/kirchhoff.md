@@ -38,9 +38,11 @@ $$\begin{aligned}
   & = f_z - \left( M_{xx/x} + M_{yx/y} \right)_{/y} + \left( M_{xy/x} + M_{yy/y} \right)_{/x} \ ,
 \end{aligned}$$
 
-Let the constitutive law be
+Using the constitutive law of elastic linear isotropic media with [planar stress state](solid-mechanics:small-displacements:plates-shells:stress-strain-state:planar-stress),
 
 $$\begin{bmatrix} \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy} \end{bmatrix} = d \begin{bmatrix} 1 & m  & 0 \\ m  & 1 & 0 \\ 0 & 0 & 1-m \end{bmatrix} \begin{bmatrix} \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy} \end{bmatrix} \ .$$
+
+with $d = \frac{E}{1 - \nu^2}$.
 
 $$\begin{aligned}
    \varepsilon_{xx} & = s_{Px/x} + z \theta_{y/x}                             && = \dots = - z w_{/xx}  \\
@@ -67,6 +69,12 @@ $$\begin{aligned}
   M_{yx}
   & = - \int_{h} z \sigma_{yy} = D \, ( w_{/yy} + m \, w_{/xx} )  \\
 \end{aligned}$$
+
+with the bending stiffness constant be
+
+$$D = \frac{E h^3}{12(1-\nu^2)} \ ,$$
+
+since $\int_{z=-h/2}^{h/2} z^2 dz = \frac{1}{3} z^3 \Big|_{z=-h/2}^{h/2} = \frac{h^3}{12}$.
 
 The equation becomes
 
