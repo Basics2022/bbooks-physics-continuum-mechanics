@@ -49,6 +49,9 @@ sphinx:
       launch_buttons:
         colab_url: "https://colab.research.google.com"    # colab
     html_favicon: favicon.svg
+    html_static_path: ["_static"]
+    html_js_files:
+      - giscus.js
   extra_extensions:
     - sphinx_proof
     - sphinx_exercise

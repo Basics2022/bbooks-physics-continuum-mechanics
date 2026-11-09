@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -56,6 +57,9 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/giscus.js"></script>
+    <script src="../../../_static/giscus.js"></script>
+    <script src="../../../_static/giscus.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -493,9 +497,10 @@ Details of the simplified equations<div class="sd-summary-down docutils">
   &amp; = f_z + F_{yz/y} + F_{xz/x} = \\
   &amp; = f_z - \left( M_{xx/x} + M_{yx/y} \right)_{/y} + \left( M_{xy/x} + M_{yy/y} \right)_{/x} \ ,
 \end{aligned}\end{split}\]</div>
-<p>Let the constitutive law be</p>
+<p>Using the constitutive law of elastic linear isotropic media with <a class="reference internal" href="stress-strain-state.html#solid-mechanics-small-displacements-plates-shells-stress-strain-state-planar-stress"><span class="std std-ref">planar stress state</span></a>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy} \end{bmatrix} = d \begin{bmatrix} 1 &amp; m  &amp; 0 \\ m  &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1-m \end{bmatrix} \begin{bmatrix} \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy} \end{bmatrix} \ .\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(d = \frac{E}{1 - \nu^2}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
    \varepsilon_{xx} &amp; = s_{Px/x} + z \theta_{y/x}                             &amp;&amp; = \dots = - z w_{/xx}  \\
@@ -522,6 +527,10 @@ Details of the simplified equations<div class="sd-summary-down docutils">
   M_{yx}
   &amp; = - \int_{h} z \sigma_{yy} = D \, ( w_{/yy} + m \, w_{/xx} )  \\
 \end{aligned}\end{split}\]</div>
+<p>with the bending stiffness constant be</p>
+<div class="math notranslate nohighlight">
+\[D = \frac{E h^3}{12(1-\nu^2)} \ ,\]</div>
+<p>since <span class="math notranslate nohighlight">\(\int_{z=-h/2}^{h/2} z^2 dz = \frac{1}{3} z^3 \Big|_{z=-h/2}^{h/2} = \frac{h^3}{12}\)</span>.</p>
 <p>The equation becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
